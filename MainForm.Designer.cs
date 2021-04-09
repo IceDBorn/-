@@ -34,7 +34,7 @@
             this.searchButton = new System.Windows.Forms.PictureBox();
             this.accountButton = new System.Windows.Forms.PictureBox();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
-            this.mainPage = new System.Windows.Forms.Panel();
+            this.mainPage = new System.Windows.Forms.UserControl();
             this.navBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.searchButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.accountButton)).BeginInit();
@@ -118,21 +118,14 @@
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.Panel mainPage;
+        private System.Windows.Forms.UserControl mainPage;
 
         private System.Windows.Forms.TextBox searchBar;
-
-        private System.Windows.Forms.TextBox textBox1;
 
         private System.Windows.Forms.PictureBox accountButton;
         private System.Windows.Forms.Panel navBar;
         private System.Windows.Forms.PictureBox searchButton;
         private System.Windows.Forms.PictureBox logoPictureBox;
-
-        private System.Windows.Forms.PictureBox logo;
-
-        private System.Windows.Forms.Panel panel1;
-
         #endregion
     }
 }
