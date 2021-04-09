@@ -30,7 +30,7 @@
         private void InitializeComponent()
         {
             this.navBar = new System.Windows.Forms.Panel();
-            this.searchBar = new System.Windows.Forms.TextBox();
+            this.searchBar = new filmhub.RoundedTextBox();
             this.searchButton = new System.Windows.Forms.PictureBox();
             this.accountButton = new System.Windows.Forms.PictureBox();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
@@ -56,28 +56,32 @@
             // searchBar
             // 
             this.searchBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.searchBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.searchBar.Location = new System.Drawing.Point(660, 33);
+            this.searchBar.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.searchBar.Location = new System.Drawing.Point(660, 30);
             this.searchBar.Name = "searchBar";
-            this.searchBar.Size = new System.Drawing.Size(450, 38);
+            this.searchBar.Size = new System.Drawing.Size(450, 43);
             this.searchBar.TabIndex = 3;
-            this.searchBar.Text = "Enter your search...";
+            this.searchBar.TabStop = false;
+            this.searchBar.Text = " Enter your search";
+            this.searchBar.Enter += new System.EventHandler(this.searchBar_Enter);
+            this.searchBar.Leave += new System.EventHandler(this.searchBar_Leave);
             // 
             // searchButton
             // 
+            this.searchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.searchButton.Image = global::filmhub.Properties.Resources.search_button;
-            this.searchButton.Location = new System.Drawing.Point(1130, 24);
+            this.searchButton.Location = new System.Drawing.Point(1130, 28);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(53, 53);
+            this.searchButton.Size = new System.Drawing.Size(43, 43);
             this.searchButton.TabIndex = 2;
             this.searchButton.TabStop = false;
             // 
             // accountButton
             // 
             this.accountButton.Image = global::filmhub.Properties.Resources.account_button;
-            this.accountButton.Location = new System.Drawing.Point(1199, 24);
+            this.accountButton.Location = new System.Drawing.Point(1199, 28);
             this.accountButton.Name = "accountButton";
-            this.accountButton.Size = new System.Drawing.Size(53, 53);
+            this.accountButton.Size = new System.Drawing.Size(43, 43);
             this.accountButton.TabIndex = 1;
             this.accountButton.TabStop = false;
             // 
@@ -105,6 +109,7 @@
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.mainPage);
             this.Controls.Add(this.navBar);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "MainForm";
@@ -118,9 +123,9 @@
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.UserControl mainPage;
+        private filmhub.RoundedTextBox searchBar;
 
-        private System.Windows.Forms.TextBox searchBar;
+        private System.Windows.Forms.UserControl mainPage;
 
         private System.Windows.Forms.PictureBox accountButton;
         private System.Windows.Forms.Panel navBar;

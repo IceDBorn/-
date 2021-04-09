@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace filmhub
 {
@@ -16,6 +17,7 @@ namespace filmhub
         {
             InitializeComponent();
             InitializeColors();
+            UserControlSelector();
         }
         
         #endregion
@@ -30,6 +32,28 @@ namespace filmhub
             mainPage.BackColor = _colors.BackgroundColor;
         }
 
+        private void UserControlSelector()
+        {
+            mainPage.Controls.Clear();
+            mainPage.Controls.Add(new WelcomeUserControl());
+        }
+
         #endregion
+
+        private void searchBar_Enter(object sender, EventArgs e)
+        {
+            if (searchBar.Text.Equals(@" Enter your search"))
+            {
+                searchBar.Text = "";
+            }
+        }
+
+        private void searchBar_Leave(object sender, EventArgs e)
+        {
+            if (searchBar.Text.Equals(""))
+            {
+                searchBar.Text = @" Enter your search";
+            }
+        }
     }
 }
