@@ -66,6 +66,12 @@
         <Compile Include="SignInUserControl.Designer.cs">
           <DependentUpon>SignInUserControl.cs</DependentUpon>
         </Compile>
+        <Compile Include="SignUpUserControl.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="SignUpUserControl.Designer.cs">
+          <DependentUpon>SignUpUserControl.cs</DependentUpon>
+        </Compile>
         <Compile Include="WelcomeUserControl.cs">
           <SubType>UserControl</SubType>
         </Compile>
@@ -86,6 +92,9 @@
         </Compile>
         <EmbeddedResource Include="SignInUserControl.resx">
           <DependentUpon>SignInUserControl.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="SignUpUserControl.resx">
+          <DependentUpon>SignUpUserControl.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="WelcomeUserControl.resx">
           <DependentUpon>WelcomeUserControl.cs</DependentUpon>
