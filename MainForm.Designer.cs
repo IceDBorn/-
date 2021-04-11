@@ -57,7 +57,7 @@
             // 
             this.searchBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.searchBar.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.searchBar.Location = new System.Drawing.Point(660, 30);
+            this.searchBar.Location = new System.Drawing.Point(660, 28);
             this.searchBar.Name = "searchBar";
             this.searchBar.Size = new System.Drawing.Size(450, 43);
             this.searchBar.TabIndex = 3;

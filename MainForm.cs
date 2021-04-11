@@ -28,14 +28,14 @@ namespace filmhub
         {
             navBar.BackColor = _colors.BackgroundColor;
             searchBar.BackColor = _colors.FieldColor;
-            searchBar.ForeColor = _colors.DarkTextColor;
+            searchBar.ForeColor = _colors.FieldDarkTextColor;
             mainPage.BackColor = _colors.BackgroundColor;
         }
 
         private void UserControlSelector()
         {
             mainPage.Controls.Clear();
-            mainPage.Controls.Add(new WelcomeUserControl());
+            mainPage.Controls.Add(new SignInUserControl());
         }
 
         #endregion

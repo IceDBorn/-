@@ -44,6 +44,7 @@ namespace filmhub
             this.joinButton.Name = "joinButton";
             this.joinButton.Size = new System.Drawing.Size(253, 56);
             this.joinButton.TabIndex = 2;
+            this.joinButton.TabStop = false;
             this.joinButton.Text = "Join for free";
             this.joinButton.UseVisualStyleBackColor = true;
             // 
@@ -56,6 +57,7 @@ namespace filmhub
             this.signInButton.Name = "signInButton";
             this.signInButton.Size = new System.Drawing.Size(130, 34);
             this.signInButton.TabIndex = 3;
+            this.signInButton.TabStop = false;
             this.signInButton.Text = "Sign In";
             this.signInButton.UseVisualStyleBackColor = true;
             // 

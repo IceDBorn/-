@@ -60,6 +60,12 @@
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="RoundedButton.cs" />
         <Compile Include="RoundedTextBox.cs" />
+        <Compile Include="SignInUserControl.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="SignInUserControl.Designer.cs">
+          <DependentUpon>SignInUserControl.cs</DependentUpon>
+        </Compile>
         <Compile Include="WelcomeUserControl.cs">
           <SubType>UserControl</SubType>
         </Compile>
@@ -78,6 +84,9 @@
             <AutoGen>True</AutoGen>
             <DependentUpon>Resources.resx</DependentUpon>
         </Compile>
+        <EmbeddedResource Include="SignInUserControl.resx">
+          <DependentUpon>SignInUserControl.cs</DependentUpon>
+        </EmbeddedResource>
         <EmbeddedResource Include="WelcomeUserControl.resx">
           <DependentUpon>WelcomeUserControl.cs</DependentUpon>
         </EmbeddedResource>
@@ -99,6 +108,7 @@
       <Content Include="Resources\account_button1.png" />
       <Content Include="Resources\background.jpg" />
       <Content Include="Resources\background.png" />
+      <Content Include="Resources\background_clear.png" />
       <Content Include="Resources\logo.png" />
       <Content Include="Resources\search_button.png" />
       <Content Include="Resources\search_button1.png" />
