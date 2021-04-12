@@ -56,6 +56,12 @@
         <Compile Include="FavoritesUserControl.Designer.cs">
           <DependentUpon>FavoritesUserControl.cs</DependentUpon>
         </Compile>
+        <Compile Include="HistoryUserControl.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="HistoryUserControl.Designer.cs">
+          <DependentUpon>HistoryUserControl.cs</DependentUpon>
+        </Compile>
         <Compile Include="MainForm.cs">
             <SubType>Form</SubType>
         </Compile>
@@ -98,6 +104,9 @@
         </Compile>
         <EmbeddedResource Include="FavoritesUserControl.resx">
           <DependentUpon>FavoritesUserControl.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="HistoryUserControl.resx">
+          <DependentUpon>HistoryUserControl.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="MainForm.resx">
           <DependentUpon>MainForm.cs</DependentUpon>
