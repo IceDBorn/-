@@ -62,11 +62,11 @@
         <Compile Include="MainPageUserControl.Designer.cs">
           <DependentUpon>MainPageUserControl.cs</DependentUpon>
         </Compile>
-        <Compile Include="OpenMovie.cs">
+        <Compile Include="OpenMovieUserControl.cs">
           <SubType>UserControl</SubType>
         </Compile>
-        <Compile Include="OpenMovie.Designer.cs">
-          <DependentUpon>OpenMovie.cs</DependentUpon>
+        <Compile Include="OpenMovieUserControl.Designer.cs">
+          <DependentUpon>OpenMovieUserControl.cs</DependentUpon>
         </Compile>
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,8 +96,8 @@
         <EmbeddedResource Include="MainPageUserControl.resx">
           <DependentUpon>MainPageUserControl.cs</DependentUpon>
         </EmbeddedResource>
-        <EmbeddedResource Include="OpenMovie.resx">
-          <DependentUpon>OpenMovie.cs</DependentUpon>
+        <EmbeddedResource Include="OpenMovieUserControl.resx">
+          <DependentUpon>OpenMovieUserControl.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="Properties\Resources.resx">
             <Generator>ResXFileCodeGenerator</Generator>
