@@ -3,23 +3,23 @@ using System.Windows.Forms;
 
 namespace filmhub
 {
-    public partial class MainPageUserControl : UserControl
+    public partial class OpenMovie : UserControl
     {
         #region Fields
 
         private readonly Colors _colors = new Colors();
 
         #endregion
-        public MainPageUserControl()
+        
+        public OpenMovie()
         {
             InitializeComponent();
             InitializeColors();
         }
-
+        
         private void InitializeColors()
         {
             BackColor = _colors.BackgroundColor;
-            menu.BackColor = _colors.BackgroundColor;
         }
     }
 }
