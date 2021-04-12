@@ -2,43 +2,43 @@
 using System.Windows.Forms;
 using filmhub.Models;
 using Npgsql;
+using NpgsqlTypes;
 
 namespace filmhub
 {
-    public class LoginController
+    public static class LoginController
     {
-        private void login(string email, string password)
+        public static void login(string email, string password)
         {
             var id = -1;
-            string name = null, surname = null, birthdate = null, picture = null, createdOn = null;
+            string name = null, surname = null, picture = null;
             bool admin = false, darkTheme = true;
+            var birthdate = NpgsqlDate.Infinity;
+            var createdOn = NpgsqlDateTime.Infinity;
             
             try {
                 var con = DatabaseController.getConnection();
+                con.Open();
 
-                const string validateUser = 
+                var validateUser = 
                     "SELECT id, name, surname, birthdate, admin, dark_theme, picture, created_on " +
                     "FROM account " +
-                    "WHERE email = @email AND password = @password" +
+                    "WHERE email = '" + email + "' AND password = '" + password + "' " +
                     "LIMIT 1";
                 
                 using var cmd = new NpgsqlCommand(validateUser, con);
-    
-                cmd.Parameters.AddWithValue("email", email);
-                cmd.Parameters.AddWithValue("password", password);
-                cmd.Prepare();
-                
+
                 using var rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
                     id = rdr.GetInt32(0);
                     name = rdr.GetString(1);
                     surname = rdr.GetString(2);
-                    birthdate = rdr.GetString(3);
+                    birthdate = rdr.GetDate(3);
                     admin = rdr.GetBoolean(4);
                     darkTheme = rdr.GetBoolean(5);
-                    picture = rdr.GetString(6);
-                    createdOn = rdr.GetString(7);
+                    // picture = rdr.GetString(6); TODO: Fix
+                    createdOn = rdr.GetTimeStamp(7);
                 }
             } catch (Exception e)
             {

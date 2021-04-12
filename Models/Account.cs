@@ -1,4 +1,6 @@
-﻿namespace filmhub.Models
+﻿using NpgsqlTypes;
+
+namespace filmhub.Models
 {
     public class Account
     {
@@ -6,15 +8,15 @@
         private string name;
         private string surnname;
         private string email;
-        private string birthdate;
+        private NpgsqlDate birthdate;
         private bool admin;
         private bool darkTheme;
         private string picture;
-        private string createdOn;
+        private NpgsqlDateTime createdOn;
         
         private static Account accountInstance = null;
 
-        public Account(int id, string name, string surnname, string email, string birthdate, bool admin, bool darkTheme, string picture, string createdOn)
+        public Account(int id, string name, string surnname, string email, NpgsqlDate birthdate, bool admin, bool darkTheme, string picture, NpgsqlDateTime createdOn)
         {
             this.id = id;
             this.name = name;
