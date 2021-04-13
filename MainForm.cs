@@ -44,7 +44,7 @@ namespace filmhub
         private void UserControlSelector()
         {
             mainPage.Controls.Clear();
-            mainPage.Controls.Add(new MainPageUserControl());
+            mainPage.Controls.Add(new SettingsUserControl());
         }
 
         #endregion

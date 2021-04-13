@@ -29,6 +29,11 @@ namespace filmhub
             newLabel.ForeColor = _colors.DarkTextColor;
         }
 
+        private void login()
+        {
+            LoginController.login(emailTextBox.Text, passwordTextBox.Text);
+        }
+
         private void signUpLabel_MouseHover(object sender, EventArgs e)
         {
             signUpLabel.ForeColor = _colors.AccentColor;
@@ -67,6 +72,11 @@ namespace filmhub
             if (!passwordTextBox.Text.Equals("")) return;
             passwordTextBox.Text = @" Password";
             passwordTextBox.UseSystemPasswordChar = false;
+        }
+
+        private void signInButton_Click(object sender, EventArgs e)
+        {
+            login();
         }
     }
 }
