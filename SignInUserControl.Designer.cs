@@ -88,6 +88,7 @@ namespace filmhub
             this.signInButton.TabStop = false;
             this.signInButton.Text = "Sign in";
             this.signInButton.UseVisualStyleBackColor = true;
+            this.signInButton.Click += new System.EventHandler(this.signInButton_Click);
             // 
             // passwordTextBox
             // 
