@@ -34,18 +34,18 @@
             this.searchButton = new System.Windows.Forms.PictureBox();
             this.accountButton = new System.Windows.Forms.PictureBox();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
-            this.dropDown = new System.Windows.Forms.PictureBox();
-            this.mainPage = new System.Windows.Forms.UserControl();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.faves = new System.Windows.Forms.Label();
-            this.watchlist = new System.Windows.Forms.Label();
-            this.history = new System.Windows.Forms.Label();
-            this.settings = new System.Windows.Forms.Label();
             this.logout = new System.Windows.Forms.Label();
+            this.watchlist = new System.Windows.Forms.Label();
+            this.settings = new System.Windows.Forms.Label();
+            this.history = new System.Windows.Forms.Label();
+            this.mainPage = new System.Windows.Forms.UserControl();
             this.navBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.searchButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.accountButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.logoPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.dropDown)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // navBar
@@ -102,16 +102,69 @@
             this.logoPictureBox.TabIndex = 0;
             this.logoPictureBox.TabStop = false;
             // 
-            // dropDown
+            // panel1
             // 
-            this.dropDown.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.dropDown.Location = new System.Drawing.Point(1130, 70);
-            this.dropDown.Name = "dropDown";
-            this.dropDown.Size = new System.Drawing.Size(112, 175);
-            this.dropDown.TabIndex = 4;
-            this.dropDown.TabStop = false;
-            this.dropDown.Visible = false;
-            this.dropDown.Click += new System.EventHandler(this.dropDown_Click);
+            this.panel1.Controls.Add(this.faves);
+            this.panel1.Controls.Add(this.logout);
+            this.panel1.Controls.Add(this.watchlist);
+            this.panel1.Controls.Add(this.settings);
+            this.panel1.Controls.Add(this.history);
+            this.panel1.Location = new System.Drawing.Point(1146, 100);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(118, 162);
+            this.panel1.TabIndex = 10;
+            this.panel1.Visible = false;
+            // 
+            // faves
+            // 
+            this.faves.BackColor = System.Drawing.Color.Transparent;
+            this.faves.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
+            this.faves.ForeColor = System.Drawing.Color.White;
+            this.faves.Location = new System.Drawing.Point(30, 0);
+            this.faves.Name = "faves";
+            this.faves.Size = new System.Drawing.Size(89, 31);
+            this.faves.TabIndex = 5;
+            this.faves.Text = "Favorites";
+            // 
+            // logout
+            // 
+            this.logout.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
+            this.logout.ForeColor = System.Drawing.Color.White;
+            this.logout.Location = new System.Drawing.Point(33, 120);
+            this.logout.Name = "logout";
+            this.logout.Size = new System.Drawing.Size(89, 32);
+            this.logout.TabIndex = 9;
+            this.logout.Text = "Log out";
+            // 
+            // watchlist
+            // 
+            this.watchlist.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
+            this.watchlist.ForeColor = System.Drawing.Color.White;
+            this.watchlist.Location = new System.Drawing.Point(33, 31);
+            this.watchlist.Name = "watchlist";
+            this.watchlist.Size = new System.Drawing.Size(86, 33);
+            this.watchlist.TabIndex = 6;
+            this.watchlist.Text = "Watchlist";
+            // 
+            // settings
+            // 
+            this.settings.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
+            this.settings.ForeColor = System.Drawing.Color.White;
+            this.settings.Location = new System.Drawing.Point(33, 92);
+            this.settings.Name = "settings";
+            this.settings.Size = new System.Drawing.Size(89, 28);
+            this.settings.TabIndex = 8;
+            this.settings.Text = "Settings";
+            // 
+            // history
+            // 
+            this.history.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
+            this.history.ForeColor = System.Drawing.Color.White;
+            this.history.Location = new System.Drawing.Point(33, 59);
+            this.history.Name = "history";
+            this.history.Size = new System.Drawing.Size(89, 33);
+            this.history.TabIndex = 7;
+            this.history.Text = "History";
             // 
             // mainPage
             // 
@@ -121,74 +174,12 @@
             this.mainPage.Size = new System.Drawing.Size(1264, 581);
             this.mainPage.TabIndex = 1;
             // 
-            // faves
-            // 
-            this.faves.BackColor = System.Drawing.Color.Transparent;
-            this.faves.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
-            this.faves.ForeColor = System.Drawing.Color.White;
-            this.faves.Location = new System.Drawing.Point(1143, 81);
-            this.faves.Name = "faves";
-            this.faves.Size = new System.Drawing.Size(89, 31);
-            this.faves.TabIndex = 5;
-            this.faves.Text = "Favorites";
-            this.faves.Visible = false;
-            this.faves.Click += new System.EventHandler(this.faves_Click);
-            // 
-            // watchlist
-            // 
-            this.watchlist.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
-            this.watchlist.ForeColor = System.Drawing.Color.White;
-            this.watchlist.Location = new System.Drawing.Point(1143, 112);
-            this.watchlist.Name = "watchlist";
-            this.watchlist.Size = new System.Drawing.Size(89, 33);
-            this.watchlist.TabIndex = 6;
-            this.watchlist.Text = "Watchlist";
-            this.watchlist.Visible = false;
-            // 
-            // history
-            // 
-            this.history.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
-            this.history.ForeColor = System.Drawing.Color.White;
-            this.history.Location = new System.Drawing.Point(1143, 145);
-            this.history.Name = "history";
-            this.history.Size = new System.Drawing.Size(89, 33);
-            this.history.TabIndex = 7;
-            this.history.Text = "History";
-            this.history.Visible = false;
-            // 
-            // settings
-            // 
-            this.settings.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
-            this.settings.ForeColor = System.Drawing.Color.White;
-            this.settings.Location = new System.Drawing.Point(1143, 178);
-            this.settings.Name = "settings";
-            this.settings.Size = new System.Drawing.Size(89, 28);
-            this.settings.TabIndex = 8;
-            this.settings.Text = "Settings";
-            this.settings.Visible = false;
-            // 
-            // logout
-            // 
-            this.logout.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
-            this.logout.ForeColor = System.Drawing.Color.White;
-            this.logout.Location = new System.Drawing.Point(1143, 206);
-            this.logout.Name = "logout";
-            this.logout.Size = new System.Drawing.Size(89, 32);
-            this.logout.TabIndex = 9;
-            this.logout.Text = "Log out";
-            this.logout.Visible = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.logout);
-            this.Controls.Add(this.settings);
-            this.Controls.Add(this.history);
-            this.Controls.Add(this.watchlist);
-            this.Controls.Add(this.faves);
-            this.Controls.Add(this.dropDown);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.mainPage);
             this.Controls.Add(this.navBar);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
@@ -202,9 +193,11 @@
             ((System.ComponentModel.ISupportInitialize) (this.searchButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.accountButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.logoPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.dropDown)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Panel panel1;
 
         private System.Windows.Forms.Label watchlist;
         private System.Windows.Forms.Label history;
@@ -212,8 +205,6 @@
         private System.Windows.Forms.Label logout;
 
         private System.Windows.Forms.Label faves;
-
-        private System.Windows.Forms.PictureBox dropDown;
 
         private filmhub.RoundedTextBox searchBar;
 
