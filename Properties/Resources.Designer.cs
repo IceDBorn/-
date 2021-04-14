@@ -113,6 +113,56 @@ namespace filmhub.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap outline_favorite_border_white_24dp {
+            get {
+                object obj = ResourceManager.GetObject("outline_favorite_border_white_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap outline_favorite_border_white_24dp1 {
+            get {
+                object obj = ResourceManager.GetObject("outline_favorite_border_white_24dp1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap outline_favorite_border_white_24dp2 {
+            get {
+                object obj = ResourceManager.GetObject("outline_favorite_border_white_24dp2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap outline_star_outline_white_24dp {
+            get {
+                object obj = ResourceManager.GetObject("outline_star_outline_white_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap outline_star_outline_white_24dp1 {
+            get {
+                object obj = ResourceManager.GetObject("outline_star_outline_white_24dp1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap search_button {
             get {
                 object obj = ResourceManager.GetObject("search_button", resourceCulture);

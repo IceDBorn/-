@@ -97,6 +97,18 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Colors.cs" />
+        <Compile Include="FavoritesUserControl.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="FavoritesUserControl.Designer.cs">
+          <DependentUpon>FavoritesUserControl.cs</DependentUpon>
+        </Compile>
+        <Compile Include="HistoryUserControl.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="HistoryUserControl.Designer.cs">
+          <DependentUpon>HistoryUserControl.cs</DependentUpon>
+        </Compile>
         <Compile Include="Controllers\DatabaseController.cs" />
         <Compile Include="Controllers\LoginController.cs" />
         <Compile Include="MainForm.cs">
@@ -110,6 +122,12 @@
         </Compile>
         <Compile Include="MainPageUserControl.Designer.cs">
           <DependentUpon>MainPageUserControl.cs</DependentUpon>
+        </Compile>
+        <Compile Include="OpenMovieUserControl.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="OpenMovieUserControl.Designer.cs">
+          <DependentUpon>OpenMovieUserControl.cs</DependentUpon>
         </Compile>
         <Compile Include="Models\Account.cs" />
         <Compile Include="Program.cs" />
@@ -134,17 +152,32 @@
         <Compile Include="SignUpUserControl.Designer.cs">
           <DependentUpon>SignUpUserControl.cs</DependentUpon>
         </Compile>
+        <Compile Include="WatchlistUserControl.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="WatchlistUserControl.Designer.cs">
+          <DependentUpon>WatchlistUserControl.cs</DependentUpon>
+        </Compile>
         <Compile Include="WelcomeUserControl.cs">
           <SubType>UserControl</SubType>
         </Compile>
         <Compile Include="WelcomeUserControl.Designer.cs">
           <DependentUpon>WelcomeUserControl.cs</DependentUpon>
         </Compile>
+        <EmbeddedResource Include="FavoritesUserControl.resx">
+          <DependentUpon>FavoritesUserControl.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="HistoryUserControl.resx">
+          <DependentUpon>HistoryUserControl.cs</DependentUpon>
+        </EmbeddedResource>
         <EmbeddedResource Include="MainForm.resx">
           <DependentUpon>MainForm.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="MainPageUserControl.resx">
           <DependentUpon>MainPageUserControl.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="OpenMovieUserControl.resx">
+          <DependentUpon>OpenMovieUserControl.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="Properties\Resources.resx">
             <Generator>ResXFileCodeGenerator</Generator>
@@ -163,6 +196,9 @@
         </EmbeddedResource>
         <EmbeddedResource Include="SignUpUserControl.resx">
           <DependentUpon>SignUpUserControl.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="WatchlistUserControl.resx">
+          <DependentUpon>WatchlistUserControl.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="WelcomeUserControl.resx">
           <DependentUpon>WelcomeUserControl.cs</DependentUpon>
@@ -189,6 +225,11 @@
       <Content Include="Resources\background_clear.png" />
       <Content Include="Resources\logo.png" />
       <Content Include="Resources\menu.png" />
+      <Content Include="Resources\outline_favorite_border_white_24dp.png" />
+      <Content Include="Resources\outline_favorite_border_white_24dp1.png" />
+      <Content Include="Resources\outline_favorite_border_white_24dp2.png" />
+      <Content Include="Resources\outline_star_outline_white_24dp.png" />
+      <Content Include="Resources\outline_star_outline_white_24dp1.png" />
       <Content Include="Resources\search_button.png" />
       <Content Include="Resources\search_button1.png" />
     </ItemGroup>

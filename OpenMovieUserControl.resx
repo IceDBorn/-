@@ -117,38 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="search_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\search_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="account_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\account_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="background_clear" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\background_clear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="outline_favorite_border_white_24dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\outline_favorite_border_white_24dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="outline_favorite_border_white_24dp1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\outline_favorite_border_white_24dp1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="outline_favorite_border_white_24dp2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\outline_favorite_border_white_24dp2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="outline_star_outline_white_24dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\outline_star_outline_white_24dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="outline_star_outline_white_24dp1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\outline_star_outline_white_24dp1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="descriptionText.Text" xml:space="preserve">
+    <value>Up is a 2009 American computer-animated comedy-drama adventure film produced by 
+Pixar Animation Studios and released by Walt Disney Pictures. The film centers on an elderly 
+widower named Carl Fredricksen (Ed Asner) and an earnest boy named Russell (Jordan Nagai)
+by tying thousands of balloons to his house, Carl sets out to fulfill his dream to see the wilds of South 
+America and complete a promise made to his late wife, Ellie.The film was directed by Pete Docter 
+and co-directed by Bob Peterson, who also wrote the film's screenplay with Docter, as well as the story with Tom McCarthy. 
+</value>
   </data>
 </root>
