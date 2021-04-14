@@ -46,20 +46,9 @@ namespace filmhub
             this.menu = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.categoryTitle = new System.Windows.Forms.Label();
-            this.thriller = new System.Windows.Forms.Label();
-            this.comedy = new System.Windows.Forms.Label();
-            this.romance = new System.Windows.Forms.Label();
-            this.crime = new System.Windows.Forms.Label();
-            this.action = new System.Windows.Forms.Label();
-            this.documentary = new System.Windows.Forms.Label();
-            this.horror = new System.Windows.Forms.Label();
-            this.fantasy = new System.Windows.Forms.Label();
-            this.drama = new System.Windows.Forms.Label();
-            this.mystery = new System.Windows.Forms.Label();
-            this.western = new System.Windows.Forms.Label();
-            this.scifi = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.categoriesTitle = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox4)).BeginInit();
@@ -190,7 +179,7 @@ namespace filmhub
             // 
             this.menu.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.menu.Image = global::filmhub.Properties.Resources.menu;
-            this.menu.Location = new System.Drawing.Point(16, 21);
+            this.menu.Location = new System.Drawing.Point(3, 21);
             this.menu.Name = "menu";
             this.menu.Size = new System.Drawing.Size(46, 46);
             this.menu.TabIndex = 14;
@@ -215,154 +204,44 @@ namespace filmhub
             this.pictureBox9.TabIndex = 10;
             this.pictureBox9.TabStop = false;
             // 
-            // categoryTitle
+            // listBox1
             // 
-            this.categoryTitle.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
-            this.categoryTitle.Location = new System.Drawing.Point(3, 3);
-            this.categoryTitle.Name = "categoryTitle";
-            this.categoryTitle.Size = new System.Drawing.Size(188, 42);
-            this.categoryTitle.TabIndex = 16;
-            this.categoryTitle.Text = "Categories";
-            // 
-            // thriller
-            // 
-            this.thriller.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
-            this.thriller.ForeColor = System.Drawing.Color.White;
-            this.thriller.Location = new System.Drawing.Point(28, 45);
-            this.thriller.Name = "thriller";
-            this.thriller.Size = new System.Drawing.Size(106, 38);
-            this.thriller.TabIndex = 17;
-            this.thriller.Text = "Thriller";
-            // 
-            // comedy
-            // 
-            this.comedy.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
-            this.comedy.ForeColor = System.Drawing.Color.White;
-            this.comedy.Location = new System.Drawing.Point(28, 83);
-            this.comedy.Name = "comedy";
-            this.comedy.Size = new System.Drawing.Size(142, 38);
-            this.comedy.TabIndex = 18;
-            this.comedy.Text = "Comedy\r\n";
-            // 
-            // romance
-            // 
-            this.romance.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
-            this.romance.ForeColor = System.Drawing.Color.White;
-            this.romance.Location = new System.Drawing.Point(28, 121);
-            this.romance.Name = "romance";
-            this.romance.Size = new System.Drawing.Size(161, 38);
-            this.romance.TabIndex = 19;
-            this.romance.Text = "Romance\r\n\r\n";
-            // 
-            // crime
-            // 
-            this.crime.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
-            this.crime.ForeColor = System.Drawing.Color.White;
-            this.crime.Location = new System.Drawing.Point(28, 159);
-            this.crime.Name = "crime";
-            this.crime.Size = new System.Drawing.Size(106, 38);
-            this.crime.TabIndex = 20;
-            this.crime.Text = "Crime";
-            // 
-            // action
-            // 
-            this.action.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
-            this.action.ForeColor = System.Drawing.Color.White;
-            this.action.Location = new System.Drawing.Point(28, 197);
-            this.action.Name = "action";
-            this.action.Size = new System.Drawing.Size(106, 38);
-            this.action.TabIndex = 21;
-            this.action.Text = "Action";
-            // 
-            // documentary
-            // 
-            this.documentary.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
-            this.documentary.ForeColor = System.Drawing.Color.White;
-            this.documentary.Location = new System.Drawing.Point(28, 235);
-            this.documentary.Name = "documentary";
-            this.documentary.Size = new System.Drawing.Size(161, 38);
-            this.documentary.TabIndex = 22;
-            this.documentary.Text = "Documentary\r\n";
-            // 
-            // horror
-            // 
-            this.horror.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
-            this.horror.ForeColor = System.Drawing.Color.White;
-            this.horror.Location = new System.Drawing.Point(28, 273);
-            this.horror.Name = "horror";
-            this.horror.Size = new System.Drawing.Size(106, 38);
-            this.horror.TabIndex = 23;
-            this.horror.Text = "Horror\r\n";
-            // 
-            // fantasy
-            // 
-            this.fantasy.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
-            this.fantasy.ForeColor = System.Drawing.Color.White;
-            this.fantasy.Location = new System.Drawing.Point(28, 307);
-            this.fantasy.Name = "fantasy";
-            this.fantasy.Size = new System.Drawing.Size(106, 38);
-            this.fantasy.TabIndex = 24;
-            this.fantasy.Text = "Fantasy";
-            // 
-            // drama
-            // 
-            this.drama.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
-            this.drama.ForeColor = System.Drawing.Color.White;
-            this.drama.Location = new System.Drawing.Point(28, 345);
-            this.drama.Name = "drama";
-            this.drama.Size = new System.Drawing.Size(106, 38);
-            this.drama.TabIndex = 25;
-            this.drama.Text = "Drama\r\n";
-            // 
-            // mystery
-            // 
-            this.mystery.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
-            this.mystery.ForeColor = System.Drawing.Color.White;
-            this.mystery.Location = new System.Drawing.Point(28, 383);
-            this.mystery.Name = "mystery";
-            this.mystery.Size = new System.Drawing.Size(128, 38);
-            this.mystery.TabIndex = 26;
-            this.mystery.Text = "Mystery\r\n";
-            // 
-            // western
-            // 
-            this.western.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
-            this.western.ForeColor = System.Drawing.Color.White;
-            this.western.Location = new System.Drawing.Point(28, 421);
-            this.western.Name = "western";
-            this.western.Size = new System.Drawing.Size(128, 38);
-            this.western.TabIndex = 27;
-            this.western.Text = "Western";
-            // 
-            // scifi
-            // 
-            this.scifi.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
-            this.scifi.ForeColor = System.Drawing.Color.White;
-            this.scifi.Location = new System.Drawing.Point(28, 459);
-            this.scifi.Name = "scifi";
-            this.scifi.Size = new System.Drawing.Size(128, 38);
-            this.scifi.TabIndex = 28;
-            this.scifi.Text = "Sci-Fi";
+            this.listBox1.AllowDrop = true;
+            this.listBox1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBox1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
+            this.listBox1.ForeColor = System.Drawing.Color.White;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 37;
+            this.listBox1.Items.AddRange(new object[] {"  Action ", "  Comedy", "  Crime", "  Documentary", "  Drama", "  Fantasy", "  Horror", "  Mystery", "  Romance", "  Sci-Fi", "  Thriller", "  Western"});
+            this.listBox1.Location = new System.Drawing.Point(26, 58);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(195, 444);
+            this.listBox1.TabIndex = 20;
+            this.listBox1.TabStop = false;
+            this.listBox1.UseTabStops = false;
+            this.listBox1.Click += new System.EventHandler(this.listBox1_Click);
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.categoryTitle);
-            this.panel2.Controls.Add(this.scifi);
-            this.panel2.Controls.Add(this.thriller);
-            this.panel2.Controls.Add(this.western);
-            this.panel2.Controls.Add(this.comedy);
-            this.panel2.Controls.Add(this.mystery);
-            this.panel2.Controls.Add(this.romance);
-            this.panel2.Controls.Add(this.drama);
-            this.panel2.Controls.Add(this.crime);
-            this.panel2.Controls.Add(this.fantasy);
-            this.panel2.Controls.Add(this.action);
-            this.panel2.Controls.Add(this.horror);
-            this.panel2.Controls.Add(this.documentary);
+            this.panel2.Controls.Add(this.categoriesTitle);
+            this.panel2.Controls.Add(this.listBox1);
             this.panel2.Location = new System.Drawing.Point(3, 21);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(259, 560);
-            this.panel2.TabIndex = 29;
+            this.panel2.Size = new System.Drawing.Size(228, 557);
+            this.panel2.TabIndex = 21;
+            this.panel2.Visible = false;
+            // 
+            // categoriesTitle
+            // 
+            this.categoriesTitle.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
+            this.categoriesTitle.ForeColor = System.Drawing.Color.White;
+            this.categoriesTitle.Location = new System.Drawing.Point(3, 0);
+            this.categoriesTitle.Name = "categoriesTitle";
+            this.categoriesTitle.Size = new System.Drawing.Size(201, 46);
+            this.categoriesTitle.TabIndex = 0;
+            this.categoriesTitle.Text = "Categories";
             // 
             // MainPageUserControl
             // 
@@ -370,13 +249,14 @@ namespace filmhub
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.menu);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox12);
             this.Controls.Add(this.pictureBox11);
             this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.pictureBox8);
-            this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.comingSoon);
             this.Controls.Add(this.pictureBox5);
@@ -384,7 +264,6 @@ namespace filmhub
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.featuredToday);
-            this.Controls.Add(this.pictureBox1);
             this.Name = "MainPageUserControl";
             this.Size = new System.Drawing.Size(1264, 581);
             this.Load += new System.EventHandler(this.MainPageUserControl_Click);
@@ -406,25 +285,13 @@ namespace filmhub
             this.ResumeLayout(false);
         }
 
+        private System.Windows.Forms.Label categoriesTitle;
+
         private System.Windows.Forms.Panel panel2;
 
-        private System.Windows.Forms.Label scifi;
+        private System.Windows.Forms.ListBox listBox1;
 
-        private System.Windows.Forms.Label mystery;
-        private System.Windows.Forms.Label western;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label comedy;
-        private System.Windows.Forms.Label romance;
-        private System.Windows.Forms.Label crime;
-        private System.Windows.Forms.Label action;
-        private System.Windows.Forms.Label documentary;
-        private System.Windows.Forms.Label horror;
-        private System.Windows.Forms.Label fantasy;
-        private System.Windows.Forms.Label drama;
-
-        private System.Windows.Forms.Label thriller;
-
-        private System.Windows.Forms.Label categoryTitle;
 
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox9;

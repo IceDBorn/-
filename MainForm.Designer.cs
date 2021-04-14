@@ -94,7 +94,7 @@
             this.accountButton.Click += new System.EventHandler(this.accountButton_Click);
             // 
             // logoPictureBox
-            // 
+            // hhhh
             this.logoPictureBox.Image = global::filmhub.Properties.Resources.logo;
             this.logoPictureBox.Location = new System.Drawing.Point(12, 12);
             this.logoPictureBox.Name = "logoPictureBox";
