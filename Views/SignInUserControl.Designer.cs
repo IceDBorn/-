@@ -1,8 +1,8 @@
 using System.ComponentModel;
 
-namespace filmhub
+namespace filmhub.Views
 {
-    partial class SignUpUserControl
+    partial class SignInUserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -32,14 +32,11 @@ namespace filmhub
         private void InitializeComponent()
         {
             this.menuPanel = new System.Windows.Forms.Panel();
-            this.privacyLabel = new System.Windows.Forms.Label();
-            this.andLabel = new System.Windows.Forms.Label();
-            this.confirmPasswordTextBox = new filmhub.RoundedTextBox();
-            this.termsLabel = new System.Windows.Forms.Label();
-            this.byClickingLabel = new System.Windows.Forms.Label();
-            this.signInButton = new filmhub.RoundedButton();
-            this.passwordTextBox = new filmhub.RoundedTextBox();
-            this.emailTextBox = new filmhub.RoundedTextBox();
+            this.signUpLabel = new System.Windows.Forms.Label();
+            this.newLabel = new System.Windows.Forms.Label();
+            this.signInButton = new RoundedButton();
+            this.passwordTextBox = new RoundedTextBox();
+            this.emailTextBox = new RoundedTextBox();
             this.signInLabel = new System.Windows.Forms.Label();
             this.menuPanel.SuspendLayout();
             this.SuspendLayout();
@@ -47,11 +44,8 @@ namespace filmhub
             // menuPanel
             // 
             this.menuPanel.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.menuPanel.Controls.Add(this.privacyLabel);
-            this.menuPanel.Controls.Add(this.andLabel);
-            this.menuPanel.Controls.Add(this.confirmPasswordTextBox);
-            this.menuPanel.Controls.Add(this.termsLabel);
-            this.menuPanel.Controls.Add(this.byClickingLabel);
+            this.menuPanel.Controls.Add(this.signUpLabel);
+            this.menuPanel.Controls.Add(this.newLabel);
             this.menuPanel.Controls.Add(this.signInButton);
             this.menuPanel.Controls.Add(this.passwordTextBox);
             this.menuPanel.Controls.Add(this.emailTextBox);
@@ -61,73 +55,40 @@ namespace filmhub
             this.menuPanel.Size = new System.Drawing.Size(532, 522);
             this.menuPanel.TabIndex = 0;
             // 
-            // privacyLabel
+            // signUpLabel
             // 
-            this.privacyLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.privacyLabel.ForeColor = System.Drawing.Color.White;
-            this.privacyLabel.Location = new System.Drawing.Point(345, 475);
-            this.privacyLabel.Name = "privacyLabel";
-            this.privacyLabel.Size = new System.Drawing.Size(143, 33);
-            this.privacyLabel.TabIndex = 9;
-            this.privacyLabel.Text = "Privacy Policy";
-            this.privacyLabel.MouseLeave += new System.EventHandler(this.privacyLabel_MouseLeave);
-            this.privacyLabel.MouseHover += new System.EventHandler(this.privacyLabel_MouseHover);
+            this.signUpLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.signUpLabel.ForeColor = System.Drawing.Color.White;
+            this.signUpLabel.Location = new System.Drawing.Point(273, 430);
+            this.signUpLabel.Name = "signUpLabel";
+            this.signUpLabel.Size = new System.Drawing.Size(130, 33);
+            this.signUpLabel.TabIndex = 6;
+            this.signUpLabel.Text = "Sign up now";
+            this.signUpLabel.MouseLeave += new System.EventHandler(this.signUpLabel_MouseLeave);
+            this.signUpLabel.MouseHover += new System.EventHandler(this.signUpLabel_MouseHover);
             // 
-            // andLabel
+            // newLabel
             // 
-            this.andLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.andLabel.Location = new System.Drawing.Point(305, 475);
-            this.andLabel.Name = "andLabel";
-            this.andLabel.Size = new System.Drawing.Size(47, 32);
-            this.andLabel.TabIndex = 8;
-            this.andLabel.Text = "and";
-            // 
-            // confirmPasswordTextBox
-            // 
-            this.confirmPasswordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.confirmPasswordTextBox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.confirmPasswordTextBox.Location = new System.Drawing.Point(55, 291);
-            this.confirmPasswordTextBox.Name = "confirmPasswordTextBox";
-            this.confirmPasswordTextBox.Size = new System.Drawing.Size(413, 43);
-            this.confirmPasswordTextBox.TabIndex = 7;
-            this.confirmPasswordTextBox.TabStop = false;
-            this.confirmPasswordTextBox.Text = " Confirm password";
-            this.confirmPasswordTextBox.Enter += new System.EventHandler(this.confirmPasswordTextBox_Enter);
-            this.confirmPasswordTextBox.Leave += new System.EventHandler(this.confirmPasswordTextBox_Leave);
-            // 
-            // termsLabel
-            // 
-            this.termsLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.termsLabel.ForeColor = System.Drawing.Color.White;
-            this.termsLabel.Location = new System.Drawing.Point(92, 475);
-            this.termsLabel.Name = "termsLabel";
-            this.termsLabel.Size = new System.Drawing.Size(217, 33);
-            this.termsLabel.TabIndex = 6;
-            this.termsLabel.Text = "Terms and Conditions";
-            this.termsLabel.MouseLeave += new System.EventHandler(this.TermsLabel_MouseLeave);
-            this.termsLabel.MouseHover += new System.EventHandler(this.signUpLabel_MouseHover);
-            // 
-            // byClickingLabel
-            // 
-            this.byClickingLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.byClickingLabel.Location = new System.Drawing.Point(55, 447);
-            this.byClickingLabel.Name = "byClickingLabel";
-            this.byClickingLabel.Size = new System.Drawing.Size(429, 60);
-            this.byClickingLabel.TabIndex = 5;
-            this.byClickingLabel.Text = "By clicking the Sign up button you agree to\r\nour\r\n";
+            this.newLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.newLabel.Location = new System.Drawing.Point(114, 430);
+            this.newLabel.Name = "newLabel";
+            this.newLabel.Size = new System.Drawing.Size(172, 33);
+            this.newLabel.TabIndex = 5;
+            this.newLabel.Text = "New to FilmHub?";
             // 
             // signInButton
             // 
             this.signInButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.signInButton.Font = new System.Drawing.Font("Segoe UI", 23F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.signInButton.ForeColor = System.Drawing.Color.White;
-            this.signInButton.Location = new System.Drawing.Point(55, 376);
+            this.signInButton.Location = new System.Drawing.Point(55, 305);
             this.signInButton.Name = "signInButton";
             this.signInButton.Size = new System.Drawing.Size(413, 56);
             this.signInButton.TabIndex = 3;
             this.signInButton.TabStop = false;
-            this.signInButton.Text = "Sign up";
+            this.signInButton.Text = "Sign in";
             this.signInButton.UseVisualStyleBackColor = true;
+            this.signInButton.Click += new System.EventHandler(this.signInButton_Click);
             // 
             // passwordTextBox
             // 
@@ -161,11 +122,11 @@ namespace filmhub
             this.signInLabel.ForeColor = System.Drawing.Color.White;
             this.signInLabel.Location = new System.Drawing.Point(43, 38);
             this.signInLabel.Name = "signInLabel";
-            this.signInLabel.Size = new System.Drawing.Size(170, 58);
+            this.signInLabel.Size = new System.Drawing.Size(155, 58);
             this.signInLabel.TabIndex = 0;
-            this.signInLabel.Text = "Sign Up";
+            this.signInLabel.Text = "Sign In";
             // 
-            // SignUpUserControl
+            // SignInUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -173,28 +134,22 @@ namespace filmhub
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.menuPanel);
             this.DoubleBuffered = true;
-            this.Name = "SignUpUserControl";
+            this.Name = "SignInUserControl";
             this.Size = new System.Drawing.Size(1264, 581);
             this.menuPanel.ResumeLayout(false);
             this.menuPanel.PerformLayout();
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.Label privacyLabel;
+        private RoundedTextBox passwordTextBox;
 
-        private System.Windows.Forms.Label andLabel;
+        private System.Windows.Forms.Label signUpLabel;
 
-        private filmhub.RoundedTextBox confirmPasswordTextBox;
-
-        private filmhub.RoundedTextBox passwordTextBox;
-
-        private System.Windows.Forms.Label termsLabel;
-
-        private System.Windows.Forms.Label byClickingLabel;
+        private System.Windows.Forms.Label newLabel;
         
-        private filmhub.RoundedButton signInButton;
+        private RoundedButton signInButton;
 
-        private filmhub.RoundedTextBox emailTextBox;
+        private RoundedTextBox emailTextBox;
 
         private System.Windows.Forms.Label signInLabel;
         

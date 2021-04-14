@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace filmhub
+namespace filmhub.Views
 {
     partial class SettingsUserControl
     {
@@ -33,15 +33,15 @@ namespace filmhub
         {
             this.settingsLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.uploadButton = new filmhub.RoundedButton();
+            this.uploadButton = new RoundedButton();
             this.nameLabel = new System.Windows.Forms.Label();
             this.emailLabel = new System.Windows.Forms.Label();
             this.changeLabel = new System.Windows.Forms.Label();
             this.confirmLabel = new System.Windows.Forms.Label();
-            this.saveButton = new filmhub.RoundedButton();
-            this.resetButton = new filmhub.RoundedButton();
-            this.changeTextBox = new filmhub.RoundedTextBox();
-            this.confirmTextBox = new filmhub.RoundedTextBox();
+            this.saveButton = new RoundedButton();
+            this.resetButton = new RoundedButton();
+            this.changeTextBox = new RoundedTextBox();
+            this.confirmTextBox = new RoundedTextBox();
             this.nameValueLabel = new System.Windows.Forms.Label();
             this.emailValueLabel = new System.Windows.Forms.Label();
             this.photoBrowser = new System.Windows.Forms.OpenFileDialog();
@@ -215,17 +215,17 @@ namespace filmhub
 
         private System.Windows.Forms.OpenFileDialog photoBrowser;
 
-        private filmhub.RoundedTextBox changeTextBox;
+        private RoundedTextBox changeTextBox;
 
-        private filmhub.RoundedTextBox confirmTextBox;
+        private RoundedTextBox confirmTextBox;
 
         private System.Windows.Forms.Label nameValueLabel;
         
         private System.Windows.Forms.Label emailValueLabel;
         
-        private filmhub.RoundedButton saveButton;
+        private RoundedButton saveButton;
         
-        private filmhub.RoundedButton resetButton;
+        private RoundedButton resetButton;
 
         private System.Windows.Forms.Label confirmLabel;
 
@@ -235,7 +235,7 @@ namespace filmhub
         
         private System.Windows.Forms.Label emailLabel;
 
-        private filmhub.RoundedButton uploadButton;
+        private RoundedButton uploadButton;
 
         private System.Windows.Forms.PictureBox pictureBox1;
 

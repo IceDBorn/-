@@ -1,15 +1,9 @@
 ﻿using System.Windows.Forms;
 
-namespace filmhub
+namespace filmhub.Views
 {
     public partial class FavoritesUserControl : UserControl
     {
-        
-        #region Fields
-
-        private readonly Colors _colors = new Colors();
-
-        #endregion
         
         public FavoritesUserControl()
         {
@@ -19,7 +13,7 @@ namespace filmhub
         
         private void InitializeColors()
         {
-            BackColor = _colors.BackgroundColor;
+            BackColor = Program.Colors.BackgroundColor;
         }
     }
 }

@@ -1,15 +1,9 @@
 ﻿using System.Windows.Forms;
 
-namespace filmhub
+namespace filmhub.Views
 {
     public partial class OpenMovie : UserControl
     {
-        #region Fields
-
-        private readonly Colors _colors = new Colors();
-
-        #endregion
-        
         public OpenMovie()
         {
             InitializeComponent();
@@ -18,7 +12,7 @@ namespace filmhub
         
         private void InitializeColors()
         {
-            BackColor = _colors.BackgroundColor;
+            BackColor = Program.Colors.BackgroundColor;
         }
     }
 }

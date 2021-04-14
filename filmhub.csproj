@@ -96,89 +96,74 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Colors.cs" />
-        <Compile Include="FavoritesUserControl.cs">
-          <SubType>UserControl</SubType>
-        </Compile>
-        <Compile Include="FavoritesUserControl.Designer.cs">
-          <DependentUpon>FavoritesUserControl.cs</DependentUpon>
-        </Compile>
-        <Compile Include="HistoryUserControl.cs">
-          <SubType>UserControl</SubType>
-        </Compile>
-        <Compile Include="HistoryUserControl.Designer.cs">
-          <DependentUpon>HistoryUserControl.cs</DependentUpon>
-        </Compile>
         <Compile Include="Controllers\DatabaseController.cs" />
         <Compile Include="Controllers\LoginController.cs" />
-        <Compile Include="MainForm.cs">
-            <SubType>Form</SubType>
-        </Compile>
-        <Compile Include="MainForm.Designer.cs">
-            <DependentUpon>MainForm.cs</DependentUpon>
-        </Compile>
-        <Compile Include="MainPageUserControl.cs">
-          <SubType>UserControl</SubType>
-        </Compile>
-        <Compile Include="MainPageUserControl.Designer.cs">
-          <DependentUpon>MainPageUserControl.cs</DependentUpon>
-        </Compile>
-        <Compile Include="OpenMovieUserControl.cs">
-          <SubType>UserControl</SubType>
-        </Compile>
-        <Compile Include="OpenMovieUserControl.Designer.cs">
-          <DependentUpon>OpenMovieUserControl.cs</DependentUpon>
-        </Compile>
         <Compile Include="Models\Account.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="RoundedButton.cs" />
-        <Compile Include="RoundedTextBox.cs" />
-        <Compile Include="SettingsUserControl.cs">
+        <Compile Include="Views\Colors.cs" />
+        <Compile Include="Views\FavoritesUserControl.cs">
           <SubType>UserControl</SubType>
         </Compile>
-        <Compile Include="SettingsUserControl.Designer.cs">
+        <Compile Include="Views\FavoritesUserControl.Designer.cs">
+          <DependentUpon>FavoritesUserControl.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Views\HistoryUserControl.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="Views\HistoryUserControl.Designer.cs">
+          <DependentUpon>HistoryUserControl.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Views\MainForm.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="Views\MainForm.Designer.cs">
+          <DependentUpon>MainForm.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Views\MainPageUserControl.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="Views\MainPageUserControl.Designer.cs">
+          <DependentUpon>MainPageUserControl.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Views\OpenMovieUserControl.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="Views\OpenMovieUserControl.Designer.cs">
+          <DependentUpon>OpenMovieUserControl.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Views\RoundedButton.cs" />
+        <Compile Include="Views\RoundedTextBox.cs" />
+        <Compile Include="Views\SettingsUserControl.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="Views\SettingsUserControl.Designer.cs">
           <DependentUpon>SettingsUserControl.cs</DependentUpon>
         </Compile>
-        <Compile Include="SignInUserControl.cs">
+        <Compile Include="Views\SignInUserControl.cs">
           <SubType>UserControl</SubType>
         </Compile>
-        <Compile Include="SignInUserControl.Designer.cs">
+        <Compile Include="Views\SignInUserControl.Designer.cs">
           <DependentUpon>SignInUserControl.cs</DependentUpon>
         </Compile>
-        <Compile Include="SignUpUserControl.cs">
+        <Compile Include="Views\SignUpUserControl.cs">
           <SubType>UserControl</SubType>
         </Compile>
-        <Compile Include="SignUpUserControl.Designer.cs">
+        <Compile Include="Views\SignUpUserControl.Designer.cs">
           <DependentUpon>SignUpUserControl.cs</DependentUpon>
         </Compile>
-        <Compile Include="WatchlistUserControl.cs">
+        <Compile Include="Views\WatchlistUserControl.cs">
           <SubType>UserControl</SubType>
         </Compile>
-        <Compile Include="WatchlistUserControl.Designer.cs">
+        <Compile Include="Views\WatchlistUserControl.Designer.cs">
           <DependentUpon>WatchlistUserControl.cs</DependentUpon>
         </Compile>
-        <Compile Include="WelcomeUserControl.cs">
+        <Compile Include="Views\WelcomeUserControl.cs">
           <SubType>UserControl</SubType>
         </Compile>
-        <Compile Include="WelcomeUserControl.Designer.cs">
+        <Compile Include="Views\WelcomeUserControl.Designer.cs">
           <DependentUpon>WelcomeUserControl.cs</DependentUpon>
         </Compile>
-        <EmbeddedResource Include="FavoritesUserControl.resx">
-          <DependentUpon>FavoritesUserControl.cs</DependentUpon>
-        </EmbeddedResource>
-        <EmbeddedResource Include="HistoryUserControl.resx">
-          <DependentUpon>HistoryUserControl.cs</DependentUpon>
-        </EmbeddedResource>
-        <EmbeddedResource Include="MainForm.resx">
-          <DependentUpon>MainForm.cs</DependentUpon>
-        </EmbeddedResource>
-        <EmbeddedResource Include="MainPageUserControl.resx">
-          <DependentUpon>MainPageUserControl.cs</DependentUpon>
-        </EmbeddedResource>
-        <EmbeddedResource Include="OpenMovieUserControl.resx">
-          <DependentUpon>OpenMovieUserControl.cs</DependentUpon>
-        </EmbeddedResource>
         <EmbeddedResource Include="Properties\Resources.resx">
             <Generator>ResXFileCodeGenerator</Generator>
             <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -188,19 +173,34 @@
             <AutoGen>True</AutoGen>
             <DependentUpon>Resources.resx</DependentUpon>
         </Compile>
-        <EmbeddedResource Include="SettingsUserControl.resx">
+        <EmbeddedResource Include="Views\FavoritesUserControl.resx">
+          <DependentUpon>FavoritesUserControl.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Views\HistoryUserControl.resx">
+          <DependentUpon>HistoryUserControl.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Views\MainForm.resx">
+          <DependentUpon>MainForm.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Views\MainPageUserControl.resx">
+          <DependentUpon>MainPageUserControl.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Views\OpenMovieUserControl.resx">
+          <DependentUpon>OpenMovieUserControl.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Views\SettingsUserControl.resx">
           <DependentUpon>SettingsUserControl.cs</DependentUpon>
         </EmbeddedResource>
-        <EmbeddedResource Include="SignInUserControl.resx">
+        <EmbeddedResource Include="Views\SignInUserControl.resx">
           <DependentUpon>SignInUserControl.cs</DependentUpon>
         </EmbeddedResource>
-        <EmbeddedResource Include="SignUpUserControl.resx">
+        <EmbeddedResource Include="Views\SignUpUserControl.resx">
           <DependentUpon>SignUpUserControl.cs</DependentUpon>
         </EmbeddedResource>
-        <EmbeddedResource Include="WatchlistUserControl.resx">
+        <EmbeddedResource Include="Views\WatchlistUserControl.resx">
           <DependentUpon>WatchlistUserControl.cs</DependentUpon>
         </EmbeddedResource>
-        <EmbeddedResource Include="WelcomeUserControl.resx">
+        <EmbeddedResource Include="Views\WelcomeUserControl.resx">
           <DependentUpon>WelcomeUserControl.cs</DependentUpon>
         </EmbeddedResource>
         <None Include="packages.config" />

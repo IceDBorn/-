@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace filmhub
+namespace filmhub.Views
 {
     partial class WelcomeUserControl
     {
@@ -31,8 +31,8 @@ namespace filmhub
         /// </summary>
         private void InitializeComponent()
         {
-            this.joinButton = new filmhub.RoundedButton();
-            this.signInButton = new filmhub.RoundedButton();
+            this.joinButton = new RoundedButton();
+            this.signInButton = new RoundedButton();
             this.SuspendLayout();
             // 
             // joinButton
@@ -47,6 +47,7 @@ namespace filmhub
             this.joinButton.TabStop = false;
             this.joinButton.Text = "Join for free";
             this.joinButton.UseVisualStyleBackColor = true;
+            this.joinButton.Click += new System.EventHandler(this.joinButton_Click);
             // 
             // signInButton
             // 
@@ -60,6 +61,7 @@ namespace filmhub
             this.signInButton.TabStop = false;
             this.signInButton.Text = "Sign In";
             this.signInButton.UseVisualStyleBackColor = true;
+            this.signInButton.Click += new System.EventHandler(this.signInButton_Click);
             // 
             // WelcomeUserControl
             // 
@@ -74,9 +76,9 @@ namespace filmhub
             this.ResumeLayout(false);
         }
 
-        private filmhub.RoundedButton signInButton;
+        private RoundedButton signInButton;
 
-        private filmhub.RoundedButton joinButton;
+        private RoundedButton joinButton;
 
         #endregion
     }

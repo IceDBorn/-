@@ -1,14 +1,9 @@
 ﻿using System.Windows.Forms;
 
-namespace filmhub
+namespace filmhub.Views
 {
     public partial class HistoryUserControl : UserControl
     {
-        #region Fields
-
-        private readonly Colors _colors = new Colors();
-
-        #endregion
         
         public HistoryUserControl()
         {
@@ -18,7 +13,7 @@ namespace filmhub
         
         private void InitializeColors()
         {
-            BackColor = _colors.BackgroundColor;
+            BackColor = Program.Colors.BackgroundColor;
         }
     }
 }

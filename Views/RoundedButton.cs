@@ -2,13 +2,11 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace filmhub
+namespace filmhub.Views
 {
     
     public class RoundedButton : Button
     {
-        private readonly Colors _colors = new Colors();
-
         private static GraphicsPath GetRoundPath(RectangleF rect, int radius)
         {
             var r2 = radius / 2f;
@@ -32,7 +30,7 @@ namespace filmhub
             using (var graphPath = GetRoundPath(rect, 25))
             {
                 Region = new Region(graphPath);
-                using (var pen = new Pen(_colors.AccentColor, 1.75f))
+                using (var pen = new Pen(Program.Colors.AccentColor, 1.75f))
                 {
                     pen.Alignment = PenAlignment.Inset;
                     e.Graphics.DrawPath(pen, graphPath);
