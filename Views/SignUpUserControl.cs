@@ -2,15 +2,10 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace filmhub
+namespace filmhub.Views
 {
     public partial class SignUpUserControl : UserControl
     {
-        #region Fields
-
-        private readonly Colors _colors = new Colors();
-
-        #endregion
         public SignUpUserControl()
         {
             InitializeComponent();
@@ -19,22 +14,22 @@ namespace filmhub
 
         private void InitializeColors()
         {
-            menuPanel.BackColor = _colors.BackgroundColor;
-            emailTextBox.BackColor = _colors.FieldColor;
-            passwordTextBox.BackColor = _colors.FieldColor;
-            emailTextBox.ForeColor = _colors.FieldDarkTextColor;
-            passwordTextBox.ForeColor = _colors.FieldDarkTextColor;
-            signInButton.BackColor = _colors.AccentColor;
-            signInButton.FlatAppearance.BorderColor = _colors.AccentColor;
-            byClickingLabel.ForeColor = _colors.DarkTextColor;
-            andLabel.ForeColor = _colors.DarkTextColor;
-            confirmPasswordTextBox.BackColor = _colors.FieldColor;
-            confirmPasswordTextBox.ForeColor = _colors.FieldDarkTextColor;
+            menuPanel.BackColor = Program.Colors.BackgroundColor;
+            emailTextBox.BackColor = Program.Colors.FieldColor;
+            passwordTextBox.BackColor = Program.Colors.FieldColor;
+            emailTextBox.ForeColor = Program.Colors.FieldDarkTextColor;
+            passwordTextBox.ForeColor = Program.Colors.FieldDarkTextColor;
+            signUpButton.BackColor = Program.Colors.AccentColor;
+            signUpButton.FlatAppearance.BorderColor = Program.Colors.AccentColor;
+            byClickingLabel.ForeColor = Program.Colors.DarkTextColor;
+            andLabel.ForeColor = Program.Colors.DarkTextColor;
+            confirmPasswordTextBox.BackColor = Program.Colors.FieldColor;
+            confirmPasswordTextBox.ForeColor = Program.Colors.FieldDarkTextColor;
         }
 
         private void signUpLabel_MouseHover(object sender, EventArgs e)
         {
-            termsLabel.ForeColor = _colors.AccentColor;
+            termsLabel.ForeColor = Program.Colors.AccentColor;
         }
 
         private void TermsLabel_MouseLeave(object sender, EventArgs e)
@@ -88,12 +83,17 @@ namespace filmhub
 
         private void privacyLabel_MouseHover(object sender, EventArgs e)
         {
-            privacyLabel.ForeColor = _colors.AccentColor;
+            privacyLabel.ForeColor = Program.Colors.AccentColor;
         }
 
         private void privacyLabel_MouseLeave(object sender, EventArgs e)
         {
             privacyLabel.ForeColor = Color.White;
+        }
+
+        private void signUpButton_Click(object sender, EventArgs e)
+        {
+            Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
         }
     }
 }

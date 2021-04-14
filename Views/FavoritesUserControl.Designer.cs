@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
 
-namespace filmhub
+namespace filmhub.Views
 {
-    partial class WatchlistUserControl
+    partial class FavoritesUserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -62,16 +62,16 @@ namespace filmhub
             // 
             this.label1.Font = new System.Drawing.Font("Segoe UI", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(38, 21);
+            this.label1.Location = new System.Drawing.Point(35, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(212, 55);
+            this.label1.Size = new System.Drawing.Size(220, 51);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Watchlist";
+            this.label1.Text = "Favorites";
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox1.Location = new System.Drawing.Point(42, 102);
+            this.pictureBox1.Location = new System.Drawing.Point(38, 97);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(144, 171);
             this.pictureBox1.TabIndex = 1;
@@ -80,7 +80,7 @@ namespace filmhub
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox2.Location = new System.Drawing.Point(240, 102);
+            this.pictureBox2.Location = new System.Drawing.Point(250, 97);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(144, 171);
             this.pictureBox2.TabIndex = 2;
@@ -89,7 +89,7 @@ namespace filmhub
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox3.Location = new System.Drawing.Point(439, 102);
+            this.pictureBox3.Location = new System.Drawing.Point(455, 97);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(144, 171);
             this.pictureBox3.TabIndex = 3;
@@ -98,7 +98,7 @@ namespace filmhub
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox4.Location = new System.Drawing.Point(642, 102);
+            this.pictureBox4.Location = new System.Drawing.Point(655, 97);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(144, 171);
             this.pictureBox4.TabIndex = 4;
@@ -107,7 +107,7 @@ namespace filmhub
             // pictureBox5
             // 
             this.pictureBox5.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox5.Location = new System.Drawing.Point(840, 102);
+            this.pictureBox5.Location = new System.Drawing.Point(854, 97);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(144, 171);
             this.pictureBox5.TabIndex = 5;
@@ -116,7 +116,7 @@ namespace filmhub
             // pictureBox6
             // 
             this.pictureBox6.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox6.Location = new System.Drawing.Point(1043, 102);
+            this.pictureBox6.Location = new System.Drawing.Point(1057, 97);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(144, 171);
             this.pictureBox6.TabIndex = 6;
@@ -125,7 +125,7 @@ namespace filmhub
             // pictureBox7
             // 
             this.pictureBox7.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox7.Location = new System.Drawing.Point(42, 348);
+            this.pictureBox7.Location = new System.Drawing.Point(38, 335);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(144, 171);
             this.pictureBox7.TabIndex = 7;
@@ -134,7 +134,7 @@ namespace filmhub
             // pictureBox8
             // 
             this.pictureBox8.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox8.Location = new System.Drawing.Point(240, 348);
+            this.pictureBox8.Location = new System.Drawing.Point(250, 335);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(144, 171);
             this.pictureBox8.TabIndex = 8;
@@ -143,7 +143,7 @@ namespace filmhub
             // pictureBox9
             // 
             this.pictureBox9.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox9.Location = new System.Drawing.Point(439, 348);
+            this.pictureBox9.Location = new System.Drawing.Point(455, 335);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(144, 171);
             this.pictureBox9.TabIndex = 9;
@@ -152,7 +152,7 @@ namespace filmhub
             // pictureBox10
             // 
             this.pictureBox10.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox10.Location = new System.Drawing.Point(642, 348);
+            this.pictureBox10.Location = new System.Drawing.Point(655, 335);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(144, 171);
             this.pictureBox10.TabIndex = 10;
@@ -161,7 +161,7 @@ namespace filmhub
             // pictureBox11
             // 
             this.pictureBox11.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox11.Location = new System.Drawing.Point(840, 348);
+            this.pictureBox11.Location = new System.Drawing.Point(854, 335);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(144, 171);
             this.pictureBox11.TabIndex = 11;
@@ -170,13 +170,13 @@ namespace filmhub
             // pictureBox12
             // 
             this.pictureBox12.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox12.Location = new System.Drawing.Point(1043, 348);
+            this.pictureBox12.Location = new System.Drawing.Point(1057, 335);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(144, 171);
             this.pictureBox12.TabIndex = 12;
             this.pictureBox12.TabStop = false;
             // 
-            // WatchlistUserControl
+            // FavoritesUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -194,7 +194,7 @@ namespace filmhub
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
-            this.Name = "WatchlistUserControl";
+            this.Name = "FavoritesUserControl";
             this.Size = new System.Drawing.Size(1264, 581);
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox2)).EndInit();
@@ -214,15 +214,14 @@ namespace filmhub
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.PictureBox pictureBox12;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox pictureBox9;
-
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.PictureBox pictureBox9;
 
         private System.Windows.Forms.PictureBox pictureBox1;
 

@@ -2,15 +2,10 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace filmhub
+namespace filmhub.Views
 {
     public partial class SignInUserControl : UserControl
     {
-        #region Fields
-
-        private readonly Colors _colors = new Colors();
-
-        #endregion
         public SignInUserControl()
         {
             InitializeComponent();
@@ -19,24 +14,24 @@ namespace filmhub
 
         private void InitializeColors()
         {
-            menuPanel.BackColor = _colors.BackgroundColor;
-            emailTextBox.BackColor = _colors.FieldColor;
-            passwordTextBox.BackColor = _colors.FieldColor;
-            emailTextBox.ForeColor = _colors.FieldDarkTextColor;
-            passwordTextBox.ForeColor = _colors.FieldDarkTextColor;
-            signInButton.BackColor = _colors.AccentColor;
-            signInButton.FlatAppearance.BorderColor = _colors.AccentColor;
-            newLabel.ForeColor = _colors.DarkTextColor;
+            menuPanel.BackColor = Program.Colors.BackgroundColor;
+            emailTextBox.BackColor = Program.Colors.FieldColor;
+            passwordTextBox.BackColor = Program.Colors.FieldColor;
+            emailTextBox.ForeColor = Program.Colors.FieldDarkTextColor;
+            passwordTextBox.ForeColor = Program.Colors.FieldDarkTextColor;
+            signInButton.BackColor = Program.Colors.AccentColor;
+            signInButton.FlatAppearance.BorderColor = Program.Colors.AccentColor;
+            newLabel.ForeColor = Program.Colors.DarkTextColor;
         }
 
-        private void login()
+        private void Login()
         {
             LoginController.login(emailTextBox.Text, passwordTextBox.Text);
         }
 
         private void signUpLabel_MouseHover(object sender, EventArgs e)
         {
-            signUpLabel.ForeColor = _colors.AccentColor;
+            signUpLabel.ForeColor = Program.Colors.AccentColor;
         }
 
         private void signUpLabel_MouseLeave(object sender, EventArgs e)
@@ -76,7 +71,8 @@ namespace filmhub
 
         private void signInButton_Click(object sender, EventArgs e)
         {
-            login();
+            Login();
+            Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
         }
     }
 }

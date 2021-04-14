@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace filmhub
+namespace filmhub.Views
 {
     partial class OpenMovie
     {
