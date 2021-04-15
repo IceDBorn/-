@@ -7,11 +7,17 @@ namespace filmhub.Views
 {
     public partial class SignInUserControl : UserControl
     {
+        #region Constructor
+
         public SignInUserControl()
         {
             InitializeComponent();
             InitializeColors();
         }
+
+        #endregion
+
+        #region Methods
 
         private void InitializeColors()
         {
@@ -29,6 +35,10 @@ namespace filmhub.Views
         {
             LoginController.login(emailTextBox.Text, passwordTextBox.Text);
         }
+
+        #endregion
+
+        #region Events
 
         private void signUpLabel_MouseHover(object sender, EventArgs e)
         {
@@ -97,5 +107,7 @@ namespace filmhub.Views
             backButton.Image = Resources.back;
             GC.Collect();
         }
+
+        #endregion
     }
 }

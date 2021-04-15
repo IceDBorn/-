@@ -32,7 +32,7 @@ namespace filmhub.Views
         private void InitializeComponent()
         {
             this.menuPanel = new System.Windows.Forms.Panel();
-            this.homeButton = new System.Windows.Forms.PictureBox();
+            this.backButton = new System.Windows.Forms.PictureBox();
             this.privacyLabel = new System.Windows.Forms.Label();
             this.andLabel = new System.Windows.Forms.Label();
             this.confirmPasswordTextBox = new filmhub.Views.RoundedTextBox();
@@ -43,13 +43,13 @@ namespace filmhub.Views
             this.emailTextBox = new filmhub.Views.RoundedTextBox();
             this.signInLabel = new System.Windows.Forms.Label();
             this.menuPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.homeButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.backButton)).BeginInit();
             this.SuspendLayout();
             // 
             // menuPanel
             // 
             this.menuPanel.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.menuPanel.Controls.Add(this.homeButton);
+            this.menuPanel.Controls.Add(this.backButton);
             this.menuPanel.Controls.Add(this.privacyLabel);
             this.menuPanel.Controls.Add(this.andLabel);
             this.menuPanel.Controls.Add(this.confirmPasswordTextBox);
@@ -64,17 +64,17 @@ namespace filmhub.Views
             this.menuPanel.Size = new System.Drawing.Size(532, 522);
             this.menuPanel.TabIndex = 0;
             // 
-            // homeButton
+            // backButton
             // 
-            this.homeButton.Image = global::filmhub.Properties.Resources.back;
-            this.homeButton.Location = new System.Drawing.Point(55, 45);
-            this.homeButton.Name = "homeButton";
-            this.homeButton.Size = new System.Drawing.Size(27, 47);
-            this.homeButton.TabIndex = 10;
-            this.homeButton.TabStop = false;
-            this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
-            this.homeButton.MouseLeave += new System.EventHandler(this.homeButton_MouseLeave);
-            this.homeButton.MouseHover += new System.EventHandler(this.homeButton_MouseHover);
+            this.backButton.Image = global::filmhub.Properties.Resources.back;
+            this.backButton.Location = new System.Drawing.Point(55, 45);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(27, 47);
+            this.backButton.TabIndex = 10;
+            this.backButton.TabStop = false;
+            this.backButton.Click += new System.EventHandler(this.homeButton_Click);
+            this.backButton.MouseLeave += new System.EventHandler(this.backButton_MouseLeave);
+            this.backButton.MouseHover += new System.EventHandler(this.backButton_MouseHover);
             // 
             // privacyLabel
             // 
@@ -193,11 +193,11 @@ namespace filmhub.Views
             this.Size = new System.Drawing.Size(1264, 595);
             this.menuPanel.ResumeLayout(false);
             this.menuPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.homeButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.backButton)).EndInit();
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.PictureBox homeButton;
+        private System.Windows.Forms.PictureBox backButton;
 
         private filmhub.Views.RoundedButton signUpButton;
 
