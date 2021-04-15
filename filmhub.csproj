@@ -233,6 +233,7 @@
       <Content Include="Resources\home_hover.png" />
       <Content Include="Resources\logo.png" />
       <Content Include="Resources\menu.png" />
+      <Content Include="Resources\menu_hover.png" />
       <Content Include="Resources\outline_favorite_border_white_24dp.png" />
       <Content Include="Resources\outline_favorite_border_white_24dp1.png" />
       <Content Include="Resources\outline_favorite_border_white_24dp2.png" />

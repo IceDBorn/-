@@ -42,9 +42,11 @@ namespace filmhub.Views
             iconsPanel.Visible = flag;
         }
         
-        public void HideDropDown(bool flag)
+        public void HideDropDown()
         {
-            dropDownPanel.Visible = flag;
+            dropDownPanel.Visible = false;
+            accountButton.Image = Resources.account;
+            GC.Collect();
         }
 
         #endregion
@@ -189,8 +191,14 @@ namespace filmhub.Views
 
         private void accountButton_MouseLeave(object sender, EventArgs e)
         {
+            if (dropDownPanel.Visible) return;
             accountButton.Image = Resources.account;
             GC.Collect();
+        }
+        
+        private void iconsPanel_Click(object sender, EventArgs e)
+        {
+            HideDropDown();
         }
         
         #endregion

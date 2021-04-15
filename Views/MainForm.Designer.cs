@@ -73,6 +73,7 @@
             this.iconsPanel.Size = new System.Drawing.Size(689, 88);
             this.iconsPanel.TabIndex = 4;
             this.iconsPanel.Visible = false;
+            this.iconsPanel.Click += new System.EventHandler(this.iconsPanel_Click);
             // 
             // homeButton
             // 
