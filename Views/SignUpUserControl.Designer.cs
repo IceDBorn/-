@@ -31,22 +31,26 @@ namespace filmhub.Views
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignUpUserControl));
             this.menuPanel = new System.Windows.Forms.Panel();
+            this.homeButton = new System.Windows.Forms.PictureBox();
             this.privacyLabel = new System.Windows.Forms.Label();
             this.andLabel = new System.Windows.Forms.Label();
-            this.confirmPasswordTextBox = new RoundedTextBox();
+            this.confirmPasswordTextBox = new filmhub.Views.RoundedTextBox();
             this.termsLabel = new System.Windows.Forms.Label();
             this.byClickingLabel = new System.Windows.Forms.Label();
-            this.signUpButton = new RoundedButton();
-            this.passwordTextBox = new RoundedTextBox();
-            this.emailTextBox = new RoundedTextBox();
+            this.signUpButton = new filmhub.Views.RoundedButton();
+            this.passwordTextBox = new filmhub.Views.RoundedTextBox();
+            this.emailTextBox = new filmhub.Views.RoundedTextBox();
             this.signInLabel = new System.Windows.Forms.Label();
             this.menuPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.homeButton)).BeginInit();
             this.SuspendLayout();
             // 
             // menuPanel
             // 
             this.menuPanel.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.menuPanel.Controls.Add(this.homeButton);
             this.menuPanel.Controls.Add(this.privacyLabel);
             this.menuPanel.Controls.Add(this.andLabel);
             this.menuPanel.Controls.Add(this.confirmPasswordTextBox);
@@ -60,6 +64,17 @@ namespace filmhub.Views
             this.menuPanel.Name = "menuPanel";
             this.menuPanel.Size = new System.Drawing.Size(532, 522);
             this.menuPanel.TabIndex = 0;
+            // 
+            // homeButton
+            // 
+            this.homeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.homeButton.Image = ((System.Drawing.Image) (resources.GetObject("homeButton.Image")));
+            this.homeButton.Location = new System.Drawing.Point(10, 42);
+            this.homeButton.Name = "homeButton";
+            this.homeButton.Size = new System.Drawing.Size(27, 47);
+            this.homeButton.TabIndex = 10;
+            this.homeButton.TabStop = false;
+            this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
             // 
             // privacyLabel
             // 
@@ -170,7 +185,6 @@ namespace filmhub.Views
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::filmhub.Properties.Resources.background_clear;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.menuPanel);
             this.DoubleBuffered = true;
@@ -178,8 +192,11 @@ namespace filmhub.Views
             this.Size = new System.Drawing.Size(1264, 581);
             this.menuPanel.ResumeLayout(false);
             this.menuPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.homeButton)).EndInit();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.PictureBox homeButton;
 
         private RoundedButton signUpButton;
 

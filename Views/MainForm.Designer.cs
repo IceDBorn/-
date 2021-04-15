@@ -29,25 +29,28 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.navBar = new System.Windows.Forms.Panel();
-            this.searchBar = new RoundedTextBox();
-            this.searchButton = new System.Windows.Forms.PictureBox();
+            this.iconsPanel = new System.Windows.Forms.Panel();
+            this.homeButton = new System.Windows.Forms.PictureBox();
+            this.searchBar = new filmhub.Views.RoundedTextBox();
             this.accountButton = new System.Windows.Forms.PictureBox();
+            this.searchButton = new System.Windows.Forms.PictureBox();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.dropDownPanel = new System.Windows.Forms.Panel();
             this.faves = new System.Windows.Forms.Label();
             this.logout = new System.Windows.Forms.Label();
             this.watchlist = new System.Windows.Forms.Label();
             this.settings = new System.Windows.Forms.Label();
             this.history = new System.Windows.Forms.Label();
             this.mainPage = new System.Windows.Forms.UserControl();
-            this.iconsPanel = new System.Windows.Forms.Panel();
             this.navBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.searchButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.accountButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.logoPictureBox)).BeginInit();
-            this.panel1.SuspendLayout();
             this.iconsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.homeButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.accountButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.searchButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.logoPictureBox)).BeginInit();
+            this.dropDownPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // navBar
@@ -57,14 +60,37 @@
             this.navBar.Controls.Add(this.logoPictureBox);
             this.navBar.Location = new System.Drawing.Point(0, 0);
             this.navBar.Name = "navBar";
-            this.navBar.Size = new System.Drawing.Size(1264, 100);
+            this.navBar.Size = new System.Drawing.Size(1264, 88);
             this.navBar.TabIndex = 0;
+            // 
+            // iconsPanel
+            // 
+            this.iconsPanel.Controls.Add(this.homeButton);
+            this.iconsPanel.Controls.Add(this.searchBar);
+            this.iconsPanel.Controls.Add(this.accountButton);
+            this.iconsPanel.Controls.Add(this.searchButton);
+            this.iconsPanel.Location = new System.Drawing.Point(563, 0);
+            this.iconsPanel.Name = "iconsPanel";
+            this.iconsPanel.Size = new System.Drawing.Size(689, 100);
+            this.iconsPanel.TabIndex = 4;
+            this.iconsPanel.Visible = false;
+            // 
+            // homeButton
+            // 
+            this.homeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.homeButton.Image = ((System.Drawing.Image) (resources.GetObject("homeButton.Image")));
+            this.homeButton.Location = new System.Drawing.Point(23, 19);
+            this.homeButton.Name = "homeButton";
+            this.homeButton.Size = new System.Drawing.Size(47, 43);
+            this.homeButton.TabIndex = 4;
+            this.homeButton.TabStop = false;
+            this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
             // 
             // searchBar
             // 
             this.searchBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.searchBar.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.searchBar.Location = new System.Drawing.Point(3, 19);
+            this.searchBar.Location = new System.Drawing.Point(98, 19);
             this.searchBar.Name = "searchBar";
             this.searchBar.Size = new System.Drawing.Size(450, 43);
             this.searchBar.TabIndex = 3;
@@ -73,48 +99,48 @@
             this.searchBar.Enter += new System.EventHandler(this.searchBar_Enter);
             this.searchBar.Leave += new System.EventHandler(this.searchBar_Leave);
             // 
-            // searchButton
-            // 
-            this.searchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.searchButton.Image = global::filmhub.Properties.Resources.search_button;
-            this.searchButton.Location = new System.Drawing.Point(473, 19);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(43, 43);
-            this.searchButton.TabIndex = 2;
-            this.searchButton.TabStop = false;
-            // 
             // accountButton
             // 
-            this.accountButton.Image = global::filmhub.Properties.Resources.account_button;
-            this.accountButton.Location = new System.Drawing.Point(542, 19);
+            this.accountButton.Image = ((System.Drawing.Image) (resources.GetObject("accountButton.Image")));
+            this.accountButton.Location = new System.Drawing.Point(637, 19);
             this.accountButton.Name = "accountButton";
             this.accountButton.Size = new System.Drawing.Size(43, 43);
             this.accountButton.TabIndex = 1;
             this.accountButton.TabStop = false;
             this.accountButton.Click += new System.EventHandler(this.accountButton_Click);
             // 
+            // searchButton
+            // 
+            this.searchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.searchButton.Image = ((System.Drawing.Image) (resources.GetObject("searchButton.Image")));
+            this.searchButton.Location = new System.Drawing.Point(568, 19);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(43, 43);
+            this.searchButton.TabIndex = 2;
+            this.searchButton.TabStop = false;
+            // 
             // logoPictureBox
             // 
-            this.logoPictureBox.Image = global::filmhub.Properties.Resources.logo;
+            this.logoPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.logoPictureBox.Location = new System.Drawing.Point(12, 12);
             this.logoPictureBox.Name = "logoPictureBox";
-            this.logoPictureBox.Size = new System.Drawing.Size(356, 77);
+            this.logoPictureBox.Size = new System.Drawing.Size(349, 50);
             this.logoPictureBox.TabIndex = 0;
             this.logoPictureBox.TabStop = false;
             // 
-            // panel1
+            // dropDownPanel
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.panel1.Controls.Add(this.faves);
-            this.panel1.Controls.Add(this.logout);
-            this.panel1.Controls.Add(this.watchlist);
-            this.panel1.Controls.Add(this.settings);
-            this.panel1.Controls.Add(this.history);
-            this.panel1.Location = new System.Drawing.Point(1156, 100);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(108, 149);
-            this.panel1.TabIndex = 10;
-            this.panel1.Visible = false;
+            this.dropDownPanel.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.dropDownPanel.Controls.Add(this.faves);
+            this.dropDownPanel.Controls.Add(this.logout);
+            this.dropDownPanel.Controls.Add(this.watchlist);
+            this.dropDownPanel.Controls.Add(this.settings);
+            this.dropDownPanel.Controls.Add(this.history);
+            this.dropDownPanel.Location = new System.Drawing.Point(1156, 100);
+            this.dropDownPanel.Name = "dropDownPanel";
+            this.dropDownPanel.Size = new System.Drawing.Size(108, 149);
+            this.dropDownPanel.TabIndex = 10;
+            this.dropDownPanel.Visible = false;
             // 
             // faves
             // 
@@ -185,28 +211,17 @@
             // mainPage
             // 
             this.mainPage.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.mainPage.Location = new System.Drawing.Point(0, 100);
+            this.mainPage.Location = new System.Drawing.Point(0, 88);
             this.mainPage.Name = "mainPage";
-            this.mainPage.Size = new System.Drawing.Size(1264, 581);
+            this.mainPage.Size = new System.Drawing.Size(1264, 595);
             this.mainPage.TabIndex = 1;
-            // 
-            // iconsPanel
-            // 
-            this.iconsPanel.Controls.Add(this.searchBar);
-            this.iconsPanel.Controls.Add(this.accountButton);
-            this.iconsPanel.Controls.Add(this.searchButton);
-            this.iconsPanel.Location = new System.Drawing.Point(667, 0);
-            this.iconsPanel.Name = "iconsPanel";
-            this.iconsPanel.Size = new System.Drawing.Size(585, 100);
-            this.iconsPanel.TabIndex = 4;
-            this.iconsPanel.Visible = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.dropDownPanel);
             this.Controls.Add(this.mainPage);
             this.Controls.Add(this.navBar);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
@@ -216,32 +231,26 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FilmHub";
             this.navBar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize) (this.searchButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.accountButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.logoPictureBox)).EndInit();
-            this.panel1.ResumeLayout(false);
             this.iconsPanel.ResumeLayout(false);
             this.iconsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.homeButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.accountButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.searchButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.logoPictureBox)).EndInit();
+            this.dropDownPanel.ResumeLayout(false);
             this.ResumeLayout(false);
         }
 
+        private System.Windows.Forms.PictureBox homeButton;
+        private System.Windows.Forms.Panel dropDownPanel;
         private System.Windows.Forms.Panel iconsPanel;
-
-        private System.Windows.Forms.Panel panel2;
-
-        private System.Windows.Forms.Panel panel1;
-
         private System.Windows.Forms.Label watchlist;
         private System.Windows.Forms.Label history;
         private System.Windows.Forms.Label settings;
         private System.Windows.Forms.Label logout;
-
         private System.Windows.Forms.Label faves;
-
-        private RoundedTextBox searchBar;
-
+        private filmhub.Views.RoundedTextBox searchBar;
         private System.Windows.Forms.UserControl mainPage;
-
         private System.Windows.Forms.PictureBox accountButton;
         private System.Windows.Forms.Panel navBar;
         private System.Windows.Forms.PictureBox searchButton;

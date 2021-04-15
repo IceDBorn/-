@@ -23,7 +23,8 @@ namespace filmhub.Views
         {
             BackColor = Program.Colors.BackgroundColor;
             menu.BackColor = Program.Colors.BackgroundColor;
-            categoriesPanel.BackColor = Program.Colors.BackgroundColor;
+            categoriesPanel.BackColor = Program.Colors.PopOutBackgroundColor;
+            categoriesLabel.BackColor = Program.Colors.PopOutBackgroundColor;
         }
         
         #endregion
@@ -40,6 +41,7 @@ namespace filmhub.Views
         {
             categoriesPanel.Visible = false;
             categoriesLabel.Visible = false;
+            Program.MainForm.HideDropDown(false);
         }
 
         private void actionLabel_MouseHover(object sender, EventArgs e)

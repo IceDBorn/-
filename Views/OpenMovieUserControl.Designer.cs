@@ -105,7 +105,6 @@ namespace filmhub.Views
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::filmhub.Properties.Resources.outline_favorite_border_white_24dp;
             this.pictureBox2.Location = new System.Drawing.Point(202, 40);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(48, 52);
@@ -244,7 +243,6 @@ namespace filmhub.Views
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::filmhub.Properties.Resources.outline_star_outline_white_24dp1;
             this.pictureBox3.Location = new System.Drawing.Point(270, 279);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(22, 27);
@@ -253,7 +251,6 @@ namespace filmhub.Views
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::filmhub.Properties.Resources.outline_star_outline_white_24dp1;
             this.pictureBox4.Location = new System.Drawing.Point(298, 279);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(22, 27);
@@ -262,7 +259,6 @@ namespace filmhub.Views
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = global::filmhub.Properties.Resources.outline_star_outline_white_24dp1;
             this.pictureBox5.Location = new System.Drawing.Point(326, 279);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(22, 27);
@@ -271,7 +267,6 @@ namespace filmhub.Views
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Image = global::filmhub.Properties.Resources.outline_star_outline_white_24dp1;
             this.pictureBox6.Location = new System.Drawing.Point(354, 279);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(22, 27);
@@ -280,7 +275,6 @@ namespace filmhub.Views
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Image = global::filmhub.Properties.Resources.outline_star_outline_white_24dp1;
             this.pictureBox7.Location = new System.Drawing.Point(382, 279);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(22, 27);

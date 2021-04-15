@@ -74,5 +74,15 @@ namespace filmhub.Views
             Login();
             Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
         }
+
+        private void signUpLabel_Click(object sender, EventArgs e)
+        {
+            Program.MainForm.UserControlSelector(new SignUpUserControl(), false);
+        }
+
+        private void homeButton_Click(object sender, EventArgs e)
+        {
+            Program.MainForm.UserControlSelector(new WelcomeUserControl(), false);
+        }
     }
 }
