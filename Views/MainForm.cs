@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using filmhub.Properties;
 
 namespace filmhub.Views
 {
@@ -26,11 +27,11 @@ namespace filmhub.Views
             searchBar.BackColor = Program.Colors.FieldColor;
             searchBar.ForeColor = Program.Colors.FieldDarkTextColor;
             mainPage.BackColor = Program.Colors.BackgroundColor;
-            faves.BackColor = Program.Colors.PopOutBackgroundColor;
-            watchlist.BackColor = Program.Colors.PopOutBackgroundColor;
-            history.BackColor = Program.Colors.PopOutBackgroundColor;
-            settings.BackColor = Program.Colors.PopOutBackgroundColor;
-            logout.BackColor = Program.Colors.PopOutBackgroundColor;
+            favoritesLabel.BackColor = Program.Colors.PopOutBackgroundColor;
+            watchListLabel.BackColor = Program.Colors.PopOutBackgroundColor;
+            historyLabel.BackColor = Program.Colors.PopOutBackgroundColor;
+            settingsLabel.BackColor = Program.Colors.PopOutBackgroundColor;
+            logoutLabel.BackColor = Program.Colors.PopOutBackgroundColor;
             dropDownPanel.BackColor = Program.Colors.PopOutBackgroundColor;
         }
 
@@ -71,91 +72,127 @@ namespace filmhub.Views
             dropDownPanel.Visible = !dropDownPanel.Visible;
         }
 
-        private void faves_Click(object sender, EventArgs e)
+        private void favoritesLabel_Click(object sender, EventArgs e)
         {
             Program.MainForm.UserControlSelector(new FavoritesUserControl(), true);
             dropDownPanel.Visible = false;
         }
 
-        private void faves_MouseHover(object sender, EventArgs e)
+        private void favoritesLabel_MouseHover(object sender, EventArgs e)
         {
-            faves.ForeColor = Program.Colors.AccentColor;
+            favoritesLabel.ForeColor = Program.Colors.AccentColor;
         }
 
-        private void faves_MouseLeave(object sender, EventArgs e)
+        private void favoritesLabel_MouseLeave(object sender, EventArgs e)
         {
-            faves.ForeColor = Color.White;
+            favoritesLabel.ForeColor = Color.White;
         }
 
-        private void watchlist_Click(object sender, EventArgs e)
+        private void watchListLabel_Click(object sender, EventArgs e)
         {
             Program.MainForm.UserControlSelector(new WatchlistUserControl(), true);
             dropDownPanel.Visible = false;
         }
 
-        private void watchlist_MouseHover(object sender, EventArgs e)
+        private void watchListLabel_MouseHover(object sender, EventArgs e)
         {
-            watchlist.ForeColor = Program.Colors.AccentColor;
+            watchListLabel.ForeColor = Program.Colors.AccentColor;
         }
 
-        private void watchlist_MouseLeave(object sender, EventArgs e)
+        private void watchListLabel_MouseLeave(object sender, EventArgs e)
         {
-            watchlist.ForeColor = Color.White;
+            watchListLabel.ForeColor = Color.White;
         }
 
-        private void history_Click(object sender, EventArgs e)
+        private void historyLabel_Click(object sender, EventArgs e)
         {
             Program.MainForm.UserControlSelector(new HistoryUserControl(), true);
             dropDownPanel.Visible = false;
         }
 
-        private void history_MouseHover(object sender, EventArgs e)
+        private void historyLabel_MouseHover(object sender, EventArgs e)
         {
-            history.ForeColor = Program.Colors.AccentColor;
+            historyLabel.ForeColor = Program.Colors.AccentColor;
         }
 
-        private void history_MouseLeave(object sender, EventArgs e)
+        private void historyLabel_MouseLeave(object sender, EventArgs e)
         {
-            history.ForeColor = Color.White;
+            historyLabel.ForeColor = Color.White;
         }
 
-        private void settings_Click(object sender, EventArgs e)
+        private void settingsLabel_Click(object sender, EventArgs e)
         {
             Program.MainForm.UserControlSelector(new SettingsUserControl(), true);
             dropDownPanel.Visible = false;
         }
 
-        private void settings_MouseHover(object sender, EventArgs e)
+        private void settingsLabel_MouseHover(object sender, EventArgs e)
         {
-            settings.ForeColor = Program.Colors.AccentColor;
+            settingsLabel.ForeColor = Program.Colors.AccentColor;
         }
 
-        private void settings_MouseLeave(object sender, EventArgs e)
+        private void settingsLabel_MouseLeave(object sender, EventArgs e)
         {
-            settings.ForeColor = Color.White;
+            settingsLabel.ForeColor = Color.White;
         }
 
-        private void logout_Click(object sender, EventArgs e)
+        private void logoutLabel_Click(object sender, EventArgs e)
         {
             Program.MainForm.UserControlSelector(new WelcomeUserControl(), false);
             dropDownPanel.Visible = false;
         }
 
-        private void logout_MouseHover(object sender, EventArgs e)
+        private void logoutLabel_MouseHover(object sender, EventArgs e)
         {
-            logout.ForeColor = Program.Colors.AccentColor;
+            logoutLabel.ForeColor = Program.Colors.AccentColor;
         }
 
-        private void logout_MouseLeave(object sender, EventArgs e)
+        private void logoutLabel_MouseLeave(object sender, EventArgs e)
         {
-            logout.ForeColor = Color.White;
+            logoutLabel.ForeColor = Color.White;
         }
         
-        #endregion
-
         private void homeButton_Click(object sender, EventArgs e)
         {
             UserControlSelector(new MainPageUserControl(), true);
         }
+
+        private void homeButton_MouseHover(object sender, EventArgs e)
+        {
+            homeButton.Image = Resources.home_hover;
+            GC.Collect();
+        }
+
+        private void homeButton_MouseLeave(object sender, EventArgs e)
+        {
+            homeButton.Image = Resources.home;
+            GC.Collect();
+        }
+
+        private void searchButton_MouseHover(object sender, EventArgs e)
+        {
+            searchButton.Image = Resources.search_hover;
+            GC.Collect();
+        }
+
+        private void searchButton_MouseLeave(object sender, EventArgs e)
+        {
+            searchButton.Image = Resources.search;
+            GC.Collect();
+        }
+
+        private void accountButton_MouseHover(object sender, EventArgs e)
+        {
+            accountButton.Image = Resources.account_hover;
+            GC.Collect();
+        }
+
+        private void accountButton_MouseLeave(object sender, EventArgs e)
+        {
+            accountButton.Image = Resources.account;
+            GC.Collect();
+        }
+        
+        #endregion
     }
 }
