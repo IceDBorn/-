@@ -5,11 +5,17 @@ namespace filmhub.Views
 {
     public partial class WelcomeUserControl : UserControl
     {
+        #region Constructor
+
         public WelcomeUserControl()
         {
             InitializeComponent();
             InitializeColors();
         }
+
+        #endregion
+        
+        #region Methods
 
         private void InitializeColors()
         {
@@ -18,6 +24,10 @@ namespace filmhub.Views
             signInButton.BackColor = Program.Colors.AccentColor;
             signInButton.FlatAppearance.BorderColor = Program.Colors.AccentColor;
         }
+
+        #endregion
+
+        #region Events
 
         private void joinButton_Click(object sender, EventArgs e)
         {
@@ -28,5 +38,7 @@ namespace filmhub.Views
         {
             Program.MainForm.UserControlSelector(new SignInUserControl(), false);
         }
+
+        #endregion
     }
 }

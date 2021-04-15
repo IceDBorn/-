@@ -1,16 +1,23 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using filmhub.Properties;
 
 namespace filmhub.Views
 {
     public partial class SignInUserControl : UserControl
     {
+        #region Constructor
+
         public SignInUserControl()
         {
             InitializeComponent();
             InitializeColors();
         }
+
+        #endregion
+
+        #region Methods
 
         private void InitializeColors()
         {
@@ -28,6 +35,10 @@ namespace filmhub.Views
         {
             LoginController.login(emailTextBox.Text, passwordTextBox.Text);
         }
+
+        #endregion
+
+        #region Events
 
         private void signUpLabel_MouseHover(object sender, EventArgs e)
         {
@@ -74,5 +85,29 @@ namespace filmhub.Views
             Login();
             Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
         }
+
+        private void signUpLabel_Click(object sender, EventArgs e)
+        {
+            Program.MainForm.UserControlSelector(new SignUpUserControl(), false);
+        }
+
+        private void homeButton_Click(object sender, EventArgs e)
+        {
+            Program.MainForm.UserControlSelector(new WelcomeUserControl(), false);
+        }
+
+        private void backButton_MouseHover(object sender, EventArgs e)
+        {
+            backButton.Image = Resources.back_hover;
+            GC.Collect();
+        }
+
+        private void backButton_MouseLeave(object sender, EventArgs e)
+        {
+            backButton.Image = Resources.back;
+            GC.Collect();
+        }
+
+        #endregion
     }
 }

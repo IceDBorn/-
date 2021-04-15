@@ -102,6 +102,7 @@ namespace filmhub.Views
             this.pictureBox2.Size = new System.Drawing.Size(144, 171);
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pictureBox4
             // 
@@ -115,7 +116,7 @@ namespace filmhub.Views
             // pictureBox5
             // 
             this.pictureBox5.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox5.Location = new System.Drawing.Point(875, 96);
+            this.pictureBox5.Location = new System.Drawing.Point(880, 96);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(144, 171);
             this.pictureBox5.TabIndex = 5;
@@ -134,7 +135,7 @@ namespace filmhub.Views
             // pictureBox6
             // 
             this.pictureBox6.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox6.Location = new System.Drawing.Point(1064, 96);
+            this.pictureBox6.Location = new System.Drawing.Point(1079, 96);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(144, 171);
             this.pictureBox6.TabIndex = 7;
@@ -170,7 +171,7 @@ namespace filmhub.Views
             // pictureBox11
             // 
             this.pictureBox11.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox11.Location = new System.Drawing.Point(875, 384);
+            this.pictureBox11.Location = new System.Drawing.Point(880, 384);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(144, 171);
             this.pictureBox11.TabIndex = 12;
@@ -179,7 +180,7 @@ namespace filmhub.Views
             // pictureBox12
             // 
             this.pictureBox12.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox12.Location = new System.Drawing.Point(1064, 384);
+            this.pictureBox12.Location = new System.Drawing.Point(1079, 384);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(144, 171);
             this.pictureBox12.TabIndex = 13;
@@ -189,12 +190,14 @@ namespace filmhub.Views
             // 
             this.menu.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.menu.Image = global::filmhub.Properties.Resources.menu;
-            this.menu.Location = new System.Drawing.Point(3, 21);
+            this.menu.Location = new System.Drawing.Point(15, 20);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(46, 46);
+            this.menu.Size = new System.Drawing.Size(46, 44);
             this.menu.TabIndex = 14;
             this.menu.TabStop = false;
             this.menu.Click += new System.EventHandler(this.menu_Click);
+            this.menu.MouseLeave += new System.EventHandler(this.menu_MouseLeave);
+            this.menu.MouseHover += new System.EventHandler(this.menu_MouseHover);
             // 
             // pictureBox3
             // 
@@ -218,9 +221,9 @@ namespace filmhub.Views
             // 
             this.categoriesLabel.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.categoriesLabel.ForeColor = System.Drawing.Color.White;
-            this.categoriesLabel.Location = new System.Drawing.Point(0, 0);
+            this.categoriesLabel.Location = new System.Drawing.Point(1, 21);
             this.categoriesLabel.Name = "categoriesLabel";
-            this.categoriesLabel.Size = new System.Drawing.Size(248, 45);
+            this.categoriesLabel.Size = new System.Drawing.Size(245, 45);
             this.categoriesLabel.TabIndex = 16;
             this.categoriesLabel.Text = "Categories";
             this.categoriesLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -229,6 +232,7 @@ namespace filmhub.Views
             // categoriesPanel
             // 
             this.categoriesPanel.Controls.Add(this.westernLabel);
+            this.categoriesPanel.Controls.Add(this.categoriesLabel);
             this.categoriesPanel.Controls.Add(this.scifiLabel);
             this.categoriesPanel.Controls.Add(this.romanceLabel);
             this.categoriesPanel.Controls.Add(this.mysteryLabel);
@@ -239,19 +243,19 @@ namespace filmhub.Views
             this.categoriesPanel.Controls.Add(this.crimeLabel);
             this.categoriesPanel.Controls.Add(this.comedyLabel);
             this.categoriesPanel.Controls.Add(this.actionLabel);
-            this.categoriesPanel.Location = new System.Drawing.Point(0, 45);
+            this.categoriesPanel.Location = new System.Drawing.Point(0, 0);
             this.categoriesPanel.Name = "categoriesPanel";
-            this.categoriesPanel.Size = new System.Drawing.Size(248, 536);
+            this.categoriesPanel.Size = new System.Drawing.Size(248, 595);
             this.categoriesPanel.TabIndex = 17;
             this.categoriesPanel.Visible = false;
             // 
             // westernLabel
             // 
-            this.westernLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.westernLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.westernLabel.ForeColor = System.Drawing.Color.White;
-            this.westernLabel.Location = new System.Drawing.Point(27, 415);
+            this.westernLabel.Location = new System.Drawing.Point(45, 546);
             this.westernLabel.Name = "westernLabel";
-            this.westernLabel.Size = new System.Drawing.Size(218, 34);
+            this.westernLabel.Size = new System.Drawing.Size(199, 34);
             this.westernLabel.TabIndex = 10;
             this.westernLabel.Text = "Western";
             this.westernLabel.Click += new System.EventHandler(this.westernLabel_Click);
@@ -260,11 +264,11 @@ namespace filmhub.Views
             // 
             // scifiLabel
             // 
-            this.scifiLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.scifiLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.scifiLabel.ForeColor = System.Drawing.Color.White;
-            this.scifiLabel.Location = new System.Drawing.Point(27, 381);
+            this.scifiLabel.Location = new System.Drawing.Point(46, 501);
             this.scifiLabel.Name = "scifiLabel";
-            this.scifiLabel.Size = new System.Drawing.Size(218, 34);
+            this.scifiLabel.Size = new System.Drawing.Size(199, 34);
             this.scifiLabel.TabIndex = 9;
             this.scifiLabel.Text = "Sci-Fi";
             this.scifiLabel.Click += new System.EventHandler(this.scifiLabel_Click);
@@ -273,11 +277,11 @@ namespace filmhub.Views
             // 
             // romanceLabel
             // 
-            this.romanceLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.romanceLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.romanceLabel.ForeColor = System.Drawing.Color.White;
-            this.romanceLabel.Location = new System.Drawing.Point(27, 347);
+            this.romanceLabel.Location = new System.Drawing.Point(46, 456);
             this.romanceLabel.Name = "romanceLabel";
-            this.romanceLabel.Size = new System.Drawing.Size(218, 34);
+            this.romanceLabel.Size = new System.Drawing.Size(199, 34);
             this.romanceLabel.TabIndex = 8;
             this.romanceLabel.Text = "Romance";
             this.romanceLabel.Click += new System.EventHandler(this.romanceLabel_Click);
@@ -286,11 +290,11 @@ namespace filmhub.Views
             // 
             // mysteryLabel
             // 
-            this.mysteryLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.mysteryLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.mysteryLabel.ForeColor = System.Drawing.Color.White;
-            this.mysteryLabel.Location = new System.Drawing.Point(27, 313);
+            this.mysteryLabel.Location = new System.Drawing.Point(46, 411);
             this.mysteryLabel.Name = "mysteryLabel";
-            this.mysteryLabel.Size = new System.Drawing.Size(218, 34);
+            this.mysteryLabel.Size = new System.Drawing.Size(199, 34);
             this.mysteryLabel.TabIndex = 7;
             this.mysteryLabel.Text = "Mystery";
             this.mysteryLabel.Click += new System.EventHandler(this.mysteryLabel_Click);
@@ -299,11 +303,11 @@ namespace filmhub.Views
             // 
             // horrorLabel
             // 
-            this.horrorLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.horrorLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.horrorLabel.ForeColor = System.Drawing.Color.White;
-            this.horrorLabel.Location = new System.Drawing.Point(27, 279);
+            this.horrorLabel.Location = new System.Drawing.Point(46, 366);
             this.horrorLabel.Name = "horrorLabel";
-            this.horrorLabel.Size = new System.Drawing.Size(218, 34);
+            this.horrorLabel.Size = new System.Drawing.Size(199, 34);
             this.horrorLabel.TabIndex = 6;
             this.horrorLabel.Text = "Horror";
             this.horrorLabel.Click += new System.EventHandler(this.horrorLabel_Click);
@@ -312,11 +316,11 @@ namespace filmhub.Views
             // 
             // fantasyLabel
             // 
-            this.fantasyLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.fantasyLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.fantasyLabel.ForeColor = System.Drawing.Color.White;
-            this.fantasyLabel.Location = new System.Drawing.Point(27, 245);
+            this.fantasyLabel.Location = new System.Drawing.Point(46, 321);
             this.fantasyLabel.Name = "fantasyLabel";
-            this.fantasyLabel.Size = new System.Drawing.Size(218, 34);
+            this.fantasyLabel.Size = new System.Drawing.Size(199, 34);
             this.fantasyLabel.TabIndex = 5;
             this.fantasyLabel.Text = "Fantasy";
             this.fantasyLabel.Click += new System.EventHandler(this.fantasyLabel_Click);
@@ -325,11 +329,11 @@ namespace filmhub.Views
             // 
             // dramaLabel
             // 
-            this.dramaLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.dramaLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.dramaLabel.ForeColor = System.Drawing.Color.White;
-            this.dramaLabel.Location = new System.Drawing.Point(27, 211);
+            this.dramaLabel.Location = new System.Drawing.Point(46, 276);
             this.dramaLabel.Name = "dramaLabel";
-            this.dramaLabel.Size = new System.Drawing.Size(218, 34);
+            this.dramaLabel.Size = new System.Drawing.Size(199, 34);
             this.dramaLabel.TabIndex = 4;
             this.dramaLabel.Text = "Drama";
             this.dramaLabel.Click += new System.EventHandler(this.dramaLabel_Click);
@@ -338,11 +342,11 @@ namespace filmhub.Views
             // 
             // documentaryLabel
             // 
-            this.documentaryLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.documentaryLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.documentaryLabel.ForeColor = System.Drawing.Color.White;
-            this.documentaryLabel.Location = new System.Drawing.Point(27, 177);
+            this.documentaryLabel.Location = new System.Drawing.Point(46, 231);
             this.documentaryLabel.Name = "documentaryLabel";
-            this.documentaryLabel.Size = new System.Drawing.Size(218, 34);
+            this.documentaryLabel.Size = new System.Drawing.Size(199, 34);
             this.documentaryLabel.TabIndex = 3;
             this.documentaryLabel.Text = "Documentary";
             this.documentaryLabel.Click += new System.EventHandler(this.documentaryLabel_Click);
@@ -351,11 +355,11 @@ namespace filmhub.Views
             // 
             // crimeLabel
             // 
-            this.crimeLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.crimeLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.crimeLabel.ForeColor = System.Drawing.Color.White;
-            this.crimeLabel.Location = new System.Drawing.Point(27, 143);
+            this.crimeLabel.Location = new System.Drawing.Point(46, 186);
             this.crimeLabel.Name = "crimeLabel";
-            this.crimeLabel.Size = new System.Drawing.Size(218, 34);
+            this.crimeLabel.Size = new System.Drawing.Size(199, 34);
             this.crimeLabel.TabIndex = 2;
             this.crimeLabel.Text = "Crime";
             this.crimeLabel.Click += new System.EventHandler(this.crimeLabel_Click);
@@ -364,11 +368,11 @@ namespace filmhub.Views
             // 
             // comedyLabel
             // 
-            this.comedyLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.comedyLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.comedyLabel.ForeColor = System.Drawing.Color.White;
-            this.comedyLabel.Location = new System.Drawing.Point(27, 109);
+            this.comedyLabel.Location = new System.Drawing.Point(46, 141);
             this.comedyLabel.Name = "comedyLabel";
-            this.comedyLabel.Size = new System.Drawing.Size(218, 34);
+            this.comedyLabel.Size = new System.Drawing.Size(199, 34);
             this.comedyLabel.TabIndex = 1;
             this.comedyLabel.Text = "Comedy";
             this.comedyLabel.Click += new System.EventHandler(this.comedyLabel_Click);
@@ -377,11 +381,11 @@ namespace filmhub.Views
             // 
             // actionLabel
             // 
-            this.actionLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.actionLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.actionLabel.ForeColor = System.Drawing.Color.White;
-            this.actionLabel.Location = new System.Drawing.Point(27, 75);
+            this.actionLabel.Location = new System.Drawing.Point(46, 96);
             this.actionLabel.Name = "actionLabel";
-            this.actionLabel.Size = new System.Drawing.Size(218, 34);
+            this.actionLabel.Size = new System.Drawing.Size(199, 34);
             this.actionLabel.TabIndex = 0;
             this.actionLabel.Text = "Action";
             this.actionLabel.Click += new System.EventHandler(this.actionLabel_Click);
@@ -394,7 +398,6 @@ namespace filmhub.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.Controls.Add(this.categoriesPanel);
-            this.Controls.Add(this.categoriesLabel);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.menu);
             this.Controls.Add(this.pictureBox1);
@@ -411,7 +414,7 @@ namespace filmhub.Views
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.featuredToday);
             this.Name = "MainPageUserControl";
-            this.Size = new System.Drawing.Size(1264, 581);
+            this.Size = new System.Drawing.Size(1264, 595);
             this.Click += new System.EventHandler(this.MainPageUserControl_Click);
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox2)).EndInit();

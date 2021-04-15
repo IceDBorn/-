@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using filmhub.Properties;
 
 namespace filmhub.Views
 {
@@ -23,7 +24,8 @@ namespace filmhub.Views
         {
             BackColor = Program.Colors.BackgroundColor;
             menu.BackColor = Program.Colors.BackgroundColor;
-            categoriesPanel.BackColor = Program.Colors.BackgroundColor;
+            categoriesPanel.BackColor = Program.Colors.PopOutBackgroundColor;
+            categoriesLabel.BackColor = Program.Colors.PopOutBackgroundColor;
         }
         
         #endregion
@@ -34,12 +36,14 @@ namespace filmhub.Views
         {
             categoriesPanel.Visible = true;
             categoriesLabel.Visible = true;
+            Program.MainForm.HideDropDown();
         }
 
         private void MainPageUserControl_Click(object sender, EventArgs e)
         {
             categoriesPanel.Visible = false;
             categoriesLabel.Visible = false;
+            Program.MainForm.HideDropDown();
         }
 
         private void actionLabel_MouseHover(object sender, EventArgs e)
@@ -207,6 +211,23 @@ namespace filmhub.Views
             Program.MainForm.UserControlSelector(new FavoritesUserControl(), true);
         }
         
+        private void menu_MouseHover(object sender, EventArgs e)
+        {
+            menu.Image = Resources.menu_hover;
+            GC.Collect();
+        }
+
+        private void menu_MouseLeave(object sender, EventArgs e)
+        {
+            menu.Image = Resources.menu;
+            GC.Collect();
+        }
+        
         #endregion
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Program.MainForm.UserControlSelector(new MovieViewer(), true);
+        }
     }
 }

@@ -31,18 +31,18 @@ namespace filmhub.Views
         /// </summary>
         private void InitializeComponent()
         {
-            this.joinButton = new RoundedButton();
-            this.signInButton = new RoundedButton();
+            this.joinButton = new filmhub.Views.RoundedButton();
+            this.signInButton = new filmhub.Views.RoundedButton();
             this.SuspendLayout();
             // 
             // joinButton
             // 
             this.joinButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.joinButton.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.joinButton.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.joinButton.ForeColor = System.Drawing.Color.White;
             this.joinButton.Location = new System.Drawing.Point(14, 305);
             this.joinButton.Name = "joinButton";
-            this.joinButton.Size = new System.Drawing.Size(253, 56);
+            this.joinButton.Size = new System.Drawing.Size(251, 52);
             this.joinButton.TabIndex = 2;
             this.joinButton.TabStop = false;
             this.joinButton.Text = "Join for free";
@@ -52,11 +52,11 @@ namespace filmhub.Views
             // signInButton
             // 
             this.signInButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.signInButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.signInButton.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.signInButton.ForeColor = System.Drawing.Color.White;
-            this.signInButton.Location = new System.Drawing.Point(1120, 12);
+            this.signInButton.Location = new System.Drawing.Point(1107, 12);
             this.signInButton.Name = "signInButton";
-            this.signInButton.Size = new System.Drawing.Size(130, 34);
+            this.signInButton.Size = new System.Drawing.Size(143, 43);
             this.signInButton.TabIndex = 3;
             this.signInButton.TabStop = false;
             this.signInButton.Text = "Sign In";
@@ -67,18 +67,17 @@ namespace filmhub.Views
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::filmhub.Properties.Resources.background;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackgroundImage = global::filmhub.Properties.Resources.background_slogan;
             this.Controls.Add(this.signInButton);
             this.Controls.Add(this.joinButton);
             this.Name = "WelcomeUserControl";
-            this.Size = new System.Drawing.Size(1264, 581);
+            this.Size = new System.Drawing.Size(1264, 595);
             this.ResumeLayout(false);
         }
 
-        private RoundedButton signInButton;
+        private filmhub.Views.RoundedButton signInButton;
 
-        private RoundedButton joinButton;
+        private filmhub.Views.RoundedButton joinButton;
 
         #endregion
     }

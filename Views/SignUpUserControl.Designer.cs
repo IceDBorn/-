@@ -32,21 +32,24 @@ namespace filmhub.Views
         private void InitializeComponent()
         {
             this.menuPanel = new System.Windows.Forms.Panel();
+            this.backButton = new System.Windows.Forms.PictureBox();
             this.privacyLabel = new System.Windows.Forms.Label();
             this.andLabel = new System.Windows.Forms.Label();
-            this.confirmPasswordTextBox = new RoundedTextBox();
+            this.confirmPasswordTextBox = new filmhub.Views.RoundedTextBox();
             this.termsLabel = new System.Windows.Forms.Label();
             this.byClickingLabel = new System.Windows.Forms.Label();
-            this.signUpButton = new RoundedButton();
-            this.passwordTextBox = new RoundedTextBox();
-            this.emailTextBox = new RoundedTextBox();
+            this.signUpButton = new filmhub.Views.RoundedButton();
+            this.passwordTextBox = new filmhub.Views.RoundedTextBox();
+            this.emailTextBox = new filmhub.Views.RoundedTextBox();
             this.signInLabel = new System.Windows.Forms.Label();
             this.menuPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.backButton)).BeginInit();
             this.SuspendLayout();
             // 
             // menuPanel
             // 
             this.menuPanel.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.menuPanel.Controls.Add(this.backButton);
             this.menuPanel.Controls.Add(this.privacyLabel);
             this.menuPanel.Controls.Add(this.andLabel);
             this.menuPanel.Controls.Add(this.confirmPasswordTextBox);
@@ -56,16 +59,28 @@ namespace filmhub.Views
             this.menuPanel.Controls.Add(this.passwordTextBox);
             this.menuPanel.Controls.Add(this.emailTextBox);
             this.menuPanel.Controls.Add(this.signInLabel);
-            this.menuPanel.Location = new System.Drawing.Point(375, 29);
+            this.menuPanel.Location = new System.Drawing.Point(375, 38);
             this.menuPanel.Name = "menuPanel";
             this.menuPanel.Size = new System.Drawing.Size(532, 522);
             this.menuPanel.TabIndex = 0;
             // 
+            // backButton
+            // 
+            this.backButton.Image = global::filmhub.Properties.Resources.back;
+            this.backButton.Location = new System.Drawing.Point(55, 45);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(27, 47);
+            this.backButton.TabIndex = 10;
+            this.backButton.TabStop = false;
+            this.backButton.Click += new System.EventHandler(this.homeButton_Click);
+            this.backButton.MouseLeave += new System.EventHandler(this.backButton_MouseLeave);
+            this.backButton.MouseHover += new System.EventHandler(this.backButton_MouseHover);
+            // 
             // privacyLabel
             // 
-            this.privacyLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.privacyLabel.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.privacyLabel.ForeColor = System.Drawing.Color.White;
-            this.privacyLabel.Location = new System.Drawing.Point(345, 475);
+            this.privacyLabel.Location = new System.Drawing.Point(280, 474);
             this.privacyLabel.Name = "privacyLabel";
             this.privacyLabel.Size = new System.Drawing.Size(143, 33);
             this.privacyLabel.TabIndex = 9;
@@ -75,8 +90,8 @@ namespace filmhub.Views
             // 
             // andLabel
             // 
-            this.andLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.andLabel.Location = new System.Drawing.Point(305, 475);
+            this.andLabel.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.andLabel.Location = new System.Drawing.Point(245, 474);
             this.andLabel.Name = "andLabel";
             this.andLabel.Size = new System.Drawing.Size(47, 32);
             this.andLabel.TabIndex = 8;
@@ -97,9 +112,9 @@ namespace filmhub.Views
             // 
             // termsLabel
             // 
-            this.termsLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.termsLabel.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.termsLabel.ForeColor = System.Drawing.Color.White;
-            this.termsLabel.Location = new System.Drawing.Point(92, 475);
+            this.termsLabel.Location = new System.Drawing.Point(55, 474);
             this.termsLabel.Name = "termsLabel";
             this.termsLabel.Size = new System.Drawing.Size(217, 33);
             this.termsLabel.TabIndex = 6;
@@ -109,19 +124,19 @@ namespace filmhub.Views
             // 
             // byClickingLabel
             // 
-            this.byClickingLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.byClickingLabel.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.byClickingLabel.Location = new System.Drawing.Point(55, 447);
             this.byClickingLabel.Name = "byClickingLabel";
-            this.byClickingLabel.Size = new System.Drawing.Size(429, 60);
+            this.byClickingLabel.Size = new System.Drawing.Size(388, 60);
             this.byClickingLabel.TabIndex = 5;
-            this.byClickingLabel.Text = "By clicking the Sign up button you agree to\r\nour\r\n";
+            this.byClickingLabel.Text = "By clicking the Sign up button you agree to our";
             // 
             // signUpButton
             // 
             this.signUpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.signUpButton.Font = new System.Drawing.Font("Segoe UI", 23F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.signUpButton.ForeColor = System.Drawing.Color.White;
-            this.signUpButton.Location = new System.Drawing.Point(55, 376);
+            this.signUpButton.Location = new System.Drawing.Point(55, 367);
             this.signUpButton.Name = "signUpButton";
             this.signUpButton.Size = new System.Drawing.Size(413, 56);
             this.signUpButton.TabIndex = 3;
@@ -160,28 +175,31 @@ namespace filmhub.Views
             // 
             this.signInLabel.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.signInLabel.ForeColor = System.Drawing.Color.White;
-            this.signInLabel.Location = new System.Drawing.Point(43, 38);
+            this.signInLabel.Location = new System.Drawing.Point(0, 38);
             this.signInLabel.Name = "signInLabel";
-            this.signInLabel.Size = new System.Drawing.Size(170, 58);
+            this.signInLabel.Size = new System.Drawing.Size(532, 58);
             this.signInLabel.TabIndex = 0;
             this.signInLabel.Text = "Sign Up";
+            this.signInLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SignUpUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::filmhub.Properties.Resources.background_clear;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackgroundImage = global::filmhub.Properties.Resources.background;
             this.Controls.Add(this.menuPanel);
             this.DoubleBuffered = true;
             this.Name = "SignUpUserControl";
-            this.Size = new System.Drawing.Size(1264, 581);
+            this.Size = new System.Drawing.Size(1264, 595);
             this.menuPanel.ResumeLayout(false);
             this.menuPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.backButton)).EndInit();
             this.ResumeLayout(false);
         }
 
-        private RoundedButton signUpButton;
+        private System.Windows.Forms.PictureBox backButton;
+
+        private filmhub.Views.RoundedButton signUpButton;
 
         private System.Windows.Forms.Label privacyLabel;
 

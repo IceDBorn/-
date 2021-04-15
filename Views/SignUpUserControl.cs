@@ -1,16 +1,23 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using filmhub.Properties;
 
 namespace filmhub.Views
 {
     public partial class SignUpUserControl : UserControl
     {
+        #region Constructor
+
         public SignUpUserControl()
         {
             InitializeComponent();
             InitializeColors();
         }
+
+        #endregion
+
+        #region Methods
 
         private void InitializeColors()
         {
@@ -26,6 +33,10 @@ namespace filmhub.Views
             confirmPasswordTextBox.BackColor = Program.Colors.FieldColor;
             confirmPasswordTextBox.ForeColor = Program.Colors.FieldDarkTextColor;
         }
+
+        #endregion
+
+        #region Events
 
         private void signUpLabel_MouseHover(object sender, EventArgs e)
         {
@@ -95,5 +106,24 @@ namespace filmhub.Views
         {
             Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
         }
+
+        private void homeButton_Click(object sender, EventArgs e)
+        {
+            Program.MainForm.UserControlSelector(new WelcomeUserControl(), false);
+        }
+
+        private void backButton_MouseHover(object sender, EventArgs e)
+        {
+            backButton.Image = Resources.back_hover;
+            GC.Collect();
+        }
+
+        private void backButton_MouseLeave(object sender, EventArgs e)
+        {
+            backButton.Image = Resources.back;
+            GC.Collect();
+        }
+
+        #endregion
     }
 }

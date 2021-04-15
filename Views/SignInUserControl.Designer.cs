@@ -32,28 +32,44 @@ namespace filmhub.Views
         private void InitializeComponent()
         {
             this.menuPanel = new System.Windows.Forms.Panel();
+            this.backButton = new System.Windows.Forms.PictureBox();
             this.signUpLabel = new System.Windows.Forms.Label();
             this.newLabel = new System.Windows.Forms.Label();
-            this.signInButton = new RoundedButton();
-            this.passwordTextBox = new RoundedTextBox();
-            this.emailTextBox = new RoundedTextBox();
+            this.signInButton = new filmhub.Views.RoundedButton();
+            this.passwordTextBox = new filmhub.Views.RoundedTextBox();
+            this.emailTextBox = new filmhub.Views.RoundedTextBox();
             this.signInLabel = new System.Windows.Forms.Label();
             this.menuPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.backButton)).BeginInit();
             this.SuspendLayout();
             // 
             // menuPanel
             // 
             this.menuPanel.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.menuPanel.Controls.Add(this.backButton);
             this.menuPanel.Controls.Add(this.signUpLabel);
             this.menuPanel.Controls.Add(this.newLabel);
             this.menuPanel.Controls.Add(this.signInButton);
             this.menuPanel.Controls.Add(this.passwordTextBox);
             this.menuPanel.Controls.Add(this.emailTextBox);
             this.menuPanel.Controls.Add(this.signInLabel);
-            this.menuPanel.Location = new System.Drawing.Point(375, 29);
+            this.menuPanel.Location = new System.Drawing.Point(376, 38);
             this.menuPanel.Name = "menuPanel";
             this.menuPanel.Size = new System.Drawing.Size(532, 522);
             this.menuPanel.TabIndex = 0;
+            // 
+            // backButton
+            // 
+            this.backButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.backButton.Image = global::filmhub.Properties.Resources.back;
+            this.backButton.Location = new System.Drawing.Point(55, 49);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(27, 47);
+            this.backButton.TabIndex = 11;
+            this.backButton.TabStop = false;
+            this.backButton.Click += new System.EventHandler(this.homeButton_Click);
+            this.backButton.MouseLeave += new System.EventHandler(this.backButton_MouseLeave);
+            this.backButton.MouseHover += new System.EventHandler(this.backButton_MouseHover);
             // 
             // signUpLabel
             // 
@@ -64,6 +80,7 @@ namespace filmhub.Views
             this.signUpLabel.Size = new System.Drawing.Size(130, 33);
             this.signUpLabel.TabIndex = 6;
             this.signUpLabel.Text = "Sign up now";
+            this.signUpLabel.Click += new System.EventHandler(this.signUpLabel_Click);
             this.signUpLabel.MouseLeave += new System.EventHandler(this.signUpLabel_MouseLeave);
             this.signUpLabel.MouseHover += new System.EventHandler(this.signUpLabel_MouseHover);
             // 
@@ -120,26 +137,29 @@ namespace filmhub.Views
             // 
             this.signInLabel.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.signInLabel.ForeColor = System.Drawing.Color.White;
-            this.signInLabel.Location = new System.Drawing.Point(43, 38);
+            this.signInLabel.Location = new System.Drawing.Point(0, 38);
             this.signInLabel.Name = "signInLabel";
-            this.signInLabel.Size = new System.Drawing.Size(155, 58);
+            this.signInLabel.Size = new System.Drawing.Size(532, 58);
             this.signInLabel.TabIndex = 0;
             this.signInLabel.Text = "Sign In";
+            this.signInLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SignInUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::filmhub.Properties.Resources.background_clear;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackgroundImage = global::filmhub.Properties.Resources.background;
             this.Controls.Add(this.menuPanel);
             this.DoubleBuffered = true;
             this.Name = "SignInUserControl";
-            this.Size = new System.Drawing.Size(1264, 581);
+            this.Size = new System.Drawing.Size(1264, 595);
             this.menuPanel.ResumeLayout(false);
             this.menuPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.backButton)).EndInit();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.PictureBox backButton;
 
         private RoundedTextBox passwordTextBox;
 
