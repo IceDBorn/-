@@ -224,5 +224,10 @@ namespace filmhub.Views
         }
         
         #endregion
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Program.MainForm.UserControlSelector(new MovieViewer(), true);
+        }
     }
 }

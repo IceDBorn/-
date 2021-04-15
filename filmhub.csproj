@@ -126,11 +126,11 @@
         <Compile Include="Views\MainPageUserControl.Designer.cs">
           <DependentUpon>MainPageUserControl.cs</DependentUpon>
         </Compile>
-        <Compile Include="Views\OpenMovieUserControl.cs">
+        <Compile Include="Views\MovieViewerUserControl.cs">
           <SubType>UserControl</SubType>
         </Compile>
-        <Compile Include="Views\OpenMovieUserControl.Designer.cs">
-          <DependentUpon>OpenMovieUserControl.cs</DependentUpon>
+        <Compile Include="Views\MovieViewerUserControl.Designer.cs">
+          <DependentUpon>MovieViewerUserControl.cs</DependentUpon>
         </Compile>
         <Compile Include="Views\RoundedButton.cs" />
         <Compile Include="Views\RoundedTextBox.cs" />
@@ -185,8 +185,8 @@
         <EmbeddedResource Include="Views\MainPageUserControl.resx">
           <DependentUpon>MainPageUserControl.cs</DependentUpon>
         </EmbeddedResource>
-        <EmbeddedResource Include="Views\OpenMovieUserControl.resx">
-          <DependentUpon>OpenMovieUserControl.cs</DependentUpon>
+        <EmbeddedResource Include="Views\MovieViewerUserControl.resx">
+          <DependentUpon>MovieViewerUserControl.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="Views\SettingsUserControl.resx">
           <DependentUpon>SettingsUserControl.cs</DependentUpon>
@@ -243,6 +243,10 @@
       <Content Include="Resources\search_button.png" />
       <Content Include="Resources\search_button1.png" />
       <Content Include="Resources\search_hover.png" />
+      <Content Include="Resources\star.png" />
+      <Content Include="Resources\star_empty.png" />
+      <Content Include="Resources\star_empty_hover.png" />
+      <Content Include="Resources\star_hover.png" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
