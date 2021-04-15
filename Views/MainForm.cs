@@ -49,6 +49,11 @@ namespace filmhub.Views
             GC.Collect();
         }
 
+        private void ResetAccountButtonImage()
+        {
+            accountButton.Image = Resources.account;
+        }
+
         #endregion
 
         #region Events
@@ -78,6 +83,7 @@ namespace filmhub.Views
         {
             Program.MainForm.UserControlSelector(new FavoritesUserControl(), true);
             dropDownPanel.Visible = false;
+            ResetAccountButtonImage();
         }
 
         private void favoritesLabel_MouseHover(object sender, EventArgs e)
@@ -94,6 +100,7 @@ namespace filmhub.Views
         {
             Program.MainForm.UserControlSelector(new WatchlistUserControl(), true);
             dropDownPanel.Visible = false;
+            ResetAccountButtonImage();
         }
 
         private void watchListLabel_MouseHover(object sender, EventArgs e)
@@ -110,6 +117,7 @@ namespace filmhub.Views
         {
             Program.MainForm.UserControlSelector(new HistoryUserControl(), true);
             dropDownPanel.Visible = false;
+            ResetAccountButtonImage();
         }
 
         private void historyLabel_MouseHover(object sender, EventArgs e)
@@ -126,6 +134,7 @@ namespace filmhub.Views
         {
             Program.MainForm.UserControlSelector(new SettingsUserControl(), true);
             dropDownPanel.Visible = false;
+            ResetAccountButtonImage();
         }
 
         private void settingsLabel_MouseHover(object sender, EventArgs e)
@@ -142,6 +151,7 @@ namespace filmhub.Views
         {
             Program.MainForm.UserControlSelector(new WelcomeUserControl(), false);
             dropDownPanel.Visible = false;
+            ResetAccountButtonImage();
         }
 
         private void logoutLabel_MouseHover(object sender, EventArgs e)
@@ -192,7 +202,7 @@ namespace filmhub.Views
         private void accountButton_MouseLeave(object sender, EventArgs e)
         {
             if (dropDownPanel.Visible) return;
-            accountButton.Image = Resources.account;
+            ResetAccountButtonImage();
             GC.Collect();
         }
         
