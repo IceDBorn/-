@@ -1,6 +1,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using filmhub.Models;
 using filmhub.Properties;
 
 namespace filmhub.Views
@@ -104,7 +105,28 @@ namespace filmhub.Views
 
         private void signUpButton_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
+            if (string.IsNullOrEmpty(emailTextBox.Text.Trim()) || emailTextBox.Text.Equals(" E-mail"))
+            {
+                MessageBox.Show("Email is empty.");
+            }
+            else if (string.IsNullOrEmpty(passwordTextBox.Text.Trim()) || passwordTextBox.Text.Equals(" Password"))
+            {
+                MessageBox.Show("Password is empty.");
+            }
+            else if (string.IsNullOrEmpty(confirmPasswordTextBox.Text.Trim()) || confirmPasswordTextBox.Text.Equals(" Confirm password"))
+            {
+                MessageBox.Show("Confirm password is empty.");
+            }
+            else if (!passwordTextBox.Text.Equals(confirmPasswordTextBox.Text))
+            {
+                MessageBox.Show("Passwords do not match.");
+            }
+            else
+            {
+                LoginController.signup(emailTextBox.Text, passwordTextBox.Text);
+                if (Account.getAccountInstance() == null) return;
+                Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
+            }
         }
 
         private void homeButton_Click(object sender, EventArgs e)

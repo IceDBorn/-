@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Sockets;
 using System.Windows.Forms;
 using filmhub.Models;
 using Npgsql;
@@ -11,7 +12,7 @@ namespace filmhub
         public static void login(string email, string password)
         {
             var id = -1;
-            string name = null, surname = null, picture = null;
+            string name = null, picture = null;
             bool admin = false, darkTheme = true;
             var createdOn = NpgsqlDateTime.Infinity;
 
@@ -21,7 +22,7 @@ namespace filmhub
                 con.Open();
 
                 var validateUser =
-                    "SELECT id, name, surname, admin, dark_theme, picture, created_at " +
+                    "SELECT id, name, admin, dark_theme, picture, created_at " +
                     "FROM account " +
                     "WHERE email = '" + email + "' AND password = '" + password + "' " +
                     "LIMIT 1";
@@ -32,12 +33,11 @@ namespace filmhub
                 while (rdr.Read())
                 {
                     id = rdr.GetInt32(0);
-                    name = rdr.GetString(1);
-                    surname = rdr.GetString(2);
-                    admin = rdr.GetBoolean(3);
-                    darkTheme = rdr.GetBoolean(4);
-                    // picture = rdr.GetString(5); TODO: Fix
-                    createdOn = rdr.GetTimeStamp(6);
+                    // name = rdr.GetString(1); TODO: Fix
+                    admin = rdr.GetBoolean(2);
+                    darkTheme = rdr.GetBoolean(3);
+                    // picture = rdr.GetString(4); TODO: Fix
+                    createdOn = rdr.GetTimeStamp(5);
                 }
             }
             catch (Exception e)
@@ -45,7 +45,7 @@ namespace filmhub
                 MessageBox.Show(e.Message);
             }
 
-            if (name != null && id != -1)
+            if (id != -1)
             {
                 if (admin)
                 {
@@ -53,12 +53,51 @@ namespace filmhub
                 }
                 else
                 {
-                    new Account(id, name, surname, email, admin, darkTheme, picture, createdOn).login();
+                    new Account(id, name, email, admin, darkTheme, picture, createdOn).login();
                 }
             }
             else
             {
                 MessageBox.Show("Wrong username or password.");
+            }
+        }
+
+        public static void signup(string email, string password)
+        {
+            try
+            {
+                var con = DatabaseController.getConnection();
+                con.Open();
+
+                const string validateUser =
+                    "INSERT INTO account (email, password, admin, dark_theme) VALUES (@v1,@v2,@v3,@v4)";
+
+                using var cmd = new NpgsqlCommand(validateUser, con);
+                var v1 = cmd.Parameters.Add("v1", NpgsqlDbType.Text);
+                var v2 = cmd.Parameters.Add("v2", NpgsqlDbType.Text);
+                var v3 = cmd.Parameters.Add("v3", NpgsqlDbType.Boolean);
+                var v4 = cmd.Parameters.Add("v4", NpgsqlDbType.Boolean);
+
+                cmd.Prepare();
+
+                v1.Value = email;
+                v2.Value = password;
+                v3.Value = false;
+                v4.Value = true;
+
+                cmd.ExecuteNonQuery();
+
+                login(email, password);
+            }
+            catch (PostgresException e)
+            {
+                MessageBox.Show(e.SqlState.Equals("23505")
+                    ? @"Email already exists."
+                    : @"Something went wrong with the database, please try again.");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(@"Something went wrong, please try again.");
             }
         }
     }
