@@ -21,7 +21,7 @@ namespace filmhub
                 con.Open();
 
                 var validateUser =
-                    "SELECT id, name, surname, admin, dark_theme, picture, created_on " +
+                    "SELECT id, name, surname, admin, dark_theme, picture, created_at " +
                     "FROM account " +
                     "WHERE email = '" + email + "' AND password = '" + password + "' " +
                     "LIMIT 1";
