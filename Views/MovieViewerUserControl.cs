@@ -6,7 +6,13 @@ namespace filmhub.Views
 {
     public partial class MovieViewer : UserControl
     {
+        #region Fields
+
+        // Save star tags
         private int[] _tags;
+
+        #endregion
+        
         #region Constructor
 
         public MovieViewer()
@@ -26,21 +32,26 @@ namespace filmhub.Views
 
         private void SwitchStarImage(int count, bool flag)
         {
+            // Save every star into a pictureBox array
             var stars = new[] {star1, star2, star3, star4, star5};
             
+            // Hover
             if (flag)
             {
                 _tags = new int[5];
                 for (var i = 0; i < count; i++)
                 {
+                    // Save star tag into tags[i]
                     _tags[i] = int.Parse(stars[i].Tag.ToString());
                     stars[i].Image = Resources.star_hover;
                 }
             }
+            // Leave
             else
             {
                 for (var i = 0; i < count; i++)
                 {
+                    // Reset images back to default using tags (0 = empty star, 1 = filled star)
                     stars[i].Image = _tags[i] switch
                     {
                         0 => Resources.star_empty,
