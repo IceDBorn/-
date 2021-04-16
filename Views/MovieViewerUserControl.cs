@@ -39,17 +39,25 @@ namespace filmhub.Views
             if (flag)
             {
                 _tags = new int[5];
-                for (var i = 0; i < count; i++)
+                for (var i = 0; i < 5; i++)
                 {
                     // Save star tag into tags[i]
-                    _tags[i] = int.Parse(stars[i].Tag.ToString());
-                    stars[i].Image = Resources.star_hover;
+                    if (i < count)
+                    {
+                        _tags[i] = int.Parse(stars[i].Tag.ToString());
+                        stars[i].Image = Resources.star_hover;
+                    }
+                    else
+                    {
+                        _tags[i] = int.Parse(stars[i].Tag.ToString());
+                        stars[i].Image = Resources.star_empty;
+                    }
                 }
             }
             // Leave
             else
             {
-                for (var i = 0; i < count; i++)
+                for (var i = 0; i < 5; i++)
                 {
                     // Reset images back to default using tags (0 = empty star, 1 = filled star)
                     stars[i].Image = _tags[i] switch

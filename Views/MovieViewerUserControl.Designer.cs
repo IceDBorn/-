@@ -223,25 +223,25 @@ namespace filmhub.Views
             // 
             // star2
             // 
-            this.star2.Image = global::filmhub.Properties.Resources.star_empty;
+            this.star2.Image = global::filmhub.Properties.Resources.star;
             this.star2.Location = new System.Drawing.Point(441, 294);
             this.star2.Name = "star2";
             this.star2.Size = new System.Drawing.Size(23, 27);
             this.star2.TabIndex = 18;
             this.star2.TabStop = false;
-            this.star2.Tag = "0";
+            this.star2.Tag = "1";
             this.star2.MouseLeave += new System.EventHandler(this.star2_MouseLeave);
             this.star2.MouseHover += new System.EventHandler(this.star2_MouseHover);
             // 
             // star3
             // 
-            this.star3.Image = global::filmhub.Properties.Resources.star_empty;
+            this.star3.Image = global::filmhub.Properties.Resources.star;
             this.star3.Location = new System.Drawing.Point(479, 294);
             this.star3.Name = "star3";
             this.star3.Size = new System.Drawing.Size(23, 27);
             this.star3.TabIndex = 19;
             this.star3.TabStop = false;
-            this.star3.Tag = "0";
+            this.star3.Tag = "1";
             this.star3.MouseLeave += new System.EventHandler(this.star3_MouseLeave);
             this.star3.MouseHover += new System.EventHandler(this.star3_MouseHover);
             // 
