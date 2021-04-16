@@ -7,6 +7,12 @@ namespace filmhub.Views
 {
     public partial class MainForm : Form
     {
+        #region Fields
+        
+        private bool _mouseDown;
+        private Point _lastLocation;
+        
+        #endregion
 
         #region Constructor
 
@@ -33,6 +39,7 @@ namespace filmhub.Views
             settingsLabel.BackColor = Program.Colors.PopOutBackgroundColor;
             logoutLabel.BackColor = Program.Colors.PopOutBackgroundColor;
             dropDownPanel.BackColor = Program.Colors.PopOutBackgroundColor;
+            windowBar.BackColor = Program.Colors.WindowBarBackgroundColor;
         }
 
         public void UserControlSelector(Control userControl, bool flag)
@@ -209,6 +216,60 @@ namespace filmhub.Views
         private void iconsPanel_Click(object sender, EventArgs e)
         {
             HideDropDown();
+        }
+        
+        private void close_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void minimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void close_MouseHover(object sender, EventArgs e)
+        {
+            close.Image = Resources.close_hover;
+            GC.Collect();
+        }
+
+        private void close_MouseLeave(object sender, EventArgs e)
+        {
+            close.Image = Resources.close;
+            GC.Collect();
+        }
+
+        private void minimize_MouseHover(object sender, EventArgs e)
+        {
+            minimize.Image = Resources.minimize_hover;
+            GC.Collect();
+        }
+
+        private void minimize_MouseLeave(object sender, EventArgs e)
+        {
+            minimize.Image = Resources.minimize;
+            GC.Collect();
+        }
+
+        private void windowBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            _mouseDown = true;
+            _lastLocation = e.Location;
+        }
+
+        private void windowBar_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (!_mouseDown) return;
+            Location = new Point(
+                (Location.X - _lastLocation.X) + e.X, (this.Location.Y - _lastLocation.Y) + e.Y);
+
+            Update();
+        }
+
+        private void windowBar_MouseUp(object sender, MouseEventArgs e)
+        {
+            _mouseDown = false;
         }
         
         #endregion

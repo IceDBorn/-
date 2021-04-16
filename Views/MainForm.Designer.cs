@@ -43,6 +43,9 @@
             this.settingsLabel = new System.Windows.Forms.Label();
             this.historyLabel = new System.Windows.Forms.Label();
             this.mainPage = new System.Windows.Forms.UserControl();
+            this.windowBar = new System.Windows.Forms.Panel();
+            this.minimize = new System.Windows.Forms.PictureBox();
+            this.close = new System.Windows.Forms.PictureBox();
             this.navBar.SuspendLayout();
             this.iconsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.homeButton)).BeginInit();
@@ -50,6 +53,9 @@
             ((System.ComponentModel.ISupportInitialize) (this.searchButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.logoPictureBox)).BeginInit();
             this.dropDownPanel.SuspendLayout();
+            this.windowBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.minimize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.close)).BeginInit();
             this.SuspendLayout();
             // 
             // navBar
@@ -57,7 +63,7 @@
             this.navBar.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.navBar.Controls.Add(this.iconsPanel);
             this.navBar.Controls.Add(this.logoPictureBox);
-            this.navBar.Location = new System.Drawing.Point(0, 0);
+            this.navBar.Location = new System.Drawing.Point(0, 37);
             this.navBar.Name = "navBar";
             this.navBar.Size = new System.Drawing.Size(1264, 88);
             this.navBar.TabIndex = 0;
@@ -142,7 +148,7 @@
             this.dropDownPanel.Controls.Add(this.watchListLabel);
             this.dropDownPanel.Controls.Add(this.settingsLabel);
             this.dropDownPanel.Controls.Add(this.historyLabel);
-            this.dropDownPanel.Location = new System.Drawing.Point(1131, 88);
+            this.dropDownPanel.Location = new System.Drawing.Point(1130, 124);
             this.dropDownPanel.Name = "dropDownPanel";
             this.dropDownPanel.Size = new System.Drawing.Size(134, 195);
             this.dropDownPanel.TabIndex = 10;
@@ -222,21 +228,59 @@
             // mainPage
             // 
             this.mainPage.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.mainPage.Location = new System.Drawing.Point(0, 88);
+            this.mainPage.Location = new System.Drawing.Point(0, 125);
             this.mainPage.Name = "mainPage";
             this.mainPage.Size = new System.Drawing.Size(1264, 595);
             this.mainPage.TabIndex = 1;
+            // 
+            // windowBar
+            // 
+            this.windowBar.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.windowBar.Controls.Add(this.minimize);
+            this.windowBar.Controls.Add(this.close);
+            this.windowBar.Location = new System.Drawing.Point(0, 0);
+            this.windowBar.Name = "windowBar";
+            this.windowBar.Size = new System.Drawing.Size(1264, 37);
+            this.windowBar.TabIndex = 11;
+            this.windowBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.windowBar_MouseDown);
+            this.windowBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.windowBar_MouseMove);
+            this.windowBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.windowBar_MouseUp);
+            // 
+            // minimize
+            // 
+            this.minimize.Image = global::filmhub.Properties.Resources.minimize;
+            this.minimize.Location = new System.Drawing.Point(1191, 5);
+            this.minimize.Name = "minimize";
+            this.minimize.Size = new System.Drawing.Size(23, 26);
+            this.minimize.TabIndex = 1;
+            this.minimize.TabStop = false;
+            this.minimize.Click += new System.EventHandler(this.minimize_Click);
+            this.minimize.MouseLeave += new System.EventHandler(this.minimize_MouseLeave);
+            this.minimize.MouseHover += new System.EventHandler(this.minimize_MouseHover);
+            // 
+            // close
+            // 
+            this.close.Image = global::filmhub.Properties.Resources.close;
+            this.close.Location = new System.Drawing.Point(1229, 5);
+            this.close.Name = "close";
+            this.close.Size = new System.Drawing.Size(23, 26);
+            this.close.TabIndex = 0;
+            this.close.TabStop = false;
+            this.close.Click += new System.EventHandler(this.close_Click);
+            this.close.MouseLeave += new System.EventHandler(this.close_MouseLeave);
+            this.close.MouseHover += new System.EventHandler(this.close_MouseHover);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.ClientSize = new System.Drawing.Size(1264, 720);
+            this.Controls.Add(this.windowBar);
             this.Controls.Add(this.dropDownPanel);
             this.Controls.Add(this.mainPage);
             this.Controls.Add(this.navBar);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -249,9 +293,15 @@
             ((System.ComponentModel.ISupportInitialize) (this.searchButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.logoPictureBox)).EndInit();
             this.dropDownPanel.ResumeLayout(false);
+            this.windowBar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize) (this.minimize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.close)).EndInit();
             this.ResumeLayout(false);
         }
 
+        private System.Windows.Forms.Panel windowBar;
+        private System.Windows.Forms.PictureBox close;
+        private System.Windows.Forms.PictureBox minimize;
         private System.Windows.Forms.PictureBox homeButton;
         private System.Windows.Forms.Panel dropDownPanel;
         private System.Windows.Forms.Panel iconsPanel;
