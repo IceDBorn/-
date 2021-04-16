@@ -106,6 +106,7 @@
             this.searchBar.TabStop = false;
             this.searchBar.Text = " Enter your search";
             this.searchBar.Enter += new System.EventHandler(this.searchBar_Enter);
+            this.searchBar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.searchBar_KeyUp);
             this.searchBar.Leave += new System.EventHandler(this.searchBar_Leave);
             // 
             // accountButton
@@ -129,6 +130,7 @@
             this.searchButton.Size = new System.Drawing.Size(43, 43);
             this.searchButton.TabIndex = 2;
             this.searchButton.TabStop = false;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             this.searchButton.MouseLeave += new System.EventHandler(this.searchButton_MouseLeave);
             this.searchButton.MouseHover += new System.EventHandler(this.searchButton_MouseHover);
             // 
