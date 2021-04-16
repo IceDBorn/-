@@ -213,14 +213,9 @@
     </ItemGroup>
     <ItemGroup>
       <Content Include="Resources\account.png" />
-      <Content Include="Resources\account_button.png" />
-      <Content Include="Resources\account_button1.png" />
       <Content Include="Resources\account_hover.png" />
       <Content Include="Resources\back.png" />
       <Content Include="Resources\background.jpg" />
-      <Content Include="Resources\background.png" />
-      <Content Include="Resources\background1.jpg" />
-      <Content Include="Resources\background_clear.png" />
       <Content Include="Resources\background_slogan.jpg" />
       <Content Include="Resources\back_hover.png" />
       <Content Include="Resources\close.png" />
@@ -232,18 +227,10 @@
       <Content Include="Resources\menu_hover.png" />
       <Content Include="Resources\minimize.png" />
       <Content Include="Resources\minimize_hover.png" />
-      <Content Include="Resources\outline_favorite_border_white_24dp.png" />
-      <Content Include="Resources\outline_favorite_border_white_24dp1.png" />
-      <Content Include="Resources\outline_favorite_border_white_24dp2.png" />
-      <Content Include="Resources\outline_star_outline_white_24dp.png" />
-      <Content Include="Resources\outline_star_outline_white_24dp1.png" />
       <Content Include="Resources\search.png" />
-      <Content Include="Resources\search_button.png" />
-      <Content Include="Resources\search_button1.png" />
       <Content Include="Resources\search_hover.png" />
       <Content Include="Resources\star.png" />
       <Content Include="Resources\star_empty.png" />
-      <Content Include="Resources\star_empty_hover.png" />
       <Content Include="Resources\star_hover.png" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
