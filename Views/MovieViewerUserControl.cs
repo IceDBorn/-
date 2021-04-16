@@ -6,6 +6,7 @@ namespace filmhub.Views
 {
     public partial class MovieViewer : UserControl
     {
+        private int[] _tags;
         #region Constructor
 
         public MovieViewer()
@@ -23,33 +24,29 @@ namespace filmhub.Views
             BackColor = Program.Colors.BackgroundColor;
         }
 
-        private static void SwitchStarImage(PictureBox star)
+        private void SwitchStarImage(int count, bool flag)
         {
-            switch (int.Parse(star.Tag.ToString()))
+            var stars = new[] {star1, star2, star3, star4, star5};
+            
+            if (flag)
             {
-                case 0:
+                _tags = new int[5];
+                for (var i = 0; i < count; i++)
                 {
-                    star.Image = Resources.star_empty_hover;
-                    star.Tag = 1;
-                    break;
+                    _tags[i] = int.Parse(stars[i].Tag.ToString());
+                    stars[i].Image = Resources.star_hover;
                 }
-                case 1:
+            }
+            else
+            {
+                for (var i = 0; i < count; i++)
                 {
-                    star.Image = Resources.star_empty;
-                    star.Tag = 0;
-                    break;
-                }
-                case 2:
-                {
-                    star.Image = Resources.star_hover;
-                    star.Tag = 3;
-                    break;
-                }
-                case 3:
-                {
-                    star.Image = Resources.star;
-                    star.Tag = 2;
-                    break;
+                    stars[i].Image = _tags[i] switch
+                    {
+                        0 => Resources.star_empty,
+                        1 => Resources.star,
+                        _ => stars[i].Image
+                    };
                 }
             }
         }
@@ -60,52 +57,52 @@ namespace filmhub.Views
 
         private void star1_MouseHover(object sender, EventArgs e)
         {
-            SwitchStarImage(star1);
+            SwitchStarImage(1, true);
         }
 
         private void star1_MouseLeave(object sender, EventArgs e)
         {
-            SwitchStarImage(star1);
+            SwitchStarImage(1, false);
         }
 
         private void star2_MouseHover(object sender, EventArgs e)
         {
-            SwitchStarImage(star2);
+            SwitchStarImage(2, true);
         }
 
         private void star2_MouseLeave(object sender, EventArgs e)
         {
-            SwitchStarImage(star2);
+            SwitchStarImage(2, false);
         }
 
         private void star3_MouseHover(object sender, EventArgs e)
         {
-            SwitchStarImage(star3);
+            SwitchStarImage(3, true);
         }
 
         private void star3_MouseLeave(object sender, EventArgs e)
         {
-            SwitchStarImage(star3);
+            SwitchStarImage(3,false);
         }
 
         private void star4_MouseHover(object sender, EventArgs e)
         {
-            SwitchStarImage(star4);
+            SwitchStarImage(4, true);
         }
 
         private void star4_MouseLeave(object sender, EventArgs e)
         {
-            SwitchStarImage(star4);
+            SwitchStarImage(4, false);
         }
 
         private void star5_MouseHover(object sender, EventArgs e)
         {
-            SwitchStarImage(star5);
+            SwitchStarImage(5, true);
         }
 
         private void star5_MouseLeave(object sender, EventArgs e)
         {
-            SwitchStarImage(star5);
+            SwitchStarImage(5, false);
         }
 
         #endregion

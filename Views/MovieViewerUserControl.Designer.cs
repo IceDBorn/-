@@ -217,7 +217,7 @@ namespace filmhub.Views
             this.star1.Size = new System.Drawing.Size(23, 27);
             this.star1.TabIndex = 17;
             this.star1.TabStop = false;
-            this.star1.Tag = "2";
+            this.star1.Tag = "1";
             this.star1.MouseLeave += new System.EventHandler(this.star1_MouseLeave);
             this.star1.MouseHover += new System.EventHandler(this.star1_MouseHover);
             // 
