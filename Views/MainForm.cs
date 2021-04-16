@@ -88,7 +88,7 @@ namespace filmhub.Views
 
         private void favoritesLabel_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new FavoritesUserControl(), true);
+            Program.MainForm.UserControlSelector(new ListUserControl(favoritesLabel.Text,false), true);
             dropDownPanel.Visible = false;
             ResetAccountButtonImage();
         }
@@ -105,7 +105,7 @@ namespace filmhub.Views
 
         private void watchListLabel_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new WatchlistUserControl(), true);
+            Program.MainForm.UserControlSelector(new ListUserControl(watchListLabel.Text,false), true);
             dropDownPanel.Visible = false;
             ResetAccountButtonImage();
         }
@@ -122,7 +122,7 @@ namespace filmhub.Views
 
         private void historyLabel_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new HistoryUserControl(), true);
+            Program.MainForm.UserControlSelector(new ListUserControl(historyLabel.Text,false), true);
             dropDownPanel.Visible = false;
             ResetAccountButtonImage();
         }
@@ -270,6 +270,18 @@ namespace filmhub.Views
         private void windowBar_MouseUp(object sender, MouseEventArgs e)
         {
             _mouseDown = false;
+        }
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            Program.MainForm.UserControlSelector(new ListUserControl("Search",false), true);
+        }
+
+        private void searchBar_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && !string.IsNullOrEmpty(searchBar.Text.Trim()))
+            {
+                Program.MainForm.UserControlSelector(new ListUserControl("Search",false), true);
+            }
         }
         
         #endregion
