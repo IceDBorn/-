@@ -7,6 +7,7 @@ namespace filmhub.Views
         #region Fields
         
         // Create global colors
+        public Color WindowBarBackgroundColor { get; } = Color.FromArgb(7, 7, 7);
         public Color NavBarBackgroundColor { get; } = Color.FromArgb(20,20,20);
         public Color BackgroundColor { get; } = Color.FromArgb(33,33,33);
         public Color PopOutBackgroundColor { get; } = Color.FromArgb(50,50,50);
