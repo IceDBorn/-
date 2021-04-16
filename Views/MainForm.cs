@@ -262,7 +262,7 @@ namespace filmhub.Views
         {
             if (!_mouseDown) return;
             Location = new Point(
-                (Location.X - _lastLocation.X) + e.X, (this.Location.Y - _lastLocation.Y) + e.Y);
+                (Location.X - _lastLocation.X) + e.X, (Location.Y - _lastLocation.Y) + e.Y);
 
             Update();
         }
