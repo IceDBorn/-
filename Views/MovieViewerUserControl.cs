@@ -39,6 +39,7 @@ namespace filmhub.Views
             if (flag)
             {
                 _tags = new int[5];
+                
                 for (var i = 0; i < 5; i++)
                 {
                     // Save star tag into tags[i]
@@ -55,7 +56,7 @@ namespace filmhub.Views
                 }
             }
             // Leave
-            else
+            else if (_tags != null)
             {
                 for (var i = 0; i < 5; i++)
                 {
