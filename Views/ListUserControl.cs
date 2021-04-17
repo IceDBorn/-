@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using filmhub.Controllers;
 using filmhub.Properties;
@@ -15,9 +17,9 @@ namespace filmhub.Views
             InitializeColors();
             this.menu.Visible = menu;
             window.Text = title;
-            SearchEngine.createIndex();
-            var sE = new SearchEngine("./IndexedDatabase");
-            var list = new List<int>(sE.SearchIdResults(result));
+            var sE = new SearchController("./IndexedDatabase");
+            if (!Directory.Exists("./IndexedDatabase") || IsDirectoryEmpty("./IndexedDatabase")) SearchController.createIndex();
+            var list = new List<int>(SearchController.SearchIdResults(result));
             
             try
             {
@@ -71,6 +73,11 @@ namespace filmhub.Views
             categoriesPanel.Controls.Clear();
             categoriesPanel.Controls.Add(new CategoriesUserControl());
             categoriesPanel.Visible = true;
+        }
+
+        private static bool IsDirectoryEmpty(string path)
+        {
+            return !Directory.EnumerateFileSystemEntries(path).Any();
         }
     }
 }

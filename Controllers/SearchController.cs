@@ -30,7 +30,7 @@ namespace filmhub.Controllers
             var writer = new IndexWriter(dir, config);
             return writer;
         }
-        
+
         private static Document CreateDocument(int id, string text)
         {
             var document = new Document
