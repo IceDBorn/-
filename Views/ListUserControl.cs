@@ -15,10 +15,10 @@ namespace filmhub.Views
             InitializeColors();
             this.menu.Visible = menu;
             window.Text = title;
-
+            SearchEngine.createIndex();
             var sE = new SearchEngine("./IndexedDatabase");
             var list = new List<int>(sE.SearchIdResults(result));
-
+            
             try
             {
                 var con = DatabaseController.getConnection();

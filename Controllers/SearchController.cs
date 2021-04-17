@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 using Lucene.Net.Analysis.Standard;
 using Lucene.Net.Documents;
 using Lucene.Net.Index;
@@ -7,22 +9,23 @@ using Lucene.Net.QueryParsers.Classic;
 using Lucene.Net.Search;
 using Lucene.Net.Store;
 using Lucene.Net.Util;
+using Npgsql;
 
 namespace filmhub.Controllers
 {
     public class SearchEngine
     {
-        private String path;    
+        private static string _path;    
         
-        public SearchEngine(String path)
+        public SearchEngine(string path)
         {
             //path is the folder for index files
-            this.path = path;
+            _path = path;
         }
         
-        public IndexWriter CreateWriter()
+        private static IndexWriter CreateWriter()
         {
-            FSDirectory dir = FSDirectory.Open(path);
+            FSDirectory dir = FSDirectory.Open(_path);
             IndexWriterConfig config = new IndexWriterConfig(LuceneVersion.LUCENE_48,new StandardAnalyzer(LuceneVersion.LUCENE_48));
             IndexWriter writer = new IndexWriter(dir, config);
             return writer;
@@ -30,7 +33,7 @@ namespace filmhub.Controllers
         
         
         //Create entity for indexing. ID=movie id in database, text=text to be scanned on user search (title+" "+stars"+" "+...)
-        public Document CreateDocument(int id, String movie, String text) 
+        private static Document CreateDocument(int id, string text) 
         {
             Document document = new Document();
             document.Add(new StringField("id", id.ToString() , Field.Store.YES));
@@ -40,13 +43,13 @@ namespace filmhub.Controllers
         
         public IndexSearcher CreateSearcher()
         {
-            Directory dir = FSDirectory.Open(path);
+            Directory dir = FSDirectory.Open(_path);
             IndexReader reader = DirectoryReader.Open(dir);
             IndexSearcher searcher = new IndexSearcher(reader);
             return searcher;
         }
         
-        public TopDocs Search(String text, IndexSearcher searcher)
+        public TopDocs Search(string text, IndexSearcher searcher)
         {
             QueryParser qp = new QueryParser(LuceneVersion.LUCENE_40, "text",
                 new StandardAnalyzer(LuceneVersion.LUCENE_40));
@@ -55,7 +58,7 @@ namespace filmhub.Controllers
             return hits;
         }
         
-        public void Indexer(List<Document> list)
+        private static void Indexer(List<Document> list)
         {
             IndexWriter writer = CreateWriter();
             writer.AddDocuments(list);
@@ -63,7 +66,7 @@ namespace filmhub.Controllers
             writer.Dispose();
         }
 
-        public List<int> SearchIdResults(String searchQuery)
+        public List<int> SearchIdResults(string searchQuery)
         {
             IndexSearcher searcher = CreateSearcher();
             TopDocs foundDocs = Search(searchQuery, searcher);
@@ -77,6 +80,34 @@ namespace filmhub.Controllers
                 results.Add(Int32.Parse(searcher.Doc(sd.Doc).Get("id")));
             }
             return results;
+        }
+
+        public static void createIndex()
+        {
+            try {
+                var con = DatabaseController.getConnection();
+                con.Open();
+
+                var movieData = 
+                    "SELECT id,name " +
+                    "FROM movie ";
+                
+                using var cmd = new NpgsqlCommand(movieData, con);
+
+                using var rdr = cmd.ExecuteReader();
+                
+                List<Document> list= new List<Document>();
+                
+                while (rdr.Read())
+                {
+                    list.Add(CreateDocument(rdr.GetInt32(0),rdr.GetString(1)));
+                    
+                }
+                Indexer(list);
+            } catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
         
         
