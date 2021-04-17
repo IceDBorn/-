@@ -51,8 +51,8 @@ namespace filmhub.Controllers
 
         private static TopDocs Search(string text, IndexSearcher searcher)
         {
-            var qp = new QueryParser(LuceneVersion.LUCENE_40, "text",
-                new StandardAnalyzer(LuceneVersion.LUCENE_40));
+            var qp = new QueryParser(LuceneVersion.LUCENE_48, "text",
+                new StandardAnalyzer(LuceneVersion.LUCENE_48));
             var escapedString = QueryParserBase.Escape(text);
             var idQuery = qp.Parse(escapedString);
             var hits = searcher.Search(idQuery, 10);
