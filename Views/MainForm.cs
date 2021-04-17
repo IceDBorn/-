@@ -274,14 +274,24 @@ namespace filmhub.Views
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new ListUserControl("Search", false, searchBar.Text.Trim()), true);
+            if (string.IsNullOrEmpty(searchBar.Text.Trim()) ||
+                searchBar.Text.Trim().Equals("Enter your search"))
+            {
+                return;
+            }
+
+            Program.MainForm.UserControlSelector(
+                new ListUserControl("Search", false, searchBar.Text.Trim()), true
+            );
         }
 
         private void searchBar_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter && !string.IsNullOrEmpty(searchBar.Text.Trim()))
             {
-                Program.MainForm.UserControlSelector(new ListUserControl("Search", false, searchBar.Text.Trim()), true);
+                Program.MainForm.UserControlSelector(
+                    new ListUserControl("Search", false, searchBar.Text.Trim()), true
+                );
             }
         }
 
