@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Linq;
+using System.Net;
 using System.Windows.Forms;
 using filmhub.Controllers;
 using filmhub.Properties;
@@ -12,6 +12,8 @@ namespace filmhub.Views
 {
     public partial class ListUserControl : UserControl
     {
+        #region Constructors
+
         public ListUserControl(string title, bool menu, string result)
         {
             InitializeComponent();
@@ -29,6 +31,10 @@ namespace filmhub.Views
             window.Text = title;
         }
 
+        #endregion
+
+        #region Methods
+
         private void InitializeColors()
         {
             BackColor = Program.Colors.BackgroundColor;
@@ -36,30 +42,65 @@ namespace filmhub.Views
             moviesList.ForeColor = Color.White;
         }
 
-        private void Search(string result)
+        private static Image DownloadImageFromUrl(string imageUrl)
         {
-            var sE = new SearchController("./IndexedDatabase");
-            if (!Directory.Exists("./IndexedDatabase") || IsDirectoryEmpty("./IndexedDatabase")) SearchController.createIndex();
-            var list = new List<int>(SearchController.SearchIdResults(result));
-            
+            Image image;
+
+            try
+            {
+                var webRequest = (HttpWebRequest) WebRequest.Create(imageUrl);
+                webRequest.AllowWriteStreamBuffering = true;
+                webRequest.Timeout = 30000;
+
+                var webResponse = webRequest.GetResponse();
+
+                var stream = webResponse.GetResponseStream();
+
+                image = Image.FromStream(stream ?? throw new InvalidOperationException());
+
+                webResponse.Close();
+            }
+            catch
+            {
+                return null;
+            }
+
+            return image;
+        }
+
+        private void FillListView(IEnumerable<int> list)
+        {
+            imageList.Images.Clear();
             try
             {
                 var con = DatabaseController.getConnection();
                 con.Open();
-                
+
                 moviesList.Columns.Add("", -2, HorizontalAlignment.Left);
-                
-                foreach (var query in list.Select(i => "SELECT name FROM movie WHERE id = " + i))
+                var count = 0;
+
+                foreach (var query in list.Select(i => "SELECT name,picture FROM movie WHERE id = " + i))
                 {
                     using var cmd = new NpgsqlCommand(query, con);
                     using var rdr = cmd.ExecuteReader();
+                    
                     while (rdr.Read())
                     {
-                        var rand = new Random();
-                        var index = rand.Next(0, 20);
-                        var item = new ListViewItem(new[] {"     " +rdr.GetString(0)}) {ImageIndex = index};
+                        
+                        try
+                        {
+                            imageList.Images.Add(DownloadImageFromUrl(rdr.GetString(1)));
+                        }
+                        catch
+                        {
+                            // ignored
+                        }
+                        
+                        var item = new ListViewItem(new[] {"     " + rdr.GetString(0)}) {ImageIndex = count};
                         moviesList.Items.Add(item);
                     }
+
+                    count++;
                 }
             }
             catch (Exception e)
@@ -67,6 +108,15 @@ namespace filmhub.Views
                 MessageBox.Show(e.Message);
             }
         }
+
+        private void Search(string result)
+        {
+            FillListView(SearchController.CreateIndexFolder(result));
+        }
+
+        #endregion
+
+        #region Events
 
         private void menu_MouseLeave(object sender, EventArgs e)
         {
@@ -87,9 +137,6 @@ namespace filmhub.Views
             categoriesPanel.Visible = true;
         }
 
-        private static bool IsDirectoryEmpty(string path)
-        {
-            return !Directory.EnumerateFileSystemEntries(path).Any();
-        }
+        #endregion
     }
 }

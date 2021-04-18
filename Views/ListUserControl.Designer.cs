@@ -32,7 +32,6 @@ namespace filmhub.Views
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListUserControl));
             this.window = new System.Windows.Forms.Label();
             this.moviesList = new System.Windows.Forms.ListView();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
@@ -67,29 +66,9 @@ namespace filmhub.Views
             // 
             // imageList
             // 
-            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer) (resources.GetObject("imageList.ImageStream")));
+            this.imageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            this.imageList.ImageSize = new System.Drawing.Size(100, 150);
             this.imageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList.Images.SetKeyName(0, "account.png");
-            this.imageList.Images.SetKeyName(1, "account_hover.png");
-            this.imageList.Images.SetKeyName(2, "back.png");
-            this.imageList.Images.SetKeyName(3, "back_hover.png");
-            this.imageList.Images.SetKeyName(4, "background.jpg");
-            this.imageList.Images.SetKeyName(5, "background_slogan.jpg");
-            this.imageList.Images.SetKeyName(6, "close.png");
-            this.imageList.Images.SetKeyName(7, "close_hover.png");
-            this.imageList.Images.SetKeyName(8, "home.png");
-            this.imageList.Images.SetKeyName(9, "home_hover.png");
-            this.imageList.Images.SetKeyName(10, "icon.ico");
-            this.imageList.Images.SetKeyName(11, "logo.png");
-            this.imageList.Images.SetKeyName(12, "menu.png");
-            this.imageList.Images.SetKeyName(13, "menu_hover.png");
-            this.imageList.Images.SetKeyName(14, "minimize.png");
-            this.imageList.Images.SetKeyName(15, "minimize_hover.png");
-            this.imageList.Images.SetKeyName(16, "search.png");
-            this.imageList.Images.SetKeyName(17, "search_hover.png");
-            this.imageList.Images.SetKeyName(18, "star.png");
-            this.imageList.Images.SetKeyName(19, "star_empty.png");
-            this.imageList.Images.SetKeyName(20, "star_hover.png");
             // 
             // menu
             // 
@@ -109,7 +88,7 @@ namespace filmhub.Views
             this.categoriesPanel.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.categoriesPanel.Location = new System.Drawing.Point(0, 0);
             this.categoriesPanel.Name = "categoriesPanel";
-            this.categoriesPanel.Size = new System.Drawing.Size(248, 592);
+            this.categoriesPanel.Size = new System.Drawing.Size(248, 594);
             this.categoriesPanel.TabIndex = 3;
             this.categoriesPanel.Visible = false;
             // 
