@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -17,29 +18,7 @@ namespace filmhub.Views
             InitializeColors();
             this.menu.Visible = menu;
             window.Text = title;
-            var sE = new SearchController("./IndexedDatabase");
-            if (!Directory.Exists("./IndexedDatabase") || IsDirectoryEmpty("./IndexedDatabase")) SearchController.createIndex();
-            var list = new List<int>(SearchController.SearchIdResults(result));
-            
-            try
-            {
-                var con = DatabaseController.getConnection();
-                con.Open();
-                foreach (var i in list)
-                {
-                    var query = "SELECT name FROM movie WHERE id = " + i;
-                    using var cmd = new NpgsqlCommand(query, con);
-                    using var rdr = cmd.ExecuteReader();
-                    while (rdr.Read())
-                    {
-                        listView1.Items.Add(rdr.GetString(0));
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
+            Search(result);
         }
 
         public ListUserControl(string title, bool menu)
@@ -53,7 +32,40 @@ namespace filmhub.Views
         private void InitializeColors()
         {
             BackColor = Program.Colors.BackgroundColor;
-            listView1.BackColor = Program.Colors.BackgroundColor;
+            moviesList.BackColor = Program.Colors.BackgroundColor;
+            moviesList.ForeColor = Color.White;
+        }
+
+        private void Search(string result)
+        {
+            var sE = new SearchController("./IndexedDatabase");
+            if (!Directory.Exists("./IndexedDatabase") || IsDirectoryEmpty("./IndexedDatabase")) SearchController.createIndex();
+            var list = new List<int>(SearchController.SearchIdResults(result));
+            
+            try
+            {
+                var con = DatabaseController.getConnection();
+                con.Open();
+                
+                moviesList.Columns.Add("", -2, HorizontalAlignment.Left);
+                
+                foreach (var query in list.Select(i => "SELECT name FROM movie WHERE id = " + i))
+                {
+                    using var cmd = new NpgsqlCommand(query, con);
+                    using var rdr = cmd.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        var rand = new Random();
+                        var index = rand.Next(0, 20);
+                        var item = new ListViewItem(new[] {"     " +rdr.GetString(0)}) {ImageIndex = index};
+                        moviesList.Items.Add(item);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
         private void menu_MouseLeave(object sender, EventArgs e)
