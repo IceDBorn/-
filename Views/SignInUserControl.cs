@@ -1,5 +1,6 @@
 using System;
 using System.Drawing;
+using System.Media;
 using System.Windows.Forms;
 using filmhub.Models;
 using filmhub.Properties;
@@ -30,6 +31,27 @@ namespace filmhub.Views
             signInButton.BackColor = Program.Colors.AccentColor;
             signInButton.FlatAppearance.BorderColor = Program.Colors.AccentColor;
             newLabel.ForeColor = Program.Colors.DarkTextColor;
+        }
+
+        private void Login()
+        {
+            if (string.IsNullOrEmpty(emailTextBox.Text.Trim()) || emailTextBox.Text.Equals(" E-mail"))
+            {
+                SystemSounds.Beep.Play();
+                MessageBox.Show(@"Email is empty.");
+                
+            }
+            else if (string.IsNullOrEmpty(passwordTextBox.Text.Trim()) || passwordTextBox.Text.Equals(" Password"))
+            {
+                SystemSounds.Beep.Play();
+                MessageBox.Show(@"Password is empty.");
+            }
+            else
+            {
+                LoginController.login(emailTextBox.Text, passwordTextBox.Text);
+                if (Account.getAccountInstance() == null) return;
+                Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
+            }
         }
 
         #endregion
@@ -78,9 +100,7 @@ namespace filmhub.Views
 
         private void signInButton_Click(object sender, EventArgs e)
         {
-            LoginController.login(emailTextBox.Text, passwordTextBox.Text);
-            if (Account.getAccountInstance() == null) return;
-            Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
+            Login();
         }
 
         private void signUpLabel_Click(object sender, EventArgs e)
@@ -103,6 +123,20 @@ namespace filmhub.Views
         {
             backButton.Image = Resources.back;
             GC.Collect();
+        }
+        
+        private void emailTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Enter) return;
+            Login();
+            e.SuppressKeyPress = true;
+        }
+
+        private void passwordTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Enter) return;
+            Login();
+            e.SuppressKeyPress = true;
         }
 
         #endregion
