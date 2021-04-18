@@ -62,7 +62,7 @@ namespace filmhub.Views
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new MovieViewer(), true);
+            Program.MainForm.UserControlSelector(new MovieViewerUserControl(), true);
         }
     }
 }

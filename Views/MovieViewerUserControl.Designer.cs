@@ -2,7 +2,7 @@
 
 namespace filmhub.Views
 {
-    partial class MovieViewer
+    partial class MovieViewerUserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -31,7 +31,7 @@ namespace filmhub.Views
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MovieViewer));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MovieViewerUserControl));
             this.titleLabel = new System.Windows.Forms.Label();
             this.movieImage = new System.Windows.Forms.PictureBox();
             this.descriptionLabel = new System.Windows.Forms.Label();

@@ -99,9 +99,10 @@ namespace filmhub.Views
                         var item = new ListViewItem(new[] {"     " + rdr.GetString(0)}) {ImageIndex = count};
                         moviesList.Items.Add(item);
                     }
-
                     count++;
                 }
+
+                if (moviesList.Items.Count == 0) window.Text = @"No search results";
             }
             catch (Exception e)
             {
@@ -135,6 +136,11 @@ namespace filmhub.Views
             categoriesPanel.Controls.Clear();
             categoriesPanel.Controls.Add(new CategoriesUserControl());
             categoriesPanel.Visible = true;
+        }
+        
+        private void moviesList_ItemActivate(object sender, EventArgs e)
+        {
+            Program.MainForm.UserControlSelector(new MovieViewerUserControl(), true);
         }
 
         #endregion

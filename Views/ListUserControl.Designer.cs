@@ -63,6 +63,7 @@ namespace filmhub.Views
             this.moviesList.TabIndex = 1;
             this.moviesList.UseCompatibleStateImageBehavior = false;
             this.moviesList.View = System.Windows.Forms.View.Details;
+            this.moviesList.ItemActivate += new System.EventHandler(this.moviesList_ItemActivate);
             // 
             // imageList
             // 

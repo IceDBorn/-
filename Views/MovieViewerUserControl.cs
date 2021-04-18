@@ -4,7 +4,7 @@ using filmhub.Properties;
 
 namespace filmhub.Views
 {
-    public partial class MovieViewer : UserControl
+    public partial class MovieViewerUserControl : UserControl
     {
         #region Fields
 
@@ -15,7 +15,7 @@ namespace filmhub.Views
         
         #region Constructor
 
-        public MovieViewer()
+        public MovieViewerUserControl()
         {
             InitializeComponent();
             InitializeColors();
