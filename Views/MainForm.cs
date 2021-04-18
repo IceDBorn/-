@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using filmhub.Models;
 using filmhub.Properties;
 
 namespace filmhub.Views
@@ -159,6 +160,7 @@ namespace filmhub.Views
             Program.MainForm.UserControlSelector(new WelcomeUserControl(), false);
             dropDownPanel.Visible = false;
             ResetAccountButtonImage();
+            Account.logout();
         }
 
         private void logoutLabel_MouseHover(object sender, EventArgs e)
