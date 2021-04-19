@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Net;
 using System.Windows.Forms;
+using filmhub.Controllers;
 using filmhub.Properties;
 using Npgsql;
 
@@ -88,7 +89,7 @@ namespace filmhub.Views
             try
             {
                 moviesList.Images.Clear();
-                var con = DatabaseController.getConnection();
+                var con = DatabaseController.GetConnection();
                 con.Open();
 
                 using var cmd = new NpgsqlCommand(query, con);

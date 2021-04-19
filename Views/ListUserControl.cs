@@ -79,7 +79,7 @@ namespace filmhub.Views
             imageList.Images.Clear();
             try
             {
-                var con = DatabaseController.getConnection();
+                var con = DatabaseController.GetConnection();
                 con.Open();
 
                 moviesList.Columns.Add("", -2, HorizontalAlignment.Left);

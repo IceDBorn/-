@@ -95,7 +95,7 @@ namespace filmhub.Controllers
         {
             try
             {
-                var con = DatabaseController.getConnection();
+                var con = DatabaseController.GetConnection();
                 con.Open();
 
                 const string movieData = "SELECT id,name " +

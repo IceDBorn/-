@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
+using filmhub.Controllers;
 using filmhub.Models;
 using filmhub.Properties;
 
@@ -62,7 +63,7 @@ namespace filmhub.Views
             }
             else
             {
-                LoginController.signup(emailTextBox.Text, passwordTextBox.Text);
+                LoginController.Signup(emailTextBox.Text, passwordTextBox.Text);
                 if (Account.getAccountInstance() == null) return;
                 Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
             }

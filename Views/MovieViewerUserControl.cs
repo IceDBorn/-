@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using filmhub.Controllers;
 using filmhub.Properties;
 using Npgsql;
 
@@ -37,11 +38,11 @@ namespace filmhub.Views
         {
             movieImage.Image = image;
             
-            var con = DatabaseController.getConnection();
+            var con = DatabaseController.GetConnection();
             con.Open();
 
             var query =
-                "SELECT movie.name, description, director, writer, stars, release_date, genre.name " +
+                "SELECT movie.name, description, director, writer, stars, release_date, genre.name, rating " +
                 "FROM movie " +
                 "JOIN genre ON genre_id = genre.id " +
                 "WHERE movie.id = " +
