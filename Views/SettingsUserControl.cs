@@ -1,5 +1,10 @@
 using System;
+using System.IO;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using Imgur.API.Authentication;
+using Imgur.API.Endpoints;
 
 namespace filmhub.Views
 {
@@ -32,12 +37,39 @@ namespace filmhub.Views
             confirmTextBox.Text = "";
         }
 
-        private void uploadButton_Click(object sender, EventArgs e)
+        private async void uploadButton_Click(object sender, EventArgs e)
         {
             photoBrowser.FileName = "";
             photoBrowser.Title = @"Select photo to upload";
             photoBrowser.Filter = @"Image Files(*.BMP;*.JPG;*.GIF,.PNG)|*.BMP;*.JPG;*.GIF;*.PNG";
             photoBrowser.ShowDialog();
+
+            if (string.IsNullOrEmpty(photoBrowser.FileName)) return;
+            var task = UploadImageToImgur();
+            await task;
+        }
+
+        private async Task UploadImageToImgur()
+        {
+            try
+            {
+                // Create connection to API
+                var apiClient = new ApiClient("21d68b39c14c68e");
+                var httpClient = new HttpClient();
+
+                // Select image for upload
+                var filePath = photoBrowser.FileName;
+                using var fileStream = File.OpenRead(filePath);
+
+                // Create end point and upload image
+                var imageEndpoint = new ImageEndpoint(apiClient, httpClient);
+                var imageUpload = await imageEndpoint.UploadImageAsync(fileStream);
+                MessageBox.Show(imageUpload.Link);
+            }
+            catch
+            {
+                MessageBox.Show(@"Something went wrong, please try again.");
+            }
         }
     }
 }
