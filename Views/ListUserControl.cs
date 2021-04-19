@@ -12,6 +12,12 @@ namespace filmhub.Views
 {
     public partial class ListUserControl : UserControl
     {
+        #region Fields
+
+        private int[] _moviesId;
+
+        #endregion
+
         #region Constructors
 
         public ListUserControl(string title, bool menu, string result)
@@ -77,29 +83,33 @@ namespace filmhub.Views
                 con.Open();
 
                 moviesList.Columns.Add("", -2, HorizontalAlignment.Left);
-                var count = 0;
+                const string query = "SELECT name,picture FROM movie WHERE id = ";
 
-                foreach (var query in list.Select(i => "SELECT name,picture FROM movie WHERE id = " + i))
+                var enumerable = list as int[] ?? list.ToArray();
+
+                _moviesId = new int[enumerable.Length];
+
+
+                for (var i = 0; i < enumerable.Length; i++)
                 {
-                    using var cmd = new NpgsqlCommand(query, con);
+                    using var cmd = new NpgsqlCommand(query + enumerable[i], con);
                     using var rdr = cmd.ExecuteReader();
-                    
+
                     while (rdr.Read())
                     {
-                        
                         try
                         {
+                            _moviesId[i] = enumerable[i];
                             imageList.Images.Add(DownloadImageFromUrl(rdr.GetString(1)));
                         }
                         catch
                         {
                             // ignored
                         }
-                        
-                        var item = new ListViewItem(new[] {"     " + rdr.GetString(0)}) {ImageIndex = count};
+
+                        var item = new ListViewItem(new[] {"     " + rdr.GetString(0)}) {ImageIndex = i};
                         moviesList.Items.Add(item);
                     }
-                    count++;
                 }
 
                 if (moviesList.Items.Count == 0) window.Text = @"No search results";
@@ -137,10 +147,12 @@ namespace filmhub.Views
             categoriesPanel.Controls.Add(new CategoriesUserControl());
             categoriesPanel.Visible = true;
         }
-        
+
         private void moviesList_ItemActivate(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new MovieViewerUserControl(), true);
+            Program.MainForm.UserControlSelector(
+                new MovieViewerUserControl(imageList.Images[moviesList.SelectedItems[0].Index],
+                    _moviesId[moviesList.SelectedItems[0].Index]), true);
         }
 
         #endregion

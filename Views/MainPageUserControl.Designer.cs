@@ -106,7 +106,7 @@ namespace filmhub.Views
             // categoriesPanel
             // 
             this.categoriesPanel.BackColor = System.Drawing.SystemColors.Highlight;
-            this.categoriesPanel.Location = new System.Drawing.Point(217, 20);
+            this.categoriesPanel.Location = new System.Drawing.Point(0, 0);
             this.categoriesPanel.Name = "categoriesPanel";
             this.categoriesPanel.Size = new System.Drawing.Size(248, 592);
             this.categoriesPanel.TabIndex = 15;

@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using filmhub.Properties;
+using Npgsql;
 
 namespace filmhub.Views
 {
@@ -12,13 +14,14 @@ namespace filmhub.Views
         private int[] _tags;
 
         #endregion
-        
+
         #region Constructor
 
-        public MovieViewerUserControl()
+        public MovieViewerUserControl(Image image, int id)
         {
             InitializeComponent();
             InitializeColors();
+            InitializeMovie(image,id);
         }
 
         #endregion
@@ -30,16 +33,52 @@ namespace filmhub.Views
             BackColor = Program.Colors.BackgroundColor;
         }
 
+        private void InitializeMovie(Image image, int id)
+        {
+            movieImage.Image = image;
+            
+            var con = DatabaseController.getConnection();
+            con.Open();
+
+            var query =
+                "SELECT movie.name, description, director, writer, stars, release_date, genre.name " +
+                "FROM movie " +
+                "JOIN genre ON genre_id = genre.id " +
+                "WHERE movie.id = " +
+                id;
+            
+            using var cmd = new NpgsqlCommand(query, con);
+            using var rdr = cmd.ExecuteReader();
+            
+            while (rdr.Read())
+            {
+                try
+                {
+                    titleLabel.Text = rdr.GetString(0);
+                    descriptionText.Text = rdr.GetString(1);
+                    directorValueLabel.Text = rdr.GetString(2);
+                    writerValueLabel.Text = rdr.GetString(3);
+                    starsValueLabel.Text = rdr.GetString(4);
+                    dateValueLabel.Text = rdr.GetDate(5).ToString();
+                    genreValueLabel.Text = rdr.GetString(6);
+                }
+                catch
+                {
+                    MessageBox.Show(@"Something went wrong.");
+                }
+            }
+        }
+
         private void SwitchStarImage(int count, bool flag)
         {
             // Save every star into a pictureBox array
             var stars = new[] {star1, star2, star3, star4, star5};
-            
+
             // Hover
             if (flag)
             {
                 _tags = new int[5];
-                
+
                 for (var i = 0; i < 5; i++)
                 {
                     // Save star tag into tags[i]
@@ -102,7 +141,7 @@ namespace filmhub.Views
 
         private void star3_MouseLeave(object sender, EventArgs e)
         {
-            SwitchStarImage(3,false);
+            SwitchStarImage(3, false);
         }
 
         private void star4_MouseHover(object sender, EventArgs e)

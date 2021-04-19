@@ -68,7 +68,7 @@ namespace filmhub.Views
             // imageList
             // 
             this.imageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.imageList.ImageSize = new System.Drawing.Size(100, 150);
+            this.imageList.ImageSize = new System.Drawing.Size(150, 200);
             this.imageList.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // menu

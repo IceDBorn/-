@@ -66,7 +66,7 @@ namespace filmhub.Views
             this.titleLabel.ForeColor = System.Drawing.Color.White;
             this.titleLabel.Location = new System.Drawing.Point(68, 21);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(191, 48);
+            this.titleLabel.Size = new System.Drawing.Size(1193, 48);
             this.titleLabel.TabIndex = 0;
             this.titleLabel.Text = "Title(0000)";
             // 
@@ -75,7 +75,7 @@ namespace filmhub.Views
             this.movieImage.BackColor = System.Drawing.SystemColors.ControlDark;
             this.movieImage.Location = new System.Drawing.Point(102, 107);
             this.movieImage.Name = "movieImage";
-            this.movieImage.Size = new System.Drawing.Size(171, 211);
+            this.movieImage.Size = new System.Drawing.Size(150, 200);
             this.movieImage.TabIndex = 1;
             this.movieImage.TabStop = false;
             // 
@@ -83,7 +83,7 @@ namespace filmhub.Views
             // 
             this.descriptionLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
             this.descriptionLabel.ForeColor = System.Drawing.Color.White;
-            this.descriptionLabel.Location = new System.Drawing.Point(102, 354);
+            this.descriptionLabel.Location = new System.Drawing.Point(102, 355);
             this.descriptionLabel.Name = "descriptionLabel";
             this.descriptionLabel.Size = new System.Drawing.Size(206, 45);
             this.descriptionLabel.TabIndex = 2;
@@ -93,9 +93,9 @@ namespace filmhub.Views
             // 
             this.descriptionText.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
             this.descriptionText.ForeColor = System.Drawing.Color.White;
-            this.descriptionText.Location = new System.Drawing.Point(113, 410);
+            this.descriptionText.Location = new System.Drawing.Point(105, 410);
             this.descriptionText.Name = "descriptionText";
-            this.descriptionText.Size = new System.Drawing.Size(927, 139);
+            this.descriptionText.Size = new System.Drawing.Size(996, 171);
             this.descriptionText.TabIndex = 3;
             this.descriptionText.Text = resources.GetString("descriptionText.Text");
             // 
@@ -211,37 +211,37 @@ namespace filmhub.Views
             // 
             // star1
             // 
-            this.star1.Image = global::filmhub.Properties.Resources.star;
+            this.star1.Image = global::filmhub.Properties.Resources.star_empty;
             this.star1.Location = new System.Drawing.Point(403, 294);
             this.star1.Name = "star1";
             this.star1.Size = new System.Drawing.Size(23, 27);
             this.star1.TabIndex = 17;
             this.star1.TabStop = false;
-            this.star1.Tag = "1";
+            this.star1.Tag = "0";
             this.star1.MouseLeave += new System.EventHandler(this.star1_MouseLeave);
             this.star1.MouseHover += new System.EventHandler(this.star1_MouseHover);
             // 
             // star2
             // 
-            this.star2.Image = global::filmhub.Properties.Resources.star;
+            this.star2.Image = global::filmhub.Properties.Resources.star_empty;
             this.star2.Location = new System.Drawing.Point(441, 294);
             this.star2.Name = "star2";
             this.star2.Size = new System.Drawing.Size(23, 27);
             this.star2.TabIndex = 18;
             this.star2.TabStop = false;
-            this.star2.Tag = "1";
+            this.star2.Tag = "0";
             this.star2.MouseLeave += new System.EventHandler(this.star2_MouseLeave);
             this.star2.MouseHover += new System.EventHandler(this.star2_MouseHover);
             // 
             // star3
             // 
-            this.star3.Image = global::filmhub.Properties.Resources.star;
+            this.star3.Image = global::filmhub.Properties.Resources.star_empty;
             this.star3.Location = new System.Drawing.Point(479, 294);
             this.star3.Name = "star3";
             this.star3.Size = new System.Drawing.Size(23, 27);
             this.star3.TabIndex = 19;
             this.star3.TabStop = false;
-            this.star3.Tag = "1";
+            this.star3.Tag = "0";
             this.star3.MouseLeave += new System.EventHandler(this.star3_MouseLeave);
             this.star3.MouseHover += new System.EventHandler(this.star3_MouseHover);
             // 
@@ -269,7 +269,7 @@ namespace filmhub.Views
             this.star5.MouseLeave += new System.EventHandler(this.star5_MouseLeave);
             this.star5.MouseHover += new System.EventHandler(this.star5_MouseHover);
             // 
-            // MovieViewer
+            // MovieViewerUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -294,7 +294,7 @@ namespace filmhub.Views
             this.Controls.Add(this.descriptionLabel);
             this.Controls.Add(this.movieImage);
             this.Controls.Add(this.titleLabel);
-            this.Name = "MovieViewer";
+            this.Name = "MovieViewerUserControl";
             this.Size = new System.Drawing.Size(1264, 581);
             ((System.ComponentModel.ISupportInitialize) (this.movieImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.star1)).EndInit();

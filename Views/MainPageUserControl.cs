@@ -31,6 +31,7 @@ namespace filmhub.Views
                 {comingSoonImage1, comingSoonImage2, comingSoonImage3, comingSoonImage4, comingSoonImage5};
             FeaturedMovieSelector();
             ComingSoonMovieSelector();
+            categoriesPanel.BringToFront();
         }
 
         #endregion
@@ -94,7 +95,7 @@ namespace filmhub.Views
                 using var rdr = cmd.ExecuteReader();
 
                 var count = 0;
-                
+
                 if (flag)
                 {
                     _featuredMovies = new int[5];
@@ -174,63 +175,78 @@ namespace filmhub.Views
         private void featuredImage1_MouseClick(object sender, MouseEventArgs e)
         {
             if (_featuredMovies[0] == 0) return;
-            MessageBox.Show(_featuredMovies[0].ToString());
+            Program.MainForm.UserControlSelector(new MovieViewerUserControl(featuredImage1.Image, _featuredMovies[0]),
+                true);
         }
-        
+
         private void featuredImage2_MouseClick(object sender, MouseEventArgs e)
         {
             if (_featuredMovies[1] == 0) return;
-            MessageBox.Show(_featuredMovies[1].ToString());
+            Program.MainForm.UserControlSelector(new MovieViewerUserControl(featuredImage2.Image, _featuredMovies[1]),
+                true);
         }
-        
+
         private void featuredImage3_MouseClick(object sender, MouseEventArgs e)
         {
             if (_featuredMovies[2] == 0) return;
-            MessageBox.Show(_featuredMovies[2].ToString());
+            Program.MainForm.UserControlSelector(new MovieViewerUserControl(featuredImage3.Image, _featuredMovies[2]),
+                true);
         }
-        
+
         private void featuredImage4_MouseClick(object sender, MouseEventArgs e)
         {
             if (_featuredMovies[3] == 0) return;
-            MessageBox.Show(_featuredMovies[3].ToString());
+            Program.MainForm.UserControlSelector(new MovieViewerUserControl(featuredImage4.Image, _featuredMovies[3]),
+                true);
         }
-        
+
         private void featuredImage5_MouseClick(object sender, MouseEventArgs e)
         {
             if (_featuredMovies[4] == 0) return;
-            MessageBox.Show(_featuredMovies[4].ToString());
+            Program.MainForm.UserControlSelector(new MovieViewerUserControl(featuredImage5.Image, _featuredMovies[4]),
+                true);
         }
-        
+
         private void comingSoonImage1_MouseClick(object sender, MouseEventArgs e)
         {
             if (_comingSoonMovies[0] == 0) return;
-            MessageBox.Show(_comingSoonMovies[0].ToString());
+            Program.MainForm.UserControlSelector(
+                new MovieViewerUserControl(comingSoonImage1.Image, _comingSoonMovies[0]),
+                true);
         }
-        
+
         private void comingSoonImage2_MouseClick(object sender, MouseEventArgs e)
         {
             if (_comingSoonMovies[1] == 0) return;
-            MessageBox.Show(_comingSoonMovies[1].ToString());
+            Program.MainForm.UserControlSelector(
+                new MovieViewerUserControl(comingSoonImage2.Image, _comingSoonMovies[1]),
+                true);
         }
-        
+
         private void comingSoonImage3_MouseClick(object sender, MouseEventArgs e)
         {
             if (_comingSoonMovies[2] == 0) return;
-            MessageBox.Show(_comingSoonMovies[2].ToString());
+            Program.MainForm.UserControlSelector(
+                new MovieViewerUserControl(comingSoonImage3.Image, _comingSoonMovies[2]),
+                true);
         }
-        
+
         private void comingSoonImage4_MouseClick(object sender, MouseEventArgs e)
         {
             if (_comingSoonMovies[3] == 0) return;
-            MessageBox.Show(_comingSoonMovies[3].ToString());
+            Program.MainForm.UserControlSelector(
+                new MovieViewerUserControl(comingSoonImage4.Image, _comingSoonMovies[3]),
+                true);
         }
-        
+
         private void comingSoonImage5_MouseClick(object sender, MouseEventArgs e)
         {
             if (_comingSoonMovies[4] == 0) return;
-            MessageBox.Show(_comingSoonMovies[4].ToString());
+            Program.MainForm.UserControlSelector(
+                new MovieViewerUserControl(comingSoonImage5.Image, _comingSoonMovies[4]),
+                true);
         }
-        
+
         #endregion
     }
 }
