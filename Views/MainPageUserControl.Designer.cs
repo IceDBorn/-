@@ -41,11 +41,11 @@ namespace filmhub.Views
             this.featuredImage3 = new System.Windows.Forms.PictureBox();
             this.featuredImage4 = new System.Windows.Forms.PictureBox();
             this.featuredImage5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.comingSoonImage1 = new System.Windows.Forms.PictureBox();
+            this.comingSoonImage2 = new System.Windows.Forms.PictureBox();
+            this.comingSoonImage3 = new System.Windows.Forms.PictureBox();
+            this.comingSoonImage4 = new System.Windows.Forms.PictureBox();
+            this.comingSoonImage5 = new System.Windows.Forms.PictureBox();
             this.moviesList = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize) (this.featuredImage1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.menu)).BeginInit();
@@ -53,11 +53,11 @@ namespace filmhub.Views
             ((System.ComponentModel.ISupportInitialize) (this.featuredImage3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.featuredImage4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.featuredImage5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.comingSoonImage1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.comingSoonImage2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.comingSoonImage3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.comingSoonImage4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.comingSoonImage5)).BeginInit();
             this.SuspendLayout();
             // 
             // featuredImage1
@@ -120,6 +120,7 @@ namespace filmhub.Views
             this.featuredImage2.Size = new System.Drawing.Size(150, 200);
             this.featuredImage2.TabIndex = 16;
             this.featuredImage2.TabStop = false;
+            this.featuredImage2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.featuredImage2_MouseClick);
             // 
             // featuredImage3
             // 
@@ -129,6 +130,7 @@ namespace filmhub.Views
             this.featuredImage3.Size = new System.Drawing.Size(150, 200);
             this.featuredImage3.TabIndex = 17;
             this.featuredImage3.TabStop = false;
+            this.featuredImage3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.featuredImage3_MouseClick);
             // 
             // featuredImage4
             // 
@@ -138,6 +140,7 @@ namespace filmhub.Views
             this.featuredImage4.Size = new System.Drawing.Size(150, 200);
             this.featuredImage4.TabIndex = 18;
             this.featuredImage4.TabStop = false;
+            this.featuredImage4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.featuredImage4_MouseClick);
             // 
             // featuredImage5
             // 
@@ -147,51 +150,57 @@ namespace filmhub.Views
             this.featuredImage5.Size = new System.Drawing.Size(150, 200);
             this.featuredImage5.TabIndex = 19;
             this.featuredImage5.TabStop = false;
+            this.featuredImage5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.featuredImage5_MouseClick);
             // 
-            // pictureBox1
+            // comingSoonImage1
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox1.Location = new System.Drawing.Point(78, 366);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(150, 200);
-            this.pictureBox1.TabIndex = 20;
-            this.pictureBox1.TabStop = false;
+            this.comingSoonImage1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.comingSoonImage1.Location = new System.Drawing.Point(78, 366);
+            this.comingSoonImage1.Name = "comingSoonImage1";
+            this.comingSoonImage1.Size = new System.Drawing.Size(150, 200);
+            this.comingSoonImage1.TabIndex = 20;
+            this.comingSoonImage1.TabStop = false;
+            this.comingSoonImage1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comingSoonImage1_MouseClick);
             // 
-            // pictureBox2
+            // comingSoonImage2
             // 
-            this.pictureBox2.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox2.Location = new System.Drawing.Point(315, 366);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(150, 200);
-            this.pictureBox2.TabIndex = 21;
-            this.pictureBox2.TabStop = false;
+            this.comingSoonImage2.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.comingSoonImage2.Location = new System.Drawing.Point(315, 366);
+            this.comingSoonImage2.Name = "comingSoonImage2";
+            this.comingSoonImage2.Size = new System.Drawing.Size(150, 200);
+            this.comingSoonImage2.TabIndex = 21;
+            this.comingSoonImage2.TabStop = false;
+            this.comingSoonImage2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comingSoonImage2_MouseClick);
             // 
-            // pictureBox3
+            // comingSoonImage3
             // 
-            this.pictureBox3.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox3.Location = new System.Drawing.Point(557, 366);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(150, 200);
-            this.pictureBox3.TabIndex = 22;
-            this.pictureBox3.TabStop = false;
+            this.comingSoonImage3.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.comingSoonImage3.Location = new System.Drawing.Point(557, 366);
+            this.comingSoonImage3.Name = "comingSoonImage3";
+            this.comingSoonImage3.Size = new System.Drawing.Size(150, 200);
+            this.comingSoonImage3.TabIndex = 22;
+            this.comingSoonImage3.TabStop = false;
+            this.comingSoonImage3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comingSoonImage3_MouseClick);
             // 
-            // pictureBox4
+            // comingSoonImage4
             // 
-            this.pictureBox4.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox4.Location = new System.Drawing.Point(796, 366);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(150, 200);
-            this.pictureBox4.TabIndex = 23;
-            this.pictureBox4.TabStop = false;
+            this.comingSoonImage4.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.comingSoonImage4.Location = new System.Drawing.Point(796, 366);
+            this.comingSoonImage4.Name = "comingSoonImage4";
+            this.comingSoonImage4.Size = new System.Drawing.Size(150, 200);
+            this.comingSoonImage4.TabIndex = 23;
+            this.comingSoonImage4.TabStop = false;
+            this.comingSoonImage4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comingSoonImage4_MouseClick);
             // 
-            // pictureBox5
+            // comingSoonImage5
             // 
-            this.pictureBox5.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox5.Location = new System.Drawing.Point(1036, 366);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(150, 200);
-            this.pictureBox5.TabIndex = 24;
-            this.pictureBox5.TabStop = false;
+            this.comingSoonImage5.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.comingSoonImage5.Location = new System.Drawing.Point(1036, 366);
+            this.comingSoonImage5.Name = "comingSoonImage5";
+            this.comingSoonImage5.Size = new System.Drawing.Size(150, 200);
+            this.comingSoonImage5.TabIndex = 24;
+            this.comingSoonImage5.TabStop = false;
+            this.comingSoonImage5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comingSoonImage5_MouseClick);
             // 
             // moviesList
             // 
@@ -204,11 +213,11 @@ namespace filmhub.Views
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.comingSoonImage5);
+            this.Controls.Add(this.comingSoonImage4);
+            this.Controls.Add(this.comingSoonImage3);
+            this.Controls.Add(this.comingSoonImage2);
+            this.Controls.Add(this.comingSoonImage1);
             this.Controls.Add(this.featuredImage5);
             this.Controls.Add(this.featuredImage4);
             this.Controls.Add(this.featuredImage3);
@@ -227,21 +236,21 @@ namespace filmhub.Views
             ((System.ComponentModel.ISupportInitialize) (this.featuredImage3)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.featuredImage4)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.featuredImage5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.comingSoonImage1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.comingSoonImage2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.comingSoonImage3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.comingSoonImage4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.comingSoonImage5)).EndInit();
             this.ResumeLayout(false);
         }
 
         private System.Windows.Forms.ImageList moviesList;
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox comingSoonImage1;
+        private System.Windows.Forms.PictureBox comingSoonImage2;
+        private System.Windows.Forms.PictureBox comingSoonImage3;
+        private System.Windows.Forms.PictureBox comingSoonImage4;
+        private System.Windows.Forms.PictureBox comingSoonImage5;
 
         private System.Windows.Forms.PictureBox featuredImage2;
         private System.Windows.Forms.PictureBox featuredImage3;

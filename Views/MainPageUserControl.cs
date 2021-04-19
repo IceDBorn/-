@@ -12,31 +12,48 @@ namespace filmhub.Views
         #region Fields
 
         private int[] _featuredMovies;
+        private readonly PictureBox[] _featuredBoxes;
+        private readonly PictureBox[] _comingSoonBoxes;
+        private int[] _comingSoonMovies;
 
         #endregion
 
         #region Constructor
-        
+
         public MainPageUserControl()
         {
             InitializeComponent();
             InitializeColors();
             categoriesPanel.Controls.Clear();
             categoriesPanel.Controls.Add(new CategoriesUserControl());
+            _featuredBoxes = new[] {featuredImage1, featuredImage2, featuredImage3, featuredImage4, featuredImage5};
+            _comingSoonBoxes = new[]
+                {comingSoonImage1, comingSoonImage2, comingSoonImage3, comingSoonImage4, comingSoonImage5};
+            FeaturedMovieSelector();
+            ComingSoonMovieSelector();
         }
-        
+
         #endregion
 
         #region Methods
-        
+
         private void InitializeColors()
         {
             BackColor = Program.Colors.BackgroundColor;
             menu.BackColor = Program.Colors.BackgroundColor;
             categoriesPanel.BackColor = Program.Colors.PopOutBackgroundColor;
-            FeaturedMovieSelector();
+            featuredImage1.BackColor = Program.Colors.BackgroundColor;
+            featuredImage2.BackColor = Program.Colors.BackgroundColor;
+            featuredImage3.BackColor = Program.Colors.BackgroundColor;
+            featuredImage4.BackColor = Program.Colors.BackgroundColor;
+            featuredImage5.BackColor = Program.Colors.BackgroundColor;
+            comingSoonImage1.BackColor = Program.Colors.BackgroundColor;
+            comingSoonImage2.BackColor = Program.Colors.BackgroundColor;
+            comingSoonImage3.BackColor = Program.Colors.BackgroundColor;
+            comingSoonImage4.BackColor = Program.Colors.BackgroundColor;
+            comingSoonImage5.BackColor = Program.Colors.BackgroundColor;
         }
-        
+
         private static Image DownloadImageFromUrl(string imageUrl)
         {
             Image image;
@@ -63,32 +80,46 @@ namespace filmhub.Views
             return image;
         }
 
-        private void FeaturedMovieSelector()
+        private void FillPictureBoxes(string query, PictureBox[] pictureBoxes, bool flag)
         {
+            if (query == null) throw new ArgumentNullException(nameof(query));
+            if (pictureBoxes == null) throw new ArgumentNullException(nameof(pictureBoxes));
             try
             {
+                moviesList.Images.Clear();
                 var con = DatabaseController.getConnection();
                 con.Open();
 
-                const string query = "SELECT id,picture FROM movie ORDER BY RANDOM() LIMIT 5";
-
                 using var cmd = new NpgsqlCommand(query, con);
                 using var rdr = cmd.ExecuteReader();
-                
+
                 var count = 0;
-                _featuredMovies = new int[6];
+                
+                if (flag)
+                {
+                    _featuredMovies = new int[5];
+                }
+                else
+                {
+                    _comingSoonMovies = new int[5];
+                }
 
                 while (rdr.Read())
                 {
-                    _featuredMovies[count] = rdr.GetInt32(0);
+                    if (flag)
+                    {
+                        _featuredMovies[count] = rdr.GetInt32(0);
+                    }
+                    else
+                    {
+                        _comingSoonMovies[count] = rdr.GetInt32(0);
+                    }
+
                     moviesList.Images.Add(DownloadImageFromUrl(rdr.GetString(1)));
                     count++;
                 }
 
-                var pictureBoxes = new[]
-                    {featuredImage1, featuredImage2, featuredImage3, featuredImage4, featuredImage5};
-
-                for (var i = 0; i < pictureBoxes.Length; i++)
+                for (var i = 0; i < moviesList.Images.Count; i++)
                 {
                     pictureBoxes[i].Image = moviesList.Images[i];
                 }
@@ -97,6 +128,18 @@ namespace filmhub.Views
             {
                 MessageBox.Show(@"Something went wrong.");
             }
+        }
+
+        private void FeaturedMovieSelector()
+        {
+            FillPictureBoxes("SELECT id,picture FROM movie WHERE release_date < NOW() ORDER BY RANDOM() LIMIT 5",
+                _featuredBoxes, true);
+        }
+
+        private void ComingSoonMovieSelector()
+        {
+            FillPictureBoxes("SELECT id,picture FROM movie WHERE release_date > NOW() ORDER BY RANDOM() LIMIT 5",
+                _comingSoonBoxes, false);
         }
 
         #endregion
@@ -115,7 +158,7 @@ namespace filmhub.Views
             Program.MainForm.HideDropDown();
         }
 
-        
+
         private void menu_MouseHover(object sender, EventArgs e)
         {
             menu.Image = Resources.menu_hover;
@@ -127,12 +170,67 @@ namespace filmhub.Views
             menu.Image = Resources.menu;
             GC.Collect();
         }
-        
-        #endregion
 
         private void featuredImage1_MouseClick(object sender, MouseEventArgs e)
         {
+            if (_featuredMovies[0] == 0) return;
             MessageBox.Show(_featuredMovies[0].ToString());
         }
+        
+        private void featuredImage2_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (_featuredMovies[1] == 0) return;
+            MessageBox.Show(_featuredMovies[1].ToString());
+        }
+        
+        private void featuredImage3_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (_featuredMovies[2] == 0) return;
+            MessageBox.Show(_featuredMovies[2].ToString());
+        }
+        
+        private void featuredImage4_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (_featuredMovies[3] == 0) return;
+            MessageBox.Show(_featuredMovies[3].ToString());
+        }
+        
+        private void featuredImage5_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (_featuredMovies[4] == 0) return;
+            MessageBox.Show(_featuredMovies[4].ToString());
+        }
+        
+        private void comingSoonImage1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (_comingSoonMovies[0] == 0) return;
+            MessageBox.Show(_comingSoonMovies[0].ToString());
+        }
+        
+        private void comingSoonImage2_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (_comingSoonMovies[1] == 0) return;
+            MessageBox.Show(_comingSoonMovies[1].ToString());
+        }
+        
+        private void comingSoonImage3_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (_comingSoonMovies[2] == 0) return;
+            MessageBox.Show(_comingSoonMovies[2].ToString());
+        }
+        
+        private void comingSoonImage4_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (_comingSoonMovies[3] == 0) return;
+            MessageBox.Show(_comingSoonMovies[3].ToString());
+        }
+        
+        private void comingSoonImage5_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (_comingSoonMovies[4] == 0) return;
+            MessageBox.Show(_comingSoonMovies[4].ToString());
+        }
+        
+        #endregion
     }
 }
