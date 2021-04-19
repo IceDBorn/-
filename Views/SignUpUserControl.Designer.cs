@@ -85,6 +85,7 @@ namespace filmhub.Views
             this.privacyLabel.Size = new System.Drawing.Size(143, 33);
             this.privacyLabel.TabIndex = 9;
             this.privacyLabel.Text = "Privacy Policy";
+            this.privacyLabel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.privacyLabel_MouseClick);
             this.privacyLabel.MouseLeave += new System.EventHandler(this.privacyLabel_MouseLeave);
             this.privacyLabel.MouseHover += new System.EventHandler(this.privacyLabel_MouseHover);
             // 
@@ -120,6 +121,7 @@ namespace filmhub.Views
             this.termsLabel.Size = new System.Drawing.Size(217, 33);
             this.termsLabel.TabIndex = 6;
             this.termsLabel.Text = "Terms and Conditions";
+            this.termsLabel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.termsLabel_MouseClick);
             this.termsLabel.MouseLeave += new System.EventHandler(this.TermsLabel_MouseLeave);
             this.termsLabel.MouseHover += new System.EventHandler(this.signUpLabel_MouseHover);
             // 

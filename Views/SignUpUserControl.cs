@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
@@ -179,5 +180,15 @@ namespace filmhub.Views
         }
 
         #endregion
+
+        private void privacyLabel_MouseClick(object sender, MouseEventArgs e)
+        {
+            Process.Start("https://raw.githubusercontent.com/IceDBorn/aops-imdb/main/privacy-policy.md");
+        }
+
+        private void termsLabel_MouseClick(object sender, MouseEventArgs e)
+        {
+            Process.Start("https://raw.githubusercontent.com/IceDBorn/aops-imdb/main/terms-and-conditions.md");
+        }
     }
 }
