@@ -68,7 +68,7 @@ namespace filmhub.Views
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(1193, 48);
             this.titleLabel.TabIndex = 0;
-            this.titleLabel.Text = "Title(0000)";
+            this.titleLabel.Text = "Title";
             // 
             // movieImage
             // 
@@ -211,6 +211,7 @@ namespace filmhub.Views
             // 
             // star1
             // 
+            this.star1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.star1.Image = global::filmhub.Properties.Resources.star_empty;
             this.star1.Location = new System.Drawing.Point(403, 294);
             this.star1.Name = "star1";
@@ -218,11 +219,13 @@ namespace filmhub.Views
             this.star1.TabIndex = 17;
             this.star1.TabStop = false;
             this.star1.Tag = "0";
+            this.star1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.star1_MouseClick);
             this.star1.MouseLeave += new System.EventHandler(this.star1_MouseLeave);
             this.star1.MouseHover += new System.EventHandler(this.star1_MouseHover);
             // 
             // star2
             // 
+            this.star2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.star2.Image = global::filmhub.Properties.Resources.star_empty;
             this.star2.Location = new System.Drawing.Point(441, 294);
             this.star2.Name = "star2";
@@ -230,11 +233,13 @@ namespace filmhub.Views
             this.star2.TabIndex = 18;
             this.star2.TabStop = false;
             this.star2.Tag = "0";
+            this.star2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.star2_MouseClick);
             this.star2.MouseLeave += new System.EventHandler(this.star2_MouseLeave);
             this.star2.MouseHover += new System.EventHandler(this.star2_MouseHover);
             // 
             // star3
             // 
+            this.star3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.star3.Image = global::filmhub.Properties.Resources.star_empty;
             this.star3.Location = new System.Drawing.Point(479, 294);
             this.star3.Name = "star3";
@@ -242,11 +247,13 @@ namespace filmhub.Views
             this.star3.TabIndex = 19;
             this.star3.TabStop = false;
             this.star3.Tag = "0";
+            this.star3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.star3_MouseClick);
             this.star3.MouseLeave += new System.EventHandler(this.star3_MouseLeave);
             this.star3.MouseHover += new System.EventHandler(this.star3_MouseHover);
             // 
             // star4
             // 
+            this.star4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.star4.Image = global::filmhub.Properties.Resources.star_empty;
             this.star4.Location = new System.Drawing.Point(517, 294);
             this.star4.Name = "star4";
@@ -254,11 +261,13 @@ namespace filmhub.Views
             this.star4.TabIndex = 20;
             this.star4.TabStop = false;
             this.star4.Tag = "0";
+            this.star4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.star4_MouseClick);
             this.star4.MouseLeave += new System.EventHandler(this.star4_MouseLeave);
             this.star4.MouseHover += new System.EventHandler(this.star4_MouseHover);
             // 
             // star5
             // 
+            this.star5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.star5.Image = global::filmhub.Properties.Resources.star_empty;
             this.star5.Location = new System.Drawing.Point(555, 294);
             this.star5.Name = "star5";
@@ -266,6 +275,7 @@ namespace filmhub.Views
             this.star5.TabIndex = 21;
             this.star5.TabStop = false;
             this.star5.Tag = "0";
+            this.star5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.star5_MouseClick);
             this.star5.MouseLeave += new System.EventHandler(this.star5_MouseLeave);
             this.star5.MouseHover += new System.EventHandler(this.star5_MouseHover);
             // 

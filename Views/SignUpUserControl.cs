@@ -50,7 +50,7 @@ namespace filmhub.Views
                 SystemSounds.Beep.Play();
                 MessageBox.Show(@"Password is empty.");
             }
-            else if (string.IsNullOrEmpty(confirmPasswordTextBox.Text.Trim()) || 
+            else if (string.IsNullOrEmpty(confirmPasswordTextBox.Text.Trim()) ||
                      confirmPasswordTextBox.Text.Equals(" Confirm password"))
             {
                 SystemSounds.Beep.Play();
@@ -64,7 +64,7 @@ namespace filmhub.Views
             else
             {
                 LoginController.Signup(emailTextBox.Text, passwordTextBox.Text);
-                if (Account.getAccountInstance() == null) return;
+                if (Account.GetAccountInstance() == null) return;
                 Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
             }
         }
@@ -158,7 +158,7 @@ namespace filmhub.Views
             backButton.Image = Resources.back;
             GC.Collect();
         }
-        
+
         private void emailTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode != Keys.Enter) return;
@@ -180,16 +180,16 @@ namespace filmhub.Views
             e.SuppressKeyPress = true;
         }
 
-        #endregion
-
         private void privacyLabel_MouseClick(object sender, MouseEventArgs e)
         {
-            Process.Start("https://raw.githubusercontent.com/IceDBorn/aops-imdb/main/privacy-policy.md");
+            Process.Start("https://github.com/IceDBorn/filmhub/blob/main/privacy-policy.md");
         }
 
         private void termsLabel_MouseClick(object sender, MouseEventArgs e)
         {
-            Process.Start("https://raw.githubusercontent.com/IceDBorn/aops-imdb/main/terms-and-conditions.md");
+            Process.Start("https://github.com/IceDBorn/filmhub/blob/main/terms-and-conditions.md");
         }
     }
+
+    #endregion
 }

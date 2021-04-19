@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using filmhub.Controllers;
+using filmhub.Models;
 using filmhub.Properties;
 using Npgsql;
 
@@ -10,9 +11,9 @@ namespace filmhub.Views
     public partial class MovieViewerUserControl : UserControl
     {
         #region Fields
-
-        // Save star tags
-        private int[] _tags;
+        
+        private readonly int _movieId;
+        private int _starsCount;
 
         #endregion
 
@@ -22,7 +23,8 @@ namespace filmhub.Views
         {
             InitializeComponent();
             InitializeColors();
-            InitializeMovie(image,id);
+            InitializeMovie(image, id);
+            _movieId = id;
         }
 
         #endregion
@@ -37,20 +39,19 @@ namespace filmhub.Views
         private void InitializeMovie(Image image, int id)
         {
             movieImage.Image = image;
-            
+
             var con = DatabaseController.GetConnection();
             con.Open();
 
             var query =
-                "SELECT movie.name, description, director, writer, stars, release_date, genre.name, rating " +
+                "SELECT movie.name, description, director, writer, stars, release_date, genre.name " +
                 "FROM movie " +
                 "JOIN genre ON genre_id = genre.id " +
-                "WHERE movie.id = " +
-                id;
-            
+                "WHERE movie.id = " + id;
+
             using var cmd = new NpgsqlCommand(query, con);
             using var rdr = cmd.ExecuteReader();
-            
+
             while (rdr.Read())
             {
                 try
@@ -68,45 +69,73 @@ namespace filmhub.Views
                     MessageBox.Show(@"Something went wrong.");
                 }
             }
-        }
+            
+            con.Close();
+            
+            con.Open();
+            
+            query =
+                "SELECT value " +
+                "FROM rating " +
+                "WHERE movie_id = " + id + " " +
+                "AND user_id = " + Account.GetAccountInstance().Id;
 
-        private void SwitchStarImage(int count, bool flag)
-        {
-            // Save every star into a pictureBox array
-            var stars = new[] {star1, star2, star3, star4, star5};
+            using var cmd2 = new NpgsqlCommand(query, con);
+            using var rdr2 = cmd2.ExecuteReader();
 
-            // Hover
-            if (flag)
+            while (rdr2.Read())
             {
-                _tags = new int[5];
-
-                for (var i = 0; i < 5; i++)
+                try
                 {
-                    // Save star tag into tags[i]
-                    if (i < count)
-                    {
-                        _tags[i] = int.Parse(stars[i].Tag.ToString());
-                        stars[i].Image = Resources.star_hover;
-                    }
-                    else
-                    {
-                        _tags[i] = int.Parse(stars[i].Tag.ToString());
-                        stars[i].Image = Resources.star_empty;
-                    }
+                    InitializeStars(rdr2.GetInt32(0));
+                    _starsCount = rdr2.GetInt32(0);
+                }
+                catch
+                {
+                    MessageBox.Show(@"Something went wrong.");
                 }
             }
-            // Leave
-            else if (_tags != null)
+        }
+
+        private void Rate(int rate)
+        {
+            var con = DatabaseController.GetConnection();
+            con.Open();
+
+            InitializeStars(rate);
+            if (int.Parse(star1.Tag.ToString()) == 0)
             {
-                for (var i = 0; i < 5; i++)
+                var query = "INSERT INTO rating(value,movie_id,user_id) VALUES (" + rate + ", " + _movieId + ", " +
+                            Account.GetAccountInstance().Id + ")";
+                using var cmd = new NpgsqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+            }
+            else
+            {
+                var query = "UPDATE rating SET value = " + rate + " WHERE movie_id = " + _movieId + " AND user_id = " +
+                            Account.GetAccountInstance().Id;
+                using var cmd = new NpgsqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+            }
+
+            _starsCount = rate;
+        }
+
+        private void InitializeStars(int count)
+        {
+            var stars = new[] {star1, star2, star3, star4, star5};
+
+            for (var i = 0; i < stars.Length; i++)
+            {
+                if (i < count)
                 {
-                    // Reset images back to default using tags (0 = empty star, 1 = filled star)
-                    stars[i].Image = _tags[i] switch
-                    {
-                        0 => Resources.star_empty,
-                        1 => Resources.star,
-                        _ => stars[i].Image
-                    };
+                    stars[i].Image = Resources.star;
+                    stars[i].Tag = 1;
+                }
+                else
+                {
+                    stars[i].Image = Resources.star_empty;    
+                    stars[i].Tag = 0;
                 }
             }
         }
@@ -117,52 +146,77 @@ namespace filmhub.Views
 
         private void star1_MouseHover(object sender, EventArgs e)
         {
-            SwitchStarImage(1, true);
+            InitializeStars(1);
         }
 
         private void star1_MouseLeave(object sender, EventArgs e)
         {
-            SwitchStarImage(1, false);
+            InitializeStars(_starsCount);
         }
 
         private void star2_MouseHover(object sender, EventArgs e)
         {
-            SwitchStarImage(2, true);
+            InitializeStars(2);
         }
 
         private void star2_MouseLeave(object sender, EventArgs e)
         {
-            SwitchStarImage(2, false);
+            InitializeStars(_starsCount);
         }
 
         private void star3_MouseHover(object sender, EventArgs e)
         {
-            SwitchStarImage(3, true);
+            InitializeStars(3);
         }
 
         private void star3_MouseLeave(object sender, EventArgs e)
         {
-            SwitchStarImage(3, false);
+            InitializeStars(_starsCount);
         }
 
         private void star4_MouseHover(object sender, EventArgs e)
         {
-            SwitchStarImage(4, true);
+            InitializeStars(4);
         }
 
         private void star4_MouseLeave(object sender, EventArgs e)
         {
-            SwitchStarImage(4, false);
+            InitializeStars(_starsCount);
         }
 
         private void star5_MouseHover(object sender, EventArgs e)
         {
-            SwitchStarImage(5, true);
+            InitializeStars(5);
         }
 
         private void star5_MouseLeave(object sender, EventArgs e)
         {
-            SwitchStarImage(5, false);
+            InitializeStars(_starsCount);
+        }
+        
+        private void star1_MouseClick(object sender, MouseEventArgs e)
+        {
+            Rate(1);
+        }
+        
+        private void star2_MouseClick(object sender, MouseEventArgs e)
+        {
+            Rate(2);
+        }
+        
+        private void star3_MouseClick(object sender, MouseEventArgs e)
+        {
+            Rate(3);
+        }
+        
+        private void star4_MouseClick(object sender, MouseEventArgs e)
+        {
+            Rate(4);
+        }
+        
+        private void star5_MouseClick(object sender, MouseEventArgs e)
+        {
+            Rate(5);
         }
 
         #endregion

@@ -52,7 +52,7 @@ namespace filmhub.Controllers
                 }
                 else
                 {
-                    new Account(id, name, email, admin, darkTheme, picture, createdOn).login();
+                    new Account(id, name, email, admin, darkTheme, picture, createdOn).Login();
                 }
             }
             else

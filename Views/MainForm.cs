@@ -160,7 +160,7 @@ namespace filmhub.Views
             Program.MainForm.UserControlSelector(new WelcomeUserControl(), false);
             dropDownPanel.Visible = false;
             ResetAccountButtonImage();
-            Account.logout();
+            Account.Logout();
         }
 
         private void logoutLabel_MouseHover(object sender, EventArgs e)

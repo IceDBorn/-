@@ -50,7 +50,7 @@ namespace filmhub.Views
             else
             {
                 LoginController.Login(emailTextBox.Text, passwordTextBox.Text);
-                if (Account.getAccountInstance() == null) return;
+                if (Account.GetAccountInstance() == null) return;
                 Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
             }
         }
