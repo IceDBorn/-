@@ -155,6 +155,25 @@ namespace filmhub.Views
             }
         }
 
+        private static void SetImageOnMouseMovement(PictureBox pictureBox, Image empty, Image filled)
+        {
+            pictureBox.Image = int.Parse(pictureBox.Tag.ToString()) == 0 ? empty : filled;
+        }
+
+        private static void SetImageOnMouseClick(PictureBox pictureBox, Image empty, Image filled)
+        {
+            if (int.Parse(pictureBox.Tag.ToString()) == 0)
+            {
+                pictureBox.Image = filled;
+                pictureBox.Tag = 1;
+            }
+            else
+            {
+                pictureBox.Image = empty;
+                pictureBox.Tag = 0;
+            }
+        }
+
         #endregion
 
         #region Events
@@ -232,6 +251,21 @@ namespace filmhub.Views
         private void star5_MouseClick(object sender, MouseEventArgs e)
         {
             Rate(5);
+        }
+        
+        private void favoriteImage_MouseHover(object sender, EventArgs e)
+        {
+            SetImageOnMouseMovement(favoriteImage, Resources.favorite_empty_hover, Resources.favorite_hover);
+        }
+
+        private void favoriteImage_MouseLeave(object sender, EventArgs e)
+        {
+            SetImageOnMouseMovement(favoriteImage, Resources.favorite_empty, Resources.favorite);
+        }
+
+        private void favoriteImage_MouseClick(object sender, MouseEventArgs e)
+        {
+            SetImageOnMouseClick(favoriteImage, Resources.favorite_empty, Resources.favorite);
         }
 
         #endregion

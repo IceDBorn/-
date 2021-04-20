@@ -376,6 +376,11 @@
       <Content Include="Resources\close.png" />
       <Content Include="Resources\close_hover.png" />
       <Content Include="Resources\default_user.png" />
+      <Content Include="Resources\favorite.png" />
+      <Content Include="Resources\favorite_empty.png" />
+      <Content Include="Resources\favorite_empty1.png" />
+      <Content Include="Resources\favorite_empty_hover.png" />
+      <Content Include="Resources\favorite_hover.png" />
       <Content Include="Resources\home.png" />
       <Content Include="Resources\home_hover.png" />
       <Content Include="Resources\logo.png" />
