@@ -97,9 +97,28 @@ namespace filmhub.Views
             }
 
             con.Close();
+
+            if (QueryController.Activity("favorite", Account.GetAccountInstance().Id, id))
+            {
+                FillImage(favoriteImage, Resources.favorite);
+            }
+            if (QueryController.Activity("history", Account.GetAccountInstance().Id, id))
+            {
+                FillImage(watchedImage, Resources.watched);
+            }
+            if (QueryController.Activity("watchlist", Account.GetAccountInstance().Id, id))
+            {
+                FillImage(watchlistImage, Resources.watchlist);
+            }
         }
 
-        private void Activity(PictureBox pb, string tableName)
+        private void FillImage(PictureBox pb, Image filled)
+        {
+            pb.Image = filled;
+            pb.Tag = 1;
+        }
+
+        private void ActivityInsert(PictureBox pb, string tableName)
         {
             var con = DatabaseController.GetConnection();
             con.Open();
@@ -288,7 +307,7 @@ namespace filmhub.Views
 
         private void favoriteImage_MouseClick(object sender, MouseEventArgs e)
         {
-            Activity(favoriteImage, "favorite");
+            ActivityInsert(favoriteImage, "favorite");
             SetImageOnMouseClick(favoriteImage, Resources.favorite_empty, Resources.favorite);
         }
 
@@ -304,7 +323,7 @@ namespace filmhub.Views
 
         private void watchedImage_MouseClick(object sender, MouseEventArgs e)
         {
-            Activity(watchedImage, "history");
+            ActivityInsert(watchedImage, "history");
             SetImageOnMouseClick(watchedImage, Resources.watched_empty, Resources.watched);
         }
 
@@ -320,10 +339,10 @@ namespace filmhub.Views
 
         private void watchlistImage_MouseClick(object sender, MouseEventArgs e)
         {
-            Activity(watchlistImage, "watchlist");
+            ActivityInsert(watchlistImage, "watchlist");
             SetImageOnMouseClick(watchlistImage, Resources.watchlist_empty, Resources.watchlist);
         }
-        
+
         #endregion
     }
 }
