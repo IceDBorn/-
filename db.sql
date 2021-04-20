@@ -1,4 +1,4 @@
--- Version 2
+-- Version 3
 
 DROP TABLE IF EXISTS genre CASCADE;
 DROP TABLE IF EXISTS movie CASCADE;
@@ -10,8 +10,7 @@ DROP TABLE IF EXISTS history CASCADE;
 
 CREATE TABLE IF NOT EXISTS account (
     id serial PRIMARY KEY,
-    name text,
-    email text UNIQUE NOT NULL,
+    username text UNIQUE NOT NULL,
 	password text NOT NULL,
 	admin boolean NOT NULL,
 	dark_theme boolean NOT NULL,
@@ -23,18 +22,6 @@ CREATE TABLE IF NOT EXISTS genre (
     id serial PRIMARY KEY,
     name text UNIQUE NOT NULL
 );
-
-INSERT INTO genre(name) VALUES ('Action');
-INSERT INTO genre(name) VALUES ('Comedy');
-INSERT INTO genre(name) VALUES ('Crime');
-INSERT INTO genre(name) VALUES ('Documentary');
-INSERT INTO genre(name) VALUES ('Drama');
-INSERT INTO genre(name) VALUES ('Fantasy');
-INSERT INTO genre(name) VALUES ('Horror');
-INSERT INTO genre(name) VALUES ('Mystery');
-INSERT INTO genre(name) VALUES ('Romance');
-INSERT INTO genre(name) VALUES ('Sci-Fi');
-INSERT INTO genre(name) VALUES ('Western');
 
 CREATE TABLE IF NOT EXISTS movie (
     id serial PRIMARY KEY,
@@ -49,6 +36,60 @@ CREATE TABLE IF NOT EXISTS movie (
             ON DELETE CASCADE ON UPDATE CASCADE,
     release_date date
 );
+
+CREATE TABLE IF NOT EXISTS rating (
+    id serial PRIMARY KEY,
+    value int NOT NULL,
+    user_id int NOT NULL,
+        CONSTRAINT fk_account FOREIGN KEY(user_id) REFERENCES account(id)
+            ON DELETE CASCADE ON UPDATE CASCADE,
+    movie_id int NOT NULL,
+        CONSTRAINT fk_movie FOREIGN KEY(movie_id) REFERENCES movie(id)
+            ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS favorite (
+    id serial PRIMARY KEY,
+    user_id int NOT NULL,
+        CONSTRAINT fk_account FOREIGN KEY(user_id) REFERENCES account(id)
+            ON DELETE CASCADE ON UPDATE CASCADE,
+    movie_id int NOT NULL,
+        CONSTRAINT fk_movie FOREIGN KEY(movie_id) REFERENCES movie(id)
+            ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS watchlist (
+    id serial PRIMARY KEY,
+    user_id int NOT NULL,
+        CONSTRAINT fk_account FOREIGN KEY(user_id) REFERENCES account(id)
+            ON DELETE CASCADE ON UPDATE CASCADE,
+    movie_id int NOT NULL,
+        CONSTRAINT fk_movie FOREIGN KEY(movie_id) REFERENCES movie(id)
+            ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS history (
+    id serial PRIMARY KEY,
+    user_id int NOT NULL,
+        CONSTRAINT fk_account FOREIGN KEY(user_id) REFERENCES account(id)
+            ON DELETE CASCADE ON UPDATE CASCADE,
+    movie_id int NOT NULL,
+        CONSTRAINT fk_movie FOREIGN KEY(movie_id) REFERENCES movie(id)
+            ON DELETE CASCADE ON UPDATE CASCADE,
+    created_at timestamp DEFAULT current_timestamp
+);
+
+INSERT INTO genre(name) VALUES ('Action');
+INSERT INTO genre(name) VALUES ('Comedy');
+INSERT INTO genre(name) VALUES ('Crime');
+INSERT INTO genre(name) VALUES ('Documentary');
+INSERT INTO genre(name) VALUES ('Drama');
+INSERT INTO genre(name) VALUES ('Fantasy');
+INSERT INTO genre(name) VALUES ('Horror');
+INSERT INTO genre(name) VALUES ('Mystery');
+INSERT INTO genre(name) VALUES ('Romance');
+INSERT INTO genre(name) VALUES ('Sci-Fi');
+INSERT INTO genre(name) VALUES ('Western');
 
 INSERT INTO movie(name, description, director, writer, stars, picture, genre_id, release_date)
 VALUES 
@@ -691,58 +732,4 @@ VALUES
 	'https://i.imgur.com/l7pUURs.jpg',
 	11,
 	'2015-12-30'
-);
-
-CREATE TABLE IF NOT EXISTS rating (
-    id serial PRIMARY KEY,
-    value int NOT NULL,
-    user_id int NOT NULL,
-        CONSTRAINT fk_account FOREIGN KEY(user_id) REFERENCES account(id)
-            ON DELETE CASCADE ON UPDATE CASCADE,
-    movie_id int NOT NULL,
-        CONSTRAINT fk_movie FOREIGN KEY(movie_id) REFERENCES movie(id)
-            ON DELETE CASCADE ON UPDATE CASCADE
-);
-
-CREATE TABLE IF NOT EXISTS comment (
-    id serial PRIMARY KEY,
-    text text NOT NULL,
-    user_id int NOT NULL,
-        CONSTRAINT fk_account FOREIGN KEY(user_id) REFERENCES account(id)
-            ON DELETE CASCADE ON UPDATE CASCADE,
-    movie_id int NOT NULL,
-        CONSTRAINT fk_movie FOREIGN KEY(movie_id) REFERENCES movie(id)
-             ON DELETE CASCADE ON UPDATE CASCADE,
-    created_at timestamp DEFAULT current_timestamp
-);
-
-CREATE TABLE IF NOT EXISTS favorite (
-    id serial PRIMARY KEY,
-    user_id int NOT NULL,
-        CONSTRAINT fk_account FOREIGN KEY(user_id) REFERENCES account(id)
-            ON DELETE CASCADE ON UPDATE CASCADE,
-    movie_id int NOT NULL,
-        CONSTRAINT fk_movie FOREIGN KEY(movie_id) REFERENCES movie(id)
-            ON DELETE CASCADE ON UPDATE CASCADE
-);
-
-CREATE TABLE IF NOT EXISTS watchlist (
-    id serial PRIMARY KEY,
-    user_id int NOT NULL,
-        CONSTRAINT fk_account FOREIGN KEY(user_id) REFERENCES account(id)
-            ON DELETE CASCADE ON UPDATE CASCADE,
-    movie_id int NOT NULL,
-        CONSTRAINT fk_movie FOREIGN KEY(movie_id) REFERENCES movie(id)
-            ON DELETE CASCADE ON UPDATE CASCADE
-);
-
-CREATE TABLE IF NOT EXISTS history (
-    id serial PRIMARY KEY,
-    user_id int NOT NULL,
-        CONSTRAINT fk_account FOREIGN KEY(user_id) REFERENCES account(id)
-            ON DELETE CASCADE ON UPDATE CASCADE,
-    movie_id int NOT NULL,
-        CONSTRAINT fk_movie FOREIGN KEY(movie_id) REFERENCES movie(id)
-            ON DELETE CASCADE ON UPDATE CASCADE,
-    created_at timestamp DEFAULT current_timestamp
 );
