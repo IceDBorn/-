@@ -82,7 +82,7 @@ namespace filmhub.Views
 
             using var cmd2 = new NpgsqlCommand(query, con);
             using var rdr2 = cmd2.ExecuteReader();
-            
+
             while (rdr2.Read())
             {
                 try
@@ -95,7 +95,30 @@ namespace filmhub.Views
                     MessageBox.Show(@"Something went wrong.");
                 }
             }
-            
+
+            con.Close();
+        }
+
+        private void Activity(PictureBox pb, string tableName)
+        {
+            var con = DatabaseController.GetConnection();
+            con.Open();
+
+            if (int.Parse(pb.Tag.ToString()) == 0)
+            {
+                var query = "INSERT INTO " + tableName + "(movie_id, user_id) VALUES (" + _movieId + ", " +
+                            Account.GetAccountInstance().Id + ")";
+                using var cmd = new NpgsqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+            }
+            else
+            {
+                var query = "DELETE FROM " + tableName + " WHERE movie_id = " + _movieId + " AND user_id = " +
+                            Account.GetAccountInstance().Id;
+                using var cmd = new NpgsqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+            }
+
             con.Close();
         }
 
@@ -103,7 +126,7 @@ namespace filmhub.Views
         {
             var con = DatabaseController.GetConnection();
             con.Open();
-            
+
             if (int.Parse(star1.Tag.ToString()) == 0)
             {
                 var query = "INSERT INTO rating(value,movie_id,user_id) VALUES (" + rate + ", " + _movieId + ", " +
@@ -118,9 +141,9 @@ namespace filmhub.Views
                 using var cmd = new NpgsqlCommand(query, con);
                 cmd.ExecuteNonQuery();
             }
-            
+
             SetStars(rate);
-            
+
             con.Close();
 
             _starsCount = rate;
@@ -252,7 +275,7 @@ namespace filmhub.Views
         {
             Rate(5);
         }
-        
+
         private void favoriteImage_MouseHover(object sender, EventArgs e)
         {
             SetImageOnMouseMovement(favoriteImage, Resources.favorite_empty_hover, Resources.favorite_hover);
@@ -265,10 +288,9 @@ namespace filmhub.Views
 
         private void favoriteImage_MouseClick(object sender, MouseEventArgs e)
         {
+            Activity(favoriteImage, "favorite");
             SetImageOnMouseClick(favoriteImage, Resources.favorite_empty, Resources.favorite);
         }
-
-        #endregion
 
         private void watchedImage_MouseHover(object sender, EventArgs e)
         {
@@ -282,9 +304,10 @@ namespace filmhub.Views
 
         private void watchedImage_MouseClick(object sender, MouseEventArgs e)
         {
+            Activity(watchedImage, "history");
             SetImageOnMouseClick(watchedImage, Resources.watched_empty, Resources.watched);
         }
-        
+
         private void watchlistImage_MouseHover(object sender, EventArgs e)
         {
             SetImageOnMouseMovement(watchlistImage, Resources.watchlist_empty_hover, Resources.watchlist_hover);
@@ -297,7 +320,10 @@ namespace filmhub.Views
 
         private void watchlistImage_MouseClick(object sender, MouseEventArgs e)
         {
+            Activity(watchlistImage, "watchlist");
             SetImageOnMouseClick(watchlistImage, Resources.watchlist_empty, Resources.watchlist);
         }
+        
+        #endregion
     }
 }
