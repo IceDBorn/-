@@ -26,9 +26,9 @@ namespace filmhub.Views
         private void InitializeColors()
         {
             menuPanel.BackColor = Program.Colors.BackgroundColor;
-            emailTextBox.BackColor = Program.Colors.FieldColor;
+            usernameTextBox.BackColor = Program.Colors.FieldColor;
             passwordTextBox.BackColor = Program.Colors.FieldColor;
-            emailTextBox.ForeColor = Program.Colors.FieldDarkTextColor;
+            usernameTextBox.ForeColor = Program.Colors.FieldDarkTextColor;
             passwordTextBox.ForeColor = Program.Colors.FieldDarkTextColor;
             signUpButton.BackColor = Program.Colors.AccentColor;
             signUpButton.FlatAppearance.BorderColor = Program.Colors.AccentColor;
@@ -40,10 +40,10 @@ namespace filmhub.Views
 
         private void SignUp()
         {
-            if (string.IsNullOrEmpty(emailTextBox.Text.Trim()) || emailTextBox.Text.Equals(" E-mail"))
+            if (string.IsNullOrEmpty(usernameTextBox.Text.Trim()) || usernameTextBox.Text.Equals(" Username"))
             {
                 SystemSounds.Beep.Play();
-                MessageBox.Show(@"Email is empty.");
+                MessageBox.Show(@"Username is empty.");
             }
             else if (string.IsNullOrEmpty(passwordTextBox.Text.Trim()) || passwordTextBox.Text.Equals(" Password"))
             {
@@ -63,7 +63,7 @@ namespace filmhub.Views
             }
             else
             {
-                LoginController.Signup(emailTextBox.Text, passwordTextBox.Text);
+                LoginController.Signup(usernameTextBox.Text, passwordTextBox.Text);
                 if (Account.GetAccountInstance() == null) return;
                 Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
             }
@@ -83,19 +83,19 @@ namespace filmhub.Views
             termsLabel.ForeColor = Color.White;
         }
 
-        private void emailTextBox_Enter(object sender, EventArgs e)
+        private void usernameTextBox_Enter(object sender, EventArgs e)
         {
-            if (emailTextBox.Text.Equals(@" E-mail"))
+            if (usernameTextBox.Text.Equals(@" Username"))
             {
-                emailTextBox.Text = "";
+                usernameTextBox.Text = "";
             }
         }
 
-        private void emailTextBox_Leave(object sender, EventArgs e)
+        private void usernameTextBox_Leave(object sender, EventArgs e)
         {
-            if (emailTextBox.Text.Equals(""))
+            if (usernameTextBox.Text.Equals(""))
             {
-                emailTextBox.Text = @" E-mail";
+                usernameTextBox.Text = @" Username";
             }
         }
 
@@ -159,7 +159,7 @@ namespace filmhub.Views
             GC.Collect();
         }
 
-        private void emailTextBox_KeyDown(object sender, KeyEventArgs e)
+        private void usernameTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode != Keys.Enter) return;
             SignUp();

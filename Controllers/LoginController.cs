@@ -53,14 +53,7 @@ namespace filmhub.Controllers
 
             if (id != -1)
             {
-                if (admin)
-                {
-                    // TODO: Admin account
-                }
-                else
-                {
-                    new Account(id, username, admin, darkTheme, picture).Login();
-                }
+                new Account(id, username, admin, darkTheme, picture).Login();
             }
             else
             {
@@ -68,7 +61,7 @@ namespace filmhub.Controllers
             }
         }
 
-        public static void Signup(string email, string password)
+        public static void Signup(string username, string password)
         {
             try
             {
@@ -76,7 +69,7 @@ namespace filmhub.Controllers
                 con.Open();
 
                 const string validateUser =
-                    "INSERT INTO account (email, password, admin, dark_theme) VALUES (@v1,@v2,@v3,@v4)";
+                    "INSERT INTO account (username, password, admin, dark_theme) VALUES (@v1,@v2,@v3,@v4)";
 
                 using var cmd = new NpgsqlCommand(validateUser, con);
                 var v1 = cmd.Parameters.Add("v1", NpgsqlDbType.Text);
@@ -86,7 +79,7 @@ namespace filmhub.Controllers
 
                 cmd.Prepare();
 
-                v1.Value = email;
+                v1.Value = username;
                 v2.Value = password;
                 v3.Value = false;
                 v4.Value = true;
@@ -95,12 +88,12 @@ namespace filmhub.Controllers
 
                 con.Close();
 
-                Login(email, password);
+                Login(username, password);
             }
             catch (PostgresException e)
             {
                 MessageBox.Show(e.SqlState.Equals("23505")
-                    ? @"Email already exists."
+                    ? @"Username already exists."
                     : @"Something went wrong with the database, please try again.");
             }
             catch (Exception)

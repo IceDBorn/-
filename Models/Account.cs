@@ -3,7 +3,6 @@
     public class Account
     {
         private string username;
-        private string email;
         private bool admin;
         private bool darkTheme;
 
@@ -15,7 +14,7 @@
             Username = username;
             this.admin = admin;
             this.darkTheme = darkTheme;
-            this.Picture = picture;
+            Picture = picture;
         }
 
         public int Id { get; }

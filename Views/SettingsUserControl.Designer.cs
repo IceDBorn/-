@@ -35,16 +35,14 @@ namespace filmhub.Views
             this.settingsLabel = new System.Windows.Forms.Label();
             this.userProfileImage = new System.Windows.Forms.PictureBox();
             this.uploadButton = new filmhub.Views.RoundedButton();
-            this.nameLabel = new System.Windows.Forms.Label();
-            this.emailLabel = new System.Windows.Forms.Label();
+            this.usernameLabel = new System.Windows.Forms.Label();
             this.changeLabel = new System.Windows.Forms.Label();
             this.confirmLabel = new System.Windows.Forms.Label();
             this.saveButton = new filmhub.Views.RoundedButton();
             this.resetButton = new filmhub.Views.RoundedButton();
             this.changeTextBox = new filmhub.Views.RoundedTextBox();
             this.confirmTextBox = new filmhub.Views.RoundedTextBox();
-            this.nameValueLabel = new System.Windows.Forms.Label();
-            this.emailValueLabel = new System.Windows.Forms.Label();
+            this.usernameValueLabel = new System.Windows.Forms.Label();
             this.photoBrowser = new System.Windows.Forms.OpenFileDialog();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize) (this.userProfileImage)).BeginInit();
@@ -85,31 +83,21 @@ namespace filmhub.Views
             this.uploadButton.UseVisualStyleBackColor = true;
             this.uploadButton.Click += new System.EventHandler(this.uploadButton_Click);
             // 
-            // nameLabel
+            // usernameLabel
             // 
-            this.nameLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.nameLabel.ForeColor = System.Drawing.Color.White;
-            this.nameLabel.Location = new System.Drawing.Point(300, 169);
-            this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(100, 39);
-            this.nameLabel.TabIndex = 4;
-            this.nameLabel.Text = "Name:";
-            // 
-            // emailLabel
-            // 
-            this.emailLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.emailLabel.ForeColor = System.Drawing.Color.White;
-            this.emailLabel.Location = new System.Drawing.Point(300, 219);
-            this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(107, 39);
-            this.emailLabel.TabIndex = 5;
-            this.emailLabel.Text = "E-mail:";
+            this.usernameLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.usernameLabel.ForeColor = System.Drawing.Color.White;
+            this.usernameLabel.Location = new System.Drawing.Point(300, 160);
+            this.usernameLabel.Name = "usernameLabel";
+            this.usernameLabel.Size = new System.Drawing.Size(169, 39);
+            this.usernameLabel.TabIndex = 4;
+            this.usernameLabel.Text = "Username:";
             // 
             // changeLabel
             // 
             this.changeLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.changeLabel.ForeColor = System.Drawing.Color.White;
-            this.changeLabel.Location = new System.Drawing.Point(300, 269);
+            this.changeLabel.Location = new System.Drawing.Point(300, 250);
             this.changeLabel.Name = "changeLabel";
             this.changeLabel.Size = new System.Drawing.Size(250, 39);
             this.changeLabel.TabIndex = 6;
@@ -119,7 +107,7 @@ namespace filmhub.Views
             // 
             this.confirmLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.confirmLabel.ForeColor = System.Drawing.Color.White;
-            this.confirmLabel.Location = new System.Drawing.Point(300, 324);
+            this.confirmLabel.Location = new System.Drawing.Point(300, 340);
             this.confirmLabel.Name = "confirmLabel";
             this.confirmLabel.Size = new System.Drawing.Size(258, 39);
             this.confirmLabel.TabIndex = 7;
@@ -158,7 +146,7 @@ namespace filmhub.Views
             // 
             this.changeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.changeTextBox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.changeTextBox.Location = new System.Drawing.Point(564, 267);
+            this.changeTextBox.Location = new System.Drawing.Point(564, 249);
             this.changeTextBox.Name = "changeTextBox";
             this.changeTextBox.Size = new System.Drawing.Size(413, 43);
             this.changeTextBox.TabIndex = 11;
@@ -168,31 +156,21 @@ namespace filmhub.Views
             // 
             this.confirmTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.confirmTextBox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.confirmTextBox.Location = new System.Drawing.Point(564, 324);
+            this.confirmTextBox.Location = new System.Drawing.Point(564, 339);
             this.confirmTextBox.Name = "confirmTextBox";
             this.confirmTextBox.Size = new System.Drawing.Size(413, 43);
             this.confirmTextBox.TabIndex = 12;
             this.confirmTextBox.TabStop = false;
             // 
-            // nameValueLabel
+            // usernameValueLabel
             // 
-            this.nameValueLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.nameValueLabel.ForeColor = System.Drawing.Color.White;
-            this.nameValueLabel.Location = new System.Drawing.Point(406, 169);
-            this.nameValueLabel.Name = "nameValueLabel";
-            this.nameValueLabel.Size = new System.Drawing.Size(83, 39);
-            this.nameValueLabel.TabIndex = 13;
-            this.nameValueLabel.Text = "name";
-            // 
-            // emailValueLabel
-            // 
-            this.emailValueLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.emailValueLabel.ForeColor = System.Drawing.Color.White;
-            this.emailValueLabel.Location = new System.Drawing.Point(406, 219);
-            this.emailValueLabel.Name = "emailValueLabel";
-            this.emailValueLabel.Size = new System.Drawing.Size(83, 39);
-            this.emailValueLabel.TabIndex = 14;
-            this.emailValueLabel.Text = "email";
+            this.usernameValueLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.usernameValueLabel.ForeColor = System.Drawing.Color.White;
+            this.usernameValueLabel.Location = new System.Drawing.Point(564, 160);
+            this.usernameValueLabel.Name = "usernameValueLabel";
+            this.usernameValueLabel.Size = new System.Drawing.Size(1067, 39);
+            this.usernameValueLabel.TabIndex = 13;
+            this.usernameValueLabel.Text = "username";
             // 
             // imageList
             // 
@@ -205,16 +183,14 @@ namespace filmhub.Views
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.Controls.Add(this.emailValueLabel);
-            this.Controls.Add(this.nameValueLabel);
+            this.Controls.Add(this.usernameValueLabel);
             this.Controls.Add(this.confirmTextBox);
             this.Controls.Add(this.changeTextBox);
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.confirmLabel);
             this.Controls.Add(this.changeLabel);
-            this.Controls.Add(this.emailLabel);
-            this.Controls.Add(this.nameLabel);
+            this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.uploadButton);
             this.Controls.Add(this.userProfileImage);
             this.Controls.Add(this.settingsLabel);
@@ -233,10 +209,8 @@ namespace filmhub.Views
 
         private filmhub.Views.RoundedTextBox confirmTextBox;
 
-        private System.Windows.Forms.Label nameValueLabel;
-        
-        private System.Windows.Forms.Label emailValueLabel;
-        
+        private System.Windows.Forms.Label usernameValueLabel;
+
         private filmhub.Views.RoundedButton saveButton;
         
         private filmhub.Views.RoundedButton resetButton;
@@ -245,9 +219,7 @@ namespace filmhub.Views
 
         private System.Windows.Forms.Label changeLabel;
 
-        private System.Windows.Forms.Label nameLabel;
-        
-        private System.Windows.Forms.Label emailLabel;
+        private System.Windows.Forms.Label usernameLabel;
 
         private filmhub.Views.RoundedButton uploadButton;
 
