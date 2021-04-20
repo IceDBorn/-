@@ -8,7 +8,6 @@ namespace filmhub.Models
         private string email;
         private bool admin;
         private bool darkTheme;
-        private string picture;
         private NpgsqlDateTime createdOn;
 
         private static Account _accountInstance;
@@ -21,11 +20,13 @@ namespace filmhub.Models
             this.email = email;
             this.admin = admin;
             this.darkTheme = darkTheme;
-            this.picture = picture;
+            this.Picture = picture;
             this.createdOn = createdOn;
         }
 
         public int Id { get; }
+
+        public string Picture { get; }
 
         public void Login()
         {

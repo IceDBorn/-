@@ -375,6 +375,7 @@
       <Content Include="Resources\back_hover.png" />
       <Content Include="Resources\close.png" />
       <Content Include="Resources\close_hover.png" />
+      <Content Include="Resources\default_user.png" />
       <Content Include="Resources\home.png" />
       <Content Include="Resources\home_hover.png" />
       <Content Include="Resources\logo.png" />
