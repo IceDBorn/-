@@ -269,5 +269,35 @@ namespace filmhub.Views
         }
 
         #endregion
+
+        private void watchedImage_MouseHover(object sender, EventArgs e)
+        {
+            SetImageOnMouseMovement(watchedImage, Resources.watched_empty_hover, Resources.watched_hover);
+        }
+
+        private void watchedImage_MouseLeave(object sender, EventArgs e)
+        {
+            SetImageOnMouseMovement(watchedImage, Resources.watched_empty, Resources.watched);
+        }
+
+        private void watchedImage_MouseClick(object sender, MouseEventArgs e)
+        {
+            SetImageOnMouseClick(watchedImage, Resources.watched_empty, Resources.watched);
+        }
+        
+        private void watchlistImage_MouseHover(object sender, EventArgs e)
+        {
+            SetImageOnMouseMovement(watchlistImage, Resources.watchlist_empty_hover, Resources.watchlist_hover);
+        }
+
+        private void watchlistImage_MouseLeave(object sender, EventArgs e)
+        {
+            SetImageOnMouseMovement(watchlistImage, Resources.watchlist_empty, Resources.watchlist);
+        }
+
+        private void watchlistImage_MouseClick(object sender, MouseEventArgs e)
+        {
+            SetImageOnMouseClick(watchlistImage, Resources.watchlist_empty, Resources.watchlist);
+        }
     }
 }
