@@ -155,6 +155,25 @@ namespace filmhub.Views
             }
         }
 
+        private static void SetImageOnMouseMovement(PictureBox pictureBox, Image empty, Image filled)
+        {
+            pictureBox.Image = int.Parse(pictureBox.Tag.ToString()) == 0 ? empty : filled;
+        }
+
+        private static void SetImageOnMouseClick(PictureBox pictureBox, Image empty, Image filled)
+        {
+            if (int.Parse(pictureBox.Tag.ToString()) == 0)
+            {
+                pictureBox.Image = filled;
+                pictureBox.Tag = 1;
+            }
+            else
+            {
+                pictureBox.Image = empty;
+                pictureBox.Tag = 0;
+            }
+        }
+
         #endregion
 
         #region Events
@@ -233,7 +252,52 @@ namespace filmhub.Views
         {
             Rate(5);
         }
+        
+        private void favoriteImage_MouseHover(object sender, EventArgs e)
+        {
+            SetImageOnMouseMovement(favoriteImage, Resources.favorite_empty_hover, Resources.favorite_hover);
+        }
+
+        private void favoriteImage_MouseLeave(object sender, EventArgs e)
+        {
+            SetImageOnMouseMovement(favoriteImage, Resources.favorite_empty, Resources.favorite);
+        }
+
+        private void favoriteImage_MouseClick(object sender, MouseEventArgs e)
+        {
+            SetImageOnMouseClick(favoriteImage, Resources.favorite_empty, Resources.favorite);
+        }
 
         #endregion
+
+        private void watchedImage_MouseHover(object sender, EventArgs e)
+        {
+            SetImageOnMouseMovement(watchedImage, Resources.watched_empty_hover, Resources.watched_hover);
+        }
+
+        private void watchedImage_MouseLeave(object sender, EventArgs e)
+        {
+            SetImageOnMouseMovement(watchedImage, Resources.watched_empty, Resources.watched);
+        }
+
+        private void watchedImage_MouseClick(object sender, MouseEventArgs e)
+        {
+            SetImageOnMouseClick(watchedImage, Resources.watched_empty, Resources.watched);
+        }
+        
+        private void watchlistImage_MouseHover(object sender, EventArgs e)
+        {
+            SetImageOnMouseMovement(watchlistImage, Resources.watchlist_empty_hover, Resources.watchlist_hover);
+        }
+
+        private void watchlistImage_MouseLeave(object sender, EventArgs e)
+        {
+            SetImageOnMouseMovement(watchlistImage, Resources.watchlist_empty, Resources.watchlist);
+        }
+
+        private void watchlistImage_MouseClick(object sender, MouseEventArgs e)
+        {
+            SetImageOnMouseClick(watchlistImage, Resources.watchlist_empty, Resources.watchlist);
+        }
     }
 }

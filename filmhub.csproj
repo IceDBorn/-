@@ -376,6 +376,11 @@
       <Content Include="Resources\close.png" />
       <Content Include="Resources\close_hover.png" />
       <Content Include="Resources\default_user.png" />
+      <Content Include="Resources\favorite.png" />
+      <Content Include="Resources\favorite_empty.png" />
+      <Content Include="Resources\favorite_empty1.png" />
+      <Content Include="Resources\favorite_empty_hover.png" />
+      <Content Include="Resources\favorite_hover.png" />
       <Content Include="Resources\home.png" />
       <Content Include="Resources\home_hover.png" />
       <Content Include="Resources\logo.png" />
@@ -388,6 +393,14 @@
       <Content Include="Resources\star.png" />
       <Content Include="Resources\star_empty.png" />
       <Content Include="Resources\star_hover.png" />
+      <Content Include="Resources\watched.png" />
+      <Content Include="Resources\watched_empty.png" />
+      <Content Include="Resources\watched_empty_hover.png" />
+      <Content Include="Resources\watched_hover.png" />
+      <Content Include="Resources\watchlist.png" />
+      <Content Include="Resources\watchlist_empty.png" />
+      <Content Include="Resources\watchlist_empty_hover.png" />
+      <Content Include="Resources\watchlist_hover.png" />
     </ItemGroup>
     <ItemGroup>
       <Analyzer Include="packages\Lucene.Net.4.8.0-beta00014\analyzers\dotnet\cs\Lucene.Net.CodeAnalysis.CSharp.dll" />
