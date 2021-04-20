@@ -37,7 +37,7 @@ namespace filmhub.Views
             this.newLabel = new System.Windows.Forms.Label();
             this.signInButton = new filmhub.Views.RoundedButton();
             this.passwordTextBox = new filmhub.Views.RoundedTextBox();
-            this.emailTextBox = new filmhub.Views.RoundedTextBox();
+            this.usernameTextBox = new filmhub.Views.RoundedTextBox();
             this.signInLabel = new System.Windows.Forms.Label();
             this.menuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.backButton)).BeginInit();
@@ -51,7 +51,7 @@ namespace filmhub.Views
             this.menuPanel.Controls.Add(this.newLabel);
             this.menuPanel.Controls.Add(this.signInButton);
             this.menuPanel.Controls.Add(this.passwordTextBox);
-            this.menuPanel.Controls.Add(this.emailTextBox);
+            this.menuPanel.Controls.Add(this.usernameTextBox);
             this.menuPanel.Controls.Add(this.signInLabel);
             this.menuPanel.Location = new System.Drawing.Point(376, 38);
             this.menuPanel.Name = "menuPanel";
@@ -123,19 +123,19 @@ namespace filmhub.Views
             this.passwordTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordTextBox_KeyDown);
             this.passwordTextBox.Leave += new System.EventHandler(this.passwordTextBox_Leave);
             // 
-            // emailTextBox
+            // usernameTextBox
             // 
-            this.emailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.emailTextBox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.emailTextBox.Location = new System.Drawing.Point(55, 149);
-            this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(413, 43);
-            this.emailTextBox.TabIndex = 1;
-            this.emailTextBox.TabStop = false;
-            this.emailTextBox.Text = " E-mail";
-            this.emailTextBox.Enter += new System.EventHandler(this.emailTextBox_Enter);
-            this.emailTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.emailTextBox_KeyDown);
-            this.emailTextBox.Leave += new System.EventHandler(this.emailTextBox_Leave);
+            this.usernameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.usernameTextBox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.usernameTextBox.Location = new System.Drawing.Point(55, 149);
+            this.usernameTextBox.Name = "usernameTextBox";
+            this.usernameTextBox.Size = new System.Drawing.Size(413, 43);
+            this.usernameTextBox.TabIndex = 1;
+            this.usernameTextBox.TabStop = false;
+            this.usernameTextBox.Text = " Username";
+            this.usernameTextBox.Enter += new System.EventHandler(this.usernameTextBox_Enter);
+            this.usernameTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.usernameTextBox_KeyDown);
+            this.usernameTextBox.Leave += new System.EventHandler(this.usernameTextBox_Leave);
             // 
             // signInLabel
             // 
@@ -173,7 +173,7 @@ namespace filmhub.Views
         
         private filmhub.Views.RoundedButton signInButton;
 
-        private filmhub.Views.RoundedTextBox emailTextBox;
+        private filmhub.Views.RoundedTextBox usernameTextBox;
 
         private System.Windows.Forms.Label signInLabel;
         

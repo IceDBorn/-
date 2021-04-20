@@ -20,7 +20,7 @@ namespace filmhub.Views
         {
             InitializeComponent();
             InitializeColors();
-            InitializeUserImage();
+            InitializeUser();
         }
 
         #region Methods
@@ -67,8 +67,9 @@ namespace filmhub.Views
             return image;
         }
 
-        private void InitializeUserImage()
+        private void InitializeUser()
         {
+            usernameValueLabel.Text = Account.GetAccountInstance().Username;
             if (Account.GetAccountInstance().Picture == null) return;
             imageList.Images.Clear();
             imageList.Images.Add(DownloadImageFromUrl(Account.GetAccountInstance().Picture));
