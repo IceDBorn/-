@@ -47,6 +47,8 @@ namespace filmhub.Views
             this.comingSoonImage4 = new System.Windows.Forms.PictureBox();
             this.comingSoonImage5 = new System.Windows.Forms.PictureBox();
             this.moviesList = new System.Windows.Forms.ImageList(this.components);
+            this.loadingLabel = new System.Windows.Forms.Label();
+            this.loadingLabel2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize) (this.featuredImage1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.menu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.featuredImage2)).BeginInit();
@@ -229,11 +231,35 @@ namespace filmhub.Views
             this.moviesList.ImageSize = new System.Drawing.Size(150, 200);
             this.moviesList.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // loadingLabel
+            // 
+            this.loadingLabel.Font = new System.Drawing.Font("Segoe UI", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
+            this.loadingLabel.ForeColor = System.Drawing.Color.White;
+            this.loadingLabel.Location = new System.Drawing.Point(557, 172);
+            this.loadingLabel.Name = "loadingLabel";
+            this.loadingLabel.Size = new System.Drawing.Size(150, 58);
+            this.loadingLabel.TabIndex = 25;
+            this.loadingLabel.Text = "Loading";
+            this.loadingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // loadingLabel2
+            // 
+            this.loadingLabel2.Font = new System.Drawing.Font("Segoe UI", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
+            this.loadingLabel2.ForeColor = System.Drawing.Color.White;
+            this.loadingLabel2.Location = new System.Drawing.Point(557, 437);
+            this.loadingLabel2.Name = "loadingLabel2";
+            this.loadingLabel2.Size = new System.Drawing.Size(150, 58);
+            this.loadingLabel2.TabIndex = 26;
+            this.loadingLabel2.Text = "Loading";
+            this.loadingLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MainPageUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Controls.Add(this.loadingLabel2);
+            this.Controls.Add(this.loadingLabel);
             this.Controls.Add(this.comingSoonImage5);
             this.Controls.Add(this.comingSoonImage4);
             this.Controls.Add(this.comingSoonImage3);
@@ -264,6 +290,12 @@ namespace filmhub.Views
             ((System.ComponentModel.ISupportInitialize) (this.comingSoonImage5)).EndInit();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Label loadingLabel2;
+
+        private System.Windows.Forms.Label loadingLabel;
+
+        private System.Windows.Forms.Label label1;
 
         private System.Windows.Forms.ImageList moviesList;
 
