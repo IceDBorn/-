@@ -41,7 +41,6 @@ namespace filmhub.Views
             movieImage.Image = image;
 
             var con = DatabaseController.GetConnection();
-            con.Open();
 
             var query =
                 "SELECT movie.name, description, director, writer, stars, release_date, genre.name " +
@@ -49,8 +48,8 @@ namespace filmhub.Views
                 "JOIN genre ON genre_id = genre.id " +
                 "WHERE movie.id = " + id;
 
-            using var cmd = new NpgsqlCommand(query, con);
-            using var rdr = cmd.ExecuteReader();
+            var cmd = new NpgsqlCommand(query, con);
+            var rdr = cmd.ExecuteReader();
 
             while (rdr.Read())
             {
@@ -69,10 +68,7 @@ namespace filmhub.Views
                     MessageBox.Show(@"Something went wrong.");
                 }
             }
-
-            con.Close();
-
-            con.Open();
+            rdr.Close();
 
             query =
                 "SELECT value " +
@@ -80,23 +76,22 @@ namespace filmhub.Views
                 "WHERE movie_id = " + id + " " +
                 "AND user_id = " + Account.GetAccountInstance().Id;
 
-            using var cmd2 = new NpgsqlCommand(query, con);
-            using var rdr2 = cmd2.ExecuteReader();
+            cmd = new NpgsqlCommand(query, con);
+            rdr = cmd.ExecuteReader();
 
-            while (rdr2.Read())
+            while (rdr.Read())
             {
                 try
                 {
-                    SetStars(rdr2.GetInt32(0));
-                    _starsCount = rdr2.GetInt32(0);
+                    SetStars(rdr.GetInt32(0));
+                    _starsCount = rdr.GetInt32(0);
                 }
                 catch
                 {
                     MessageBox.Show(@"Something went wrong.");
                 }
             }
-
-            con.Close();
+            rdr.Close();
 
             if (QueryController.Activity("favorite", Account.GetAccountInstance().Id, id))
             {
@@ -121,7 +116,6 @@ namespace filmhub.Views
         private void ActivityInsert(PictureBox pb, string tableName)
         {
             var con = DatabaseController.GetConnection();
-            con.Open();
 
             if (int.Parse(pb.Tag.ToString()) == 0)
             {
@@ -137,14 +131,11 @@ namespace filmhub.Views
                 using var cmd = new NpgsqlCommand(query, con);
                 cmd.ExecuteNonQuery();
             }
-
-            con.Close();
         }
 
         private void Rate(int rate)
         {
             var con = DatabaseController.GetConnection();
-            con.Open();
 
             if (int.Parse(star1.Tag.ToString()) == 0)
             {
@@ -162,8 +153,6 @@ namespace filmhub.Views
             }
 
             SetStars(rate);
-
-            con.Close();
 
             _starsCount = rate;
         }

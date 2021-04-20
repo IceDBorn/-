@@ -17,7 +17,6 @@ namespace filmhub.Controllers
             try
             {
                 var con = DatabaseController.GetConnection();
-                con.Open();
 
                 const string validateUser = "SELECT id, username, admin, dark_theme, picture " +
                                             "FROM account " +
@@ -43,8 +42,7 @@ namespace filmhub.Controllers
                     darkTheme = rdr.GetBoolean(3);
                     picture = rdr.IsDBNull(4) ? null : rdr.GetString(4);
                 }
-
-                con.Close();
+                rdr.Close();
             }
             catch (Exception e)
             {
@@ -66,7 +64,6 @@ namespace filmhub.Controllers
             try
             {
                 var con = DatabaseController.GetConnection();
-                con.Open();
 
                 const string validateUser =
                     "INSERT INTO account (username, password, admin, dark_theme) VALUES (@v1,@v2,@v3,@v4)";
@@ -85,8 +82,6 @@ namespace filmhub.Controllers
                 v4.Value = true;
 
                 cmd.ExecuteNonQuery();
-
-                con.Close();
 
                 Login(username, password);
             }

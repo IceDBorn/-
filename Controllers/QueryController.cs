@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using Lucene.Net.Analysis;
 using Npgsql;
 
 namespace filmhub.Controllers
@@ -14,7 +15,6 @@ namespace filmhub.Controllers
 
             try
             {
-                con.Open();
                 using var cmd = new NpgsqlCommand(query, con);
                 cmd.Parameters.AddWithValue("movie", movieId);
                 cmd.Parameters.AddWithValue("user", userId);
@@ -24,14 +24,11 @@ namespace filmhub.Controllers
                 {
                     id = rdr.GetInt32(0);
                 }
+                rdr.Close();
             }
             catch
             {
                 MessageBox.Show(@"Something went wrong.");
-            }
-            finally
-            {
-                con.Close();
             }
 
             return id != -1;

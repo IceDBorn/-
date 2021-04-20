@@ -118,7 +118,6 @@ namespace filmhub.Views
                 var imageUpload = await imageEndpoint.UploadImageAsync(fileStream);
                 
                 var con = DatabaseController.GetConnection();
-                con.Open();
 
                 var query = "UPDATE account SET picture = @link WHERE id = @id";
                 
@@ -132,8 +131,6 @@ namespace filmhub.Views
                 id.Value = Account.GetAccountInstance().Id;
                 
                 cmd.ExecuteNonQuery();
-                
-                await con.CloseAsync();
             }
             catch
             {
