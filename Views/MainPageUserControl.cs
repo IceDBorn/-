@@ -120,6 +120,8 @@ namespace filmhub.Views
                     moviesList.Images.Add(DownloadImageFromUrl(rdr.GetString(1)));
                     count++;
                 }
+                
+                con.Close();
 
                 for (var i = 0; i < moviesList.Images.Count; i++)
                 {

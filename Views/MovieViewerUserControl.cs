@@ -103,8 +103,7 @@ namespace filmhub.Views
         {
             var con = DatabaseController.GetConnection();
             con.Open();
-
-            SetStars(rate);
+            
             if (int.Parse(star1.Tag.ToString()) == 0)
             {
                 var query = "INSERT INTO rating(value,movie_id,user_id) VALUES (" + rate + ", " + _movieId + ", " +
@@ -119,6 +118,8 @@ namespace filmhub.Views
                 using var cmd = new NpgsqlCommand(query, con);
                 cmd.ExecuteNonQuery();
             }
+            
+            SetStars(rate);
             
             con.Close();
 
