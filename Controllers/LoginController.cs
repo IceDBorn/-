@@ -8,36 +8,40 @@ namespace filmhub.Controllers
 {
     public static class LoginController
     {
-        public static void Login(string email, string password)
+        public static void Login(string username, string password)
         {
             var id = -1;
-            string name = null, picture = null;
+            string picture = null;
             bool admin = false, darkTheme = true;
-            var createdOn = NpgsqlDateTime.Infinity;
 
             try
             {
                 var con = DatabaseController.GetConnection();
                 con.Open();
 
-                var validateUser =
-                    "SELECT id, name, admin, dark_theme, picture, created_at " +
-                    "FROM account " +
-                    "WHERE email = '" + email + "' AND password = '" + password + "' " +
-                    "LIMIT 1";
+                const string validateUser = "SELECT id, username, admin, dark_theme, picture " +
+                                            "FROM account " +
+                                            "WHERE username = @username AND password = @password " +
+                                            "LIMIT 1";
 
                 using var cmd = new NpgsqlCommand(validateUser, con);
+                var usernameValue = cmd.Parameters.Add("username", NpgsqlDbType.Text);
+                var passwordValue = cmd.Parameters.Add("password", NpgsqlDbType.Text);
+
+                cmd.Prepare();
+
+                usernameValue.Value = username;
+                passwordValue.Value = password;
 
                 using var rdr = cmd.ExecuteReader();
 
                 while (rdr.Read())
                 {
                     id = rdr.GetInt32(0);
-                    // name = rdr.GetString(1); TODO: Fix
+                    username = rdr.GetString(1);
                     admin = rdr.GetBoolean(2);
                     darkTheme = rdr.GetBoolean(3);
                     picture = rdr.IsDBNull(4) ? null : rdr.GetString(4);
-                    createdOn = rdr.GetTimeStamp(5);
                 }
 
                 con.Close();
@@ -55,7 +59,7 @@ namespace filmhub.Controllers
                 }
                 else
                 {
-                    new Account(id, name, email, admin, darkTheme, picture, createdOn).Login();
+                    new Account(id, username, admin, darkTheme, picture).Login();
                 }
             }
             else
