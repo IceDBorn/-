@@ -84,7 +84,7 @@
             // 
             // homeButton
             // 
-            this.homeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.homeButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.homeButton.Image = global::filmhub.Properties.Resources.home;
             this.homeButton.Location = new System.Drawing.Point(23, 19);
             this.homeButton.Name = "homeButton";
@@ -111,6 +111,7 @@
             // 
             // accountButton
             // 
+            this.accountButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.accountButton.Image = global::filmhub.Properties.Resources.account;
             this.accountButton.Location = new System.Drawing.Point(637, 19);
             this.accountButton.Name = "accountButton";
@@ -123,7 +124,7 @@
             // 
             // searchButton
             // 
-            this.searchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.searchButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.searchButton.Image = global::filmhub.Properties.Resources.search;
             this.searchButton.Location = new System.Drawing.Point(568, 19);
             this.searchButton.Name = "searchButton";
@@ -160,6 +161,7 @@
             // favoritesLabel
             // 
             this.favoritesLabel.BackColor = System.Drawing.Color.Transparent;
+            this.favoritesLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.favoritesLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
             this.favoritesLabel.ForeColor = System.Drawing.Color.White;
             this.favoritesLabel.Location = new System.Drawing.Point(0, 10);
@@ -174,6 +176,7 @@
             // 
             // logoutLabel
             // 
+            this.logoutLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.logoutLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
             this.logoutLabel.ForeColor = System.Drawing.Color.White;
             this.logoutLabel.Location = new System.Drawing.Point(0, 150);
@@ -188,6 +191,7 @@
             // 
             // watchListLabel
             // 
+            this.watchListLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.watchListLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
             this.watchListLabel.ForeColor = System.Drawing.Color.White;
             this.watchListLabel.Location = new System.Drawing.Point(0, 45);
@@ -202,6 +206,7 @@
             // 
             // settingsLabel
             // 
+            this.settingsLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.settingsLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
             this.settingsLabel.ForeColor = System.Drawing.Color.White;
             this.settingsLabel.Location = new System.Drawing.Point(0, 115);
@@ -216,6 +221,7 @@
             // 
             // historyLabel
             // 
+            this.historyLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.historyLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
             this.historyLabel.ForeColor = System.Drawing.Color.White;
             this.historyLabel.Location = new System.Drawing.Point(0, 80);
@@ -251,6 +257,7 @@
             // 
             // minimize
             // 
+            this.minimize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.minimize.Image = global::filmhub.Properties.Resources.minimize;
             this.minimize.Location = new System.Drawing.Point(1191, 5);
             this.minimize.Name = "minimize";
@@ -263,6 +270,7 @@
             // 
             // close
             // 
+            this.close.Cursor = System.Windows.Forms.Cursors.Hand;
             this.close.Image = global::filmhub.Properties.Resources.close;
             this.close.Location = new System.Drawing.Point(1229, 5);
             this.close.Name = "close";

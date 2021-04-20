@@ -60,7 +60,7 @@ namespace filmhub.Views
             // 
             // backButton
             // 
-            this.backButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.backButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.backButton.Image = global::filmhub.Properties.Resources.back;
             this.backButton.Location = new System.Drawing.Point(55, 49);
             this.backButton.Name = "backButton";
@@ -73,6 +73,7 @@ namespace filmhub.Views
             // 
             // signUpLabel
             // 
+            this.signUpLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.signUpLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.signUpLabel.ForeColor = System.Drawing.Color.White;
             this.signUpLabel.Location = new System.Drawing.Point(273, 430);
@@ -95,6 +96,7 @@ namespace filmhub.Views
             // 
             // signInButton
             // 
+            this.signInButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.signInButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.signInButton.Font = new System.Drawing.Font("Segoe UI", 23F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.signInButton.ForeColor = System.Drawing.Color.White;
@@ -169,7 +171,7 @@ namespace filmhub.Views
 
         private System.Windows.Forms.Label newLabel;
         
-        private RoundedButton signInButton;
+        private filmhub.Views.RoundedButton signInButton;
 
         private filmhub.Views.RoundedTextBox emailTextBox;
 
