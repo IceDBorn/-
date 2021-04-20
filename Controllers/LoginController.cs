@@ -29,6 +29,7 @@ namespace filmhub.Controllers
                 using var cmd = new NpgsqlCommand(validateUser, con);
 
                 using var rdr = cmd.ExecuteReader();
+                
                 while (rdr.Read())
                 {
                     id = rdr.GetInt32(0);
@@ -38,6 +39,8 @@ namespace filmhub.Controllers
                     // picture = rdr.GetString(4); TODO: Fix
                     createdOn = rdr.GetTimeStamp(5);
                 }
+                
+                con.Close();
             }
             catch (Exception e)
             {
@@ -85,6 +88,8 @@ namespace filmhub.Controllers
                 v4.Value = true;
 
                 cmd.ExecuteNonQuery();
+                
+                con.Close();
 
                 Login(email, password);
             }

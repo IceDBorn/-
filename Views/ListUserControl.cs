@@ -111,6 +111,8 @@ namespace filmhub.Views
                         moviesList.Items.Add(item);
                     }
                 }
+                
+                con.Close();
 
                 if (moviesList.Items.Count == 0) window.Text = @"No search results";
             }

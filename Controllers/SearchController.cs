@@ -111,7 +111,9 @@ namespace filmhub.Controllers
                 {
                     list.Add(CreateDocument(rdr.GetInt32(0), rdr.GetString(1)));
                 }
-
+                
+                con.Close();
+                
                 Indexer(list);
             }
             catch (Exception e)

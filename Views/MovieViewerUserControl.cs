@@ -11,7 +11,7 @@ namespace filmhub.Views
     public partial class MovieViewerUserControl : UserControl
     {
         #region Fields
-        
+
         private readonly int _movieId;
         private int _starsCount;
 
@@ -69,11 +69,11 @@ namespace filmhub.Views
                     MessageBox.Show(@"Something went wrong.");
                 }
             }
-            
+
             con.Close();
-            
+
             con.Open();
-            
+
             query =
                 "SELECT value " +
                 "FROM rating " +
@@ -82,12 +82,12 @@ namespace filmhub.Views
 
             using var cmd2 = new NpgsqlCommand(query, con);
             using var rdr2 = cmd2.ExecuteReader();
-
+            
             while (rdr2.Read())
             {
                 try
                 {
-                    InitializeStars(rdr2.GetInt32(0));
+                    SetStars(rdr2.GetInt32(0));
                     _starsCount = rdr2.GetInt32(0);
                 }
                 catch
@@ -95,6 +95,8 @@ namespace filmhub.Views
                     MessageBox.Show(@"Something went wrong.");
                 }
             }
+            
+            con.Close();
         }
 
         private void Rate(int rate)
@@ -102,7 +104,7 @@ namespace filmhub.Views
             var con = DatabaseController.GetConnection();
             con.Open();
 
-            InitializeStars(rate);
+            SetStars(rate);
             if (int.Parse(star1.Tag.ToString()) == 0)
             {
                 var query = "INSERT INTO rating(value,movie_id,user_id) VALUES (" + rate + ", " + _movieId + ", " +
@@ -117,11 +119,13 @@ namespace filmhub.Views
                 using var cmd = new NpgsqlCommand(query, con);
                 cmd.ExecuteNonQuery();
             }
+            
+            con.Close();
 
             _starsCount = rate;
         }
 
-        private void InitializeStars(int count)
+        private void SetStars(int count)
         {
             var stars = new[] {star1, star2, star3, star4, star5};
 
@@ -134,9 +138,19 @@ namespace filmhub.Views
                 }
                 else
                 {
-                    stars[i].Image = Resources.star_empty;    
+                    stars[i].Image = Resources.star_empty;
                     stars[i].Tag = 0;
                 }
+            }
+        }
+
+        private void StarsHover(int count)
+        {
+            var stars = new[] {star1, star2, star3, star4, star5};
+
+            for (var i = 0; i < stars.Length; i++)
+            {
+                stars[i].Image = i < count ? Resources.star_hover : Resources.star_empty;
             }
         }
 
@@ -146,74 +160,74 @@ namespace filmhub.Views
 
         private void star1_MouseHover(object sender, EventArgs e)
         {
-            InitializeStars(1);
+            StarsHover(1);
         }
 
         private void star1_MouseLeave(object sender, EventArgs e)
         {
-            InitializeStars(_starsCount);
+            SetStars(_starsCount);
         }
 
         private void star2_MouseHover(object sender, EventArgs e)
         {
-            InitializeStars(2);
+            StarsHover(2);
         }
 
         private void star2_MouseLeave(object sender, EventArgs e)
         {
-            InitializeStars(_starsCount);
+            SetStars(_starsCount);
         }
 
         private void star3_MouseHover(object sender, EventArgs e)
         {
-            InitializeStars(3);
+            StarsHover(3);
         }
 
         private void star3_MouseLeave(object sender, EventArgs e)
         {
-            InitializeStars(_starsCount);
+            SetStars(_starsCount);
         }
 
         private void star4_MouseHover(object sender, EventArgs e)
         {
-            InitializeStars(4);
+            StarsHover(4);
         }
 
         private void star4_MouseLeave(object sender, EventArgs e)
         {
-            InitializeStars(_starsCount);
+            SetStars(_starsCount);
         }
 
         private void star5_MouseHover(object sender, EventArgs e)
         {
-            InitializeStars(5);
+            StarsHover(5);
         }
 
         private void star5_MouseLeave(object sender, EventArgs e)
         {
-            InitializeStars(_starsCount);
+            SetStars(_starsCount);
         }
-        
+
         private void star1_MouseClick(object sender, MouseEventArgs e)
         {
             Rate(1);
         }
-        
+
         private void star2_MouseClick(object sender, MouseEventArgs e)
         {
             Rate(2);
         }
-        
+
         private void star3_MouseClick(object sender, MouseEventArgs e)
         {
             Rate(3);
         }
-        
+
         private void star4_MouseClick(object sender, MouseEventArgs e)
         {
             Rate(4);
         }
-        
+
         private void star5_MouseClick(object sender, MouseEventArgs e)
         {
             Rate(5);
