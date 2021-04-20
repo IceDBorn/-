@@ -31,11 +31,10 @@ namespace filmhub.Views
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.window = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.image = new System.Windows.Forms.ColumnHeader();
-            this.text = new System.Windows.Forms.ColumnHeader();
-            this.button = new System.Windows.Forms.ColumnHeader();
+            this.moviesList = new System.Windows.Forms.ListView();
+            this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.menu = new System.Windows.Forms.PictureBox();
             this.categoriesPanel = new System.Windows.Forms.UserControl();
             ((System.ComponentModel.ISupportInitialize) (this.menu)).BeginInit();
@@ -51,32 +50,26 @@ namespace filmhub.Views
             this.window.TabIndex = 0;
             this.window.Text = "Window\r\n\r\n";
             // 
-            // listView1
+            // moviesList
             // 
-            this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {this.image, this.text, this.button});
-            this.listView1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
-            this.listView1.Location = new System.Drawing.Point(75, 114);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1122, 404);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.moviesList.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.moviesList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.moviesList.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
+            this.moviesList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.moviesList.Location = new System.Drawing.Point(75, 114);
+            this.moviesList.Name = "moviesList";
+            this.moviesList.Size = new System.Drawing.Size(1189, 480);
+            this.moviesList.SmallImageList = this.imageList;
+            this.moviesList.TabIndex = 1;
+            this.moviesList.UseCompatibleStateImageBehavior = false;
+            this.moviesList.View = System.Windows.Forms.View.Details;
+            this.moviesList.ItemActivate += new System.EventHandler(this.moviesList_ItemActivate);
             // 
-            // image
+            // imageList
             // 
-            this.image.Text = "Image";
-            this.image.Width = 365;
-            // 
-            // text
-            // 
-            this.text.Text = "Text";
-            this.text.Width = 394;
-            // 
-            // button
-            // 
-            this.button.Text = "Button";
-            this.button.Width = 356;
+            this.imageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            this.imageList.ImageSize = new System.Drawing.Size(150, 200);
+            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // menu
             // 
@@ -93,9 +86,10 @@ namespace filmhub.Views
             // 
             // categoriesPanel
             // 
+            this.categoriesPanel.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.categoriesPanel.Location = new System.Drawing.Point(0, 0);
             this.categoriesPanel.Name = "categoriesPanel";
-            this.categoriesPanel.Size = new System.Drawing.Size(248, 592);
+            this.categoriesPanel.Size = new System.Drawing.Size(248, 594);
             this.categoriesPanel.TabIndex = 3;
             this.categoriesPanel.Visible = false;
             // 
@@ -106,7 +100,7 @@ namespace filmhub.Views
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.Controls.Add(this.categoriesPanel);
             this.Controls.Add(this.menu);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.moviesList);
             this.Controls.Add(this.window);
             this.Name = "ListUserControl";
             this.Size = new System.Drawing.Size(1264, 595);
@@ -114,16 +108,14 @@ namespace filmhub.Views
             this.ResumeLayout(false);
         }
 
+        private System.Windows.Forms.ImageList imageList;
+
         private System.Windows.Forms.UserControl categoriesPanel;
 
         private System.Windows.Forms.PictureBox menu;
 
-        private System.Windows.Forms.ColumnHeader button;
-        private System.Windows.Forms.ColumnHeader image;
-        private System.Windows.Forms.ColumnHeader text;
-
         private System.Windows.Forms.Label window;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView moviesList;
 
         #endregion
     }

@@ -106,7 +106,7 @@
             this.searchBar.TabStop = false;
             this.searchBar.Text = " Enter your search";
             this.searchBar.Enter += new System.EventHandler(this.searchBar_Enter);
-            this.searchBar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.searchBar_KeyUp);
+            this.searchBar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchBar_KeyDown);
             this.searchBar.Leave += new System.EventHandler(this.searchBar_Leave);
             // 
             // accountButton

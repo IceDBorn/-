@@ -4,41 +4,43 @@ namespace filmhub.Models
 {
     public class Account
     {
-        private int id;
         private string name;
         private string email;
         private bool admin;
         private bool darkTheme;
-        private string picture;
         private NpgsqlDateTime createdOn;
 
-        private static Account accountInstance;
+        private static Account _accountInstance;
 
         public Account(int id, string name, string email, bool admin, bool darkTheme, string picture,
             NpgsqlDateTime createdOn)
         {
-            this.id = id;
+            Id = id;
             this.name = name;
             this.email = email;
             this.admin = admin;
             this.darkTheme = darkTheme;
-            this.picture = picture;
+            this.Picture = picture;
             this.createdOn = createdOn;
         }
 
-        public void login()
+        public int Id { get; }
+
+        public string Picture { get; }
+
+        public void Login()
         {
-            accountInstance = this;
+            _accountInstance = this;
         }
         
-        public static void logout()
+        public static void Logout()
         {
-            accountInstance = null;
+            _accountInstance = null;
         }
 
-        public static Account getAccountInstance()
+        public static Account GetAccountInstance()
         {
-            return accountInstance;
+            return _accountInstance;
         }
     }
 }

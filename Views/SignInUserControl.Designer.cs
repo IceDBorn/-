@@ -118,6 +118,7 @@ namespace filmhub.Views
             this.passwordTextBox.TabStop = false;
             this.passwordTextBox.Text = " Password";
             this.passwordTextBox.Enter += new System.EventHandler(this.passwordTextBox_Enter);
+            this.passwordTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordTextBox_KeyDown);
             this.passwordTextBox.Leave += new System.EventHandler(this.passwordTextBox_Leave);
             // 
             // emailTextBox
@@ -131,6 +132,7 @@ namespace filmhub.Views
             this.emailTextBox.TabStop = false;
             this.emailTextBox.Text = " E-mail";
             this.emailTextBox.Enter += new System.EventHandler(this.emailTextBox_Enter);
+            this.emailTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.emailTextBox_KeyDown);
             this.emailTextBox.Leave += new System.EventHandler(this.emailTextBox_Leave);
             // 
             // signInLabel
@@ -161,7 +163,7 @@ namespace filmhub.Views
 
         private System.Windows.Forms.PictureBox backButton;
 
-        private RoundedTextBox passwordTextBox;
+        private filmhub.Views.RoundedTextBox passwordTextBox;
 
         private System.Windows.Forms.Label signUpLabel;
 
@@ -169,7 +171,7 @@ namespace filmhub.Views
         
         private RoundedButton signInButton;
 
-        private RoundedTextBox emailTextBox;
+        private filmhub.Views.RoundedTextBox emailTextBox;
 
         private System.Windows.Forms.Label signInLabel;
         

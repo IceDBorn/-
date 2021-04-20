@@ -31,6 +31,7 @@ namespace filmhub.Views
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.settingsLabel = new System.Windows.Forms.Label();
             this.userProfileImage = new System.Windows.Forms.PictureBox();
             this.uploadButton = new filmhub.Views.RoundedButton();
@@ -45,6 +46,7 @@ namespace filmhub.Views
             this.nameValueLabel = new System.Windows.Forms.Label();
             this.emailValueLabel = new System.Windows.Forms.Label();
             this.photoBrowser = new System.Windows.Forms.OpenFileDialog();
+            this.imageList = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize) (this.userProfileImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,9 +63,10 @@ namespace filmhub.Views
             // userProfileImage
             // 
             this.userProfileImage.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.userProfileImage.Location = new System.Drawing.Point(80, 169);
+            this.userProfileImage.Image = global::filmhub.Properties.Resources.default_user;
+            this.userProfileImage.Location = new System.Drawing.Point(78, 169);
             this.userProfileImage.Name = "userProfileImage";
-            this.userProfileImage.Size = new System.Drawing.Size(159, 194);
+            this.userProfileImage.Size = new System.Drawing.Size(150, 200);
             this.userProfileImage.TabIndex = 2;
             this.userProfileImage.TabStop = false;
             // 
@@ -72,9 +75,9 @@ namespace filmhub.Views
             this.uploadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.uploadButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.uploadButton.ForeColor = System.Drawing.Color.White;
-            this.uploadButton.Location = new System.Drawing.Point(80, 394);
+            this.uploadButton.Location = new System.Drawing.Point(78, 393);
             this.uploadButton.Name = "uploadButton";
-            this.uploadButton.Size = new System.Drawing.Size(159, 28);
+            this.uploadButton.Size = new System.Drawing.Size(150, 28);
             this.uploadButton.TabIndex = 3;
             this.uploadButton.TabStop = false;
             this.uploadButton.Text = "Upload a photo";
@@ -188,6 +191,12 @@ namespace filmhub.Views
             this.emailValueLabel.TabIndex = 14;
             this.emailValueLabel.Text = "email";
             // 
+            // imageList
+            // 
+            this.imageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            this.imageList.ImageSize = new System.Drawing.Size(150, 200);
+            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
+            // 
             // SettingsUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -212,6 +221,8 @@ namespace filmhub.Views
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.ImageList imageList;
 
         private System.Windows.Forms.OpenFileDialog photoBrowser;
 

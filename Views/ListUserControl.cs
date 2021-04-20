@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Windows.Forms;
 using filmhub.Controllers;
 using filmhub.Properties;
@@ -11,35 +12,21 @@ namespace filmhub.Views
 {
     public partial class ListUserControl : UserControl
     {
+        #region Fields
+
+        private int[] _moviesId;
+
+        #endregion
+
+        #region Constructors
+
         public ListUserControl(string title, bool menu, string result)
         {
             InitializeComponent();
             InitializeColors();
             this.menu.Visible = menu;
             window.Text = title;
-            var sE = new SearchController("./IndexedDatabase");
-            if (!Directory.Exists("./IndexedDatabase") || IsDirectoryEmpty("./IndexedDatabase")) SearchController.createIndex();
-            var list = new List<int>(SearchController.SearchIdResults(result));
-            
-            try
-            {
-                var con = DatabaseController.getConnection();
-                con.Open();
-                foreach (var i in list)
-                {
-                    var query = "SELECT name FROM movie WHERE id = " + i;
-                    using var cmd = new NpgsqlCommand(query, con);
-                    using var rdr = cmd.ExecuteReader();
-                    while (rdr.Read())
-                    {
-                        listView1.Items.Add(rdr.GetString(0));
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
+            Search(result);
         }
 
         public ListUserControl(string title, bool menu)
@@ -50,11 +37,99 @@ namespace filmhub.Views
             window.Text = title;
         }
 
+        #endregion
+
+        #region Methods
+
         private void InitializeColors()
         {
             BackColor = Program.Colors.BackgroundColor;
-            listView1.BackColor = Program.Colors.BackgroundColor;
+            moviesList.BackColor = Program.Colors.BackgroundColor;
+            moviesList.ForeColor = Color.White;
         }
+
+        private static Image DownloadImageFromUrl(string imageUrl)
+        {
+            Image image;
+
+            try
+            {
+                var webRequest = (HttpWebRequest) WebRequest.Create(imageUrl);
+                webRequest.AllowWriteStreamBuffering = true;
+                webRequest.Timeout = 30000;
+
+                var webResponse = webRequest.GetResponse();
+
+                var stream = webResponse.GetResponseStream();
+
+                image = Image.FromStream(stream ?? throw new InvalidOperationException());
+
+                webResponse.Close();
+            }
+            catch
+            {
+                return null;
+            }
+
+            return image;
+        }
+
+        private void FillListView(IEnumerable<int> list)
+        {
+            imageList.Images.Clear();
+            try
+            {
+                var con = DatabaseController.GetConnection();
+                con.Open();
+
+                moviesList.Columns.Add("", -2, HorizontalAlignment.Left);
+                const string query = "SELECT name,picture FROM movie WHERE id = ";
+
+                var enumerable = list as int[] ?? list.ToArray();
+
+                _moviesId = new int[enumerable.Length];
+
+
+                for (var i = 0; i < enumerable.Length; i++)
+                {
+                    using var cmd = new NpgsqlCommand(query + enumerable[i], con);
+                    using var rdr = cmd.ExecuteReader();
+
+                    while (rdr.Read())
+                    {
+                        try
+                        {
+                            _moviesId[i] = enumerable[i];
+                            imageList.Images.Add(DownloadImageFromUrl(rdr.GetString(1)));
+                        }
+                        catch
+                        {
+                            // ignored
+                        }
+
+                        var item = new ListViewItem(new[] {"     " + rdr.GetString(0)}) {ImageIndex = i};
+                        moviesList.Items.Add(item);
+                    }
+                }
+                
+                con.Close();
+
+                if (moviesList.Items.Count == 0) window.Text = @"No search results";
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        private void Search(string result)
+        {
+            FillListView(SearchController.CreateIndexFolder(result));
+        }
+
+        #endregion
+
+        #region Events
 
         private void menu_MouseLeave(object sender, EventArgs e)
         {
@@ -75,9 +150,13 @@ namespace filmhub.Views
             categoriesPanel.Visible = true;
         }
 
-        private static bool IsDirectoryEmpty(string path)
+        private void moviesList_ItemActivate(object sender, EventArgs e)
         {
-            return !Directory.EnumerateFileSystemEntries(path).Any();
+            Program.MainForm.UserControlSelector(
+                new MovieViewerUserControl(imageList.Images[moviesList.SelectedItems[0].Index],
+                    _moviesId[moviesList.SelectedItems[0].Index]), true);
         }
+
+        #endregion
     }
 }

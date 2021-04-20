@@ -85,6 +85,7 @@ namespace filmhub.Views
             this.privacyLabel.Size = new System.Drawing.Size(143, 33);
             this.privacyLabel.TabIndex = 9;
             this.privacyLabel.Text = "Privacy Policy";
+            this.privacyLabel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.privacyLabel_MouseClick);
             this.privacyLabel.MouseLeave += new System.EventHandler(this.privacyLabel_MouseLeave);
             this.privacyLabel.MouseHover += new System.EventHandler(this.privacyLabel_MouseHover);
             // 
@@ -108,6 +109,7 @@ namespace filmhub.Views
             this.confirmPasswordTextBox.TabStop = false;
             this.confirmPasswordTextBox.Text = " Confirm password";
             this.confirmPasswordTextBox.Enter += new System.EventHandler(this.confirmPasswordTextBox_Enter);
+            this.confirmPasswordTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.confirmPasswordTextBox_KeyDown);
             this.confirmPasswordTextBox.Leave += new System.EventHandler(this.confirmPasswordTextBox_Leave);
             // 
             // termsLabel
@@ -119,6 +121,7 @@ namespace filmhub.Views
             this.termsLabel.Size = new System.Drawing.Size(217, 33);
             this.termsLabel.TabIndex = 6;
             this.termsLabel.Text = "Terms and Conditions";
+            this.termsLabel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.termsLabel_MouseClick);
             this.termsLabel.MouseLeave += new System.EventHandler(this.TermsLabel_MouseLeave);
             this.termsLabel.MouseHover += new System.EventHandler(this.signUpLabel_MouseHover);
             // 
@@ -156,6 +159,7 @@ namespace filmhub.Views
             this.passwordTextBox.TabStop = false;
             this.passwordTextBox.Text = " Password";
             this.passwordTextBox.Enter += new System.EventHandler(this.passwordTextBox_Enter);
+            this.passwordTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordTextBox_KeyDown);
             this.passwordTextBox.Leave += new System.EventHandler(this.passwordTextBox_Leave);
             // 
             // emailTextBox
@@ -169,6 +173,7 @@ namespace filmhub.Views
             this.emailTextBox.TabStop = false;
             this.emailTextBox.Text = " E-mail";
             this.emailTextBox.Enter += new System.EventHandler(this.emailTextBox_Enter);
+            this.emailTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.emailTextBox_KeyDown);
             this.emailTextBox.Leave += new System.EventHandler(this.emailTextBox_Leave);
             // 
             // signInLabel
@@ -205,9 +210,9 @@ namespace filmhub.Views
 
         private System.Windows.Forms.Label andLabel;
 
-        private RoundedTextBox confirmPasswordTextBox;
+        private filmhub.Views.RoundedTextBox confirmPasswordTextBox;
 
-        private RoundedTextBox passwordTextBox;
+        private filmhub.Views.RoundedTextBox passwordTextBox;
 
         private System.Windows.Forms.Label termsLabel;
 
@@ -215,7 +220,7 @@ namespace filmhub.Views
         
         private RoundedButton signInButton;
 
-        private RoundedTextBox emailTextBox;
+        private filmhub.Views.RoundedTextBox emailTextBox;
 
         private System.Windows.Forms.Label signInLabel;
         

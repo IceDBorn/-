@@ -1,6 +1,9 @@
 using System;
+using System.Diagnostics;
 using System.Drawing;
+using System.Media;
 using System.Windows.Forms;
+using filmhub.Controllers;
 using filmhub.Models;
 using filmhub.Properties;
 
@@ -33,6 +36,37 @@ namespace filmhub.Views
             andLabel.ForeColor = Program.Colors.DarkTextColor;
             confirmPasswordTextBox.BackColor = Program.Colors.FieldColor;
             confirmPasswordTextBox.ForeColor = Program.Colors.FieldDarkTextColor;
+        }
+
+        private void SignUp()
+        {
+            if (string.IsNullOrEmpty(emailTextBox.Text.Trim()) || emailTextBox.Text.Equals(" E-mail"))
+            {
+                SystemSounds.Beep.Play();
+                MessageBox.Show(@"Email is empty.");
+            }
+            else if (string.IsNullOrEmpty(passwordTextBox.Text.Trim()) || passwordTextBox.Text.Equals(" Password"))
+            {
+                SystemSounds.Beep.Play();
+                MessageBox.Show(@"Password is empty.");
+            }
+            else if (string.IsNullOrEmpty(confirmPasswordTextBox.Text.Trim()) ||
+                     confirmPasswordTextBox.Text.Equals(" Confirm password"))
+            {
+                SystemSounds.Beep.Play();
+                MessageBox.Show(@"Confirm password is empty.");
+            }
+            else if (!passwordTextBox.Text.Equals(confirmPasswordTextBox.Text))
+            {
+                SystemSounds.Beep.Play();
+                MessageBox.Show(@"Passwords do not match.");
+            }
+            else
+            {
+                LoginController.Signup(emailTextBox.Text, passwordTextBox.Text);
+                if (Account.GetAccountInstance() == null) return;
+                Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
+            }
         }
 
         #endregion
@@ -105,28 +139,7 @@ namespace filmhub.Views
 
         private void signUpButton_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(emailTextBox.Text.Trim()) || emailTextBox.Text.Equals(" E-mail"))
-            {
-                MessageBox.Show("Email is empty.");
-            }
-            else if (string.IsNullOrEmpty(passwordTextBox.Text.Trim()) || passwordTextBox.Text.Equals(" Password"))
-            {
-                MessageBox.Show("Password is empty.");
-            }
-            else if (string.IsNullOrEmpty(confirmPasswordTextBox.Text.Trim()) || confirmPasswordTextBox.Text.Equals(" Confirm password"))
-            {
-                MessageBox.Show("Confirm password is empty.");
-            }
-            else if (!passwordTextBox.Text.Equals(confirmPasswordTextBox.Text))
-            {
-                MessageBox.Show("Passwords do not match.");
-            }
-            else
-            {
-                LoginController.signup(emailTextBox.Text, passwordTextBox.Text);
-                if (Account.getAccountInstance() == null) return;
-                Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
-            }
+            SignUp();
         }
 
         private void homeButton_Click(object sender, EventArgs e)
@@ -146,6 +159,37 @@ namespace filmhub.Views
             GC.Collect();
         }
 
-        #endregion
+        private void emailTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Enter) return;
+            SignUp();
+            e.SuppressKeyPress = true;
+        }
+
+        private void passwordTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Enter) return;
+            SignUp();
+            e.SuppressKeyPress = true;
+        }
+
+        private void confirmPasswordTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Enter) return;
+            SignUp();
+            e.SuppressKeyPress = true;
+        }
+
+        private void privacyLabel_MouseClick(object sender, MouseEventArgs e)
+        {
+            Process.Start("https://github.com/IceDBorn/filmhub/blob/main/privacy-policy.md");
+        }
+
+        private void termsLabel_MouseClick(object sender, MouseEventArgs e)
+        {
+            Process.Start("https://github.com/IceDBorn/filmhub/blob/main/terms-and-conditions.md");
+        }
     }
+
+    #endregion
 }

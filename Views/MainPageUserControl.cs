@@ -1,34 +1,151 @@
 ﻿using System;
 using System.Drawing;
+using System.Net;
 using System.Windows.Forms;
+using filmhub.Controllers;
 using filmhub.Properties;
+using Npgsql;
 
 namespace filmhub.Views
 {
     public partial class MainPageUserControl : UserControl
     {
+        #region Fields
+
+        private int[] _featuredMovies;
+        private readonly PictureBox[] _featuredBoxes;
+        private readonly PictureBox[] _comingSoonBoxes;
+        private int[] _comingSoonMovies;
+
+        #endregion
 
         #region Constructor
-        
+
         public MainPageUserControl()
         {
             InitializeComponent();
             InitializeColors();
             categoriesPanel.Controls.Clear();
             categoriesPanel.Controls.Add(new CategoriesUserControl());
+            _featuredBoxes = new[] {featuredImage1, featuredImage2, featuredImage3, featuredImage4, featuredImage5};
+            _comingSoonBoxes = new[]
+                {comingSoonImage1, comingSoonImage2, comingSoonImage3, comingSoonImage4, comingSoonImage5};
+            FeaturedMovieSelector();
+            ComingSoonMovieSelector();
+            categoriesPanel.BringToFront();
         }
-        
+
         #endregion
 
         #region Methods
-        
+
         private void InitializeColors()
         {
             BackColor = Program.Colors.BackgroundColor;
             menu.BackColor = Program.Colors.BackgroundColor;
             categoriesPanel.BackColor = Program.Colors.PopOutBackgroundColor;
+            featuredImage1.BackColor = Program.Colors.BackgroundColor;
+            featuredImage2.BackColor = Program.Colors.BackgroundColor;
+            featuredImage3.BackColor = Program.Colors.BackgroundColor;
+            featuredImage4.BackColor = Program.Colors.BackgroundColor;
+            featuredImage5.BackColor = Program.Colors.BackgroundColor;
+            comingSoonImage1.BackColor = Program.Colors.BackgroundColor;
+            comingSoonImage2.BackColor = Program.Colors.BackgroundColor;
+            comingSoonImage3.BackColor = Program.Colors.BackgroundColor;
+            comingSoonImage4.BackColor = Program.Colors.BackgroundColor;
+            comingSoonImage5.BackColor = Program.Colors.BackgroundColor;
         }
-        
+
+        private static Image DownloadImageFromUrl(string imageUrl)
+        {
+            Image image;
+
+            try
+            {
+                var webRequest = (HttpWebRequest) WebRequest.Create(imageUrl);
+                webRequest.AllowWriteStreamBuffering = true;
+                webRequest.Timeout = 30000;
+
+                var webResponse = webRequest.GetResponse();
+
+                var stream = webResponse.GetResponseStream();
+
+                image = Image.FromStream(stream ?? throw new InvalidOperationException());
+
+                webResponse.Close();
+            }
+            catch
+            {
+                return null;
+            }
+
+            return image;
+        }
+
+        private void FillPictureBoxes(string query, PictureBox[] pictureBoxes, bool flag)
+        {
+            if (query == null) throw new ArgumentNullException(nameof(query));
+            if (pictureBoxes == null) throw new ArgumentNullException(nameof(pictureBoxes));
+            try
+            {
+                moviesList.Images.Clear();
+                var con = DatabaseController.GetConnection();
+                con.Open();
+
+                using var cmd = new NpgsqlCommand(query, con);
+                using var rdr = cmd.ExecuteReader();
+
+                var count = 0;
+
+                if (flag)
+                {
+                    _featuredMovies = new int[5];
+                }
+                else
+                {
+                    _comingSoonMovies = new int[5];
+                }
+
+                while (rdr.Read())
+                {
+                    if (flag)
+                    {
+                        _featuredMovies[count] = rdr.GetInt32(0);
+                    }
+                    else
+                    {
+                        _comingSoonMovies[count] = rdr.GetInt32(0);
+                    }
+
+                    moviesList.Images.Add(DownloadImageFromUrl(rdr.GetString(1)));
+                    count++;
+                }
+                
+                con.Close();
+
+                for (var i = 0; i < moviesList.Images.Count; i++)
+                {
+                    pictureBoxes[i].Image = moviesList.Images[i];
+                }
+            }
+            catch
+            {
+                MessageBox.Show(@"Something went wrong.");
+            }
+        }
+
+        private void FeaturedMovieSelector()
+        {
+            FillPictureBoxes("SELECT id,picture FROM movie WHERE release_date < NOW() ORDER BY RANDOM() LIMIT 5",
+                _featuredBoxes, true);
+        }
+
+        private void ComingSoonMovieSelector()
+        {
+            FillPictureBoxes("SELECT id,picture FROM movie WHERE release_date > NOW() ORDER BY RANDOM() LIMIT 5",
+                _comingSoonBoxes, false);
+        }
+
         #endregion
 
         #region Events
@@ -45,7 +162,7 @@ namespace filmhub.Views
             Program.MainForm.HideDropDown();
         }
 
-        
+
         private void menu_MouseHover(object sender, EventArgs e)
         {
             menu.Image = Resources.menu_hover;
@@ -57,12 +174,82 @@ namespace filmhub.Views
             menu.Image = Resources.menu;
             GC.Collect();
         }
-        
-        #endregion
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void featuredImage1_MouseClick(object sender, MouseEventArgs e)
         {
-            Program.MainForm.UserControlSelector(new MovieViewer(), true);
+            if (_featuredMovies[0] == 0) return;
+            Program.MainForm.UserControlSelector(new MovieViewerUserControl(featuredImage1.Image, _featuredMovies[0]),
+                true);
         }
+
+        private void featuredImage2_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (_featuredMovies[1] == 0) return;
+            Program.MainForm.UserControlSelector(new MovieViewerUserControl(featuredImage2.Image, _featuredMovies[1]),
+                true);
+        }
+
+        private void featuredImage3_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (_featuredMovies[2] == 0) return;
+            Program.MainForm.UserControlSelector(new MovieViewerUserControl(featuredImage3.Image, _featuredMovies[2]),
+                true);
+        }
+
+        private void featuredImage4_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (_featuredMovies[3] == 0) return;
+            Program.MainForm.UserControlSelector(new MovieViewerUserControl(featuredImage4.Image, _featuredMovies[3]),
+                true);
+        }
+
+        private void featuredImage5_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (_featuredMovies[4] == 0) return;
+            Program.MainForm.UserControlSelector(new MovieViewerUserControl(featuredImage5.Image, _featuredMovies[4]),
+                true);
+        }
+
+        private void comingSoonImage1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (_comingSoonMovies[0] == 0) return;
+            Program.MainForm.UserControlSelector(
+                new MovieViewerUserControl(comingSoonImage1.Image, _comingSoonMovies[0]),
+                true);
+        }
+
+        private void comingSoonImage2_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (_comingSoonMovies[1] == 0) return;
+            Program.MainForm.UserControlSelector(
+                new MovieViewerUserControl(comingSoonImage2.Image, _comingSoonMovies[1]),
+                true);
+        }
+
+        private void comingSoonImage3_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (_comingSoonMovies[2] == 0) return;
+            Program.MainForm.UserControlSelector(
+                new MovieViewerUserControl(comingSoonImage3.Image, _comingSoonMovies[2]),
+                true);
+        }
+
+        private void comingSoonImage4_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (_comingSoonMovies[3] == 0) return;
+            Program.MainForm.UserControlSelector(
+                new MovieViewerUserControl(comingSoonImage4.Image, _comingSoonMovies[3]),
+                true);
+        }
+
+        private void comingSoonImage5_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (_comingSoonMovies[4] == 0) return;
+            Program.MainForm.UserControlSelector(
+                new MovieViewerUserControl(comingSoonImage5.Image, _comingSoonMovies[4]),
+                true);
+        }
+
+        #endregion
     }
 }

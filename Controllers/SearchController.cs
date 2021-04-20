@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
+using System.Linq;
 using System.Windows.Forms;
 using Lucene.Net.Analysis.Standard;
 using Lucene.Net.Documents;
@@ -67,13 +67,20 @@ namespace filmhub.Controllers
             writer.Dispose();
         }
 
-        public static IEnumerable<int> SearchIdResults(string searchQuery)
+        public static IEnumerable<int> CreateIndexFolder(string result)
+        {
+            const string path = "./IndexedSearch";
+            var sE = new SearchController(path);
+            if (!System.IO.Directory.Exists(path) || IsDirectoryEmpty(path))
+                CreateIndex();
+            var list = new List<int>(SearchIdResults(result));
+            return list;
+        }
+
+        private static IEnumerable<int> SearchIdResults(string searchQuery)
         {
             var searcher = CreateSearcher();
             var foundDocs = Search(searchQuery, searcher);
-
-            //FOR TESTING:
-            Console.WriteLine("Total Results :: " + foundDocs.TotalHits);
 
             var results = new List<int>();
             foreach (var sd in foundDocs.ScoreDocs)
@@ -84,11 +91,11 @@ namespace filmhub.Controllers
             return results;
         }
 
-        public static void createIndex()
+        private static void CreateIndex()
         {
             try
             {
-                var con = DatabaseController.getConnection();
+                var con = DatabaseController.GetConnection();
                 con.Open();
 
                 const string movieData = "SELECT id,name " +
@@ -104,13 +111,20 @@ namespace filmhub.Controllers
                 {
                     list.Add(CreateDocument(rdr.GetInt32(0), rdr.GetString(1)));
                 }
-
+                
+                con.Close();
+                
                 Indexer(list);
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
+        }
+
+        private static bool IsDirectoryEmpty(string path)
+        {
+            return !System.IO.Directory.EnumerateFileSystemEntries(path).Any();
         }
     }
 }

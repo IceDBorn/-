@@ -1,15 +1,14 @@
 ﻿using System;
-using System.Net.Sockets;
 using System.Windows.Forms;
 using filmhub.Models;
 using Npgsql;
 using NpgsqlTypes;
 
-namespace filmhub
+namespace filmhub.Controllers
 {
     public static class LoginController
     {
-        public static void login(string email, string password)
+        public static void Login(string email, string password)
         {
             var id = -1;
             string name = null, picture = null;
@@ -18,7 +17,7 @@ namespace filmhub
 
             try
             {
-                var con = DatabaseController.getConnection();
+                var con = DatabaseController.GetConnection();
                 con.Open();
 
                 var validateUser =
@@ -30,15 +29,18 @@ namespace filmhub
                 using var cmd = new NpgsqlCommand(validateUser, con);
 
                 using var rdr = cmd.ExecuteReader();
+
                 while (rdr.Read())
                 {
                     id = rdr.GetInt32(0);
                     // name = rdr.GetString(1); TODO: Fix
                     admin = rdr.GetBoolean(2);
                     darkTheme = rdr.GetBoolean(3);
-                    // picture = rdr.GetString(4); TODO: Fix
+                    picture = rdr.IsDBNull(4) ? null : rdr.GetString(4);
                     createdOn = rdr.GetTimeStamp(5);
                 }
+
+                con.Close();
             }
             catch (Exception e)
             {
@@ -53,20 +55,20 @@ namespace filmhub
                 }
                 else
                 {
-                    new Account(id, name, email, admin, darkTheme, picture, createdOn).login();
+                    new Account(id, name, email, admin, darkTheme, picture, createdOn).Login();
                 }
             }
             else
             {
-                MessageBox.Show("Wrong username or password.");
+                MessageBox.Show(@"Wrong username or password.");
             }
         }
 
-        public static void signup(string email, string password)
+        public static void Signup(string email, string password)
         {
             try
             {
-                var con = DatabaseController.getConnection();
+                var con = DatabaseController.GetConnection();
                 con.Open();
 
                 const string validateUser =
@@ -87,7 +89,9 @@ namespace filmhub
 
                 cmd.ExecuteNonQuery();
 
-                login(email, password);
+                con.Close();
+
+                Login(email, password);
             }
             catch (PostgresException e)
             {

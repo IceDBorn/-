@@ -63,7 +63,7 @@ namespace filmhub.Views
             this.categoriesPanel.Controls.Add(this.actionLabel);
             this.categoriesPanel.Location = new System.Drawing.Point(0, 0);
             this.categoriesPanel.Name = "categoriesPanel";
-            this.categoriesPanel.Size = new System.Drawing.Size(248, 592);
+            this.categoriesPanel.Size = new System.Drawing.Size(248, 594);
             this.categoriesPanel.TabIndex = 18;
             // 
             // westernLabel
@@ -227,7 +227,7 @@ namespace filmhub.Views
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.Controls.Add(this.categoriesPanel);
             this.Name = "CategoriesUserControl";
-            this.Size = new System.Drawing.Size(248, 592);
+            this.Size = new System.Drawing.Size(248, 594);
             this.categoriesPanel.ResumeLayout(false);
             this.ResumeLayout(false);
         }
