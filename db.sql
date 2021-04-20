@@ -58,7 +58,7 @@ VALUES
 	'Rob Cohen',
 	'Ken Li, Gary Scott Thompson',
 	'Vin Diesel, Paul Walker, Michelle Rodriguez',
-	'fast-and-furious-1.png',
+	'https://i.imgur.com/FhyeSsb.jpg',
 	1,
 	'2001-06-22'
 ),
@@ -68,7 +68,7 @@ VALUES
 	'John Singleton',
 	'Gary Scott Thompson, Michael Brandt',
 	'Paul Walker, Tyrese Gibson, Cole Hauser',
-	'fast-and-furious-2.png',
+	'https://i.imgur.com/Yv6lVEX.jpg',
 	1,
 	'2003-06-06'
 ),
@@ -78,7 +78,7 @@ VALUES
 	'Justin Lin',
 	'Chris Morgan',
 	'Lucas Black, Zachery Ty Bryan, Shad Moss',
-	'fast-and-furious-3.png',
+	'https://i.imgur.com/uBXaXiz.jpg',
 	1,
 	'2006-06-16'
 ),
@@ -88,7 +88,7 @@ VALUES
 	'Justin Lin',
 	'Chris Morgan, Gary Scott Thompson',
 	'Vin Diesel, Paul Walker, Michelle Rodriguez',
-	'fast-and-furious-4.png',
+	'https://i.imgur.com/4ODJmnj.jpg',
 	1,
 	'2009-04-03'
 ),
@@ -98,7 +98,7 @@ VALUES
 	'Justin Lin',
 	'Chris Morgan, Gary Scott Thompson',
 	'Vin Diesel, Paul Walker, Dwayne Johnson',
-	'fast-and-furious-5.png',
+	'https://i.imgur.com/UvSue0t.jpg',
 	1,
 	'2011-04-29'
 ),
@@ -108,7 +108,7 @@ VALUES
 	'Justin Lin',
 	'Chris Morgan, Gary Scott Thompson',
 	'Vin Diesel, Paul Walker, Dwayne Johnson',
-	'fast-and-furious-6.png',
+	'https://i.imgur.com/6yrUuSB.jpg',
 	1,
 	'2013-05-24'
 ),
@@ -118,7 +118,7 @@ VALUES
 	'James Wan',
 	'Chris Morgan, Gary Scott Thompson',
 	'Vin Diesel, Paul Walker, Dwayne Johnson',
-	'fast-and-furious-7.png',
+	'https://i.imgur.com/X6jtWYl.jpg',
 	1,
 	'2015-04-03'
 ),
@@ -128,7 +128,7 @@ VALUES
 	'F. Gary Gray',
 	'Chris Morgan, Gary Scott Thompson',
 	'Vin Diesel, Jason Statham, Dwayne Johnson',
-	'fast-and-furious-8.png',
+	'https://i.imgur.com/zGbkgqX.jpg',
 	1,
 	'2017-04-14'
 ),
@@ -138,7 +138,7 @@ VALUES
 	'Justin Lin',
 	'Daniel Casey, Gary Scott Thompson',
 	'Vin Diesel, Michelle Rodriguez, Amber Sienna',
-	'fast-and-furious-9.png',
+	'https://i.imgur.com/YUxiOjo.jpg',
 	1,
 	'2021-06-25'
 ),
@@ -148,7 +148,7 @@ VALUES
 	'Andrew Adamson, Vicky Jenson',
 	'William Steig',
 	'Mike Myers, Eddie Murphy, Cameron Diaz',
-	'shrek-1.png',
+	'https://i.imgur.com/b7zU4iv.jpg',
 	2,
 	'2001-05-18'
 ),
@@ -158,7 +158,7 @@ VALUES
 	'Andrew Adamson, Kelly Asbury',
 	'William Steig',
 	'Mike Myers, Eddie Murphy, Cameron Diaz',
-	'shrek-2.png',
+	'https://i.imgur.com/m09nqDO.jpg',
 	2,
 	'2004-05-19'
 ),
@@ -168,7 +168,7 @@ VALUES
 	'Chris Miller, Raman Hui',
 	'Jeffrey Price',
 	'Mike Myers, Eddie Murphy, Cameron Diaz',
-	'shrek-3.png',
+	'https://i.imgur.com/d8kI9ph.jpg',
 	2,
 	'2007-05-18'
 ),
@@ -178,7 +178,7 @@ VALUES
 	'Mike Mitchell',
 	'Josh Klausner, Darren Lemke',
 	'Mike Myers, Eddie Murphy, Cameron Diaz',
-	'shrek-4.png',
+	'https://i.imgur.com/Gg8l7q0.jpg',
 	2,
 	'2010-05-21'
 ),
@@ -188,7 +188,7 @@ VALUES
 	'Francis Ford Coppola',
 	'Mario Puzo, Francis Ford Coppola',
 	'Marlon Brando, Al Pacino, James Caan',
-	'godfather-1.png',
+	'https://i.imgur.com/ngQjWXf.jpg',
 	3,
 	'1972-03-24'
 ),
@@ -198,7 +198,7 @@ VALUES
 	'Francis Ford Coppola',
 	'Mario Puzo, Francis Ford Coppola',
 	'Al Pacino, Robert De Niro, Robert Duvall',
-	'godfather-2.png',
+	'https://i.imgur.com/ftjvAug.jpg',
 	3,
 	'1974-12-18'
 ),
@@ -208,7 +208,7 @@ VALUES
 	'Francis Ford Coppola',
 	'Mario Puzo, Francis Ford Coppola',
 	'Al Pacino, Diane Keaton, Andy Garcia',
-	'godfather-3.png',
+	'https://i.imgur.com/IG3iG1v.jpg',
 	3,
 	'1990-12-25'
 ),
@@ -218,7 +218,7 @@ VALUES
 	'Chad Stahelski, David Leitch',
 	'Derek Kolstad',
 	'Keanu Reeves, Michael Nyqvist, Alfie Allen',
-	'john-wick-1.png',
+	'https://i.imgur.com/ZeI3b8h.jpg',
 	3,
 	'2014-10-24'
 ),
@@ -228,7 +228,7 @@ VALUES
 	'Chad Stahelski',
 	'Derek Kolstad',
 	'Keanu Reeves, Riccardo Scamarcio, Ian McShane',
-	'john-wick-2.png',
+	'https://i.imgur.com/tXZeBx8.jpg',
 	3,
 	'2017-02-10'
 ),
@@ -238,7 +238,7 @@ VALUES
 	'Chad Stahelski',
 	'Derek Kolstad, Shay Hatten',
 	'Keanu Reeves, Halle Berry, Ian McShane',
-	'john-wick-3.png',
+	'https://i.imgur.com/F0ajOPH.jpg',
 	3,
 	'2019-05-17'
 ),
@@ -248,7 +248,7 @@ VALUES
 	'Chad Stahelski',
 	'Derek Kolstad, Shay Hatten',
 	'Keanu Reeves',
-	'john-wick-4.png',
+	'https://i.imgur.com/tJlRxpF.jpg',
 	3,
 	'2022-05-27'
 ),
@@ -258,7 +258,7 @@ VALUES
 	'Karim Amer, Jehane Noujaim',
 	'Karim Amer, Erin Barnett',
 	'Brittany Kaiser, David Carroll, Paul-Olivier Dehayes',
-	'the-great-hack.png',
+	'https://i.imgur.com/U9cRtmY.jpg',
 	4,
 	'2019-07-24'
 ),
@@ -268,7 +268,7 @@ VALUES
 	'Shalini Kantayya',
 	'Shalini Kantayya, Christopher Seward',
 	'Joy Buolamwini, Meredith Broussard, Cathy O''Neil',
-	'coded-bias.png',
+	'https://i.imgur.com/eYMYWQg.jpg',
 	4,
 	'2020-11-11'
 ),
@@ -278,7 +278,7 @@ VALUES
 	'Ava DuVernay',
 	'Spencer Averick, Ava DuVernay',
 	'Melina Abdullah, Michelle Alexander, Cory Booker',
-	'coded-bias.png',
+	'https://i.imgur.com/5cJTGhK.jpg',
 	4,
 	'2016-10-07'
 ),
@@ -288,7 +288,7 @@ VALUES
 	'Jeff Orlowski',
 	'Davis Coombe, Vickie Curtis',
 	'Tristan Harris, Jeff Seibert, Bailey Richardson',
-	'the-social-dilemma.png',
+	'https://i.imgur.com/WVcxfXQ.jpg',
 	4,
 	'2020-09-09'
 ),
@@ -298,7 +298,7 @@ VALUES
 	'Alfonso Cuarón',
 	'Alfonso Cuarón',
 	'Yalitza Aparicio, Marina de Tavira, Diego Cortina Autrey',
-	'roma.png',
+	'https://i.imgur.com/GyHTr6a.jpg',
 	5,
 	'2018-11-21'
 ),
@@ -308,7 +308,7 @@ VALUES
 	'Bryan Singer',
 	'Anthony McCarten, Peter Morgan',
 	'Rami Malek, Lucy Boynton, Gwilym Lee',
-	'bohemian-rhapsody.png',
+	'https://i.imgur.com/wpax3Rj.jpg',
 	5,
 	'2018-11-02'
 ),
@@ -318,7 +318,7 @@ VALUES
 	'Chris Columbus',
 	'J.K. Rowling, Steve Kloves',
 	'Daniel Radcliffe, Rupert Grint, Richard Harris',
-	'harry-potter-1.png',
+	'https://i.imgur.com/SGuXDFZ.jpg',
 	6,
 	'2001-11-16'
 ),
@@ -328,7 +328,7 @@ VALUES
 	'Chris Columbus',
 	'J.K. Rowling, Steve Kloves',
 	'Daniel Radcliffe, Rupert Grint, Emma Watson',
-	'harry-potter-2.png',
+	'https://i.imgur.com/xk1eis6.jpg',
 	6,
 	'2002-11-15'
 ),
@@ -338,7 +338,7 @@ VALUES
 	'Alfonso Cuarón',
 	'J.K. Rowling, Steve Kloves',
 	'Daniel Radcliffe, Rupert Grint, Emma Watson',
-	'harry-potter-3.png',
+	'https://i.imgur.com/h98VBUl.jpg',
 	6,
 	'2004-06-04'
 ),
@@ -348,7 +348,7 @@ VALUES
 	'Mike Newell',
 	'J.K. Rowling, Steve Kloves',
 	'Daniel Radcliffe, Rupert Grint, Emma Watson',
-	'harry-potter-4.png',
+	'https://i.imgur.com/uvYnZAy.jpg',
 	6,
 	'2005-11-18'
 ),
@@ -358,7 +358,7 @@ VALUES
 	'David Yates',
 	'J.K. Rowling, Michael Goldenberg',
 	'Daniel Radcliffe, Rupert Grint, Emma Watson',
-	'harry-potter-5.png',
+	'https://i.imgur.com/c7CngNB.jpg',
 	6,
 	'2007-07-11'
 ),
@@ -368,7 +368,7 @@ VALUES
 	'David Yates',
 	'J.K. Rowling, Steve Kloves',
 	'Daniel Radcliffe, Rupert Grint, Emma Watson',
-	'harry-potter-6.png',
+	'https://i.imgur.com/As6h5Cs.jpg',
 	6,
 	'2009-07-15'
 ),
@@ -378,7 +378,7 @@ VALUES
 	'David Yates',
 	'J.K. Rowling, Steve Kloves',
 	'Daniel Radcliffe, Rupert Grint, Emma Watson',
-	'harry-potter-7.png',
+	'https://i.imgur.com/D14dT0D.jpg',
 	6,
 	'2010-11-19'
 ),
@@ -388,7 +388,7 @@ VALUES
 	'David Yates',
 	'J.K. Rowling, Steve Kloves',
 	'Daniel Radcliffe, Rupert Grint, Emma Watson',
-	'harry-potter-8.png',
+	'https://i.imgur.com/TbihoRC.jpg',
 	6,
 	'2011-07-15'
 ),
@@ -398,7 +398,7 @@ VALUES
 	'James Wan',
 	'Leigh Whannell',
 	'Patrick Wilson, Rose Byrne, Ty Simpkins',
-	'insidious-1.png',
+	'https://i.imgur.com/tJiir3K.jpg',
 	7,
 	'2011-04-01'
 ),
@@ -408,9 +408,19 @@ VALUES
 	'James Wan',
 	'Leigh Whannell, James Wan',
 	'Patrick Wilson, Rose Byrne, Barbara Hershey',
-	'insidious-2.png',
+	'https://i.imgur.com/9wr5ix5.jpg',
 	7,
 	'2013-09-13'
+),
+(
+	'Insidious: Chapter 3',
+	'A prequel set before the haunting of the Lambert family that reveals how gifted psychic Elise Rainier reluctantly agrees to use her ability to contact the dead in order to help a teenage girl who has been targeted by a dangerous supernatural entity.',
+	'Leigh Whannell',
+	'Leigh Whannell',
+	'Dermot Mulroney, Stefanie Scott, Angus Sampson',
+	'https://i.imgur.com/d70fjdF.jpg',
+	7,
+	'2015-06-05'
 ),
 (
 	'Insidious: The Last Key',
@@ -418,7 +428,7 @@ VALUES
 	'Adam Robitel',
 	'Leigh Whannell',
 	'Lin Shaye, Leigh Whannell, Angus Sampson',
-	'insidious-4.png',
+	'https://i.imgur.com/UYk2bKh.jpg',
 	7,
 	'2018-01-05'
 ),
@@ -428,7 +438,7 @@ VALUES
 	'Martin Scorsese',
 	'Laeta Kalogridis, Dennis Lehane',
 	'Leonardo DiCaprio, Emily Mortimer, Mark Ruffalo',
-	'shutter-island.png',
+	'https://i.imgur.com/TTktt3M.jpg',
 	7,
 	'2010-02-19'
 ),
@@ -438,7 +448,7 @@ VALUES
 	'Oren Peli',
 	'Oren Peli',
 	'Katie Featherston, Micah Sloat, Mark Fredrichs',
-	'paranormal-activity.png',
+	'https://i.imgur.com/uqBObxY.jpg',
 	8,
 	'2009-10-16'
 ),
@@ -448,7 +458,7 @@ VALUES
 	'Tod Williams',
 	'Michael R. Perry, Christopher Landon',
 	'Katie Featherston, Micah Sloat, Molly Ephraim',
-	'paranormal-activity-2.png',
+	'https://i.imgur.com/cXrxxCj.jpg',
 	8,
 	'2010-10-22'
 ),
@@ -458,7 +468,7 @@ VALUES
 	'Henry Joost, Ariel Schulman',
 	'Christopher Landon, Oren Peli',
 	'Chloe Csengery, Jessica Tyler Brown, Christopher Nicholas Smith',
-	'paranormal-activity-3.png',
+	'https://i.imgur.com/D5zL502.jpg',
 	8,
 	'2011-10-21'
 ),
@@ -468,7 +478,7 @@ VALUES
 	'Henry Joost, Ariel Schulman',
 	'Christopher Landon, Chad Feehan',
 	'Stephen Dunham, Katie Featherston, Matt Shively',
-	'paranormal-activity-4.png',
+	'https://i.imgur.com/wge84iw.jpg',
 	8,
 	'2012-10-19'
 ),
@@ -478,7 +488,7 @@ VALUES
 	'Christopher Landon',
 	'Christopher Landon, Oren Peli',
 	'Andrew Jacobs, Jorge Diaz, Gabrielle Walsh',
-	'paranormal-activity-5.png',
+	'https://i.imgur.com/YsRcd0I.jpg',
 	8,
 	'2014-01-03'
 ),
@@ -488,7 +498,7 @@ VALUES
 	'Gregory Plotkin',
 	'Jason Pagan, Andrew Deutschman',
 	'Chris J. Murray, Brit Shaw, Ivy George',
-	'paranormal-activity-6.png',
+	'https://i.imgur.com/Crm7OSx.jpg',
 	8,
 	'2015-10-23'
 ),
@@ -498,7 +508,7 @@ VALUES
 	'-',
 	'Oren Peli',
 	'-',
-	'paranormal-activity-7.png',
+	'https://i.imgur.com/CkVyZdr.jpg',
 	8,
 	'2022-03-04'
 ),
@@ -508,7 +518,7 @@ VALUES
 	'Nick Cassavetes',
 	'Jeremy Leven, Jan Sardi',
 	'Gena Rowlands, James Garner, Rachel McAdams',
-	'the-notebook.png',
+	'https://i.imgur.com/2ufOYWD.jpg',
 	9,
 	'2004-06-25'
 ),
@@ -518,7 +528,7 @@ VALUES
 	'James Cameron',
 	'James Cameron',
 	'Leonardo DiCaprio, Kate Winslet, Billy Zane',
-	'titanic.png',
+	'https://i.imgur.com/vci8Zwh.jpg',
 	9,
 	'1997-12-19'
 ),
@@ -528,7 +538,7 @@ VALUES
 	'JLasse Hallström',
 	'Jamie Linden, Nicholas Sparks',
 	'Channing Tatum, Amanda Seyfried, Richard Jenkins',
-	'dear-john.png',
+	'https://i.imgur.com/b5ZhOc4.jpg',
 	9,
 	'2010-02-05'
 ),
@@ -538,7 +548,7 @@ VALUES
 	'George Tillman Jr.',
 	'Nicholas Sparks, Craig Bolotin',
 	'Scott Eastwood, Britt Robertson, Alan Alda',
-	'the-longest-ride.png',
+	'https://i.imgur.com/VPaQOQM.jpg',
 	9,
 	'2015-04-10'
 ),
@@ -548,7 +558,7 @@ VALUES
 	'George Lucas',
 	'George Lucas',
 	'Mark Hamill, Harrison Ford, Carrie Fisher',
-	'star-wars-4.png',
+	'https://i.imgur.com/9q6q5j8.jpg',
 	10,
 	'1977-05-25'
 ),
@@ -558,7 +568,7 @@ VALUES
 	'Irvin Kershner',
 	'Leigh Brackett, Lawrence Kasdan',
 	'Mark Hamill, Harrison Ford, Carrie Fisher',
-	'star-wars-5.png',
+	'https://i.imgur.com/9HqjKBw.jpg',
 	10,
 	'1980-06-20'
 ),
@@ -568,7 +578,7 @@ VALUES
 	'Richard Marquand',
 	'Lawrence Kasdan, George Lucas',
 	'Mark Hamill, Harrison Ford, Carrie Fisher',
-	'star-wars-6.png',
+	'https://i.imgur.com/14bbPkR.jpg',
 	10,
 	'1983-05-25'
 ),
@@ -578,7 +588,7 @@ VALUES
 	'George Lucas',
 	'George Lucas',
 	'Ewan McGregor, Liam Neeson, Natalie Portman',
-	'star-wars-1.png',
+	'https://i.imgur.com/SIVomdY.jpg',
 	10,
 	'1999-05-19'
 ),
@@ -588,7 +598,7 @@ VALUES
 	'George Lucas',
 	'George Lucas, Jonathan Hales',
 	'Hayden Christensen, Natalie Portman, Ewan McGregor',
-	'star-wars-2.png',
+	'https://i.imgur.com/U1jbsN1.jpg',
 	10,
 	'2002-05-16'
 ),
@@ -598,7 +608,7 @@ VALUES
 	'George Lucas',
 	'George Lucas',
 	'Hayden Christensen, Natalie Portman, Ewan McGregor',
-	'star-wars-3.png',
+	'https://i.imgur.com/wD8XaLh.jpg',
 	10,
 	'2005-05-19'
 ),
@@ -608,7 +618,7 @@ VALUES
 	'J.J. Abrams',
 	'Lawrence Kasdan, J.J. Abrams',
 	'Daisy Ridley, John Boyega, Oscar Isaac',
-	'star-wars-7.png',
+	'https://i.imgur.com/jHqTgi1.jpg',
 	10,
 	'2015-12-18'
 ),
@@ -618,7 +628,7 @@ VALUES
 	'Rian Johnson',
 	'Rian Johnson, George Lucas',
 	'Daisy Ridley, John Boyega, Mark Hamill',
-	'star-wars-8.png',
+	'https://i.imgur.com/hxDNPnX.jpg',
 	10,
 	'2017-12-15'
 ),
@@ -628,7 +638,7 @@ VALUES
 	'J.J. Abrams',
 	'Chris Terrio, J.J. Abrams',
 	'Daisy Ridley, John Boyega, Oscar Isaac',
-	'star-wars-9.png',
+	'https://i.imgur.com/6fFmlMo.jpg',
 	10,
 	'2019-12-20'
 ),
@@ -638,7 +648,7 @@ VALUES
 	'Quentin Tarantino',
 	'Quentin Tarantino',
 	'Jamie Foxx, Christoph Waltz, Leonardo DiCaprio',
-	'django-unchained.png',
+	'https://i.imgur.com/o1qyrvP.jpg',
 	11,
 	'2012-12-25'
 ),
@@ -648,7 +658,7 @@ VALUES
 	'Paul Greengrass',
 	'Paul Greengrass, Luke Davies',
 	'Tom Hanks, Helena Zengel, Tom Astor',
-	'news-of-the-world.png',
+	'https://i.imgur.com/nd12wjH.jpg',
 	11,
 	'2020-12-25'
 ),
@@ -658,7 +668,7 @@ VALUES
 	'George P. Cosmatos, Kevin Jarre',
 	'Kevin Jarre',
 	'Kurt Russell, Val Kilmer, Sam Elliott',
-	'tombstone.png',
+	'https://i.imgur.com/TNkSP49.jpg',
 	11,
 	'1993-12-25'
 ),
@@ -668,7 +678,7 @@ VALUES
 	'Antoine Fuqua',
 	'Akira Kurosawa, Shinobu Hashimoto',
 	'Denzel Washington, Chris Pratt, Ethan Hawke',
-	'the-magnificent-seven.png',
+	'https://i.imgur.com/jckODD4.jpg',
 	11,
 	'2016-09-23'
 ),
@@ -678,7 +688,7 @@ VALUES
 	'Quentin Tarantino',
 	'Quentin Tarantino',
 	'Samuel L. Jackson, Kurt Russell, Jennifer Jason Leigh',
-	'the-hateful-eight.png',
+	'https://i.imgur.com/l7pUURs.jpg',
 	11,
 	'2015-12-30'
 );
