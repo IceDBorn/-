@@ -68,6 +68,7 @@ namespace filmhub.Views
             // 
             // westernLabel
             // 
+            this.westernLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.westernLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.westernLabel.ForeColor = System.Drawing.Color.White;
             this.westernLabel.Location = new System.Drawing.Point(45, 546);
@@ -92,6 +93,7 @@ namespace filmhub.Views
             // 
             // scifiLabel
             // 
+            this.scifiLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.scifiLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.scifiLabel.ForeColor = System.Drawing.Color.White;
             this.scifiLabel.Location = new System.Drawing.Point(46, 501);
@@ -105,6 +107,7 @@ namespace filmhub.Views
             // 
             // romanceLabel
             // 
+            this.romanceLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.romanceLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.romanceLabel.ForeColor = System.Drawing.Color.White;
             this.romanceLabel.Location = new System.Drawing.Point(46, 456);
@@ -118,6 +121,7 @@ namespace filmhub.Views
             // 
             // mysteryLabel
             // 
+            this.mysteryLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mysteryLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.mysteryLabel.ForeColor = System.Drawing.Color.White;
             this.mysteryLabel.Location = new System.Drawing.Point(46, 411);
@@ -131,6 +135,7 @@ namespace filmhub.Views
             // 
             // horrorLabel
             // 
+            this.horrorLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.horrorLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.horrorLabel.ForeColor = System.Drawing.Color.White;
             this.horrorLabel.Location = new System.Drawing.Point(46, 366);
@@ -144,6 +149,7 @@ namespace filmhub.Views
             // 
             // fantasyLabel
             // 
+            this.fantasyLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.fantasyLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.fantasyLabel.ForeColor = System.Drawing.Color.White;
             this.fantasyLabel.Location = new System.Drawing.Point(46, 321);
@@ -157,6 +163,7 @@ namespace filmhub.Views
             // 
             // dramaLabel
             // 
+            this.dramaLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dramaLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.dramaLabel.ForeColor = System.Drawing.Color.White;
             this.dramaLabel.Location = new System.Drawing.Point(46, 276);
@@ -170,6 +177,7 @@ namespace filmhub.Views
             // 
             // documentaryLabel
             // 
+            this.documentaryLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.documentaryLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.documentaryLabel.ForeColor = System.Drawing.Color.White;
             this.documentaryLabel.Location = new System.Drawing.Point(46, 231);
@@ -183,6 +191,7 @@ namespace filmhub.Views
             // 
             // crimeLabel
             // 
+            this.crimeLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.crimeLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.crimeLabel.ForeColor = System.Drawing.Color.White;
             this.crimeLabel.Location = new System.Drawing.Point(46, 186);
@@ -196,6 +205,7 @@ namespace filmhub.Views
             // 
             // comedyLabel
             // 
+            this.comedyLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comedyLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.comedyLabel.ForeColor = System.Drawing.Color.White;
             this.comedyLabel.Location = new System.Drawing.Point(46, 141);
@@ -209,6 +219,7 @@ namespace filmhub.Views
             // 
             // actionLabel
             // 
+            this.actionLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.actionLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.actionLabel.ForeColor = System.Drawing.Color.White;
             this.actionLabel.Location = new System.Drawing.Point(46, 96);

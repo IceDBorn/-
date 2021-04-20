@@ -156,6 +156,16 @@ namespace filmhub.Views
                 new MovieViewerUserControl(imageList.Images[moviesList.SelectedItems[0].Index],
                     _moviesId[moviesList.SelectedItems[0].Index]), true);
         }
+        
+        private void window_MouseClick(object sender, MouseEventArgs e)
+        {
+            categoriesPanel.Visible = false;
+        }
+
+        private void ListUserControl_MouseClick(object sender, MouseEventArgs e)
+        {
+            categoriesPanel.Visible = false;
+        }
 
         #endregion
     }

@@ -49,6 +49,7 @@ namespace filmhub.Views
             this.window.Size = new System.Drawing.Size(911, 49);
             this.window.TabIndex = 0;
             this.window.Text = "Window\r\n\r\n";
+            this.window.MouseClick += new System.Windows.Forms.MouseEventHandler(this.window_MouseClick);
             // 
             // moviesList
             // 
@@ -104,6 +105,7 @@ namespace filmhub.Views
             this.Controls.Add(this.window);
             this.Name = "ListUserControl";
             this.Size = new System.Drawing.Size(1264, 595);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListUserControl_MouseClick);
             ((System.ComponentModel.ISupportInitialize) (this.menu)).EndInit();
             this.ResumeLayout(false);
         }

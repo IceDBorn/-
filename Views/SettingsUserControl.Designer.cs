@@ -72,6 +72,7 @@ namespace filmhub.Views
             // 
             // uploadButton
             // 
+            this.uploadButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uploadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.uploadButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.uploadButton.ForeColor = System.Drawing.Color.White;
@@ -126,6 +127,7 @@ namespace filmhub.Views
             // 
             // saveButton
             // 
+            this.saveButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveButton.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
             this.saveButton.ForeColor = System.Drawing.Color.White;
@@ -139,6 +141,7 @@ namespace filmhub.Views
             // 
             // resetButton
             // 
+            this.resetButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.resetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.resetButton.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
             this.resetButton.ForeColor = System.Drawing.Color.White;

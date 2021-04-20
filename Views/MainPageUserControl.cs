@@ -33,6 +33,7 @@ namespace filmhub.Views
             FeaturedMovieSelector();
             ComingSoonMovieSelector();
             categoriesPanel.BringToFront();
+            InitializePictureBoxTags();
         }
 
         #endregion
@@ -126,6 +127,7 @@ namespace filmhub.Views
                 for (var i = 0; i < moviesList.Images.Count; i++)
                 {
                     pictureBoxes[i].Image = moviesList.Images[i];
+                    pictureBoxes[i].Tag = 1;
                 }
             }
             catch
@@ -144,6 +146,19 @@ namespace filmhub.Views
         {
             FillPictureBoxes("SELECT id,picture FROM movie WHERE release_date > NOW() ORDER BY RANDOM() LIMIT 5",
                 _comingSoonBoxes, false);
+        }
+
+        private void InitializePictureBoxTags()
+        {
+            foreach (var tag in _featuredBoxes)
+            {
+                if (int.Parse(tag.Tag.ToString()) == 0) tag.Cursor = Cursors.Default;
+            }
+            
+            foreach (var tag in _comingSoonBoxes)
+            {
+                if (int.Parse(tag.Tag.ToString()) == 0) tag.Cursor = Cursors.Default;
+            }
         }
 
         #endregion
@@ -249,7 +264,7 @@ namespace filmhub.Views
                 new MovieViewerUserControl(comingSoonImage5.Image, _comingSoonMovies[4]),
                 true);
         }
-
+        
         #endregion
     }
 }

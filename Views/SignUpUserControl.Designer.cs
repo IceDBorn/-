@@ -66,6 +66,7 @@ namespace filmhub.Views
             // 
             // backButton
             // 
+            this.backButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.backButton.Image = global::filmhub.Properties.Resources.back;
             this.backButton.Location = new System.Drawing.Point(55, 45);
             this.backButton.Name = "backButton";
@@ -78,6 +79,7 @@ namespace filmhub.Views
             // 
             // privacyLabel
             // 
+            this.privacyLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.privacyLabel.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.privacyLabel.ForeColor = System.Drawing.Color.White;
             this.privacyLabel.Location = new System.Drawing.Point(280, 474);
@@ -114,6 +116,7 @@ namespace filmhub.Views
             // 
             // termsLabel
             // 
+            this.termsLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.termsLabel.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.termsLabel.ForeColor = System.Drawing.Color.White;
             this.termsLabel.Location = new System.Drawing.Point(55, 474);
@@ -136,6 +139,7 @@ namespace filmhub.Views
             // 
             // signUpButton
             // 
+            this.signUpButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.signUpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.signUpButton.Font = new System.Drawing.Font("Segoe UI", 23F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.signUpButton.ForeColor = System.Drawing.Color.White;

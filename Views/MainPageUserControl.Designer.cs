@@ -63,11 +63,13 @@ namespace filmhub.Views
             // featuredImage1
             // 
             this.featuredImage1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.featuredImage1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.featuredImage1.Location = new System.Drawing.Point(78, 96);
             this.featuredImage1.Name = "featuredImage1";
             this.featuredImage1.Size = new System.Drawing.Size(150, 200);
             this.featuredImage1.TabIndex = 0;
             this.featuredImage1.TabStop = false;
+            this.featuredImage1.Tag = "0";
             this.featuredImage1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.featuredImage1_MouseClick);
             // 
             // featured
@@ -93,6 +95,7 @@ namespace filmhub.Views
             // menu
             // 
             this.menu.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.menu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.menu.Image = global::filmhub.Properties.Resources.menu;
             this.menu.Location = new System.Drawing.Point(15, 20);
             this.menu.Name = "menu";
@@ -115,91 +118,109 @@ namespace filmhub.Views
             // featuredImage2
             // 
             this.featuredImage2.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.featuredImage2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.featuredImage2.Location = new System.Drawing.Point(315, 96);
             this.featuredImage2.Name = "featuredImage2";
             this.featuredImage2.Size = new System.Drawing.Size(150, 200);
             this.featuredImage2.TabIndex = 16;
             this.featuredImage2.TabStop = false;
+            this.featuredImage2.Tag = "0";
             this.featuredImage2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.featuredImage2_MouseClick);
             // 
             // featuredImage3
             // 
             this.featuredImage3.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.featuredImage3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.featuredImage3.Location = new System.Drawing.Point(557, 96);
             this.featuredImage3.Name = "featuredImage3";
             this.featuredImage3.Size = new System.Drawing.Size(150, 200);
             this.featuredImage3.TabIndex = 17;
             this.featuredImage3.TabStop = false;
+            this.featuredImage3.Tag = "0";
             this.featuredImage3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.featuredImage3_MouseClick);
             // 
             // featuredImage4
             // 
             this.featuredImage4.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.featuredImage4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.featuredImage4.Location = new System.Drawing.Point(796, 96);
             this.featuredImage4.Name = "featuredImage4";
             this.featuredImage4.Size = new System.Drawing.Size(150, 200);
             this.featuredImage4.TabIndex = 18;
             this.featuredImage4.TabStop = false;
+            this.featuredImage4.Tag = "0";
             this.featuredImage4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.featuredImage4_MouseClick);
             // 
             // featuredImage5
             // 
             this.featuredImage5.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.featuredImage5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.featuredImage5.Location = new System.Drawing.Point(1036, 96);
             this.featuredImage5.Name = "featuredImage5";
             this.featuredImage5.Size = new System.Drawing.Size(150, 200);
             this.featuredImage5.TabIndex = 19;
             this.featuredImage5.TabStop = false;
+            this.featuredImage5.Tag = "0";
             this.featuredImage5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.featuredImage5_MouseClick);
             // 
             // comingSoonImage1
             // 
             this.comingSoonImage1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.comingSoonImage1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comingSoonImage1.Location = new System.Drawing.Point(78, 366);
             this.comingSoonImage1.Name = "comingSoonImage1";
             this.comingSoonImage1.Size = new System.Drawing.Size(150, 200);
             this.comingSoonImage1.TabIndex = 20;
             this.comingSoonImage1.TabStop = false;
+            this.comingSoonImage1.Tag = "0";
             this.comingSoonImage1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comingSoonImage1_MouseClick);
             // 
             // comingSoonImage2
             // 
             this.comingSoonImage2.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.comingSoonImage2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comingSoonImage2.Location = new System.Drawing.Point(315, 366);
             this.comingSoonImage2.Name = "comingSoonImage2";
             this.comingSoonImage2.Size = new System.Drawing.Size(150, 200);
             this.comingSoonImage2.TabIndex = 21;
             this.comingSoonImage2.TabStop = false;
+            this.comingSoonImage2.Tag = "0";
             this.comingSoonImage2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comingSoonImage2_MouseClick);
             // 
             // comingSoonImage3
             // 
             this.comingSoonImage3.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.comingSoonImage3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comingSoonImage3.Location = new System.Drawing.Point(557, 366);
             this.comingSoonImage3.Name = "comingSoonImage3";
             this.comingSoonImage3.Size = new System.Drawing.Size(150, 200);
             this.comingSoonImage3.TabIndex = 22;
             this.comingSoonImage3.TabStop = false;
+            this.comingSoonImage3.Tag = "0";
             this.comingSoonImage3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comingSoonImage3_MouseClick);
             // 
             // comingSoonImage4
             // 
             this.comingSoonImage4.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.comingSoonImage4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comingSoonImage4.Location = new System.Drawing.Point(796, 366);
             this.comingSoonImage4.Name = "comingSoonImage4";
             this.comingSoonImage4.Size = new System.Drawing.Size(150, 200);
             this.comingSoonImage4.TabIndex = 23;
             this.comingSoonImage4.TabStop = false;
+            this.comingSoonImage4.Tag = "0";
             this.comingSoonImage4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comingSoonImage4_MouseClick);
             // 
             // comingSoonImage5
             // 
             this.comingSoonImage5.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.comingSoonImage5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comingSoonImage5.Location = new System.Drawing.Point(1036, 366);
             this.comingSoonImage5.Name = "comingSoonImage5";
             this.comingSoonImage5.Size = new System.Drawing.Size(150, 200);
             this.comingSoonImage5.TabIndex = 24;
             this.comingSoonImage5.TabStop = false;
+            this.comingSoonImage5.Tag = "0";
             this.comingSoonImage5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comingSoonImage5_MouseClick);
             // 
             // moviesList

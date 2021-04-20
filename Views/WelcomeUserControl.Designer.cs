@@ -37,6 +37,7 @@ namespace filmhub.Views
             // 
             // joinButton
             // 
+            this.joinButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.joinButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.joinButton.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.joinButton.ForeColor = System.Drawing.Color.White;
@@ -51,6 +52,7 @@ namespace filmhub.Views
             // 
             // signInButton
             // 
+            this.signInButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.signInButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.signInButton.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.signInButton.ForeColor = System.Drawing.Color.White;
