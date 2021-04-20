@@ -69,11 +69,11 @@ namespace filmhub.Views
 
         private void InitializeUser()
         {
+            usernameValueLabel.Text = Account.GetAccountInstance().Username;
             if (Account.GetAccountInstance().Picture == null) return;
             imageList.Images.Clear();
             imageList.Images.Add(DownloadImageFromUrl(Account.GetAccountInstance().Picture));
             userProfileImage.Image = imageList.Images[0];
-            usernameValueLabel.Text = Account.GetAccountInstance().Username;
         }
 
         #endregion
