@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Net;
+using System.Threading;
 using System.Windows.Forms;
 using filmhub.Controllers;
 using filmhub.Properties;
@@ -30,10 +31,10 @@ namespace filmhub.Views
             _featuredBoxes = new[] {featuredImage1, featuredImage2, featuredImage3, featuredImage4, featuredImage5};
             _comingSoonBoxes = new[]
                 {comingSoonImage1, comingSoonImage2, comingSoonImage3, comingSoonImage4, comingSoonImage5};
-            FeaturedMovieSelector();
-            ComingSoonMovieSelector();
             categoriesPanel.BringToFront();
-            InitializePictureBoxTags();
+
+            var thread = new Thread(LoadMovies);
+            thread.Start();
         }
 
         #endregion
@@ -55,6 +56,17 @@ namespace filmhub.Views
             comingSoonImage3.BackColor = Program.Colors.BackgroundColor;
             comingSoonImage4.BackColor = Program.Colors.BackgroundColor;
             comingSoonImage5.BackColor = Program.Colors.BackgroundColor;
+            loadingLabel.ForeColor = Program.Colors.AccentColor;
+            loadingLabel.BackColor = Program.Colors.BackgroundColor;
+            loadingLabel2.ForeColor = Program.Colors.AccentColor;
+            loadingLabel2.BackColor = Program.Colors.BackgroundColor;
+        }
+
+        private void LoadMovies()
+        {
+            FeaturedMovieSelector();
+            ComingSoonMovieSelector();
+            InitializePictureBoxTags();
         }
 
         private static Image DownloadImageFromUrl(string imageUrl)
@@ -140,12 +152,14 @@ namespace filmhub.Views
         {
             FillPictureBoxes("SELECT id,picture FROM movie WHERE release_date < NOW() ORDER BY RANDOM() LIMIT 5",
                 _featuredBoxes, true);
+            loadingLabel.Visible = false;
         }
 
         private void ComingSoonMovieSelector()
         {
             FillPictureBoxes("SELECT id,picture FROM movie WHERE release_date > NOW() ORDER BY RANDOM() LIMIT 5",
                 _comingSoonBoxes, false);
+            loadingLabel2.Visible = false;
         }
 
         private void InitializePictureBoxTags()
