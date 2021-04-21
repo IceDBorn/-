@@ -285,6 +285,12 @@
         <Compile Include="Views\MainPageUserControl.Designer.cs">
           <DependentUpon>MainPageUserControl.cs</DependentUpon>
         </Compile>
+        <Compile Include="Views\MovieEditorUserControl.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="Views\MovieEditorUserControl.Designer.cs">
+          <DependentUpon>MovieEditorUserControl.cs</DependentUpon>
+        </Compile>
         <Compile Include="Views\MovieViewerUserControl.cs">
           <SubType>UserControl</SubType>
         </Compile>
@@ -337,6 +343,9 @@
         </EmbeddedResource>
         <EmbeddedResource Include="Views\MainPageUserControl.resx">
           <DependentUpon>MainPageUserControl.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Views\MovieEditorUserControl.resx">
+          <DependentUpon>MovieEditorUserControl.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="Views\MovieViewerUserControl.resx">
           <DependentUpon>MovieViewerUserControl.cs</DependentUpon>

@@ -33,7 +33,6 @@ namespace filmhub.Views
         {
             this.components = new System.ComponentModel.Container();
             this.featuredImage1 = new System.Windows.Forms.PictureBox();
-            this.featured = new System.Windows.Forms.Label();
             this.comingSoon = new System.Windows.Forms.Label();
             this.menu = new System.Windows.Forms.PictureBox();
             this.categoriesPanel = new System.Windows.Forms.UserControl();
@@ -49,6 +48,7 @@ namespace filmhub.Views
             this.moviesList = new System.Windows.Forms.ImageList(this.components);
             this.loadingLabel = new System.Windows.Forms.Label();
             this.loadingLabel2 = new System.Windows.Forms.Label();
+            this.featured = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize) (this.featuredImage1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.menu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.featuredImage2)).BeginInit();
@@ -73,16 +73,6 @@ namespace filmhub.Views
             this.featuredImage1.TabStop = false;
             this.featuredImage1.Tag = "0";
             this.featuredImage1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.featuredImage1_MouseClick);
-            // 
-            // featured
-            // 
-            this.featured.Font = new System.Drawing.Font("Segoe UI", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
-            this.featured.ForeColor = System.Drawing.Color.White;
-            this.featured.Location = new System.Drawing.Point(68, 21);
-            this.featured.Name = "featured";
-            this.featured.Size = new System.Drawing.Size(287, 58);
-            this.featured.TabIndex = 1;
-            this.featured.Text = "Featured";
             // 
             // comingSoon
             // 
@@ -252,6 +242,16 @@ namespace filmhub.Views
             this.loadingLabel2.TabIndex = 26;
             this.loadingLabel2.Text = "Loading";
             this.loadingLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // featured
+            // 
+            this.featured.Font = new System.Drawing.Font("Segoe UI", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
+            this.featured.ForeColor = System.Drawing.Color.White;
+            this.featured.Location = new System.Drawing.Point(68, 21);
+            this.featured.Name = "featured";
+            this.featured.Size = new System.Drawing.Size(287, 58);
+            this.featured.TabIndex = 1;
+            this.featured.Text = "Featured";
             // 
             // MainPageUserControl
             // 
