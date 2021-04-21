@@ -6,8 +6,10 @@ using NpgsqlTypes;
 
 namespace filmhub.Controllers
 {
-    public static class LoginController
+    public static class AccountController
     {
+        private static readonly NpgsqlConnection con = DatabaseController.GetConnection();
+        
         public static void Login(string username, string password)
         {
             var id = -1;
@@ -16,8 +18,6 @@ namespace filmhub.Controllers
 
             try
             {
-                var con = DatabaseController.GetConnection();
-
                 const string validateUser = "SELECT id, username, admin, dark_theme, picture " +
                                             "FROM account " +
                                             "WHERE username = @username AND password = @password " +
@@ -64,8 +64,6 @@ namespace filmhub.Controllers
         {
             try
             {
-                var con = DatabaseController.GetConnection();
-
                 const string validateUser =
                     "INSERT INTO account (username, password, admin, dark_theme) VALUES (@v1,@v2,@v3,@v4)";
 
@@ -95,6 +93,24 @@ namespace filmhub.Controllers
             catch (Exception)
             {
                 MessageBox.Show(@"Something went wrong, please try again.");
+            }
+        }
+
+        public static void ChangePassword(string password)
+        {
+            const string query = "UPDATE account SET password = @password WHERE id = @user_id";
+
+            try
+            {
+                using var cmd = new NpgsqlCommand(query, con);
+                cmd.Parameters.AddWithValue("password", password);
+                cmd.Parameters.AddWithValue("user_id", Account.GetAccountInstance().Id);
+                cmd.Prepare();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
             }
         }
     }
