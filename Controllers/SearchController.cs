@@ -96,7 +96,6 @@ namespace filmhub.Controllers
             try
             {
                 var con = DatabaseController.GetConnection();
-                con.Open();
 
                 const string movieData = "SELECT id,name " +
                                          "FROM movie ";
@@ -111,9 +110,9 @@ namespace filmhub.Controllers
                 {
                     list.Add(CreateDocument(rdr.GetInt32(0), rdr.GetString(1)));
                 }
-                
-                con.Close();
-                
+
+                rdr.Close();
+
                 Indexer(list);
             }
             catch (Exception e)

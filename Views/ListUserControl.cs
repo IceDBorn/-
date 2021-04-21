@@ -80,7 +80,6 @@ namespace filmhub.Views
             try
             {
                 var con = DatabaseController.GetConnection();
-                con.Open();
 
                 moviesList.Columns.Add("", -2, HorizontalAlignment.Left);
                 const string query = "SELECT name,picture FROM movie WHERE id = ";
@@ -110,9 +109,8 @@ namespace filmhub.Views
                         var item = new ListViewItem(new[] {"     " + rdr.GetString(0)}) {ImageIndex = i};
                         moviesList.Items.Add(item);
                     }
+                    rdr.Close();
                 }
-                
-                con.Close();
 
                 if (moviesList.Items.Count == 0) window.Text = @"No search results";
             }

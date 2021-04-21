@@ -103,7 +103,6 @@ namespace filmhub.Views
             {
                 moviesList.Images.Clear();
                 var con = DatabaseController.GetConnection();
-                con.Open();
 
                 using var cmd = new NpgsqlCommand(query, con);
                 using var rdr = cmd.ExecuteReader();
@@ -133,8 +132,7 @@ namespace filmhub.Views
                     moviesList.Images.Add(DownloadImageFromUrl(rdr.GetString(1)));
                     count++;
                 }
-                
-                con.Close();
+                rdr.Close();
 
                 for (var i = 0; i < moviesList.Images.Count; i++)
                 {

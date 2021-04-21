@@ -41,7 +41,6 @@ namespace filmhub.Views
             movieImage.Image = image;
 
             var con = DatabaseController.GetConnection();
-            con.Open();
 
             var query =
                 "SELECT movie.name, description, director, writer, stars, release_date, genre.name " +
@@ -49,8 +48,8 @@ namespace filmhub.Views
                 "JOIN genre ON genre_id = genre.id " +
                 "WHERE movie.id = " + id;
 
-            using var cmd = new NpgsqlCommand(query, con);
-            using var rdr = cmd.ExecuteReader();
+            var cmd = new NpgsqlCommand(query, con);
+            var rdr = cmd.ExecuteReader();
 
             while (rdr.Read())
             {
@@ -69,10 +68,7 @@ namespace filmhub.Views
                     MessageBox.Show(@"Something went wrong.");
                 }
             }
-
-            con.Close();
-
-            con.Open();
+            rdr.Close();
 
             query =
                 "SELECT value " +
@@ -80,30 +76,67 @@ namespace filmhub.Views
                 "WHERE movie_id = " + id + " " +
                 "AND user_id = " + Account.GetAccountInstance().Id;
 
-            using var cmd2 = new NpgsqlCommand(query, con);
-            using var rdr2 = cmd2.ExecuteReader();
-            
-            while (rdr2.Read())
+            cmd = new NpgsqlCommand(query, con);
+            rdr = cmd.ExecuteReader();
+
+            while (rdr.Read())
             {
                 try
                 {
-                    SetStars(rdr2.GetInt32(0));
-                    _starsCount = rdr2.GetInt32(0);
+                    SetStars(rdr.GetInt32(0));
+                    _starsCount = rdr.GetInt32(0);
                 }
                 catch
                 {
                     MessageBox.Show(@"Something went wrong.");
                 }
             }
-            
-            con.Close();
+            rdr.Close();
+
+            if (QueryController.Activity("favorite", Account.GetAccountInstance().Id, id))
+            {
+                FillImage(favoriteImage, Resources.favorite);
+            }
+            if (QueryController.Activity("history", Account.GetAccountInstance().Id, id))
+            {
+                FillImage(watchedImage, Resources.watched);
+            }
+            if (QueryController.Activity("watchlist", Account.GetAccountInstance().Id, id))
+            {
+                FillImage(watchlistImage, Resources.watchlist);
+            }
+        }
+
+        private void FillImage(PictureBox pb, Image filled)
+        {
+            pb.Image = filled;
+            pb.Tag = 1;
+        }
+
+        private void ActivityInsert(PictureBox pb, string tableName)
+        {
+            var con = DatabaseController.GetConnection();
+
+            if (int.Parse(pb.Tag.ToString()) == 0)
+            {
+                var query = "INSERT INTO " + tableName + "(movie_id, user_id) VALUES (" + _movieId + ", " +
+                            Account.GetAccountInstance().Id + ")";
+                using var cmd = new NpgsqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+            }
+            else
+            {
+                var query = "DELETE FROM " + tableName + " WHERE movie_id = " + _movieId + " AND user_id = " +
+                            Account.GetAccountInstance().Id;
+                using var cmd = new NpgsqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+            }
         }
 
         private void Rate(int rate)
         {
             var con = DatabaseController.GetConnection();
-            con.Open();
-            
+
             if (int.Parse(star1.Tag.ToString()) == 0)
             {
                 var query = "INSERT INTO rating(value,movie_id,user_id) VALUES (" + rate + ", " + _movieId + ", " +
@@ -118,10 +151,8 @@ namespace filmhub.Views
                 using var cmd = new NpgsqlCommand(query, con);
                 cmd.ExecuteNonQuery();
             }
-            
+
             SetStars(rate);
-            
-            con.Close();
 
             _starsCount = rate;
         }
@@ -252,7 +283,7 @@ namespace filmhub.Views
         {
             Rate(5);
         }
-        
+
         private void favoriteImage_MouseHover(object sender, EventArgs e)
         {
             SetImageOnMouseMovement(favoriteImage, Resources.favorite_empty_hover, Resources.favorite_hover);
@@ -265,10 +296,9 @@ namespace filmhub.Views
 
         private void favoriteImage_MouseClick(object sender, MouseEventArgs e)
         {
+            ActivityInsert(favoriteImage, "favorite");
             SetImageOnMouseClick(favoriteImage, Resources.favorite_empty, Resources.favorite);
         }
-
-        #endregion
 
         private void watchedImage_MouseHover(object sender, EventArgs e)
         {
@@ -282,9 +312,10 @@ namespace filmhub.Views
 
         private void watchedImage_MouseClick(object sender, MouseEventArgs e)
         {
+            ActivityInsert(watchedImage, "history");
             SetImageOnMouseClick(watchedImage, Resources.watched_empty, Resources.watched);
         }
-        
+
         private void watchlistImage_MouseHover(object sender, EventArgs e)
         {
             SetImageOnMouseMovement(watchlistImage, Resources.watchlist_empty_hover, Resources.watchlist_hover);
@@ -297,7 +328,10 @@ namespace filmhub.Views
 
         private void watchlistImage_MouseClick(object sender, MouseEventArgs e)
         {
+            ActivityInsert(watchlistImage, "watchlist");
             SetImageOnMouseClick(watchlistImage, Resources.watchlist_empty, Resources.watchlist);
         }
+
+        #endregion
     }
 }
