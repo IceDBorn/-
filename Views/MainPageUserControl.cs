@@ -69,8 +69,7 @@ namespace filmhub.Views
 
         private void InitializeImages()
         {
-            _menu = Properties.Settings.Default.Theme == 0 ? Resources.menu : Resources.menu_black;
-            
+            _menu = Settings.Default.Theme == 0 ? Resources.menu : Resources.menu_black;
             menu.Image = _menu;
             _menuHover = Resources.menu_hover;
         }

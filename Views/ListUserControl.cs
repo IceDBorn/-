@@ -15,6 +15,9 @@ namespace filmhub.Views
         #region Fields
 
         private int[] _moviesId;
+        
+        private Image _menu;
+        private Image _menuHover;
 
         #endregion
 
@@ -33,6 +36,7 @@ namespace filmhub.Views
         {
             InitializeComponent();
             InitializeColors();
+            InitializeImages();
             this.menu.Visible = menu;
             window.Text = title;
         }
@@ -47,6 +51,13 @@ namespace filmhub.Views
             moviesList.BackColor = Program.Colors.BackgroundColor;
             moviesList.ForeColor = Program.Colors.ForeColor;
             window.ForeColor = Program.Colors.ForeColor;
+        }
+
+        private void InitializeImages()
+        {
+            _menu = Settings.Default.Theme == 0 ? Resources.menu : Resources.menu_black;
+            menu.Image = _menu;
+            _menuHover = Resources.menu_hover;
         }
 
         private static Image DownloadImageFromUrl(string imageUrl)
@@ -132,13 +143,13 @@ namespace filmhub.Views
 
         private void menu_MouseLeave(object sender, EventArgs e)
         {
-            menu.Image = Resources.menu;
+            menu.Image = _menu;
             GC.Collect();
         }
 
         private void menu_MouseHover(object sender, EventArgs e)
         {
-            menu.Image = Resources.menu_hover;
+            menu.Image = _menuHover;
             GC.Collect();
         }
 
