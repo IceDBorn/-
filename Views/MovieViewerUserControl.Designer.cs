@@ -38,7 +38,7 @@ namespace filmhub.Views
             this.descriptionText = new System.Windows.Forms.Label();
             this.directorLabel = new System.Windows.Forms.Label();
             this.writerLabel = new System.Windows.Forms.Label();
-            this.StarsLabel = new System.Windows.Forms.Label();
+            this.starsLabel = new System.Windows.Forms.Label();
             this.genreLabel = new System.Windows.Forms.Label();
             this.dateLabel = new System.Windows.Forms.Label();
             this.ratingLabel = new System.Windows.Forms.Label();
@@ -125,15 +125,15 @@ namespace filmhub.Views
             this.writerLabel.TabIndex = 6;
             this.writerLabel.Text = "Writers:";
             // 
-            // StarsLabel
+            // starsLabel
             // 
-            this.StarsLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
-            this.StarsLabel.ForeColor = System.Drawing.Color.White;
-            this.StarsLabel.Location = new System.Drawing.Point(342, 181);
-            this.StarsLabel.Name = "StarsLabel";
-            this.StarsLabel.Size = new System.Drawing.Size(77, 27);
-            this.StarsLabel.TabIndex = 7;
-            this.StarsLabel.Text = "Stars:";
+            this.starsLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
+            this.starsLabel.ForeColor = System.Drawing.Color.White;
+            this.starsLabel.Location = new System.Drawing.Point(342, 181);
+            this.starsLabel.Name = "starsLabel";
+            this.starsLabel.Size = new System.Drawing.Size(77, 27);
+            this.starsLabel.TabIndex = 7;
+            this.starsLabel.Text = "Stars:";
             // 
             // genreLabel
             // 
@@ -348,7 +348,7 @@ namespace filmhub.Views
             this.Controls.Add(this.ratingLabel);
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.genreLabel);
-            this.Controls.Add(this.StarsLabel);
+            this.Controls.Add(this.starsLabel);
             this.Controls.Add(this.writerLabel);
             this.Controls.Add(this.directorLabel);
             this.Controls.Add(this.descriptionText);
@@ -395,7 +395,7 @@ namespace filmhub.Views
         private System.Windows.Forms.Label ratingLabel;
         private System.Windows.Forms.Label dateLabel;
         private System.Windows.Forms.Label genreLabel;
-        private System.Windows.Forms.Label StarsLabel;
+        private System.Windows.Forms.Label starsLabel;
         private System.Windows.Forms.Label writerLabel;
 
         private System.Windows.Forms.Label directorLabel;

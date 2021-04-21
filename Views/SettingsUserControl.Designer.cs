@@ -45,7 +45,9 @@ namespace filmhub.Views
             this.usernameValueLabel = new System.Windows.Forms.Label();
             this.photoBrowser = new System.Windows.Forms.OpenFileDialog();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
+            this.themeImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize) (this.userProfileImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.themeImage)).BeginInit();
             this.SuspendLayout();
             // 
             // settingsLabel
@@ -178,11 +180,26 @@ namespace filmhub.Views
             this.imageList.ImageSize = new System.Drawing.Size(150, 200);
             this.imageList.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // themeImage
+            // 
+            this.themeImage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.themeImage.Image = global::filmhub.Properties.Resources.dark;
+            this.themeImage.Location = new System.Drawing.Point(1183, 30);
+            this.themeImage.Name = "themeImage";
+            this.themeImage.Size = new System.Drawing.Size(47, 49);
+            this.themeImage.TabIndex = 14;
+            this.themeImage.TabStop = false;
+            this.themeImage.Tag = "";
+            this.themeImage.MouseClick += new System.Windows.Forms.MouseEventHandler(this.themeImage_MouseClick);
+            this.themeImage.MouseLeave += new System.EventHandler(this.themeImage_MouseLeave);
+            this.themeImage.MouseHover += new System.EventHandler(this.themeImage_MouseHover);
+            // 
             // SettingsUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Controls.Add(this.themeImage);
             this.Controls.Add(this.usernameValueLabel);
             this.Controls.Add(this.confirmTextBox);
             this.Controls.Add(this.changeTextBox);
@@ -197,9 +214,14 @@ namespace filmhub.Views
             this.Name = "SettingsUserControl";
             this.Size = new System.Drawing.Size(1264, 581);
             ((System.ComponentModel.ISupportInitialize) (this.userProfileImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.themeImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.PictureBox themeImage;
+
+        private System.Windows.Forms.PictureBox pictureBox1;
 
         private System.Windows.Forms.ImageList imageList;
 

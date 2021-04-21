@@ -12,6 +12,21 @@ namespace filmhub.Views
 
         private bool _mouseDown;
         private Point _lastLocation;
+        
+        private Image _home;
+        private Image _homeHover;
+        
+        private Image _search;
+        private Image _searchHover;
+        
+        private Image _account;
+        private Image _accountHover;
+        
+        private Image _close;
+        private Image _closeHover;
+        
+        private Image _minimize;
+        private Image _minimizeHover;
 
         #endregion
 
@@ -21,6 +36,7 @@ namespace filmhub.Views
         {
             InitializeComponent();
             InitializeColors();
+            InitializeImages();
             UserControlSelector(new WelcomeUserControl(), false);
         }
 
@@ -30,6 +46,12 @@ namespace filmhub.Views
 
         private void InitializeColors()
         {
+            favoritesLabel.ForeColor = Program.Colors.ForeColor;
+            watchListLabel.ForeColor = Program.Colors.ForeColor;
+            historyLabel.ForeColor = Program.Colors.ForeColor;
+            settingsLabel.ForeColor = Program.Colors.ForeColor;
+            logoutLabel.ForeColor = Program.Colors.ForeColor;
+            favoritesLabel.ForeColor = Program.Colors.ForeColor;
             navBar.BackColor = Program.Colors.NavBarBackgroundColor;
             searchBar.BackColor = Program.Colors.FieldColor;
             searchBar.ForeColor = Program.Colors.FieldDarkTextColor;
@@ -43,6 +65,37 @@ namespace filmhub.Views
             windowBar.BackColor = Program.Colors.WindowBarBackgroundColor;
         }
 
+        private void InitializeImages()
+        {
+            if (Properties.Settings.Default.Theme == 0)
+            {
+                _home = Resources.home;
+                _search = Resources.search;
+                _account = Resources.account;
+                _close = Resources.close;
+                _minimize = Resources.minimize;
+            }
+            else
+            {
+                _home = Resources.home_black;
+                _search = Resources.search_black;
+                _account = Resources.account_black;
+                _close = Resources.close_black;
+                _minimize = Resources.minimize_black;
+            }
+            
+            homeButton.Image = _home;
+            _homeHover = Resources.home_hover;
+            searchButton.Image = _search;
+            _searchHover = Resources.search_hover;
+            accountButton.Image = _account;
+            _accountHover = Resources.account_hover;
+            close.Image = _close;
+            _closeHover = Resources.close_hover;
+            minimize.Image = _minimize;
+            _minimizeHover = Resources.minimize_hover;
+        }
+
         public void UserControlSelector(Control userControl, bool flag)
         {
             mainPage.Controls.Clear();
@@ -53,13 +106,22 @@ namespace filmhub.Views
         public void HideDropDown()
         {
             dropDownPanel.Visible = false;
-            accountButton.Image = Resources.account;
+            accountButton.Image = _account;
             GC.Collect();
         }
 
         private void ResetAccountButtonImage()
         {
-            accountButton.Image = Resources.account;
+            accountButton.Image = _account;
+        }
+
+        public void RefreshUi()
+        {
+            Controls.Clear();
+            InitializeComponent();
+            InitializeColors();
+            InitializeImages();
+            UserControlSelector(new SettingsUserControl(), true);
         }
 
         #endregion
@@ -101,7 +163,7 @@ namespace filmhub.Views
 
         private void favoritesLabel_MouseLeave(object sender, EventArgs e)
         {
-            favoritesLabel.ForeColor = Color.White;
+            favoritesLabel.ForeColor = Program.Colors.ForeColor;
         }
 
         private void watchListLabel_Click(object sender, EventArgs e)
@@ -118,7 +180,7 @@ namespace filmhub.Views
 
         private void watchListLabel_MouseLeave(object sender, EventArgs e)
         {
-            watchListLabel.ForeColor = Color.White;
+            watchListLabel.ForeColor = Program.Colors.ForeColor;
         }
 
         private void historyLabel_Click(object sender, EventArgs e)
@@ -135,7 +197,7 @@ namespace filmhub.Views
 
         private void historyLabel_MouseLeave(object sender, EventArgs e)
         {
-            historyLabel.ForeColor = Color.White;
+            historyLabel.ForeColor = Program.Colors.ForeColor;
         }
 
         private void settingsLabel_Click(object sender, EventArgs e)
@@ -152,7 +214,7 @@ namespace filmhub.Views
 
         private void settingsLabel_MouseLeave(object sender, EventArgs e)
         {
-            settingsLabel.ForeColor = Color.White;
+            settingsLabel.ForeColor = Program.Colors.ForeColor;
         }
 
         private void logoutLabel_Click(object sender, EventArgs e)
@@ -170,7 +232,7 @@ namespace filmhub.Views
 
         private void logoutLabel_MouseLeave(object sender, EventArgs e)
         {
-            logoutLabel.ForeColor = Color.White;
+            logoutLabel.ForeColor = Program.Colors.ForeColor;
         }
 
         private void homeButton_Click(object sender, EventArgs e)
@@ -180,31 +242,31 @@ namespace filmhub.Views
 
         private void homeButton_MouseHover(object sender, EventArgs e)
         {
-            homeButton.Image = Resources.home_hover;
+            homeButton.Image = _homeHover;
             GC.Collect();
         }
 
         private void homeButton_MouseLeave(object sender, EventArgs e)
         {
-            homeButton.Image = Resources.home;
+            homeButton.Image = _home;
             GC.Collect();
         }
 
         private void searchButton_MouseHover(object sender, EventArgs e)
         {
-            searchButton.Image = Resources.search_hover;
+            searchButton.Image = _searchHover;
             GC.Collect();
         }
 
         private void searchButton_MouseLeave(object sender, EventArgs e)
         {
-            searchButton.Image = Resources.search;
+            searchButton.Image = _search;
             GC.Collect();
         }
 
         private void accountButton_MouseHover(object sender, EventArgs e)
         {
-            accountButton.Image = Resources.account_hover;
+            accountButton.Image = _accountHover;
             GC.Collect();
         }
 
@@ -232,25 +294,25 @@ namespace filmhub.Views
 
         private void close_MouseHover(object sender, EventArgs e)
         {
-            close.Image = Resources.close_hover;
+            close.Image = _closeHover;
             GC.Collect();
         }
 
         private void close_MouseLeave(object sender, EventArgs e)
         {
-            close.Image = Resources.close;
+            close.Image = _close;
             GC.Collect();
         }
 
         private void minimize_MouseHover(object sender, EventArgs e)
         {
-            minimize.Image = Resources.minimize_hover;
+            minimize.Image = _minimizeHover;
             GC.Collect();
         }
 
         private void minimize_MouseLeave(object sender, EventArgs e)
         {
-            minimize.Image = Resources.minimize;
+            minimize.Image = _minimize;
             GC.Collect();
         }
 

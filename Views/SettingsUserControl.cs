@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using filmhub.Controllers;
 using filmhub.Models;
+using filmhub.Properties;
 using Imgur.API.Authentication;
 using Imgur.API.Endpoints;
 using Npgsql;
@@ -16,17 +17,36 @@ namespace filmhub.Views
 {
     public partial class SettingsUserControl : UserControl
     {
+        #region Fields
+
+        private Image _dark;
+        private Image _darkHover;
+        private Image _light;
+        private Image _lightHover;
+
+        #endregion
+
+        #region Constructor
+
         public SettingsUserControl()
         {
             InitializeComponent();
             InitializeColors();
+            InitializeImages();
             InitializeUser();
         }
+
+        #endregion
 
         #region Methods
 
         private void InitializeColors()
         {
+            settingsLabel.ForeColor = Program.Colors.ForeColor;
+            usernameLabel.ForeColor = Program.Colors.ForeColor;
+            usernameValueLabel.ForeColor = Program.Colors.ForeColor;
+            changeLabel.ForeColor = Program.Colors.ForeColor;
+            confirmLabel.ForeColor = Program.Colors.ForeColor;
             BackColor = Program.Colors.BackgroundColor;
             saveButton.BackColor = Program.Colors.AccentColor;
             saveButton.FlatAppearance.BorderColor = Program.Colors.AccentColor;
@@ -39,6 +59,17 @@ namespace filmhub.Views
             confirmTextBox.BackColor = Program.Colors.FieldColor;
             confirmTextBox.ForeColor = Program.Colors.FieldDarkTextColor;
             userProfileImage.BackColor = Program.Colors.BackgroundColor;
+        }
+
+        private void InitializeImages()
+        {
+            _dark = Resources.dark;
+            _light = Resources.light;
+            
+            themeImage.Image = Properties.Settings.Default.Theme == 0 ? _dark : _light;
+            
+            _darkHover = Resources.dark_hover;
+            _lightHover = Resources.light_hover;
         }
         
         private static Image DownloadImageFromUrl(string imageUrl)
@@ -137,7 +168,32 @@ namespace filmhub.Views
                 MessageBox.Show(@"Something went wrong, please try again.");
             }
         }
+        
+        private void themeImage_MouseHover(object sender, EventArgs e)
+        {
+            themeImage.Image = Properties.Settings.Default.Theme == 0 ? _darkHover : _lightHover;
+        }
+
+        private void themeImage_MouseLeave(object sender, EventArgs e)
+        {
+            themeImage.Image = Properties.Settings.Default.Theme == 0 ? _dark : _light;
+        }
 
         #endregion
+
+        private void themeImage_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (Properties.Settings.Default.Theme == 0)
+            {
+                Program.Colors.LightTheme();
+            }
+            else
+            {
+                Program.Colors.DarkTheme();
+                
+            }
+            
+            Program.MainForm.RefreshUi();
+        }
     }
 }
