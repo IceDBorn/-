@@ -66,6 +66,13 @@ namespace filmhub.Views
             Properties.Settings.Default["Theme"] = 1;
             Properties.Settings.Default.Save();
         }
+
+        public void SetDarkTheme(bool darkTheme)
+        {
+            if (darkTheme) DarkTheme();
+            else LightTheme();
+            Program.MainForm.RefreshUi();
+        }
         
         private static void SetDarkThemeInDB(bool darkTheme)
         {

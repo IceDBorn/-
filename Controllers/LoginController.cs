@@ -52,6 +52,7 @@ namespace filmhub.Controllers
             if (id != -1)
             {
                 new Account(id, username, admin, darkTheme, picture).Login();
+                Program.Colors.SetDarkTheme(darkTheme);
             }
             else
             {
