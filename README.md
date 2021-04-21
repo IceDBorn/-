@@ -1,7 +1,4 @@
-<img src="https://raw.githubusercontent.com/IceDBorn/aops-imdb/main/wireframes/lovov07.svg">
-
-
-# FilmHub
+<p align="center"><img src="https://raw.githubusercontent.com/IceDBorn/aops-imdb/main/Resources/logo.png"></p>
 
 FilmHub is a Desktop app designed to provide the user with detailed information about the world of cinema! You can search for any kind of movie, browse through our curated caterogies and create your very own favorites list. FilmHub offers a wealth of information about any movie including cast members, rating and detailed description. Finally FilmHub allows you to record your viewing history so you can brag about it to your friends!
 
