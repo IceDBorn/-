@@ -1,10 +1,17 @@
+using System;
 using System.Drawing;
+using System.Windows.Forms;
+using filmhub.Controllers;
+using filmhub.Models;
+using Npgsql;
 
 namespace filmhub.Views
 {
     public class Colors
     {
         #region Fields
+        
+        private static readonly NpgsqlConnection con = DatabaseController.GetConnection();
 
         public Color WindowBarBackgroundColor { get; private set; }
 
@@ -39,6 +46,7 @@ namespace filmhub.Views
             AccentColor = Color.FromArgb(113, 44, 218);
             DarkTextColor = Color.FromArgb(111, 111, 111);
             ForeColor = Color.White;
+            SetDarkThemeInDB(true);
             Properties.Settings.Default["Theme"] = 0;
             Properties.Settings.Default.Save();
         }
@@ -54,8 +62,29 @@ namespace filmhub.Views
             AccentColor = Color.FromArgb(113, 44, 218);
             DarkTextColor = Color.FromArgb(40, 40, 40);
             ForeColor = Color.Black;
+            SetDarkThemeInDB(false);
             Properties.Settings.Default["Theme"] = 1;
             Properties.Settings.Default.Save();
+        }
+        
+        private static void SetDarkThemeInDB(bool darkTheme)
+        {
+            if (Account.GetAccountInstance() == null) return;
+            
+            const string query = "UPDATE account SET dark_theme = @theme WHERE id = @user_id";
+
+            try
+            {
+                using var cmd = new NpgsqlCommand(query, con);
+                cmd.Parameters.AddWithValue("theme", darkTheme);
+                cmd.Parameters.AddWithValue("user_id", Account.GetAccountInstance().Id);
+                cmd.Prepare();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
         #endregion
