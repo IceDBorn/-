@@ -45,7 +45,8 @@ namespace filmhub.Views
         {
             BackColor = Program.Colors.BackgroundColor;
             moviesList.BackColor = Program.Colors.BackgroundColor;
-            moviesList.ForeColor = Color.White;
+            moviesList.ForeColor = Program.Colors.ForeColor;
+            window.ForeColor = Program.Colors.ForeColor;
         }
 
         private static Image DownloadImageFromUrl(string imageUrl)

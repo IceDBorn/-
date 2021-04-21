@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace filmhub.Views
@@ -12,10 +11,29 @@ namespace filmhub.Views
             InitializeColors();
         }
 
+        #region Methods
+
         private void InitializeColors()
         {
             BackColor = Program.Colors.BackgroundColor;
+            categoriesPanel.BackColor = Program.Colors.PopOutBackgroundColor;
+            categoriesLabel.ForeColor = Program.Colors.ForeColor;
+            actionLabel.ForeColor = Program.Colors.ForeColor;
+            comedyLabel.ForeColor = Program.Colors.ForeColor;
+            crimeLabel.ForeColor = Program.Colors.ForeColor;
+            documentaryLabel.ForeColor = Program.Colors.ForeColor;
+            dramaLabel.ForeColor = Program.Colors.ForeColor;
+            fantasyLabel.ForeColor = Program.Colors.ForeColor;
+            horrorLabel.ForeColor = Program.Colors.ForeColor;
+            mysteryLabel.ForeColor = Program.Colors.ForeColor;
+            romanceLabel.ForeColor = Program.Colors.ForeColor;
+            scifiLabel.ForeColor = Program.Colors.ForeColor;
+            westernLabel.ForeColor = Program.Colors.ForeColor;
         }
+
+        #endregion
+
+        #region Events
 
         private void actionLabel_MouseHover(object sender, EventArgs e)
         {
@@ -24,7 +42,7 @@ namespace filmhub.Views
 
         private void actionLabel_MouseLeave(object sender, EventArgs e)
         {
-            actionLabel.ForeColor = Color.White;
+            actionLabel.ForeColor = Program.Colors.ForeColor;
         }
 
         private void actionLabel_Click(object sender, EventArgs e)
@@ -39,7 +57,7 @@ namespace filmhub.Views
 
         private void comedyLabel_MouseLeave(object sender, EventArgs e)
         {
-            comedyLabel.ForeColor = Color.White;
+            comedyLabel.ForeColor = Program.Colors.ForeColor;
         }
 
         private void comedyLabel_Click(object sender, EventArgs e)
@@ -54,7 +72,7 @@ namespace filmhub.Views
 
         private void crimeLabel_MouseLeave(object sender, EventArgs e)
         {
-            crimeLabel.ForeColor = Color.White;
+            crimeLabel.ForeColor = Program.Colors.ForeColor;
         }
 
         private void crimeLabel_Click(object sender, EventArgs e)
@@ -69,7 +87,7 @@ namespace filmhub.Views
 
         private void documentaryLabel_MouseLeave(object sender, EventArgs e)
         {
-            documentaryLabel.ForeColor = Color.White;
+            documentaryLabel.ForeColor = Program.Colors.ForeColor;
         }
 
         private void documentaryLabel_Click(object sender, EventArgs e)
@@ -84,7 +102,7 @@ namespace filmhub.Views
 
         private void dramaLabel_MouseLeave(object sender, EventArgs e)
         {
-            dramaLabel.ForeColor = Color.White;
+            dramaLabel.ForeColor = Program.Colors.ForeColor;
         }
 
         private void dramaLabel_Click(object sender, EventArgs e)
@@ -99,7 +117,7 @@ namespace filmhub.Views
 
         private void fantasyLabel_MouseLeave(object sender, EventArgs e)
         {
-            fantasyLabel.ForeColor = Color.White;
+            fantasyLabel.ForeColor = Program.Colors.ForeColor;
         }
 
         private void fantasyLabel_Click(object sender, EventArgs e)
@@ -114,7 +132,7 @@ namespace filmhub.Views
 
         private void horrorLabel_MouseLeave(object sender, EventArgs e)
         {
-            horrorLabel.ForeColor = Color.White;
+            horrorLabel.ForeColor = Program.Colors.ForeColor;
         }
 
         private void horrorLabel_Click(object sender, EventArgs e)
@@ -129,7 +147,7 @@ namespace filmhub.Views
 
         private void mysteryLabel_MouseLeave(object sender, EventArgs e)
         {
-            mysteryLabel.ForeColor = Color.White;
+            mysteryLabel.ForeColor = Program.Colors.ForeColor;
         }
 
         private void mysteryLabel_Click(object sender, EventArgs e)
@@ -144,7 +162,7 @@ namespace filmhub.Views
 
         private void romanceLabel_MouseLeave(object sender, EventArgs e)
         {
-            romanceLabel.ForeColor = Color.White;
+            romanceLabel.ForeColor = Program.Colors.ForeColor;
         }
 
         private void romanceLabel_Click(object sender, EventArgs e)
@@ -159,7 +177,7 @@ namespace filmhub.Views
 
         private void scifiLabel_MouseLeave(object sender, EventArgs e)
         {
-            scifiLabel.ForeColor = Color.White;
+            scifiLabel.ForeColor = Program.Colors.ForeColor;
         }
 
         private void scifiLabel_Click(object sender, EventArgs e)
@@ -174,13 +192,15 @@ namespace filmhub.Views
 
         private void westernLabel_MouseLeave(object sender, EventArgs e)
         {
-            westernLabel.ForeColor = Color.White;
+            westernLabel.ForeColor = Program.Colors.ForeColor;
         }
 
         private void westernLabel_Click(object sender, EventArgs e)
         {
             Program.MainForm.UserControlSelector(new ListUserControl(westernLabel.Text,true), true);
         }
+        
+        #endregion
     }
     
 }

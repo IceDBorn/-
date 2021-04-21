@@ -27,6 +27,11 @@ namespace filmhub.Views
 
         private void InitializeColors()
         {
+            settingsLabel.ForeColor = Program.Colors.ForeColor;
+            usernameLabel.ForeColor = Program.Colors.ForeColor;
+            usernameValueLabel.ForeColor = Program.Colors.ForeColor;
+            changeLabel.ForeColor = Program.Colors.ForeColor;
+            confirmLabel.ForeColor = Program.Colors.ForeColor;
             BackColor = Program.Colors.BackgroundColor;
             saveButton.BackColor = Program.Colors.AccentColor;
             saveButton.FlatAppearance.BorderColor = Program.Colors.AccentColor;

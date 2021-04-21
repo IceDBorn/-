@@ -14,6 +14,8 @@ namespace filmhub
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Colors = new Colors();
+            Colors.DarkTheme();
+            Colors.LightTheme();
             MainForm = new MainForm();
             Application.Run(MainForm);
         }

@@ -25,6 +25,9 @@ namespace filmhub.Views
 
         private void InitializeColors()
         {
+            signInLabel.ForeColor = Program.Colors.ForeColor;
+            termsLabel.ForeColor = Program.Colors.ForeColor;
+            privacyLabel.ForeColor = Program.Colors.ForeColor;
             menuPanel.BackColor = Program.Colors.BackgroundColor;
             usernameTextBox.BackColor = Program.Colors.FieldColor;
             passwordTextBox.BackColor = Program.Colors.FieldColor;
@@ -80,7 +83,7 @@ namespace filmhub.Views
 
         private void TermsLabel_MouseLeave(object sender, EventArgs e)
         {
-            termsLabel.ForeColor = Color.White;
+            termsLabel.ForeColor = Program.Colors.ForeColor;
         }
 
         private void usernameTextBox_Enter(object sender, EventArgs e)
@@ -134,7 +137,7 @@ namespace filmhub.Views
 
         private void privacyLabel_MouseLeave(object sender, EventArgs e)
         {
-            privacyLabel.ForeColor = Color.White;
+            privacyLabel.ForeColor = Program.Colors.ForeColor;
         }
 
         private void signUpButton_Click(object sender, EventArgs e)

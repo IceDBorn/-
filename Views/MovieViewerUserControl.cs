@@ -34,6 +34,20 @@ namespace filmhub.Views
         private void InitializeColors()
         {
             BackColor = Program.Colors.BackgroundColor;
+            titleLabel.ForeColor = Program.Colors.ForeColor;
+            directorLabel.ForeColor = Program.Colors.ForeColor;
+            directorValueLabel.ForeColor = Program.Colors.ForeColor;
+            writerLabel.ForeColor = Program.Colors.ForeColor;
+            writerValueLabel.ForeColor = Program.Colors.ForeColor;
+            starsLabel.ForeColor = Program.Colors.ForeColor;
+            starsValueLabel.ForeColor = Program.Colors.ForeColor;
+            genreLabel.ForeColor = Program.Colors.ForeColor;
+            genreValueLabel.ForeColor = Program.Colors.ForeColor;
+            dateLabel.ForeColor = Program.Colors.ForeColor;
+            dateValueLabel.ForeColor = Program.Colors.ForeColor;
+            ratingLabel.ForeColor = Program.Colors.ForeColor;
+            descriptionLabel.ForeColor = Program.Colors.ForeColor;
+            descriptionText.ForeColor = Program.Colors.ForeColor;
         }
 
         private void InitializeMovie(Image image, int id)

@@ -30,6 +30,12 @@ namespace filmhub.Views
 
         private void InitializeColors()
         {
+            favoritesLabel.ForeColor = Program.Colors.ForeColor;
+            watchListLabel.ForeColor = Program.Colors.ForeColor;
+            historyLabel.ForeColor = Program.Colors.ForeColor;
+            settingsLabel.ForeColor = Program.Colors.ForeColor;
+            logoutLabel.ForeColor = Program.Colors.ForeColor;
+            favoritesLabel.ForeColor = Program.Colors.ForeColor;
             navBar.BackColor = Program.Colors.NavBarBackgroundColor;
             searchBar.BackColor = Program.Colors.FieldColor;
             searchBar.ForeColor = Program.Colors.FieldDarkTextColor;
@@ -101,7 +107,7 @@ namespace filmhub.Views
 
         private void favoritesLabel_MouseLeave(object sender, EventArgs e)
         {
-            favoritesLabel.ForeColor = Color.White;
+            favoritesLabel.ForeColor = Program.Colors.ForeColor;
         }
 
         private void watchListLabel_Click(object sender, EventArgs e)
@@ -118,7 +124,7 @@ namespace filmhub.Views
 
         private void watchListLabel_MouseLeave(object sender, EventArgs e)
         {
-            watchListLabel.ForeColor = Color.White;
+            watchListLabel.ForeColor = Program.Colors.ForeColor;
         }
 
         private void historyLabel_Click(object sender, EventArgs e)
@@ -135,7 +141,7 @@ namespace filmhub.Views
 
         private void historyLabel_MouseLeave(object sender, EventArgs e)
         {
-            historyLabel.ForeColor = Color.White;
+            historyLabel.ForeColor = Program.Colors.ForeColor;
         }
 
         private void settingsLabel_Click(object sender, EventArgs e)
@@ -152,7 +158,7 @@ namespace filmhub.Views
 
         private void settingsLabel_MouseLeave(object sender, EventArgs e)
         {
-            settingsLabel.ForeColor = Color.White;
+            settingsLabel.ForeColor = Program.Colors.ForeColor;
         }
 
         private void logoutLabel_Click(object sender, EventArgs e)
@@ -170,7 +176,7 @@ namespace filmhub.Views
 
         private void logoutLabel_MouseLeave(object sender, EventArgs e)
         {
-            logoutLabel.ForeColor = Color.White;
+            logoutLabel.ForeColor = Program.Colors.ForeColor;
         }
 
         private void homeButton_Click(object sender, EventArgs e)

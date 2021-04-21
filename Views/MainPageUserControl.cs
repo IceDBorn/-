@@ -43,9 +43,10 @@ namespace filmhub.Views
 
         private void InitializeColors()
         {
+            featured.ForeColor = Program.Colors.ForeColor;
+            comingSoon.ForeColor = Program.Colors.ForeColor;
             BackColor = Program.Colors.BackgroundColor;
             menu.BackColor = Program.Colors.BackgroundColor;
-            categoriesPanel.BackColor = Program.Colors.PopOutBackgroundColor;
             featuredImage1.BackColor = Program.Colors.BackgroundColor;
             featuredImage2.BackColor = Program.Colors.BackgroundColor;
             featuredImage3.BackColor = Program.Colors.BackgroundColor;
