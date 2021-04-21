@@ -107,6 +107,15 @@ namespace filmhub.Views
             accountButton.Image = _account;
         }
 
+        public void RefreshUi()
+        {
+            Controls.Clear();
+            InitializeComponent();
+            InitializeColors();
+            InitializeImages();
+            UserControlSelector(new SettingsUserControl(), true);
+        }
+
         #endregion
 
         #region Events

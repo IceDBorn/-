@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using filmhub.Controllers;
 using filmhub.Models;
+using filmhub.Properties;
 using Imgur.API.Authentication;
 using Imgur.API.Endpoints;
 using Npgsql;
@@ -16,12 +17,26 @@ namespace filmhub.Views
 {
     public partial class SettingsUserControl : UserControl
     {
+        #region Fields
+
+        private Image _dark;
+        private Image _darkHover;
+        private Image _light;
+        private Image _lightHover;
+
+        #endregion
+
+        #region Constructor
+
         public SettingsUserControl()
         {
             InitializeComponent();
             InitializeColors();
+            InitializeImages();
             InitializeUser();
         }
+
+        #endregion
 
         #region Methods
 
@@ -44,6 +59,16 @@ namespace filmhub.Views
             confirmTextBox.BackColor = Program.Colors.FieldColor;
             confirmTextBox.ForeColor = Program.Colors.FieldDarkTextColor;
             userProfileImage.BackColor = Program.Colors.BackgroundColor;
+        }
+
+        private void InitializeImages()
+        {
+            _dark = Resources.dark;
+            themeImage.Image = _dark;
+            _darkHover = Resources.dark_hover;
+
+            _light = Resources.light;
+            _lightHover = Resources.light_hover;
         }
         
         private static Image DownloadImageFromUrl(string imageUrl)
@@ -142,7 +167,33 @@ namespace filmhub.Views
                 MessageBox.Show(@"Something went wrong, please try again.");
             }
         }
+        
+        private void themeImage_MouseHover(object sender, EventArgs e)
+        {
+            themeImage.Image = Program.Colors.Theme == 0 ? _darkHover : _lightHover;
+        }
+
+        private void themeImage_MouseLeave(object sender, EventArgs e)
+        {
+            themeImage.Image = Program.Colors.Theme == 0 ? _dark : _light;
+        }
 
         #endregion
+
+        private void themeImage_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (Program.Colors.Theme == 0)
+            {
+                Program.Colors.LightTheme();
+                themeImage.Image = _light;
+                Program.MainForm.RefreshUi();
+            }
+            else
+            {
+                Program.Colors.DarkTheme();
+                themeImage.Image = _dark;
+                Program.MainForm.RefreshUi();
+            }
+        }
     }
 }

@@ -379,6 +379,8 @@
       <Content Include="Resources\close.png" />
       <Content Include="Resources\close_black.png" />
       <Content Include="Resources\close_hover.png" />
+      <Content Include="Resources\dark.png" />
+      <Content Include="Resources\dark_hover.png" />
       <Content Include="Resources\default_user.png" />
       <Content Include="Resources\favorite.png" />
       <Content Include="Resources\favorite_empty.png" />
@@ -389,6 +391,8 @@
       <Content Include="Resources\home.png" />
       <Content Include="Resources\home_black.png" />
       <Content Include="Resources\home_hover.png" />
+      <Content Include="Resources\light.png" />
+      <Content Include="Resources\light_hover.png" />
       <Content Include="Resources\logo.png" />
       <Content Include="Resources\menu.png" />
       <Content Include="Resources\menu_black.png" />
