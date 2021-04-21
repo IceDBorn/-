@@ -67,23 +67,31 @@ namespace filmhub.Views
 
         private void InitializeImages()
         {
-            _home = Resources.home_black;
+            if (Program.Colors.Theme == 0)
+            {
+                _home = Resources.home;
+                _search = Resources.search;
+                _account = Resources.account;
+                _close = Resources.close;
+                _minimize = Resources.minimize;
+            }
+            else
+            {
+                _home = Resources.home_black;
+                _search = Resources.search_black;
+                _account = Resources.account_black;
+                _close = Resources.close_black;
+                _minimize = Resources.minimize_black;
+            }
+            
             homeButton.Image = _home;
             _homeHover = Resources.home_hover;
-            
-            _search = Resources.search_black;
             searchButton.Image = _search;
             _searchHover = Resources.search_hover;
-            
-            _account = Resources.account_black;
             accountButton.Image = _account;
             _accountHover = Resources.account_hover;
-            
-            _close = Resources.close_black;
             close.Image = _close;
             _closeHover = Resources.close_hover;
-            
-            _minimize = Resources.minimize_black;
             minimize.Image = _minimize;
             _minimizeHover = Resources.minimize_hover;
         }
