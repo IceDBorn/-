@@ -64,18 +64,11 @@ namespace filmhub.Views
         private void InitializeImages()
         {
             _dark = Resources.dark;
+            _light = Resources.light;
             
-            if (Program.Colors.Theme == 0)
-            {
-                themeImage.Image = _dark;
-            }
-            else
-            {
-                themeImage.Image = _light;
-            }
+            themeImage.Image = Program.Colors.Theme == 0 ? _dark : _light;
             
             _darkHover = Resources.dark_hover;
-            _light = Resources.light;
             _lightHover = Resources.light_hover;
         }
         
