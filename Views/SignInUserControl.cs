@@ -10,12 +10,19 @@ namespace filmhub.Views
 {
     public partial class SignInUserControl : UserControl
     {
+        #region Fields
+
+        private Image _back;
+        private Image _backHover;
+
+        #endregion
         #region Constructor
 
         public SignInUserControl()
         {
             InitializeComponent();
             InitializeColors();
+            InitializeImages();
         }
 
         #endregion
@@ -34,6 +41,13 @@ namespace filmhub.Views
             signInButton.BackColor = Program.Colors.AccentColor;
             signInButton.FlatAppearance.BorderColor = Program.Colors.AccentColor;
             newLabel.ForeColor = Program.Colors.DarkTextColor;
+        }
+
+        private void InitializeImages()
+        {
+            _back = Resources.back_black;
+            backButton.Image = _back;
+            _backHover = Resources.back_hover;
         }
 
         private void Login()
@@ -118,13 +132,13 @@ namespace filmhub.Views
 
         private void backButton_MouseHover(object sender, EventArgs e)
         {
-            backButton.Image = Resources.back_hover;
+            backButton.Image = _backHover;
             GC.Collect();
         }
 
         private void backButton_MouseLeave(object sender, EventArgs e)
         {
-            backButton.Image = Resources.back;
+            backButton.Image = _back;
             GC.Collect();
         }
         
