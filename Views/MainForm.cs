@@ -67,7 +67,7 @@ namespace filmhub.Views
 
         private void InitializeImages()
         {
-            if (Properties.Settings.Default.Theme == 0)
+            if (Settings.Default.Theme == 0)
             {
                 _home = Resources.home;
                 _search = Resources.search;

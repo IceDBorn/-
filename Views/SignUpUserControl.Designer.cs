@@ -221,8 +221,6 @@ namespace filmhub.Views
         private System.Windows.Forms.Label termsLabel;
 
         private System.Windows.Forms.Label byClickingLabel;
-        
-        private RoundedButton signInButton;
 
         private filmhub.Views.RoundedTextBox usernameTextBox;
 

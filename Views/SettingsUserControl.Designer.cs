@@ -221,8 +221,6 @@ namespace filmhub.Views
 
         private System.Windows.Forms.PictureBox themeImage;
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-
         private System.Windows.Forms.ImageList imageList;
 
         private System.Windows.Forms.OpenFileDialog photoBrowser;
