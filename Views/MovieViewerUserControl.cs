@@ -72,25 +72,39 @@ namespace filmhub.Views
 
         private void InitializeImages()
         {
-            _favoriteEmpty = Resources.favorite_empty_black;
+            if (Program.Colors.Theme == 0)
+            {
+                _favoriteEmpty = Resources.favorite_empty;
+                _watchedEmpty = Resources.watched_empty;
+                _watchlistEmpty = Resources.watchlist_empty;
+                _starEmpty = Resources.star_empty;
+            }
+            else
+            {
+                _favoriteEmpty = Resources.favorite_empty_black;
+                _watchedEmpty = Resources.watched_empty_black;
+                _watchlistEmpty = Resources.watchlist_empty_black;
+                _starEmpty = Resources.star_empty_black;
+            }
+            
             favoriteImage.Image = _favoriteEmpty;
             _favoriteEmptyHover = Resources.favorite_empty_hover;
             _favorite = Resources.favorite;
             _favoriteHover = Resources.favorite_hover;
             
-            _watchedEmpty = Resources.watched_empty_black;
+            
             watchedImage.Image = _watchedEmpty;
             _watchedEmptyHover = Resources.watched_empty_hover;
             _watched = Resources.watched;
             _watchedHover = Resources.watched_hover;
 
-            _watchlistEmpty = Resources.watchlist_empty_black;
+            
             watchlistImage.Image = _watchlistEmpty;
             _watchlistEmptyHover = Resources.watchlist_empty_hover;
             _watchlist = Resources.watchlist;
             _watchlistHover = Resources.watchlist_hover;
 
-            _starEmpty = Resources.star_empty_black;
+            
             star1.Image = _starEmpty;
             star2.Image = _starEmpty;
             star3.Image = _starEmpty;
