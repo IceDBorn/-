@@ -2,8 +2,6 @@
 {
     public class Account
     {
-        private string username;
-        private bool admin;
         private bool darkTheme;
 
         private static Account _accountInstance;
@@ -12,7 +10,7 @@
         {
             Id = id;
             Username = username;
-            this.admin = admin;
+            Admin = admin;
             this.darkTheme = darkTheme;
             Picture = picture;
         }
@@ -20,6 +18,8 @@
         public int Id { get; }
         public string Username { get; }
         public string Picture { get; }
+
+        public bool Admin { get; }
 
         public void Login()
         {

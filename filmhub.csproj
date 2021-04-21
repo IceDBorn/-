@@ -391,6 +391,9 @@
       <Content Include="Resources\dark.png" />
       <Content Include="Resources\dark_hover.png" />
       <Content Include="Resources\default_user.png" />
+      <Content Include="Resources\edit.png" />
+      <Content Include="Resources\edit_black.png" />
+      <Content Include="Resources\edit_hover.png" />
       <Content Include="Resources\favorite.png" />
       <Content Include="Resources\favorite_empty.png" />
       <Content Include="Resources\favorite_empty1.png" />

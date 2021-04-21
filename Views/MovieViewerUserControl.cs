@@ -19,20 +19,25 @@ namespace filmhub.Views
         private Image _favoriteEmptyHover;
         private Image _favorite;
         private Image _favoriteHover;
-        
+
         private Image _watchedEmpty;
         private Image _watchedEmptyHover;
         private Image _watched;
         private Image _watchedHover;
-        
+
         private Image _watchlistEmpty;
         private Image _watchlistEmptyHover;
         private Image _watchlist;
         private Image _watchlistHover;
-        
+
         private Image _starEmpty;
         private Image _star;
         private Image _starHover;
+
+        private Image _editMovie;
+        private Image _editMovieHover;
+
+        private readonly Image _movieImage;
 
         #endregion
 
@@ -44,7 +49,12 @@ namespace filmhub.Views
             InitializeColors();
             InitializeImages();
             InitializeMovie(image, id);
+            _movieImage = image;
             _movieId = id;
+            if (Account.GetAccountInstance().Admin)
+            {
+                editPictureBox.Visible = true;
+            }
         }
 
         #endregion
@@ -78,6 +88,7 @@ namespace filmhub.Views
                 _watchedEmpty = Resources.watched_empty;
                 _watchlistEmpty = Resources.watchlist_empty;
                 _starEmpty = Resources.star_empty;
+                _editMovie = Resources.edit;
             }
             else
             {
@@ -85,26 +96,27 @@ namespace filmhub.Views
                 _watchedEmpty = Resources.watched_empty_black;
                 _watchlistEmpty = Resources.watchlist_empty_black;
                 _starEmpty = Resources.star_empty_black;
+                _editMovie = Resources.edit_black;
             }
-            
+
             favoriteImage.Image = _favoriteEmpty;
             _favoriteEmptyHover = Resources.favorite_empty_hover;
             _favorite = Resources.favorite;
             _favoriteHover = Resources.favorite_hover;
-            
-            
+
+
             watchedImage.Image = _watchedEmpty;
             _watchedEmptyHover = Resources.watched_empty_hover;
             _watched = Resources.watched;
             _watchedHover = Resources.watched_hover;
 
-            
+
             watchlistImage.Image = _watchlistEmpty;
             _watchlistEmptyHover = Resources.watchlist_empty_hover;
             _watchlist = Resources.watchlist;
             _watchlistHover = Resources.watchlist_hover;
 
-            
+
             star1.Image = _starEmpty;
             star2.Image = _starEmpty;
             star3.Image = _starEmpty;
@@ -112,6 +124,9 @@ namespace filmhub.Views
             star5.Image = _starEmpty;
             _star = Resources.star;
             _starHover = Resources.star_hover;
+
+            editPictureBox.Image = _editMovie;
+            _editMovieHover = Resources.edit_hover;
         }
 
         private void InitializeMovie(Image image, int id)
@@ -146,6 +161,7 @@ namespace filmhub.Views
                     MessageBox.Show(@"Something went wrong.");
                 }
             }
+
             rdr.Close();
 
             query =
@@ -169,16 +185,19 @@ namespace filmhub.Views
                     MessageBox.Show(@"Something went wrong.");
                 }
             }
+
             rdr.Close();
 
             if (QueryController.Activity("favorite", Account.GetAccountInstance().Id, id))
             {
                 FillImage(favoriteImage, _favorite);
             }
+
             if (QueryController.Activity("history", Account.GetAccountInstance().Id, id))
             {
                 FillImage(watchedImage, _watched);
             }
+
             if (QueryController.Activity("watchlist", Account.GetAccountInstance().Id, id))
             {
                 FillImage(watchlistImage, _watchlist);
@@ -411,5 +430,24 @@ namespace filmhub.Views
         }
 
         #endregion
+
+        private void editPictureBox_MouseHover(object sender, EventArgs e)
+        {
+            editPictureBox.Image = _editMovieHover;
+        }
+
+
+        private void editPictureBox_MouseLeave(object sender, EventArgs e)
+        {
+            editPictureBox.Image = _editMovie;
+        }
+
+        private void editPictureBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            Program.MainForm.UserControlSelector(
+                new MovieEditorUserControl(titleLabel.Text, directorValueLabel.Text, writerValueLabel.Text,
+                    starsValueLabel.Text, genreValueLabel.Text, dateValueLabel.Text, descriptionText.Text, _movieImage,
+                    _movieId), true);
+        }
     }
 }
