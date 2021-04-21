@@ -12,6 +12,21 @@ namespace filmhub.Views
 
         private bool _mouseDown;
         private Point _lastLocation;
+        
+        private Image _home;
+        private Image _homeHover;
+        
+        private Image _search;
+        private Image _searchHover;
+        
+        private Image _account;
+        private Image _accountHover;
+        
+        private Image _close;
+        private Image _closeHover;
+        
+        private Image _minimize;
+        private Image _minimizeHover;
 
         #endregion
 
@@ -21,6 +36,7 @@ namespace filmhub.Views
         {
             InitializeComponent();
             InitializeColors();
+            InitializeImages();
             UserControlSelector(new WelcomeUserControl(), false);
         }
 
@@ -49,6 +65,29 @@ namespace filmhub.Views
             windowBar.BackColor = Program.Colors.WindowBarBackgroundColor;
         }
 
+        private void InitializeImages()
+        {
+            _home = Resources.home_black;
+            homeButton.Image = _home;
+            _homeHover = Resources.home_hover;
+            
+            _search = Resources.search_black;
+            searchButton.Image = _search;
+            _searchHover = Resources.search_hover;
+            
+            _account = Resources.account_black;
+            accountButton.Image = _account;
+            _accountHover = Resources.account_hover;
+            
+            _close = Resources.close_black;
+            close.Image = _close;
+            _closeHover = Resources.close_hover;
+            
+            _minimize = Resources.minimize_black;
+            minimize.Image = _minimize;
+            _minimizeHover = Resources.minimize_hover;
+        }
+
         public void UserControlSelector(Control userControl, bool flag)
         {
             mainPage.Controls.Clear();
@@ -65,7 +104,7 @@ namespace filmhub.Views
 
         private void ResetAccountButtonImage()
         {
-            accountButton.Image = Resources.account;
+            accountButton.Image = _account;
         }
 
         #endregion
@@ -186,31 +225,31 @@ namespace filmhub.Views
 
         private void homeButton_MouseHover(object sender, EventArgs e)
         {
-            homeButton.Image = Resources.home_hover;
+            homeButton.Image = _homeHover;
             GC.Collect();
         }
 
         private void homeButton_MouseLeave(object sender, EventArgs e)
         {
-            homeButton.Image = Resources.home;
+            homeButton.Image = _home;
             GC.Collect();
         }
 
         private void searchButton_MouseHover(object sender, EventArgs e)
         {
-            searchButton.Image = Resources.search_hover;
+            searchButton.Image = _searchHover;
             GC.Collect();
         }
 
         private void searchButton_MouseLeave(object sender, EventArgs e)
         {
-            searchButton.Image = Resources.search;
+            searchButton.Image = _search;
             GC.Collect();
         }
 
         private void accountButton_MouseHover(object sender, EventArgs e)
         {
-            accountButton.Image = Resources.account_hover;
+            accountButton.Image = _accountHover;
             GC.Collect();
         }
 
@@ -238,25 +277,25 @@ namespace filmhub.Views
 
         private void close_MouseHover(object sender, EventArgs e)
         {
-            close.Image = Resources.close_hover;
+            close.Image = _closeHover;
             GC.Collect();
         }
 
         private void close_MouseLeave(object sender, EventArgs e)
         {
-            close.Image = Resources.close;
+            close.Image = _close;
             GC.Collect();
         }
 
         private void minimize_MouseHover(object sender, EventArgs e)
         {
-            minimize.Image = Resources.minimize_hover;
+            minimize.Image = _minimizeHover;
             GC.Collect();
         }
 
         private void minimize_MouseLeave(object sender, EventArgs e)
         {
-            minimize.Image = Resources.minimize;
+            minimize.Image = _minimize;
             GC.Collect();
         }
 
