@@ -373,8 +373,6 @@ namespace filmhub.Views
         private System.Windows.Forms.PictureBox watchlistImage;
         private System.Windows.Forms.PictureBox watchedImage;
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-
         private System.Windows.Forms.PictureBox star5;
 
         private System.Windows.Forms.PictureBox star2;

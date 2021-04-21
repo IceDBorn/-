@@ -295,8 +295,6 @@ namespace filmhub.Views
 
         private System.Windows.Forms.Label loadingLabel;
 
-        private System.Windows.Forms.Label label1;
-
         private System.Windows.Forms.ImageList moviesList;
 
         private System.Windows.Forms.PictureBox comingSoonImage1;

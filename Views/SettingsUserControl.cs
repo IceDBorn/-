@@ -66,7 +66,7 @@ namespace filmhub.Views
             _dark = Resources.dark;
             _light = Resources.light;
             
-            themeImage.Image = Properties.Settings.Default.Theme == 0 ? _dark : _light;
+            themeImage.Image = Settings.Default.Theme == 0 ? _dark : _light;
             
             _darkHover = Resources.dark_hover;
             _lightHover = Resources.light_hover;
@@ -171,19 +171,19 @@ namespace filmhub.Views
         
         private void themeImage_MouseHover(object sender, EventArgs e)
         {
-            themeImage.Image = Properties.Settings.Default.Theme == 0 ? _darkHover : _lightHover;
+            themeImage.Image = Settings.Default.Theme == 0 ? _darkHover : _lightHover;
         }
 
         private void themeImage_MouseLeave(object sender, EventArgs e)
         {
-            themeImage.Image = Properties.Settings.Default.Theme == 0 ? _dark : _light;
+            themeImage.Image = Settings.Default.Theme == 0 ? _dark : _light;
         }
 
         #endregion
 
         private void themeImage_MouseClick(object sender, MouseEventArgs e)
         {
-            if (Properties.Settings.Default.Theme == 0)
+            if (Settings.Default.Theme == 0)
             {
                 Program.Colors.LightTheme();
             }
