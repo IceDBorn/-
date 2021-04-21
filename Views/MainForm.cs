@@ -98,7 +98,7 @@ namespace filmhub.Views
         public void HideDropDown()
         {
             dropDownPanel.Visible = false;
-            accountButton.Image = Resources.account;
+            accountButton.Image = _account;
             GC.Collect();
         }
 

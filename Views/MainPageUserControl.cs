@@ -17,6 +17,9 @@ namespace filmhub.Views
         private readonly PictureBox[] _featuredBoxes;
         private readonly PictureBox[] _comingSoonBoxes;
         private int[] _comingSoonMovies;
+        
+        private Image _menu;
+        private Image _menuHover;
 
         #endregion
 
@@ -26,6 +29,7 @@ namespace filmhub.Views
         {
             InitializeComponent();
             InitializeColors();
+            InitializeImages();
             categoriesPanel.Controls.Clear();
             categoriesPanel.Controls.Add(new CategoriesUserControl());
             _featuredBoxes = new[] {featuredImage1, featuredImage2, featuredImage3, featuredImage4, featuredImage5};
@@ -61,6 +65,13 @@ namespace filmhub.Views
             loadingLabel.BackColor = Program.Colors.BackgroundColor;
             loadingLabel2.ForeColor = Program.Colors.AccentColor;
             loadingLabel2.BackColor = Program.Colors.BackgroundColor;
+        }
+
+        private void InitializeImages()
+        {
+            _menu = Resources.menu_black;
+            menu.Image = _menu;
+            _menuHover = Resources.menu_hover;
         }
 
         private void LoadMovies()
@@ -193,13 +204,13 @@ namespace filmhub.Views
 
         private void menu_MouseHover(object sender, EventArgs e)
         {
-            menu.Image = Resources.menu_hover;
+            menu.Image = _menuHover;
             GC.Collect();
         }
 
         private void menu_MouseLeave(object sender, EventArgs e)
         {
-            menu.Image = Resources.menu;
+            menu.Image = _menu;
             GC.Collect();
         }
 
