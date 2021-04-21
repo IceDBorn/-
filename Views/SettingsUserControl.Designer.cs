@@ -40,8 +40,8 @@ namespace filmhub.Views
             this.confirmLabel = new System.Windows.Forms.Label();
             this.saveButton = new filmhub.Views.RoundedButton();
             this.resetButton = new filmhub.Views.RoundedButton();
-            this.changeTextBox = new filmhub.Views.RoundedTextBox();
-            this.confirmTextBox = new filmhub.Views.RoundedTextBox();
+            this.passwordTextBox = new filmhub.Views.RoundedTextBox();
+            this.confirmPasswordTextBox = new filmhub.Views.RoundedTextBox();
             this.usernameValueLabel = new System.Windows.Forms.Label();
             this.photoBrowser = new System.Windows.Forms.OpenFileDialog();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
@@ -128,6 +128,7 @@ namespace filmhub.Views
             this.saveButton.TabStop = false;
             this.saveButton.Text = "Save changes";
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.saveButton_MouseClick);
             // 
             // resetButton
             // 
@@ -144,25 +145,27 @@ namespace filmhub.Views
             this.resetButton.UseVisualStyleBackColor = true;
             this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
-            // changeTextBox
+            // passwordTextBox
             // 
-            this.changeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.changeTextBox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.changeTextBox.Location = new System.Drawing.Point(564, 249);
-            this.changeTextBox.Name = "changeTextBox";
-            this.changeTextBox.Size = new System.Drawing.Size(413, 43);
-            this.changeTextBox.TabIndex = 11;
-            this.changeTextBox.TabStop = false;
+            this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.passwordTextBox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.passwordTextBox.Location = new System.Drawing.Point(564, 249);
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.Size = new System.Drawing.Size(413, 43);
+            this.passwordTextBox.TabIndex = 11;
+            this.passwordTextBox.TabStop = false;
+            this.passwordTextBox.UseSystemPasswordChar = true;
             // 
-            // confirmTextBox
+            // confirmPasswordTextBox
             // 
-            this.confirmTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.confirmTextBox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.confirmTextBox.Location = new System.Drawing.Point(564, 339);
-            this.confirmTextBox.Name = "confirmTextBox";
-            this.confirmTextBox.Size = new System.Drawing.Size(413, 43);
-            this.confirmTextBox.TabIndex = 12;
-            this.confirmTextBox.TabStop = false;
+            this.confirmPasswordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.confirmPasswordTextBox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.confirmPasswordTextBox.Location = new System.Drawing.Point(564, 339);
+            this.confirmPasswordTextBox.Name = "confirmPasswordTextBox";
+            this.confirmPasswordTextBox.Size = new System.Drawing.Size(413, 43);
+            this.confirmPasswordTextBox.TabIndex = 12;
+            this.confirmPasswordTextBox.TabStop = false;
+            this.confirmPasswordTextBox.UseSystemPasswordChar = true;
             // 
             // usernameValueLabel
             // 
@@ -201,8 +204,8 @@ namespace filmhub.Views
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.Controls.Add(this.themeImage);
             this.Controls.Add(this.usernameValueLabel);
-            this.Controls.Add(this.confirmTextBox);
-            this.Controls.Add(this.changeTextBox);
+            this.Controls.Add(this.confirmPasswordTextBox);
+            this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.confirmLabel);
@@ -225,9 +228,9 @@ namespace filmhub.Views
 
         private System.Windows.Forms.OpenFileDialog photoBrowser;
 
-        private filmhub.Views.RoundedTextBox changeTextBox;
+        private filmhub.Views.RoundedTextBox passwordTextBox;
 
-        private filmhub.Views.RoundedTextBox confirmTextBox;
+        private filmhub.Views.RoundedTextBox confirmPasswordTextBox;
 
         private System.Windows.Forms.Label usernameValueLabel;
 

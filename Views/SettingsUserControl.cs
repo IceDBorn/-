@@ -1,6 +1,7 @@
 using System;
 using System.Drawing;
 using System.IO;
+using System.Media;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -54,10 +55,10 @@ namespace filmhub.Views
             resetButton.FlatAppearance.BorderColor = Program.Colors.AccentColor;
             uploadButton.BackColor = Program.Colors.AccentColor;
             uploadButton.FlatAppearance.BorderColor = Program.Colors.AccentColor;
-            changeTextBox.BackColor = Program.Colors.FieldColor;
-            changeTextBox.ForeColor = Program.Colors.FieldDarkTextColor;
-            confirmTextBox.BackColor = Program.Colors.FieldColor;
-            confirmTextBox.ForeColor = Program.Colors.FieldDarkTextColor;
+            passwordTextBox.BackColor = Program.Colors.FieldColor;
+            passwordTextBox.ForeColor = Program.Colors.FieldDarkTextColor;
+            confirmPasswordTextBox.BackColor = Program.Colors.FieldColor;
+            confirmPasswordTextBox.ForeColor = Program.Colors.FieldDarkTextColor;
             userProfileImage.BackColor = Program.Colors.BackgroundColor;
         }
 
@@ -107,14 +108,44 @@ namespace filmhub.Views
             userProfileImage.Image = imageList.Images[0];
         }
 
+        private void ClearPasswordFields()
+        {
+            passwordTextBox.Text = "";
+            confirmPasswordTextBox.Text = "";
+        }
+        
+        private void ChangePassword()
+        {
+            if (string.IsNullOrEmpty(passwordTextBox.Text.Trim()))
+            {
+                SystemSounds.Beep.Play();
+                MessageBox.Show(@"Password is empty.");
+            }
+            else if (string.IsNullOrEmpty(confirmPasswordTextBox.Text.Trim()))
+            {
+                SystemSounds.Beep.Play();
+                MessageBox.Show(@"Confirm password is empty.");
+            }
+            else if (!passwordTextBox.Text.Equals(confirmPasswordTextBox.Text))
+            {
+                SystemSounds.Beep.Play();
+                MessageBox.Show(@"Passwords do not match.");
+            }
+            else
+            {
+                AccountController.ChangePassword(passwordTextBox.Text);
+                ClearPasswordFields();
+                MessageBox.Show(@"Passwords successfully changed.");
+            }
+        }
+
         #endregion
 
         #region Events
 
         private void resetButton_Click(object sender, EventArgs e)
         {
-            changeTextBox.Text = "";
-            confirmTextBox.Text = "";
+            ClearPasswordFields();
         }
 
         private async void uploadButton_Click(object sender, EventArgs e)
@@ -178,9 +209,7 @@ namespace filmhub.Views
         {
             themeImage.Image = Settings.Default.Theme == 0 ? _dark : _light;
         }
-
-        #endregion
-
+        
         private void themeImage_MouseClick(object sender, MouseEventArgs e)
         {
             if (Settings.Default.Theme == 0)
@@ -195,5 +224,12 @@ namespace filmhub.Views
             
             Program.MainForm.RefreshUi();
         }
+
+        private void saveButton_MouseClick(object sender, MouseEventArgs e)
+        {
+            ChangePassword();
+        }
+
+        #endregion
     }
 }
