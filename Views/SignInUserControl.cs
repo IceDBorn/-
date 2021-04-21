@@ -46,7 +46,7 @@ namespace filmhub.Views
 
         private void InitializeImages()
         {
-            _back = Program.Colors.Theme == 0 ? Resources.back : Resources.back_black;
+            _back = Properties.Settings.Default.Theme == 0 ? Resources.back : Resources.back_black;
             
             backButton.Image = _back;
             _backHover = Resources.back_hover;

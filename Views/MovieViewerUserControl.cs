@@ -72,7 +72,7 @@ namespace filmhub.Views
 
         private void InitializeImages()
         {
-            if (Program.Colors.Theme == 0)
+            if (Properties.Settings.Default.Theme == 0)
             {
                 _favoriteEmpty = Resources.favorite_empty;
                 _watchedEmpty = Resources.watched_empty;

@@ -23,8 +23,6 @@ namespace filmhub.Views
         public Color DarkTextColor { get; private set; }
         
         public Color ForeColor { get; private set; }
-        
-        public int Theme { get; private set; }
 
         #endregion
 
@@ -41,7 +39,8 @@ namespace filmhub.Views
             AccentColor = Color.FromArgb(113, 44, 218);
             DarkTextColor = Color.FromArgb(111, 111, 111);
             ForeColor = Color.White;
-            Theme = 0;
+            Properties.Settings.Default["Theme"] = 0;
+            Properties.Settings.Default.Save();
         }
 
         public void LightTheme()
@@ -55,7 +54,8 @@ namespace filmhub.Views
             AccentColor = Color.FromArgb(113, 44, 218);
             DarkTextColor = Color.FromArgb(40, 40, 40);
             ForeColor = Color.Black;
-            Theme = 1;
+            Properties.Settings.Default["Theme"] = 1;
+            Properties.Settings.Default.Save();
         }
 
         #endregion
