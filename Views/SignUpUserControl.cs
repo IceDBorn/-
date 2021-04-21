@@ -81,7 +81,7 @@ namespace filmhub.Views
             }
             else
             {
-                LoginController.Signup(usernameTextBox.Text, passwordTextBox.Text);
+                AccountController.Signup(usernameTextBox.Text, passwordTextBox.Text);
                 if (Account.GetAccountInstance() == null) return;
                 Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
             }
@@ -207,7 +207,7 @@ namespace filmhub.Views
         {
             Process.Start("https://github.com/IceDBorn/filmhub/blob/main/terms-and-conditions.md");
         }
+        
+        #endregion
     }
-
-    #endregion
 }

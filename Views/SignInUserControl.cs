@@ -67,7 +67,7 @@ namespace filmhub.Views
             }
             else
             {
-                LoginController.Login(usernameTextBox.Text, passwordTextBox.Text);
+                AccountController.Login(usernameTextBox.Text, passwordTextBox.Text);
                 if (Account.GetAccountInstance() == null) return;
                 Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
             }

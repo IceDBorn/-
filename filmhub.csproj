@@ -255,7 +255,7 @@
     <ItemGroup>
         <Compile Include="Controllers\QueryController.cs" />
         <Compile Include="Controllers\DatabaseController.cs" />
-        <Compile Include="Controllers\LoginController.cs" />
+        <Compile Include="Controllers\AccountController.cs" />
         <Compile Include="Controllers\SearchController.cs" />
         <Compile Include="Models\Account.cs" />
         <Compile Include="Program.cs" />
