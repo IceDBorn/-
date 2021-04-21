@@ -15,6 +15,25 @@ namespace filmhub.Views
         private readonly int _movieId;
         private int _starsCount;
 
+        private Image _favoriteEmpty;
+        private Image _favoriteEmptyHover;
+        private Image _favorite;
+        private Image _favoriteHover;
+        
+        private Image _watchedEmpty;
+        private Image _watchedEmptyHover;
+        private Image _watched;
+        private Image _watchedHover;
+        
+        private Image _watchlistEmpty;
+        private Image _watchlistEmptyHover;
+        private Image _watchlist;
+        private Image _watchlistHover;
+        
+        private Image _starEmpty;
+        private Image _star;
+        private Image _starHover;
+
         #endregion
 
         #region Constructor
@@ -23,6 +42,7 @@ namespace filmhub.Views
         {
             InitializeComponent();
             InitializeColors();
+            InitializeImages();
             InitializeMovie(image, id);
             _movieId = id;
         }
@@ -48,6 +68,36 @@ namespace filmhub.Views
             ratingLabel.ForeColor = Program.Colors.ForeColor;
             descriptionLabel.ForeColor = Program.Colors.ForeColor;
             descriptionText.ForeColor = Program.Colors.ForeColor;
+        }
+
+        private void InitializeImages()
+        {
+            _favoriteEmpty = Resources.favorite_empty_black;
+            favoriteImage.Image = _favoriteEmpty;
+            _favoriteEmptyHover = Resources.favorite_empty_hover;
+            _favorite = Resources.favorite;
+            _favoriteHover = Resources.favorite_hover;
+            
+            _watchedEmpty = Resources.watched_empty_black;
+            watchedImage.Image = _watchedEmpty;
+            _watchedEmptyHover = Resources.watched_empty_hover;
+            _watched = Resources.watched;
+            _watchedHover = Resources.watched_hover;
+
+            _watchlistEmpty = Resources.watchlist_empty_black;
+            watchlistImage.Image = _watchlistEmpty;
+            _watchlistEmptyHover = Resources.watchlist_empty_hover;
+            _watchlist = Resources.watchlist;
+            _watchlistHover = Resources.watchlist_hover;
+
+            _starEmpty = Resources.star_empty_black;
+            star1.Image = _starEmpty;
+            star2.Image = _starEmpty;
+            star3.Image = _starEmpty;
+            star4.Image = _starEmpty;
+            star5.Image = _starEmpty;
+            _star = Resources.star;
+            _starHover = Resources.star_hover;
         }
 
         private void InitializeMovie(Image image, int id)
@@ -109,25 +159,25 @@ namespace filmhub.Views
 
             if (QueryController.Activity("favorite", Account.GetAccountInstance().Id, id))
             {
-                FillImage(favoriteImage, Resources.favorite);
+                FillImage(favoriteImage, _favorite);
             }
             if (QueryController.Activity("history", Account.GetAccountInstance().Id, id))
             {
-                FillImage(watchedImage, Resources.watched);
+                FillImage(watchedImage, _watched);
             }
             if (QueryController.Activity("watchlist", Account.GetAccountInstance().Id, id))
             {
-                FillImage(watchlistImage, Resources.watchlist);
+                FillImage(watchlistImage, _watchlist);
             }
         }
 
-        private void FillImage(PictureBox pb, Image filled)
+        private static void FillImage(PictureBox pb, Image filled)
         {
             pb.Image = filled;
             pb.Tag = 1;
         }
 
-        private void ActivityInsert(PictureBox pb, string tableName)
+        private void ActivityInsert(Control pb, string tableName)
         {
             var con = DatabaseController.GetConnection();
 
@@ -179,12 +229,12 @@ namespace filmhub.Views
             {
                 if (i < count)
                 {
-                    stars[i].Image = Resources.star;
+                    stars[i].Image = _star;
                     stars[i].Tag = 1;
                 }
                 else
                 {
-                    stars[i].Image = Resources.star_empty;
+                    stars[i].Image = _starEmpty;
                     stars[i].Tag = 0;
                 }
             }
@@ -196,7 +246,7 @@ namespace filmhub.Views
 
             for (var i = 0; i < stars.Length; i++)
             {
-                stars[i].Image = i < count ? Resources.star_hover : Resources.star_empty;
+                stars[i].Image = i < count ? _starHover : _starEmpty;
             }
         }
 
@@ -300,50 +350,50 @@ namespace filmhub.Views
 
         private void favoriteImage_MouseHover(object sender, EventArgs e)
         {
-            SetImageOnMouseMovement(favoriteImage, Resources.favorite_empty_hover, Resources.favorite_hover);
+            SetImageOnMouseMovement(favoriteImage, _favoriteEmptyHover, _favoriteHover);
         }
 
         private void favoriteImage_MouseLeave(object sender, EventArgs e)
         {
-            SetImageOnMouseMovement(favoriteImage, Resources.favorite_empty, Resources.favorite);
+            SetImageOnMouseMovement(favoriteImage, _favoriteEmpty, _favorite);
         }
 
         private void favoriteImage_MouseClick(object sender, MouseEventArgs e)
         {
             ActivityInsert(favoriteImage, "favorite");
-            SetImageOnMouseClick(favoriteImage, Resources.favorite_empty, Resources.favorite);
+            SetImageOnMouseClick(favoriteImage, _favoriteEmpty, _favorite);
         }
 
         private void watchedImage_MouseHover(object sender, EventArgs e)
         {
-            SetImageOnMouseMovement(watchedImage, Resources.watched_empty_hover, Resources.watched_hover);
+            SetImageOnMouseMovement(watchedImage, _watchedEmptyHover, _watchedHover);
         }
 
         private void watchedImage_MouseLeave(object sender, EventArgs e)
         {
-            SetImageOnMouseMovement(watchedImage, Resources.watched_empty, Resources.watched);
+            SetImageOnMouseMovement(watchedImage, _watchedEmpty, _watched);
         }
 
         private void watchedImage_MouseClick(object sender, MouseEventArgs e)
         {
             ActivityInsert(watchedImage, "history");
-            SetImageOnMouseClick(watchedImage, Resources.watched_empty, Resources.watched);
+            SetImageOnMouseClick(watchedImage, _watchedEmpty, _watched);
         }
 
         private void watchlistImage_MouseHover(object sender, EventArgs e)
         {
-            SetImageOnMouseMovement(watchlistImage, Resources.watchlist_empty_hover, Resources.watchlist_hover);
+            SetImageOnMouseMovement(watchlistImage, _watchlistEmptyHover, _watchlistHover);
         }
 
         private void watchlistImage_MouseLeave(object sender, EventArgs e)
         {
-            SetImageOnMouseMovement(watchlistImage, Resources.watchlist_empty, Resources.watchlist);
+            SetImageOnMouseMovement(watchlistImage, _watchlistEmpty, _watchlist);
         }
 
         private void watchlistImage_MouseClick(object sender, MouseEventArgs e)
         {
             ActivityInsert(watchlistImage, "watchlist");
-            SetImageOnMouseClick(watchlistImage, Resources.watchlist_empty, Resources.watchlist);
+            SetImageOnMouseClick(watchlistImage, _watchlistEmpty, _watchlist);
         }
 
         #endregion
