@@ -64,9 +64,17 @@ namespace filmhub.Views
         private void InitializeImages()
         {
             _dark = Resources.dark;
-            themeImage.Image = _dark;
+            
+            if (Program.Colors.Theme == 0)
+            {
+                themeImage.Image = _dark;
+            }
+            else
+            {
+                themeImage.Image = _light;
+            }
+            
             _darkHover = Resources.dark_hover;
-
             _light = Resources.light;
             _lightHover = Resources.light_hover;
         }
@@ -185,15 +193,14 @@ namespace filmhub.Views
             if (Program.Colors.Theme == 0)
             {
                 Program.Colors.LightTheme();
-                themeImage.Image = _light;
-                Program.MainForm.RefreshUi();
             }
             else
             {
                 Program.Colors.DarkTheme();
-                themeImage.Image = _dark;
-                Program.MainForm.RefreshUi();
+                
             }
+            
+            Program.MainForm.RefreshUi();
         }
     }
 }
