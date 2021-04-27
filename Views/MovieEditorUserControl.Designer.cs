@@ -210,6 +210,7 @@ namespace filmhub.Views
             this.saveButton.TabStop = false;
             this.saveButton.Text = "Save changes";
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.saveButton_MouseClick);
             // 
             // descriptionLabel
             // 

@@ -1,5 +1,6 @@
 using System.Drawing;
 using System.Windows.Forms;
+using filmhub.Controllers;
 
 namespace filmhub.Views
 {
@@ -8,13 +9,7 @@ namespace filmhub.Views
         #region Fields
 
         private readonly int _movieId;
-        private string _title;
-        private string _directors;
-        private string _writers;
-        private string _stars;
-        private string _genre;
-        private string _date;
-        private string _description;
+        private Image _image;
 
         #endregion
 
@@ -28,6 +23,7 @@ namespace filmhub.Views
             InitializeMovie(title, directors, writers, stars, genre, date, description);
             movieImage.Image = image;
             _movieId = movieId;
+            _image = image;
         }
 
         #endregion
@@ -68,28 +64,29 @@ namespace filmhub.Views
         private void InitializeMovie(string title, string directors, string writers, string stars, string genre,
             string date, string description)
         {
-            _title = title;
-            titleValueLabel.Text = _title;
-
-            _directors = directors;
-            directorValueLabel.Text = _directors;
-            
-            _writers = writers;
-            writerValueLabel.Text = _writers;
-
-            _stars = stars;
-            starsValueLabel.Text = _stars;
-
-            _genre = genre;
-            genreValueLabel.Text = _genre;
-
-            _date = date;
-            dateValueLabel.Text = _date;
-
-            _description = description;
-            descriptionValueLabel.Text = _description;
+            titleValueLabel.Text = title;
+            directorValueLabel.Text = directors;
+            writerValueLabel.Text = writers;
+            starsValueLabel.Text = stars;
+            genreValueLabel.Text = genre;
+            dateValueLabel.Text = date;
+            descriptionValueLabel.Text = description;
         }
 
         #endregion
+
+        private void saveButton_MouseClick(object sender, MouseEventArgs e)
+        {
+            MovieController.UpdateMovie(
+                _movieId,
+                titleValueLabel.Text,
+                directorValueLabel.Text,
+                writerValueLabel.Text,
+                starsValueLabel.Text,
+                dateValueLabel.Text,
+                descriptionValueLabel.Text
+            );
+            Program.MainForm.UserControlSelector(new MovieViewerUserControl(_image, _movieId), true);
+        }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using filmhub.Models;
 using Npgsql;
+using NpgsqlTypes;
 
 namespace filmhub.Controllers
 {
@@ -20,7 +21,7 @@ namespace filmhub.Controllers
         {
             var movies = new List<Movie>();
             var query = "SELECT id, picture FROM movie WHERE release_date ";
-            
+
             if (section == Section.Featured)
             {
                 query += "<";
@@ -29,7 +30,7 @@ namespace filmhub.Controllers
             {
                 query += ">";
             }
-            
+
             query += " NOW() ORDER BY RANDOM() LIMIT 5";
 
             try
@@ -86,6 +87,7 @@ namespace filmhub.Controllers
                     MessageBox.Show(@"Something went wrong while contacting the database.");
                 }
             }
+
             rdr.Close();
 
             query = "SELECT value FROM rating WHERE movie_id = @id AND user_id = @user_id";
@@ -106,9 +108,38 @@ namespace filmhub.Controllers
                     MessageBox.Show(@"Something went wrong while contacting the database.");
                 }
             }
+
             rdr.Close();
 
             return movie;
+        }
+
+        public static void UpdateMovie(int id, string title, string directors, string writers, string stars,
+            string date, string description)
+        {
+            const string query =
+                "UPDATE movie " +
+                "SET (name, description, director, writer, stars, release_date) " +
+                "= (@title, @description, @directors, @writers, @stars, @release_date) " +
+                "WHERE id = @id";
+
+            try
+            {
+                using var cmd = new NpgsqlCommand(query, con);
+                cmd.Parameters.AddWithValue("title", title);
+                cmd.Parameters.AddWithValue("description", description);
+                cmd.Parameters.AddWithValue("directors", directors);
+                cmd.Parameters.AddWithValue("writers", writers);
+                cmd.Parameters.AddWithValue("stars", stars);
+                cmd.Parameters.AddWithValue("release_date", NpgsqlDate.Parse(date));
+                cmd.Parameters.AddWithValue("id", id);
+                cmd.Prepare();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
     }
 }
