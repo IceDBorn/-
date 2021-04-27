@@ -55,5 +55,60 @@ namespace filmhub.Controllers
 
             return movies;
         }
+
+        public static Movie MovieViewerQuery(int id)
+        {
+            var movie = new Movie();
+            var query =
+                "SELECT movie.name, description, director, writer, stars, release_date, genre.name " +
+                "FROM movie " +
+                "JOIN genre ON genre_id = genre.id " +
+                "WHERE movie.id = @id";
+
+            var cmd = new NpgsqlCommand(query, con);
+            cmd.Parameters.AddWithValue("id", id);
+            cmd.Prepare();
+            var rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                try
+                {
+                    movie.Name = rdr.GetString(0);
+                    movie.Description = rdr.GetString(1);
+                    movie.Director = rdr.GetString(2);
+                    movie.Writer = rdr.GetString(3);
+                    movie.Stars = rdr.GetString(4);
+                    movie.ReleaseDate = rdr.GetDate(5).ToString();
+                    movie.Genre = rdr.GetString(6);
+                }
+                catch
+                {
+                    MessageBox.Show(@"Something went wrong while contacting the database.");
+                }
+            }
+            rdr.Close();
+
+            query = "SELECT value FROM rating WHERE movie_id = @id AND user_id = @user_id";
+
+            cmd = new NpgsqlCommand(query, con);
+            cmd.Parameters.AddWithValue("id", id);
+            cmd.Parameters.AddWithValue("user_id", Account.GetAccountInstance().Id);
+            cmd.Prepare();
+            rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                try
+                {
+                    movie.Rating = rdr.GetInt32(0);
+                }
+                catch
+                {
+                    MessageBox.Show(@"Something went wrong while contacting the database.");
+                }
+            }
+            rdr.Close();
+
+            return movie;
+        }
     }
 }
