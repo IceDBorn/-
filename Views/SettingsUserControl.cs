@@ -11,8 +11,6 @@ using filmhub.Models;
 using filmhub.Properties;
 using Imgur.API.Authentication;
 using Imgur.API.Endpoints;
-using Npgsql;
-using NpgsqlTypes;
 
 namespace filmhub.Views
 {
@@ -159,8 +157,7 @@ namespace filmhub.Views
             imageList.Images.Clear();
             imageList.Images.Add(Image.FromFile(photoBrowser.FileName));
             userProfileImage.Image = imageList.Images[0];
-            var task = UploadImageToImgur();
-            await task;
+            await UploadImageToImgur();
         }
 
         private async Task UploadImageToImgur()
@@ -178,21 +175,8 @@ namespace filmhub.Views
                 // Create end point and upload image
                 var imageEndpoint = new ImageEndpoint(apiClient, httpClient);
                 var imageUpload = await imageEndpoint.UploadImageAsync(fileStream);
-                
-                var con = DatabaseController.GetConnection();
 
-                var query = "UPDATE account SET picture = @link WHERE id = @id";
-                
-                using var cmd = new NpgsqlCommand(query, con);
-                var link = cmd.Parameters.Add("link", NpgsqlDbType.Text);
-                var id = cmd.Parameters.Add("id", NpgsqlDbType.Integer);
-                
-                await cmd.PrepareAsync();
-
-                link.Value = imageUpload.Link;
-                id.Value = Account.GetAccountInstance().Id;
-                
-                cmd.ExecuteNonQuery();
+                await SettingController.UpdateImageLink(imageUpload.Link);
             }
             catch
             {

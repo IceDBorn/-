@@ -2,7 +2,6 @@
 using System.Windows.Forms;
 using filmhub.Models;
 using Npgsql;
-using NpgsqlTypes;
 
 namespace filmhub.Controllers
 {
@@ -15,25 +14,18 @@ namespace filmhub.Controllers
             var id = -1;
             string picture = null;
             bool admin = false, darkTheme = true;
+            const string query = "SELECT id, username, admin, dark_theme, picture " +
+                                 "FROM account " +
+                                 "WHERE username = @username AND password = @password " +
+                                 "LIMIT 1";
 
             try
             {
-                const string validateUser = "SELECT id, username, admin, dark_theme, picture " +
-                                            "FROM account " +
-                                            "WHERE username = @username AND password = @password " +
-                                            "LIMIT 1";
-
-                using var cmd = new NpgsqlCommand(validateUser, con);
-                var usernameValue = cmd.Parameters.Add("username", NpgsqlDbType.Text);
-                var passwordValue = cmd.Parameters.Add("password", NpgsqlDbType.Text);
-
+                using var cmd = new NpgsqlCommand(query, con);
+                cmd.Parameters.AddWithValue("username", username);
+                cmd.Parameters.AddWithValue("password", password);
                 cmd.Prepare();
-
-                usernameValue.Value = username;
-                passwordValue.Value = password;
-
                 using var rdr = cmd.ExecuteReader();
-
                 while (rdr.Read())
                 {
                     id = rdr.GetInt32(0);
@@ -44,9 +36,9 @@ namespace filmhub.Controllers
                 }
                 rdr.Close();
             }
-            catch (Exception e)
+            catch
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show(@"Something went wrong while contacting the database.");
             }
 
             if (id != -1)
@@ -62,24 +54,16 @@ namespace filmhub.Controllers
 
         public static void Signup(string username, string password)
         {
+            const string query = "INSERT INTO account (username, password, admin, dark_theme) " + 
+                                 "VALUES (@username, @password, @admin, @dark_theme)";
             try
             {
-                const string validateUser =
-                    "INSERT INTO account (username, password, admin, dark_theme) VALUES (@v1,@v2,@v3,@v4)";
-
-                using var cmd = new NpgsqlCommand(validateUser, con);
-                var v1 = cmd.Parameters.Add("v1", NpgsqlDbType.Text);
-                var v2 = cmd.Parameters.Add("v2", NpgsqlDbType.Text);
-                var v3 = cmd.Parameters.Add("v3", NpgsqlDbType.Boolean);
-                var v4 = cmd.Parameters.Add("v4", NpgsqlDbType.Boolean);
-
+                using var cmd = new NpgsqlCommand(query, con);
+                cmd.Parameters.AddWithValue("username", username);
+                cmd.Parameters.AddWithValue("password", password);
+                cmd.Parameters.AddWithValue("admin", false);
+                cmd.Parameters.AddWithValue("dark_theme", true);
                 cmd.Prepare();
-
-                v1.Value = username;
-                v2.Value = password;
-                v3.Value = false;
-                v4.Value = true;
-
                 cmd.ExecuteNonQuery();
 
                 Login(username, password);
@@ -108,9 +92,9 @@ namespace filmhub.Controllers
                 cmd.Prepare();
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception e)
+            catch
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show(@"Something went wrong while contacting the database.");
             }
         }
     }
