@@ -17,7 +17,7 @@
 
         public int Id { get; }
         public string Username { get; }
-        public string Picture { get; }
+        public string Picture { get; set; }
 
         public bool Admin { get; }
 

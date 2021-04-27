@@ -11,6 +11,8 @@ namespace filmhub.Views
     public partial class MovieViewerUserControl : UserControl
     {
         #region Fields
+        
+        private static readonly NpgsqlConnection con = DatabaseController.GetConnection();
 
         private readonly int _movieId;
         private int _starsCount;
@@ -133,61 +135,19 @@ namespace filmhub.Views
         {
             movieImage.Image = image;
 
-            var con = DatabaseController.GetConnection();
-
-            var query =
-                "SELECT movie.name, description, director, writer, stars, release_date, genre.name " +
-                "FROM movie " +
-                "JOIN genre ON genre_id = genre.id " +
-                "WHERE movie.id = " + id;
-
-            var cmd = new NpgsqlCommand(query, con);
-            var rdr = cmd.ExecuteReader();
-
-            while (rdr.Read())
-            {
-                try
-                {
-                    titleLabel.Text = rdr.GetString(0);
-                    descriptionText.Text = rdr.GetString(1);
-                    directorValueLabel.Text = rdr.GetString(2);
-                    writerValueLabel.Text = rdr.GetString(3);
-                    starsValueLabel.Text = rdr.GetString(4);
-                    dateValueLabel.Text = rdr.GetDate(5).ToString();
-                    genreValueLabel.Text = rdr.GetString(6);
-                }
-                catch
-                {
-                    MessageBox.Show(@"Something went wrong.");
-                }
-            }
-
-            rdr.Close();
-
-            query =
-                "SELECT value " +
-                "FROM rating " +
-                "WHERE movie_id = " + id + " " +
-                "AND user_id = " + Account.GetAccountInstance().Id;
-
-            cmd = new NpgsqlCommand(query, con);
-            rdr = cmd.ExecuteReader();
-
-            while (rdr.Read())
-            {
-                try
-                {
-                    SetStars(rdr.GetInt32(0));
-                    _starsCount = rdr.GetInt32(0);
-                }
-                catch
-                {
-                    MessageBox.Show(@"Something went wrong.");
-                }
-            }
-
-            rdr.Close();
-
+            var movie = MovieController.MovieViewerQuery(id);
+            
+            titleLabel.Text = movie.Name;
+            descriptionText.Text = movie.Description;
+            directorValueLabel.Text = movie.Director;
+            writerValueLabel.Text = movie.Writer;
+            starsValueLabel.Text = movie.Stars;
+            dateValueLabel.Text = movie.ReleaseDate;
+            genreValueLabel.Text = movie.Genre;
+            
+            _starsCount = movie.Rating;
+            SetStars();
+            
             if (QueryController.Activity("favorite", Account.GetAccountInstance().Id, id))
             {
                 FillImage(favoriteImage, _favorite);
@@ -212,8 +172,6 @@ namespace filmhub.Views
 
         private void ActivityInsert(Control pb, string tableName)
         {
-            var con = DatabaseController.GetConnection();
-
             if (int.Parse(pb.Tag.ToString()) == 0)
             {
                 var query = "INSERT INTO " + tableName + "(movie_id, user_id) VALUES (" + _movieId + ", " +
@@ -232,8 +190,6 @@ namespace filmhub.Views
 
         private void Rate(int rate)
         {
-            var con = DatabaseController.GetConnection();
-
             if (int.Parse(star1.Tag.ToString()) == 0)
             {
                 var query = "INSERT INTO rating(value,movie_id,user_id) VALUES (" + rate + ", " + _movieId + ", " +
@@ -249,18 +205,17 @@ namespace filmhub.Views
                 cmd.ExecuteNonQuery();
             }
 
-            SetStars(rate);
-
             _starsCount = rate;
+            SetStars();
         }
 
-        private void SetStars(int count)
+        private void SetStars()
         {
             var stars = new[] {star1, star2, star3, star4, star5};
 
             for (var i = 0; i < stars.Length; i++)
             {
-                if (i < count)
+                if (i < _starsCount)
                 {
                     stars[i].Image = _star;
                     stars[i].Tag = 1;
@@ -313,7 +268,7 @@ namespace filmhub.Views
 
         private void star1_MouseLeave(object sender, EventArgs e)
         {
-            SetStars(_starsCount);
+            SetStars();
         }
 
         private void star2_MouseHover(object sender, EventArgs e)
@@ -323,7 +278,7 @@ namespace filmhub.Views
 
         private void star2_MouseLeave(object sender, EventArgs e)
         {
-            SetStars(_starsCount);
+            SetStars();
         }
 
         private void star3_MouseHover(object sender, EventArgs e)
@@ -333,7 +288,7 @@ namespace filmhub.Views
 
         private void star3_MouseLeave(object sender, EventArgs e)
         {
-            SetStars(_starsCount);
+            SetStars();
         }
 
         private void star4_MouseHover(object sender, EventArgs e)
@@ -343,7 +298,7 @@ namespace filmhub.Views
 
         private void star4_MouseLeave(object sender, EventArgs e)
         {
-            SetStars(_starsCount);
+            SetStars();
         }
 
         private void star5_MouseHover(object sender, EventArgs e)
@@ -353,7 +308,7 @@ namespace filmhub.Views
 
         private void star5_MouseLeave(object sender, EventArgs e)
         {
-            SetStars(_starsCount);
+            SetStars();
         }
 
         private void star1_MouseClick(object sender, MouseEventArgs e)

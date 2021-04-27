@@ -5,7 +5,6 @@ using System.Threading;
 using System.Windows.Forms;
 using filmhub.Controllers;
 using filmhub.Properties;
-using Npgsql;
 
 namespace filmhub.Views
 {
@@ -17,7 +16,7 @@ namespace filmhub.Views
         private readonly PictureBox[] _featuredBoxes;
         private readonly PictureBox[] _comingSoonBoxes;
         private int[] _comingSoonMovies;
-        
+
         private Image _menu;
         private Image _menuHover;
 
@@ -107,21 +106,15 @@ namespace filmhub.Views
             return image;
         }
 
-        private void FillPictureBoxes(string query, PictureBox[] pictureBoxes, bool flag)
+        private void FillPictureBoxes(MovieController.Section section, PictureBox[] pictureBoxes)
         {
-            if (query == null) throw new ArgumentNullException(nameof(query));
             if (pictureBoxes == null) throw new ArgumentNullException(nameof(pictureBoxes));
             try
             {
                 moviesList.Images.Clear();
-                var con = DatabaseController.GetConnection();
+                var movies = MovieController.MainPageMovieQuery(section);
 
-                using var cmd = new NpgsqlCommand(query, con);
-                using var rdr = cmd.ExecuteReader();
-
-                var count = 0;
-
-                if (flag)
+                if (section == MovieController.Section.Featured)
                 {
                     _featuredMovies = new int[5];
                 }
@@ -130,21 +123,18 @@ namespace filmhub.Views
                     _comingSoonMovies = new int[5];
                 }
 
-                while (rdr.Read())
+                for (var i = 0; i < movies.Count; i++)
                 {
-                    if (flag)
+                    if (section == MovieController.Section.Featured)
                     {
-                        _featuredMovies[count] = rdr.GetInt32(0);
+                        _featuredMovies[i] = movies[i].Id;
                     }
                     else
                     {
-                        _comingSoonMovies[count] = rdr.GetInt32(0);
+                        _comingSoonMovies[i] = movies[i].Id;
                     }
-
-                    moviesList.Images.Add(DownloadImageFromUrl(rdr.GetString(1)));
-                    count++;
+                    moviesList.Images.Add(DownloadImageFromUrl(movies[i].Picture));
                 }
-                rdr.Close();
 
                 for (var i = 0; i < moviesList.Images.Count; i++)
                 {
@@ -160,15 +150,13 @@ namespace filmhub.Views
 
         private void FeaturedMovieSelector()
         {
-            FillPictureBoxes("SELECT id,picture FROM movie WHERE release_date < NOW() ORDER BY RANDOM() LIMIT 5",
-                _featuredBoxes, true);
+            FillPictureBoxes(MovieController.Section.Featured, _featuredBoxes);
             loadingLabel.Visible = false;
         }
 
         private void ComingSoonMovieSelector()
         {
-            FillPictureBoxes("SELECT id,picture FROM movie WHERE release_date > NOW() ORDER BY RANDOM() LIMIT 5",
-                _comingSoonBoxes, false);
+            FillPictureBoxes(MovieController.Section.ComingSoon, _comingSoonBoxes);
             loadingLabel2.Visible = false;
         }
 
@@ -178,7 +166,7 @@ namespace filmhub.Views
             {
                 if (int.Parse(tag.Tag.ToString()) == 0) tag.Cursor = Cursors.Default;
             }
-            
+
             foreach (var tag in _comingSoonBoxes)
             {
                 if (int.Parse(tag.Tag.ToString()) == 0) tag.Cursor = Cursors.Default;
@@ -288,7 +276,7 @@ namespace filmhub.Views
                 new MovieViewerUserControl(comingSoonImage5.Image, _comingSoonMovies[4]),
                 true);
         }
-        
+
         #endregion
     }
 }
