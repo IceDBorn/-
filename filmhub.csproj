@@ -258,6 +258,7 @@
         <Compile Include="Controllers\DatabaseController.cs" />
         <Compile Include="Controllers\AccountController.cs" />
         <Compile Include="Controllers\SearchController.cs" />
+        <Compile Include="Controllers\SettingController.cs" />
         <Compile Include="Models\Account.cs" />
         <Compile Include="Models\Movie.cs" />
         <Compile Include="Program.cs" />
