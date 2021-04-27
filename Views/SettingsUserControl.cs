@@ -11,15 +11,12 @@ using filmhub.Models;
 using filmhub.Properties;
 using Imgur.API.Authentication;
 using Imgur.API.Endpoints;
-using Npgsql;
 
 namespace filmhub.Views
 {
     public partial class SettingsUserControl : UserControl
     {
         #region Fields
-        
-        private static readonly NpgsqlConnection con = DatabaseController.GetConnection();
 
         private Image _dark;
         private Image _darkHover;
