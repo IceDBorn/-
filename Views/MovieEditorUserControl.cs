@@ -1,3 +1,4 @@
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 using filmhub.Controllers;
@@ -9,7 +10,17 @@ namespace filmhub.Views
         #region Fields
 
         private readonly int _movieId;
-        private Image _image;
+        private readonly Image _image;
+
+        private class ComboItem
+        {
+            public int ID { get; set; }
+            public string Text { get; set; }
+            public override string ToString()
+            {
+                return Text;
+            }
+        }
 
         #endregion
 
@@ -24,6 +35,20 @@ namespace filmhub.Views
             movieImage.Image = image;
             _movieId = movieId;
             _image = image;
+            
+            comboBox1.DataSource = new ComboItem[] {
+                new() { ID = 1, Text = "Action" },
+                new() { ID = 2, Text = "Comedy" },
+                new() { ID = 3, Text = "Crime" },
+                new() { ID = 4, Text = "Documentary" },
+                new() { ID = 5, Text = "Drama" },
+                new() { ID = 6, Text = "Fantasy" },
+                new() { ID = 7, Text = "Horror" },
+                new() { ID = 8, Text = "Mystery" },
+                new() { ID = 9, Text = "Romance" },
+                new() { ID = 10, Text = "Sci-Fi" },
+                new() { ID = 11, Text = "Western" }
+            };
         }
 
         #endregion
@@ -47,11 +72,7 @@ namespace filmhub.Views
             starsValueLabel.ForeColor = Program.Colors.FieldDarkTextColor;
             starsValueLabel.BackColor = Program.Colors.FieldColor;
             genreLabel.ForeColor = Program.Colors.ForeColor;
-            genreValueLabel.ForeColor = Program.Colors.FieldDarkTextColor;
-            genreValueLabel.BackColor = Program.Colors.FieldColor;
             dateLabel.ForeColor = Program.Colors.ForeColor;
-            dateValueLabel.ForeColor = Program.Colors.FieldDarkTextColor;
-            dateValueLabel.BackColor = Program.Colors.FieldColor;
             descriptionLabel.ForeColor = Program.Colors.ForeColor;
             descriptionValueLabel.ForeColor = Program.Colors.FieldDarkTextColor;
             descriptionValueLabel.BackColor = Program.Colors.FieldColor;
@@ -59,6 +80,8 @@ namespace filmhub.Views
             saveButton.FlatAppearance.BorderColor = Program.Colors.AccentColor;
             uploadButton.BackColor = Program.Colors.AccentColor;
             uploadButton.FlatAppearance.BorderColor = Program.Colors.AccentColor;
+            comboBox1.BackColor = Program.Colors.FieldColor;
+            comboBox1.ForeColor = Program.Colors.FieldDarkTextColor;
         }
 
         private void InitializeMovie(string title, string directors, string writers, string stars, string genre,
@@ -68,8 +91,6 @@ namespace filmhub.Views
             directorValueLabel.Text = directors;
             writerValueLabel.Text = writers;
             starsValueLabel.Text = stars;
-            genreValueLabel.Text = genre;
-            dateValueLabel.Text = date;
             descriptionValueLabel.Text = description;
         }
 
@@ -83,7 +104,7 @@ namespace filmhub.Views
                 directorValueLabel.Text,
                 writerValueLabel.Text,
                 starsValueLabel.Text,
-                dateValueLabel.Text,
+                dateTimePicker1.Value.ToString("yyyy-MM-dd"),
                 descriptionValueLabel.Text
             );
             Program.MainForm.UserControlSelector(new MovieViewerUserControl(_image, _movieId), true);

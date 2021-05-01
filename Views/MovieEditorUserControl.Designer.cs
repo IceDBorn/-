@@ -42,14 +42,14 @@ namespace filmhub.Views
             this.directorValueLabel = new filmhub.Views.RoundedTextBox();
             this.starsValueLabel = new filmhub.Views.RoundedTextBox();
             this.writerValueLabel = new filmhub.Views.RoundedTextBox();
-            this.genreValueLabel = new filmhub.Views.RoundedTextBox();
-            this.dateValueLabel = new filmhub.Views.RoundedTextBox();
             this.titleValueLabel = new filmhub.Views.RoundedTextBox();
             this.saveButton = new filmhub.Views.RoundedButton();
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.titleLabel = new System.Windows.Forms.Label();
             this.editMovieLabel = new System.Windows.Forms.Label();
             this.uploadButton = new filmhub.Views.RoundedButton();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize) (this.movieImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -161,30 +161,6 @@ namespace filmhub.Views
             this.writerValueLabel.TabStop = false;
             this.writerValueLabel.Text = "writers";
             // 
-            // genreValueLabel
-            // 
-            this.genreValueLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.genreValueLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
-            this.genreValueLabel.ForeColor = System.Drawing.Color.White;
-            this.genreValueLabel.Location = new System.Drawing.Point(396, 297);
-            this.genreValueLabel.Name = "genreValueLabel";
-            this.genreValueLabel.Size = new System.Drawing.Size(790, 33);
-            this.genreValueLabel.TabIndex = 15;
-            this.genreValueLabel.TabStop = false;
-            this.genreValueLabel.Text = "genres";
-            // 
-            // dateValueLabel
-            // 
-            this.dateValueLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.dateValueLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
-            this.dateValueLabel.ForeColor = System.Drawing.Color.White;
-            this.dateValueLabel.Location = new System.Drawing.Point(396, 336);
-            this.dateValueLabel.Name = "dateValueLabel";
-            this.dateValueLabel.Size = new System.Drawing.Size(790, 33);
-            this.dateValueLabel.TabIndex = 16;
-            this.dateValueLabel.TabStop = false;
-            this.dateValueLabel.Text = "month 00, 0000";
-            // 
             // titleValueLabel
             // 
             this.titleValueLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -256,19 +232,39 @@ namespace filmhub.Views
             this.uploadButton.Text = "Upload a photo";
             this.uploadButton.UseVisualStyleBackColor = true;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.BackColor = System.Drawing.SystemColors.WindowText;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(396, 297);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(790, 33);
+            this.comboBox1.TabIndex = 23;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CalendarMonthBackground = System.Drawing.SystemColors.WindowText;
+            this.dateTimePicker1.Location = new System.Drawing.Point(396, 335);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(790, 20);
+            this.dateTimePicker1.TabIndex = 24;
+            // 
             // MovieEditorUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.uploadButton);
             this.Controls.Add(this.editMovieLabel);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.descriptionLabel);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.titleValueLabel);
-            this.Controls.Add(this.dateValueLabel);
-            this.Controls.Add(this.genreValueLabel);
             this.Controls.Add(this.writerValueLabel);
             this.Controls.Add(this.starsValueLabel);
             this.Controls.Add(this.directorValueLabel);
@@ -286,6 +282,10 @@ namespace filmhub.Views
             this.PerformLayout();
         }
 
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+
+        private System.Windows.Forms.ComboBox comboBox1;
+
         private filmhub.Views.RoundedButton uploadButton;
 
         private System.Windows.Forms.Label editMovieLabel;
@@ -296,8 +296,6 @@ namespace filmhub.Views
 
         private System.Windows.Forms.Label titleLabel;
 
-        private filmhub.Views.RoundedTextBox dateValueLabel;
-        private filmhub.Views.RoundedTextBox genreValueLabel;
         private filmhub.Views.RoundedTextBox writerValueLabel;
 
         private filmhub.Views.RoundedTextBox starsValueLabel;
