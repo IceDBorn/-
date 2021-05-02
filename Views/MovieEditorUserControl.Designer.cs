@@ -49,7 +49,7 @@ namespace filmhub.Views
             this.editMovieLabel = new System.Windows.Forms.Label();
             this.uploadButton = new filmhub.Views.RoundedButton();
             this.genreValue = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateValue = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize) (this.movieImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -244,20 +244,20 @@ namespace filmhub.Views
             this.genreValue.Size = new System.Drawing.Size(790, 33);
             this.genreValue.TabIndex = 23;
             // 
-            // dateTimePicker1
+            // dateValue
             // 
-            this.dateTimePicker1.CalendarMonthBackground = System.Drawing.SystemColors.WindowText;
-            this.dateTimePicker1.Location = new System.Drawing.Point(396, 335);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(790, 20);
-            this.dateTimePicker1.TabIndex = 24;
+            this.dateValue.CalendarMonthBackground = System.Drawing.SystemColors.WindowText;
+            this.dateValue.Location = new System.Drawing.Point(396, 335);
+            this.dateValue.Name = "dateValue";
+            this.dateValue.Size = new System.Drawing.Size(790, 20);
+            this.dateValue.TabIndex = 24;
             // 
             // MovieEditorUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateValue);
             this.Controls.Add(this.genreValue);
             this.Controls.Add(this.uploadButton);
             this.Controls.Add(this.editMovieLabel);
@@ -282,7 +282,7 @@ namespace filmhub.Views
             this.PerformLayout();
         }
 
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateValue;
 
         private System.Windows.Forms.ComboBox genreValue;
 

@@ -1,3 +1,4 @@
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 using filmhub.Controllers;
@@ -97,11 +98,12 @@ namespace filmhub.Views
 
             for (var i = 0; i < genreValue.Items.Count; i++)
             {
-                if (genre.Equals(genreValue.Items[i].ToString()))
-                {
-                    genreValue.SelectedIndex = i;
-                }
+                if (!genre.Equals(genreValue.Items[i].ToString())) continue;
+                genreValue.SelectedIndex = i;
+                break;
             }
+
+            dateValue.Value = DateTime.Parse(date);
         }
 
         #endregion
@@ -114,7 +116,7 @@ namespace filmhub.Views
                 directorValueLabel.Text,
                 writerValueLabel.Text,
                 starsValueLabel.Text,
-                dateTimePicker1.Value.ToString("yyyy-MM-dd"),
+                dateValue.Value.ToString("yyyy-MM-dd"),
                 descriptionValueLabel.Text
             );
             Program.MainForm.UserControlSelector(new MovieViewerUserControl(_image, _movieId), true);
