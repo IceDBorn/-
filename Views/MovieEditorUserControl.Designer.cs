@@ -59,7 +59,7 @@ namespace filmhub.Views
             // movieImage
             // 
             this.movieImage.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.movieImage.Location = new System.Drawing.Point(79, 170);
+            this.movieImage.Location = new System.Drawing.Point(79, 100);
             this.movieImage.Name = "movieImage";
             this.movieImage.Size = new System.Drawing.Size(150, 200);
             this.movieImage.TabIndex = 1;
@@ -70,7 +70,7 @@ namespace filmhub.Views
             this.descriptionValueLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.descriptionValueLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
             this.descriptionValueLabel.ForeColor = System.Drawing.Color.White;
-            this.descriptionValueLabel.Location = new System.Drawing.Point(396, 375);
+            this.descriptionValueLabel.Location = new System.Drawing.Point(396, 400);
             this.descriptionValueLabel.Multiline = true;
             this.descriptionValueLabel.Name = "descriptionValueLabel";
             this.descriptionValueLabel.Size = new System.Drawing.Size(790, 126);
@@ -82,7 +82,7 @@ namespace filmhub.Views
             // 
             this.directorLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
             this.directorLabel.ForeColor = System.Drawing.Color.White;
-            this.directorLabel.Location = new System.Drawing.Point(269, 182);
+            this.directorLabel.Location = new System.Drawing.Point(269, 153);
             this.directorLabel.Name = "directorLabel";
             this.directorLabel.Size = new System.Drawing.Size(98, 27);
             this.directorLabel.TabIndex = 5;
@@ -92,7 +92,7 @@ namespace filmhub.Views
             // 
             this.writerLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
             this.writerLabel.ForeColor = System.Drawing.Color.White;
-            this.writerLabel.Location = new System.Drawing.Point(269, 219);
+            this.writerLabel.Location = new System.Drawing.Point(269, 203);
             this.writerLabel.Name = "writerLabel";
             this.writerLabel.Size = new System.Drawing.Size(82, 27);
             this.writerLabel.TabIndex = 6;
@@ -102,7 +102,7 @@ namespace filmhub.Views
             // 
             this.starsLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
             this.starsLabel.ForeColor = System.Drawing.Color.White;
-            this.starsLabel.Location = new System.Drawing.Point(269, 258);
+            this.starsLabel.Location = new System.Drawing.Point(269, 253);
             this.starsLabel.Name = "starsLabel";
             this.starsLabel.Size = new System.Drawing.Size(77, 27);
             this.starsLabel.TabIndex = 7;
@@ -112,7 +112,7 @@ namespace filmhub.Views
             // 
             this.genreLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
             this.genreLabel.ForeColor = System.Drawing.Color.White;
-            this.genreLabel.Location = new System.Drawing.Point(269, 297);
+            this.genreLabel.Location = new System.Drawing.Point(269, 303);
             this.genreLabel.Name = "genreLabel";
             this.genreLabel.Size = new System.Drawing.Size(79, 27);
             this.genreLabel.TabIndex = 8;
@@ -122,7 +122,7 @@ namespace filmhub.Views
             // 
             this.dateLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
             this.dateLabel.ForeColor = System.Drawing.Color.White;
-            this.dateLabel.Location = new System.Drawing.Point(269, 335);
+            this.dateLabel.Location = new System.Drawing.Point(269, 353);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(59, 27);
             this.dateLabel.TabIndex = 9;
@@ -133,7 +133,7 @@ namespace filmhub.Views
             this.directorValueLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.directorValueLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
             this.directorValueLabel.ForeColor = System.Drawing.Color.White;
-            this.directorValueLabel.Location = new System.Drawing.Point(396, 182);
+            this.directorValueLabel.Location = new System.Drawing.Point(396, 150);
             this.directorValueLabel.Name = "directorValueLabel";
             this.directorValueLabel.Size = new System.Drawing.Size(790, 33);
             this.directorValueLabel.TabIndex = 12;
@@ -145,7 +145,7 @@ namespace filmhub.Views
             this.starsValueLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.starsValueLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
             this.starsValueLabel.ForeColor = System.Drawing.Color.White;
-            this.starsValueLabel.Location = new System.Drawing.Point(396, 258);
+            this.starsValueLabel.Location = new System.Drawing.Point(396, 250);
             this.starsValueLabel.Name = "starsValueLabel";
             this.starsValueLabel.Size = new System.Drawing.Size(790, 33);
             this.starsValueLabel.TabIndex = 13;
@@ -157,7 +157,7 @@ namespace filmhub.Views
             this.writerValueLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.writerValueLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
             this.writerValueLabel.ForeColor = System.Drawing.Color.White;
-            this.writerValueLabel.Location = new System.Drawing.Point(396, 216);
+            this.writerValueLabel.Location = new System.Drawing.Point(396, 200);
             this.writerValueLabel.Name = "writerValueLabel";
             this.writerValueLabel.Size = new System.Drawing.Size(790, 33);
             this.writerValueLabel.TabIndex = 14;
@@ -169,7 +169,7 @@ namespace filmhub.Views
             this.titleValueLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.titleValueLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
             this.titleValueLabel.ForeColor = System.Drawing.Color.White;
-            this.titleValueLabel.Location = new System.Drawing.Point(396, 140);
+            this.titleValueLabel.Location = new System.Drawing.Point(396, 100);
             this.titleValueLabel.Name = "titleValueLabel";
             this.titleValueLabel.Size = new System.Drawing.Size(790, 33);
             this.titleValueLabel.TabIndex = 17;
@@ -182,7 +182,7 @@ namespace filmhub.Views
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveButton.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
             this.saveButton.ForeColor = System.Drawing.Color.White;
-            this.saveButton.Location = new System.Drawing.Point(533, 519);
+            this.saveButton.Location = new System.Drawing.Point(690, 540);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(190, 40);
             this.saveButton.TabIndex = 18;
@@ -195,7 +195,7 @@ namespace filmhub.Views
             // 
             this.descriptionLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
             this.descriptionLabel.ForeColor = System.Drawing.Color.White;
-            this.descriptionLabel.Location = new System.Drawing.Point(269, 374);
+            this.descriptionLabel.Location = new System.Drawing.Point(269, 403);
             this.descriptionLabel.Name = "descriptionLabel";
             this.descriptionLabel.Size = new System.Drawing.Size(121, 27);
             this.descriptionLabel.TabIndex = 19;
@@ -205,7 +205,7 @@ namespace filmhub.Views
             // 
             this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
             this.titleLabel.ForeColor = System.Drawing.Color.White;
-            this.titleLabel.Location = new System.Drawing.Point(269, 143);
+            this.titleLabel.Location = new System.Drawing.Point(269, 103);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(55, 27);
             this.titleLabel.TabIndex = 20;
@@ -227,7 +227,7 @@ namespace filmhub.Views
             this.uploadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.uploadButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.uploadButton.ForeColor = System.Drawing.Color.White;
-            this.uploadButton.Location = new System.Drawing.Point(79, 392);
+            this.uploadButton.Location = new System.Drawing.Point(79, 322);
             this.uploadButton.Name = "uploadButton";
             this.uploadButton.Size = new System.Drawing.Size(150, 28);
             this.uploadButton.TabIndex = 22;
@@ -242,7 +242,7 @@ namespace filmhub.Views
             this.genreValue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.genreValue.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.genreValue.FormattingEnabled = true;
-            this.genreValue.Location = new System.Drawing.Point(396, 297);
+            this.genreValue.Location = new System.Drawing.Point(396, 300);
             this.genreValue.Margin = new System.Windows.Forms.Padding(0);
             this.genreValue.Name = "genreValue";
             this.genreValue.Size = new System.Drawing.Size(790, 33);
@@ -252,7 +252,7 @@ namespace filmhub.Views
             // 
             this.dateValue.CalendarMonthBackground = System.Drawing.SystemColors.WindowText;
             this.dateValue.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.dateValue.Location = new System.Drawing.Point(396, 335);
+            this.dateValue.Location = new System.Drawing.Point(396, 350);
             this.dateValue.Name = "dateValue";
             this.dateValue.Size = new System.Drawing.Size(790, 33);
             this.dateValue.TabIndex = 24;
