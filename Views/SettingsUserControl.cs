@@ -176,7 +176,8 @@ namespace filmhub.Views
                 var imageEndpoint = new ImageEndpoint(apiClient, httpClient);
                 var imageUpload = await imageEndpoint.UploadImageAsync(fileStream);
 
-                await SettingController.UpdateImageLink(imageUpload.Link);
+                // Save the image url to the database
+                await SettingController.UpdateImageLink(imageUpload.Link, "account", Account.GetAccountInstance().Id);
             }
             catch
             {
