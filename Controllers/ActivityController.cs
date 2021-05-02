@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Collections.Generic;
+using System.Windows.Forms;
 using filmhub.Models;
 using Npgsql;
 
@@ -32,6 +33,31 @@ namespace filmhub.Controllers
             }
 
             return id != -1;
+        }
+        
+        public static IEnumerable<int> Query(string tableName)
+        {
+            var query = "SELECT id FROM " + tableName + " WHERE movie_id = @movie AND user_id = @user LIMIT 1";
+            var list = new List<int>();
+
+            try
+            {
+                using var cmd = new NpgsqlCommand(query, con);
+                cmd.Parameters.AddWithValue("user", Account.GetAccountInstance().Id);
+                cmd.Prepare();
+                using var rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    list.Add(rdr.GetInt32(0));
+                }
+                rdr.Close();
+            }
+            catch
+            {
+                MessageBox.Show(@"Something went wrong.");
+            }
+
+            return list;
         }
     }
 }
