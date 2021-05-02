@@ -48,7 +48,7 @@ namespace filmhub.Views
             this.titleLabel = new System.Windows.Forms.Label();
             this.editMovieLabel = new System.Windows.Forms.Label();
             this.uploadButton = new filmhub.Views.RoundedButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.genreValue = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize) (this.movieImage)).BeginInit();
             this.SuspendLayout();
@@ -232,17 +232,17 @@ namespace filmhub.Views
             this.uploadButton.Text = "Upload a photo";
             this.uploadButton.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // genreValue
             // 
-            this.comboBox1.BackColor = System.Drawing.SystemColors.WindowText;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(396, 297);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(790, 33);
-            this.comboBox1.TabIndex = 23;
+            this.genreValue.BackColor = System.Drawing.SystemColors.WindowText;
+            this.genreValue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.genreValue.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.genreValue.FormattingEnabled = true;
+            this.genreValue.Location = new System.Drawing.Point(396, 297);
+            this.genreValue.Margin = new System.Windows.Forms.Padding(0);
+            this.genreValue.Name = "genreValue";
+            this.genreValue.Size = new System.Drawing.Size(790, 33);
+            this.genreValue.TabIndex = 23;
             // 
             // dateTimePicker1
             // 
@@ -258,7 +258,7 @@ namespace filmhub.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.genreValue);
             this.Controls.Add(this.uploadButton);
             this.Controls.Add(this.editMovieLabel);
             this.Controls.Add(this.titleLabel);
@@ -284,7 +284,7 @@ namespace filmhub.Views
 
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox genreValue;
 
         private filmhub.Views.RoundedButton uploadButton;
 

@@ -1,4 +1,3 @@
-using System;
 using System.Drawing;
 using System.Windows.Forms;
 using filmhub.Controllers;
@@ -14,7 +13,7 @@ namespace filmhub.Views
 
         private class ComboItem
         {
-            public int ID { get; set; }
+            public int Id { get; set; }
             public string Text { get; set; }
             public override string ToString()
             {
@@ -31,24 +30,27 @@ namespace filmhub.Views
         {
             InitializeComponent();
             InitializeColors();
+            
+            genreValue.DataSource = new ComboItem[] {
+                new() { Id = 1, Text = "Action" },
+                new() { Id = 2, Text = "Comedy" },
+                new() { Id = 3, Text = "Crime" },
+                new() { Id = 4, Text = "Documentary" },
+                new() { Id = 5, Text = "Drama" },
+                new() { Id = 6, Text = "Fantasy" },
+                new() { Id = 7, Text = "Horror" },
+                new() { Id = 8, Text = "Mystery" },
+                new() { Id = 9, Text = "Romance" },
+                new() { Id = 10, Text = "Sci-Fi" },
+                new() { Id = 11, Text = "Western" }
+            };
+            
             InitializeMovie(title, directors, writers, stars, genre, date, description);
             movieImage.Image = image;
             _movieId = movieId;
             _image = image;
             
-            comboBox1.DataSource = new ComboItem[] {
-                new() { ID = 1, Text = "Action" },
-                new() { ID = 2, Text = "Comedy" },
-                new() { ID = 3, Text = "Crime" },
-                new() { ID = 4, Text = "Documentary" },
-                new() { ID = 5, Text = "Drama" },
-                new() { ID = 6, Text = "Fantasy" },
-                new() { ID = 7, Text = "Horror" },
-                new() { ID = 8, Text = "Mystery" },
-                new() { ID = 9, Text = "Romance" },
-                new() { ID = 10, Text = "Sci-Fi" },
-                new() { ID = 11, Text = "Western" }
-            };
+            
         }
 
         #endregion
@@ -80,8 +82,8 @@ namespace filmhub.Views
             saveButton.FlatAppearance.BorderColor = Program.Colors.AccentColor;
             uploadButton.BackColor = Program.Colors.AccentColor;
             uploadButton.FlatAppearance.BorderColor = Program.Colors.AccentColor;
-            comboBox1.BackColor = Program.Colors.FieldColor;
-            comboBox1.ForeColor = Program.Colors.FieldDarkTextColor;
+            genreValue.BackColor = Program.Colors.FieldColor;
+            genreValue.ForeColor = Program.Colors.FieldDarkTextColor;
         }
 
         private void InitializeMovie(string title, string directors, string writers, string stars, string genre,
@@ -92,6 +94,14 @@ namespace filmhub.Views
             writerValueLabel.Text = writers;
             starsValueLabel.Text = stars;
             descriptionValueLabel.Text = description;
+
+            for (var i = 0; i < genreValue.Items.Count; i++)
+            {
+                if (genre.Equals(genreValue.Items[i].ToString()))
+                {
+                    genreValue.SelectedIndex = i;
+                }
+            }
         }
 
         #endregion
