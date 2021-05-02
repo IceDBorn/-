@@ -148,17 +148,17 @@ namespace filmhub.Views
             _starsCount = movie.Rating;
             SetStars();
             
-            if (QueryController.Activity("favorite", Account.GetAccountInstance().Id, id))
+            if (ActivityController.IsActivityType("favorite", id))
             {
                 FillImage(favoriteImage, _favorite);
             }
 
-            if (QueryController.Activity("history", Account.GetAccountInstance().Id, id))
+            if (ActivityController.IsActivityType("history", id))
             {
                 FillImage(watchedImage, _watched);
             }
 
-            if (QueryController.Activity("watchlist", Account.GetAccountInstance().Id, id))
+            if (ActivityController.IsActivityType("watchlist", id))
             {
                 FillImage(watchlistImage, _watchlist);
             }
