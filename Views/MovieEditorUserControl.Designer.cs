@@ -31,6 +31,7 @@ namespace filmhub.Views
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MovieEditorUserControl));
             this.movieImage = new System.Windows.Forms.PictureBox();
             this.descriptionValueLabel = new filmhub.Views.RoundedTextBox();
@@ -50,6 +51,8 @@ namespace filmhub.Views
             this.uploadButton = new filmhub.Views.RoundedButton();
             this.genreValue = new System.Windows.Forms.ComboBox();
             this.dateValue = new System.Windows.Forms.DateTimePicker();
+            this.photoBrowser = new System.Windows.Forms.OpenFileDialog();
+            this.imageList = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize) (this.movieImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -231,6 +234,7 @@ namespace filmhub.Views
             this.uploadButton.TabStop = false;
             this.uploadButton.Text = "Upload a photo";
             this.uploadButton.UseVisualStyleBackColor = true;
+            this.uploadButton.Click += new System.EventHandler(this.uploadButton_Click);
             // 
             // genreValue
             // 
@@ -247,10 +251,17 @@ namespace filmhub.Views
             // dateValue
             // 
             this.dateValue.CalendarMonthBackground = System.Drawing.SystemColors.WindowText;
+            this.dateValue.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.dateValue.Location = new System.Drawing.Point(396, 335);
             this.dateValue.Name = "dateValue";
-            this.dateValue.Size = new System.Drawing.Size(790, 20);
+            this.dateValue.Size = new System.Drawing.Size(790, 33);
             this.dateValue.TabIndex = 24;
+            // 
+            // imageList
+            // 
+            this.imageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            this.imageList.ImageSize = new System.Drawing.Size(150, 200);
+            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // MovieEditorUserControl
             // 
@@ -281,6 +292,10 @@ namespace filmhub.Views
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.ImageList imageList;
+
+        private System.Windows.Forms.OpenFileDialog photoBrowser;
 
         private System.Windows.Forms.DateTimePicker dateValue;
 

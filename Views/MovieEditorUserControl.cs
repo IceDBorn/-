@@ -1,7 +1,12 @@
 using System;
 using System.Drawing;
+using System.IO;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using filmhub.Controllers;
+using Imgur.API.Authentication;
+using Imgur.API.Endpoints;
 
 namespace filmhub.Views
 {
@@ -105,6 +110,31 @@ namespace filmhub.Views
 
             dateValue.Value = DateTime.Parse(date);
         }
+        
+        private async Task UploadImageToImgur()
+        {
+            try
+            {
+                // Create connection to API
+                var apiClient = new ApiClient("21d68b39c14c68e");
+                var httpClient = new HttpClient();
+
+                // Select image for upload
+                var filePath = photoBrowser.FileName;
+                using var fileStream = File.OpenRead(filePath);
+
+                // Create end point and upload image
+                var imageEndpoint = new ImageEndpoint(apiClient, httpClient);
+                var imageUpload = await imageEndpoint.UploadImageAsync(fileStream);
+
+                // Update movie image instead of user image
+                //await SettingController.UpdateImageLink(imageUpload.Link);
+            }
+            catch
+            {
+                MessageBox.Show(@"Something went wrong, please try again.");
+            }
+        }
 
         #endregion
 
@@ -120,6 +150,20 @@ namespace filmhub.Views
                 descriptionValueLabel.Text
             );
             Program.MainForm.UserControlSelector(new MovieViewerUserControl(_image, _movieId), true);
+        }
+
+        private async void uploadButton_Click(object sender, EventArgs e)
+        {
+            photoBrowser.FileName = "";
+            photoBrowser.Title = @"Select photo to upload";
+            photoBrowser.Filter = @"Image Files(*.BMP;*.JPG;*.GIF,.PNG)|*.BMP;*.JPG;*.GIF;*.PNG";
+            photoBrowser.ShowDialog();
+
+            if (string.IsNullOrEmpty(photoBrowser.FileName)) return;
+            imageList.Images.Clear();
+            imageList.Images.Add(Image.FromFile(photoBrowser.FileName));
+            movieImage.Image = imageList.Images[0];
+            await UploadImageToImgur();
         }
     }
 }
