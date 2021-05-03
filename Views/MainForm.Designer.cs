@@ -1,4 +1,6 @@
-﻿namespace filmhub.Views
+﻿using filmhub.Controls;
+
+namespace filmhub.Views
 {
     partial class MainForm
     {
@@ -33,7 +35,7 @@
             this.navBar = new System.Windows.Forms.Panel();
             this.iconsPanel = new System.Windows.Forms.Panel();
             this.homeButton = new System.Windows.Forms.PictureBox();
-            this.searchBar = new filmhub.Views.RoundedTextBox();
+            this.searchBar = new RoundTextBox();
             this.accountButton = new System.Windows.Forms.PictureBox();
             this.searchButton = new System.Windows.Forms.PictureBox();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
@@ -322,7 +324,7 @@
         private System.Windows.Forms.Label settingsLabel;
         private System.Windows.Forms.Label logoutLabel;
         private System.Windows.Forms.Label favoritesLabel;
-        private filmhub.Views.RoundedTextBox searchBar;
+        private RoundTextBox searchBar;
         private System.Windows.Forms.UserControl mainPage;
         private System.Windows.Forms.PictureBox accountButton;
         private System.Windows.Forms.Panel navBar;

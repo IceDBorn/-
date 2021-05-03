@@ -2,10 +2,10 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace filmhub.Views
+namespace filmhub.Controls
 {
 
-    public class RoundedTextBox : TextBox
+    public class RoundDateTimePicker: DateTimePicker
     {
         [System.Runtime.InteropServices.DllImport("gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn

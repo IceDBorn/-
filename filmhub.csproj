@@ -259,6 +259,10 @@
         <Compile Include="Controllers\AccountController.cs" />
         <Compile Include="Controllers\SearchController.cs" />
         <Compile Include="Controllers\SettingController.cs" />
+        <Compile Include="Controls\RoundButton.cs" />
+        <Compile Include="Controls\RoundComboBox.cs" />
+        <Compile Include="Controls\RoundDateTimePicker.cs" />
+        <Compile Include="Controls\RoundTextBox.cs" />
         <Compile Include="Models\Account.cs" />
         <Compile Include="Models\Movie.cs" />
         <Compile Include="Program.cs" />
@@ -300,9 +304,6 @@
         <Compile Include="Views\MovieViewerUserControl.Designer.cs">
           <DependentUpon>MovieViewerUserControl.cs</DependentUpon>
         </Compile>
-        <Compile Include="Views\RoundedButton.cs" />
-        <Compile Include="Views\RoundedComboBox.cs" />
-        <Compile Include="Views\RoundedTextBox.cs" />
         <Compile Include="Views\SettingsUserControl.cs">
           <SubType>UserControl</SubType>
         </Compile>

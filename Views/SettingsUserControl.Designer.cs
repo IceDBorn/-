@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using filmhub.Controls;
 
 namespace filmhub.Views
 {
@@ -34,14 +35,14 @@ namespace filmhub.Views
             this.components = new System.ComponentModel.Container();
             this.settingsLabel = new System.Windows.Forms.Label();
             this.userProfileImage = new System.Windows.Forms.PictureBox();
-            this.uploadButton = new filmhub.Views.RoundedButton();
+            this.uploadButton = new RoundButton();
             this.usernameLabel = new System.Windows.Forms.Label();
             this.changeLabel = new System.Windows.Forms.Label();
             this.confirmLabel = new System.Windows.Forms.Label();
-            this.saveButton = new filmhub.Views.RoundedButton();
-            this.resetButton = new filmhub.Views.RoundedButton();
-            this.passwordTextBox = new filmhub.Views.RoundedTextBox();
-            this.confirmPasswordTextBox = new filmhub.Views.RoundedTextBox();
+            this.saveButton = new RoundButton();
+            this.resetButton = new RoundButton();
+            this.passwordTextBox = new RoundTextBox();
+            this.confirmPasswordTextBox = new RoundTextBox();
             this.usernameValueLabel = new System.Windows.Forms.Label();
             this.photoBrowser = new System.Windows.Forms.OpenFileDialog();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
@@ -228,15 +229,15 @@ namespace filmhub.Views
 
         private System.Windows.Forms.OpenFileDialog photoBrowser;
 
-        private filmhub.Views.RoundedTextBox passwordTextBox;
+        private RoundTextBox passwordTextBox;
 
-        private filmhub.Views.RoundedTextBox confirmPasswordTextBox;
+        private RoundTextBox confirmPasswordTextBox;
 
         private System.Windows.Forms.Label usernameValueLabel;
 
-        private filmhub.Views.RoundedButton saveButton;
+        private RoundButton saveButton;
         
-        private filmhub.Views.RoundedButton resetButton;
+        private RoundButton resetButton;
 
         private System.Windows.Forms.Label confirmLabel;
 
@@ -244,7 +245,7 @@ namespace filmhub.Views
 
         private System.Windows.Forms.Label usernameLabel;
 
-        private filmhub.Views.RoundedButton uploadButton;
+        private RoundButton uploadButton;
 
         private System.Windows.Forms.PictureBox userProfileImage;
 

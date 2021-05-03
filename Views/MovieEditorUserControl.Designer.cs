@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using System.Windows.Forms;
+using filmhub.Controls;
 
 namespace filmhub.Views
 {
@@ -35,23 +36,23 @@ namespace filmhub.Views
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MovieEditorUserControl));
             this.movieImage = new System.Windows.Forms.PictureBox();
-            this.descriptionValueLabel = new filmhub.Views.RoundedTextBox();
+            this.descriptionValueLabel = new RoundTextBox();
             this.directorLabel = new System.Windows.Forms.Label();
             this.writerLabel = new System.Windows.Forms.Label();
             this.starsLabel = new System.Windows.Forms.Label();
             this.genreLabel = new System.Windows.Forms.Label();
             this.dateLabel = new System.Windows.Forms.Label();
-            this.directorValueLabel = new filmhub.Views.RoundedTextBox();
-            this.starsValueLabel = new filmhub.Views.RoundedTextBox();
-            this.writerValueLabel = new filmhub.Views.RoundedTextBox();
-            this.titleValueLabel = new filmhub.Views.RoundedTextBox();
-            this.saveButton = new filmhub.Views.RoundedButton();
+            this.directorValueLabel = new RoundTextBox();
+            this.starsValueLabel = new RoundTextBox();
+            this.writerValueLabel = new RoundTextBox();
+            this.titleValueLabel = new RoundTextBox();
+            this.saveButton = new RoundButton();
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.titleLabel = new System.Windows.Forms.Label();
             this.editMovieLabel = new System.Windows.Forms.Label();
-            this.uploadButton = new filmhub.Views.RoundedButton();
-            this.genreValue = new filmhub.Views.RoundedComboBox();
-            this.dateValue = new System.Windows.Forms.DateTimePicker();
+            this.uploadButton = new RoundButton();
+            this.genreValue = new RoundComboBox();
+            this.dateValue = new RoundDateTimePicker();
             this.photoBrowser = new System.Windows.Forms.OpenFileDialog();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize) (this.movieImage)).BeginInit();
@@ -302,20 +303,20 @@ namespace filmhub.Views
 
         private System.Windows.Forms.ComboBox genreValue;
 
-        private filmhub.Views.RoundedButton uploadButton;
+        private RoundButton uploadButton;
 
         private System.Windows.Forms.Label editMovieLabel;
 
-        private filmhub.Views.RoundedButton saveButton;
+        private RoundButton saveButton;
 
-        private filmhub.Views.RoundedTextBox titleValueLabel;
+        private RoundTextBox titleValueLabel;
 
         private System.Windows.Forms.Label titleLabel;
 
-        private filmhub.Views.RoundedTextBox writerValueLabel;
+        private RoundTextBox writerValueLabel;
 
-        private filmhub.Views.RoundedTextBox starsValueLabel;
-        private filmhub.Views.RoundedTextBox directorValueLabel;
+        private RoundTextBox starsValueLabel;
+        private RoundTextBox directorValueLabel;
 
         private System.Windows.Forms.Label dateLabel;
         private System.Windows.Forms.Label genreLabel;
@@ -324,7 +325,7 @@ namespace filmhub.Views
 
         private System.Windows.Forms.Label directorLabel;
 
-        private filmhub.Views.RoundedTextBox descriptionValueLabel;
+        private RoundTextBox descriptionValueLabel;
 
         private System.Windows.Forms.Label descriptionLabel;
 

@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using filmhub.Controls;
 
 namespace filmhub.Views
 {
@@ -35,9 +36,9 @@ namespace filmhub.Views
             this.backButton = new System.Windows.Forms.PictureBox();
             this.signUpLabel = new System.Windows.Forms.Label();
             this.newLabel = new System.Windows.Forms.Label();
-            this.signInButton = new filmhub.Views.RoundedButton();
-            this.passwordTextBox = new filmhub.Views.RoundedTextBox();
-            this.usernameTextBox = new filmhub.Views.RoundedTextBox();
+            this.signInButton = new RoundButton();
+            this.passwordTextBox = new RoundTextBox();
+            this.usernameTextBox = new RoundTextBox();
             this.signInLabel = new System.Windows.Forms.Label();
             this.menuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.backButton)).BeginInit();
@@ -165,15 +166,15 @@ namespace filmhub.Views
 
         private System.Windows.Forms.PictureBox backButton;
 
-        private filmhub.Views.RoundedTextBox passwordTextBox;
+        private RoundTextBox passwordTextBox;
 
         private System.Windows.Forms.Label signUpLabel;
 
         private System.Windows.Forms.Label newLabel;
         
-        private filmhub.Views.RoundedButton signInButton;
+        private RoundButton signInButton;
 
-        private filmhub.Views.RoundedTextBox usernameTextBox;
+        private RoundTextBox usernameTextBox;
 
         private System.Windows.Forms.Label signInLabel;
         
