@@ -19,7 +19,6 @@ namespace filmhub.Views
 
         private class ComboItem
         {
-            public int Id { get; set; }
             public string Text { get; set; }
             public override string ToString()
             {
@@ -38,17 +37,17 @@ namespace filmhub.Views
             InitializeColors();
             
             genreValue.DataSource = new ComboItem[] {
-                new() { Id = 1, Text = "Action" },
-                new() { Id = 2, Text = "Comedy" },
-                new() { Id = 3, Text = "Crime" },
-                new() { Id = 4, Text = "Documentary" },
-                new() { Id = 5, Text = "Drama" },
-                new() { Id = 6, Text = "Fantasy" },
-                new() { Id = 7, Text = "Horror" },
-                new() { Id = 8, Text = "Mystery" },
-                new() { Id = 9, Text = "Romance" },
-                new() { Id = 10, Text = "Sci-Fi" },
-                new() { Id = 11, Text = "Western" }
+                new() {Text = "Action" },
+                new() {Text = "Comedy" },
+                new() {Text = "Crime" },
+                new() {Text = "Documentary" },
+                new() {Text = "Drama" },
+                new() {Text = "Fantasy" },
+                new() {Text = "Horror" },
+                new() {Text = "Mystery" },
+                new() {Text = "Romance" },
+                new() {Text = "Sci-Fi" },
+                new() {Text = "Western" }
             };
             
             InitializeMovie(title, directors, writers, stars, genre, date, description);
@@ -90,6 +89,8 @@ namespace filmhub.Views
             uploadButton.FlatAppearance.BorderColor = Program.Colors.AccentColor;
             genreValue.BackColor = Program.Colors.FieldColor;
             genreValue.ForeColor = Program.Colors.FieldDarkTextColor;
+            dateValue.BackColor = Program.Colors.FieldColor;
+            dateValue.ForeColor = Program.Colors.FieldDarkTextColor;
         }
 
         private void InitializeMovie(string title, string directors, string writers, string stars, string genre,

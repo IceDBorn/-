@@ -36,23 +36,23 @@ namespace filmhub.Views
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MovieEditorUserControl));
             this.movieImage = new System.Windows.Forms.PictureBox();
-            this.descriptionValueLabel = new RoundTextBox();
+            this.descriptionValueLabel = new filmhub.Controls.RoundTextBox();
             this.directorLabel = new System.Windows.Forms.Label();
             this.writerLabel = new System.Windows.Forms.Label();
             this.starsLabel = new System.Windows.Forms.Label();
             this.genreLabel = new System.Windows.Forms.Label();
             this.dateLabel = new System.Windows.Forms.Label();
-            this.directorValueLabel = new RoundTextBox();
-            this.starsValueLabel = new RoundTextBox();
-            this.writerValueLabel = new RoundTextBox();
-            this.titleValueLabel = new RoundTextBox();
-            this.saveButton = new RoundButton();
+            this.directorValueLabel = new filmhub.Controls.RoundTextBox();
+            this.starsValueLabel = new filmhub.Controls.RoundTextBox();
+            this.writerValueLabel = new filmhub.Controls.RoundTextBox();
+            this.titleValueLabel = new filmhub.Controls.RoundTextBox();
+            this.saveButton = new filmhub.Controls.RoundButton();
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.titleLabel = new System.Windows.Forms.Label();
             this.editMovieLabel = new System.Windows.Forms.Label();
-            this.uploadButton = new RoundButton();
-            this.genreValue = new RoundComboBox();
-            this.dateValue = new RoundDateTimePicker();
+            this.uploadButton = new filmhub.Controls.RoundButton();
+            this.genreValue = new filmhub.Controls.RoundComboBox();
+            this.dateValue = new filmhub.Controls.RoundDateTimePicker();
             this.photoBrowser = new System.Windows.Forms.OpenFileDialog();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize) (this.movieImage)).BeginInit();
@@ -242,6 +242,7 @@ namespace filmhub.Views
             // 
             this.genreValue.BackColor = System.Drawing.SystemColors.WindowText;
             this.genreValue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.genreValue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.genreValue.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.genreValue.FormattingEnabled = true;
             this.genreValue.Location = new System.Drawing.Point(396, 300);
@@ -249,15 +250,20 @@ namespace filmhub.Views
             this.genreValue.Name = "genreValue";
             this.genreValue.Size = new System.Drawing.Size(790, 33);
             this.genreValue.TabIndex = 23;
+            this.genreValue.TabStop = false;
             // 
             // dateValue
             // 
             this.dateValue.CalendarMonthBackground = System.Drawing.SystemColors.WindowText;
+            this.dateValue.CustomFormat = "yyyy-MM-dd";
+            this.dateValue.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.dateValue.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.dateValue.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateValue.Location = new System.Drawing.Point(396, 350);
             this.dateValue.Name = "dateValue";
             this.dateValue.Size = new System.Drawing.Size(790, 33);
             this.dateValue.TabIndex = 24;
+            this.dateValue.TabStop = false;
             // 
             // imageList
             // 
@@ -299,9 +305,9 @@ namespace filmhub.Views
 
         private System.Windows.Forms.OpenFileDialog photoBrowser;
 
-        private System.Windows.Forms.DateTimePicker dateValue;
+        private filmhub.Controls.RoundDateTimePicker dateValue;
 
-        private System.Windows.Forms.ComboBox genreValue;
+        private filmhub.Controls.RoundComboBox genreValue;
 
         private RoundButton uploadButton;
 
