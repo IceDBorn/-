@@ -301,6 +301,7 @@
           <DependentUpon>MovieViewerUserControl.cs</DependentUpon>
         </Compile>
         <Compile Include="Views\RoundedButton.cs" />
+        <Compile Include="Views\RoundedComboBox.cs" />
         <Compile Include="Views\RoundedTextBox.cs" />
         <Compile Include="Views\SettingsUserControl.cs">
           <SubType>UserControl</SubType>
@@ -399,7 +400,6 @@
       <Content Include="Resources\edit_hover.png" />
       <Content Include="Resources\favorite.png" />
       <Content Include="Resources\favorite_empty.png" />
-      <Content Include="Resources\favorite_empty1.png" />
       <Content Include="Resources\favorite_empty_black.png" />
       <Content Include="Resources\favorite_empty_hover.png" />
       <Content Include="Resources\favorite_hover.png" />

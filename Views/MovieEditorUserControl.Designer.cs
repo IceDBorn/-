@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace filmhub.Views
 {
@@ -49,7 +50,7 @@ namespace filmhub.Views
             this.titleLabel = new System.Windows.Forms.Label();
             this.editMovieLabel = new System.Windows.Forms.Label();
             this.uploadButton = new filmhub.Views.RoundedButton();
-            this.genreValue = new System.Windows.Forms.ComboBox();
+            this.genreValue = new filmhub.Views.RoundedComboBox();
             this.dateValue = new System.Windows.Forms.DateTimePicker();
             this.photoBrowser = new System.Windows.Forms.OpenFileDialog();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
