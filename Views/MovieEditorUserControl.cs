@@ -88,6 +88,8 @@ namespace filmhub.Views
             dateValue.BackColor = Program.Colors.FieldColor;
             dateValue.ForeColor = Program.Colors.FieldDarkTextColor;
             movieImage.BackColor = Program.Colors.FieldColor;
+            uploadingLabel.BackColor = Program.Colors.FieldColor;
+            uploadingLabel.ForeColor = Program.Colors.FieldDarkTextColor;
         }
 
         private void InitializeMovie(string title, string directors, string writers, string stars, string genre,
@@ -135,6 +137,7 @@ namespace filmhub.Views
             try
             {
                 _isUploaded = false;
+                uploadingLabel.Visible = true;
                 // Create connection to API
                 var apiClient = new ApiClient("21d68b39c14c68e");
                 var httpClient = new HttpClient();
@@ -148,6 +151,7 @@ namespace filmhub.Views
                 var imageUpload = await imageEndpoint.UploadImageAsync(fileStream);
                 _imageLink = imageUpload.Link;
                 _isUploaded = true;
+                uploadingLabel.Visible = false;
 
                 if (_isNew) return;
                 // Save the image url to the database
@@ -199,10 +203,11 @@ namespace filmhub.Views
             photoBrowser.ShowDialog();
 
             if (string.IsNullOrEmpty(photoBrowser.FileName)) return;
+            movieImage.Image = null;
             imageList.Images.Clear();
             imageList.Images.Add(Image.FromFile(photoBrowser.FileName));
-            movieImage.Image = imageList.Images[0];
             await UploadImageToImgur();
+            movieImage.Image = imageList.Images[0];
         }
 
         #endregion

@@ -55,6 +55,7 @@ namespace filmhub.Views
             this.dateValue = new filmhub.Controls.RoundDateTimePicker();
             this.photoBrowser = new System.Windows.Forms.OpenFileDialog();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
+            this.uploadingLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize) (this.movieImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -271,11 +272,24 @@ namespace filmhub.Views
             this.imageList.ImageSize = new System.Drawing.Size(150, 200);
             this.imageList.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // uploadingLabel
+            // 
+            this.uploadingLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
+            this.uploadingLabel.ForeColor = System.Drawing.Color.White;
+            this.uploadingLabel.Location = new System.Drawing.Point(79, 186);
+            this.uploadingLabel.Name = "uploadingLabel";
+            this.uploadingLabel.Size = new System.Drawing.Size(150, 27);
+            this.uploadingLabel.TabIndex = 25;
+            this.uploadingLabel.Text = "Uploading...";
+            this.uploadingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.uploadingLabel.Visible = false;
+            // 
             // MovieEditorUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Controls.Add(this.uploadingLabel);
             this.Controls.Add(this.dateValue);
             this.Controls.Add(this.genreValue);
             this.Controls.Add(this.uploadButton);
@@ -300,6 +314,8 @@ namespace filmhub.Views
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Label uploadingLabel;
 
         private System.Windows.Forms.ImageList imageList;
 
