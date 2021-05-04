@@ -35,18 +35,19 @@ namespace filmhub.Views
             this.components = new System.ComponentModel.Container();
             this.settingsLabel = new System.Windows.Forms.Label();
             this.userProfileImage = new System.Windows.Forms.PictureBox();
-            this.uploadButton = new RoundButton();
+            this.uploadButton = new filmhub.Controls.RoundButton();
             this.usernameLabel = new System.Windows.Forms.Label();
             this.changeLabel = new System.Windows.Forms.Label();
             this.confirmLabel = new System.Windows.Forms.Label();
-            this.saveButton = new RoundButton();
-            this.resetButton = new RoundButton();
-            this.passwordTextBox = new RoundTextBox();
-            this.confirmPasswordTextBox = new RoundTextBox();
+            this.saveButton = new filmhub.Controls.RoundButton();
+            this.resetButton = new filmhub.Controls.RoundButton();
+            this.passwordTextBox = new filmhub.Controls.RoundTextBox();
+            this.confirmPasswordTextBox = new filmhub.Controls.RoundTextBox();
             this.usernameValueLabel = new System.Windows.Forms.Label();
             this.photoBrowser = new System.Windows.Forms.OpenFileDialog();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.themeImage = new System.Windows.Forms.PictureBox();
+            this.uploadingLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize) (this.userProfileImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.themeImage)).BeginInit();
             this.SuspendLayout();
@@ -198,11 +199,24 @@ namespace filmhub.Views
             this.themeImage.MouseLeave += new System.EventHandler(this.themeImage_MouseLeave);
             this.themeImage.MouseHover += new System.EventHandler(this.themeImage_MouseHover);
             // 
+            // uploadingLabel
+            // 
+            this.uploadingLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
+            this.uploadingLabel.ForeColor = System.Drawing.Color.White;
+            this.uploadingLabel.Location = new System.Drawing.Point(78, 259);
+            this.uploadingLabel.Name = "uploadingLabel";
+            this.uploadingLabel.Size = new System.Drawing.Size(150, 27);
+            this.uploadingLabel.TabIndex = 26;
+            this.uploadingLabel.Text = "Uploading...";
+            this.uploadingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.uploadingLabel.Visible = false;
+            // 
             // SettingsUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Controls.Add(this.uploadingLabel);
             this.Controls.Add(this.themeImage);
             this.Controls.Add(this.usernameValueLabel);
             this.Controls.Add(this.confirmPasswordTextBox);
@@ -222,6 +236,8 @@ namespace filmhub.Views
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Label uploadingLabel;
 
         private System.Windows.Forms.PictureBox themeImage;
 
