@@ -19,6 +19,9 @@ namespace filmhub.Views
 
         private Image _menu;
         private Image _menuHover;
+        
+        private Image _addMovie;
+        private Image _addMovieHover;
 
         #endregion
 
@@ -71,6 +74,9 @@ namespace filmhub.Views
             _menu = Settings.Default.Theme == 0 ? Resources.menu : Resources.menu_black;
             menu.Image = _menu;
             _menuHover = Resources.menu_hover;
+
+            _addMovie = Settings.Default.Theme == 0 ? Resources.add : Resources.add_black;
+            addPictureBox.Image = _addMovie;
         }
 
         private void LoadMovies()
@@ -276,12 +282,22 @@ namespace filmhub.Views
                 new MovieViewerUserControl(comingSoonImage5.Image, _comingSoonMovies[4]),
                 true);
         }
+        
+        private void addPictureBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            Program.MainForm.UserControlSelector(new MovieEditorUserControl(), true);
+        }
 
         #endregion
 
-        private void editPictureBox_MouseClick(object sender, MouseEventArgs e)
+        private void addPictureBox_MouseHover(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new MovieEditorUserControl(), true);
+            // Add hover image TODO
+        }
+
+        private void addPictureBox_MouseLeave(object sender, EventArgs e)
+        {
+            addPictureBox.Image = _addMovie;
         }
     }
 }
