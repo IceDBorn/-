@@ -83,6 +83,7 @@ namespace filmhub.Views
 
             _addMovie = Settings.Default.Theme == 0 ? Resources.add : Resources.add_black;
             addPictureBox.Image = _addMovie;
+            _addMovieHover = Resources.add_hover;
         }
 
         private void LoadMovies()
@@ -306,7 +307,7 @@ namespace filmhub.Views
         
         private void addPictureBox_MouseHover(object sender, EventArgs e)
         {
-            // Add hover image TODO
+            addPictureBox.Image = _addMovieHover;
         }
 
         private void addPictureBox_MouseLeave(object sender, EventArgs e)
