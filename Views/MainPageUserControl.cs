@@ -216,6 +216,7 @@ namespace filmhub.Views
 
         private void featuredImage1_MouseClick(object sender, MouseEventArgs e)
         {
+            if (loadingLabel.Visible) return;
             if (_featuredMovies[0] == 0) return;
             Program.MainForm.UserControlSelector(new MovieViewerUserControl(featuredImage1.Image, _featuredMovies[0]),
                 true);
@@ -223,6 +224,7 @@ namespace filmhub.Views
 
         private void featuredImage2_MouseClick(object sender, MouseEventArgs e)
         {
+            if (loadingLabel.Visible) return;
             if (_featuredMovies[1] == 0) return;
             Program.MainForm.UserControlSelector(new MovieViewerUserControl(featuredImage2.Image, _featuredMovies[1]),
                 true);
@@ -230,6 +232,7 @@ namespace filmhub.Views
 
         private void featuredImage3_MouseClick(object sender, MouseEventArgs e)
         {
+            if (loadingLabel.Visible) return;
             if (_featuredMovies[2] == 0) return;
             Program.MainForm.UserControlSelector(new MovieViewerUserControl(featuredImage3.Image, _featuredMovies[2]),
                 true);
@@ -237,6 +240,7 @@ namespace filmhub.Views
 
         private void featuredImage4_MouseClick(object sender, MouseEventArgs e)
         {
+            if (loadingLabel.Visible) return;
             if (_featuredMovies[3] == 0) return;
             Program.MainForm.UserControlSelector(new MovieViewerUserControl(featuredImage4.Image, _featuredMovies[3]),
                 true);
@@ -244,6 +248,7 @@ namespace filmhub.Views
 
         private void featuredImage5_MouseClick(object sender, MouseEventArgs e)
         {
+            if (loadingLabel.Visible) return;
             if (_featuredMovies[4] == 0) return;
             Program.MainForm.UserControlSelector(new MovieViewerUserControl(featuredImage5.Image, _featuredMovies[4]),
                 true);
@@ -251,6 +256,7 @@ namespace filmhub.Views
 
         private void comingSoonImage1_MouseClick(object sender, MouseEventArgs e)
         {
+            if (loadingLabel2.Visible) return;
             if (_comingSoonMovies[0] == 0) return;
             Program.MainForm.UserControlSelector(
                 new MovieViewerUserControl(comingSoonImage1.Image, _comingSoonMovies[0]),
@@ -259,6 +265,7 @@ namespace filmhub.Views
 
         private void comingSoonImage2_MouseClick(object sender, MouseEventArgs e)
         {
+            if (loadingLabel2.Visible) return;
             if (_comingSoonMovies[1] == 0) return;
             Program.MainForm.UserControlSelector(
                 new MovieViewerUserControl(comingSoonImage2.Image, _comingSoonMovies[1]),
@@ -267,6 +274,7 @@ namespace filmhub.Views
 
         private void comingSoonImage3_MouseClick(object sender, MouseEventArgs e)
         {
+            if (loadingLabel2.Visible) return;
             if (_comingSoonMovies[2] == 0) return;
             Program.MainForm.UserControlSelector(
                 new MovieViewerUserControl(comingSoonImage3.Image, _comingSoonMovies[2]),
@@ -275,6 +283,7 @@ namespace filmhub.Views
 
         private void comingSoonImage4_MouseClick(object sender, MouseEventArgs e)
         {
+            if (loadingLabel2.Visible) return;
             if (_comingSoonMovies[3] == 0) return;
             Program.MainForm.UserControlSelector(
                 new MovieViewerUserControl(comingSoonImage4.Image, _comingSoonMovies[3]),
@@ -283,6 +292,7 @@ namespace filmhub.Views
 
         private void comingSoonImage5_MouseClick(object sender, MouseEventArgs e)
         {
+            if (loadingLabel2.Visible) return;
             if (_comingSoonMovies[4] == 0) return;
             Program.MainForm.UserControlSelector(
                 new MovieViewerUserControl(comingSoonImage5.Image, _comingSoonMovies[4]),
