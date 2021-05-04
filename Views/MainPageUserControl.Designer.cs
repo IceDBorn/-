@@ -265,6 +265,7 @@ namespace filmhub.Views
             this.addPictureBox.TabIndex = 27;
             this.addPictureBox.TabStop = false;
             this.addPictureBox.Tag = "0";
+            this.addPictureBox.Visible = false;
             this.addPictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.addPictureBox_MouseClick);
             this.addPictureBox.MouseLeave += new System.EventHandler(this.addPictureBox_MouseLeave);
             this.addPictureBox.MouseHover += new System.EventHandler(this.addPictureBox_MouseHover);

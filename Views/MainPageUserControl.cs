@@ -4,6 +4,7 @@ using System.Net;
 using System.Threading;
 using System.Windows.Forms;
 using filmhub.Controllers;
+using filmhub.Models;
 using filmhub.Properties;
 
 namespace filmhub.Views
@@ -41,6 +42,11 @@ namespace filmhub.Views
 
             var thread = new Thread(LoadMovies);
             thread.Start();
+            
+            if (Account.GetAccountInstance().Admin)
+            {
+                addPictureBox.Visible = true;
+            }
         }
 
         #endregion
@@ -287,9 +293,7 @@ namespace filmhub.Views
         {
             Program.MainForm.UserControlSelector(new MovieEditorUserControl(), true);
         }
-
-        #endregion
-
+        
         private void addPictureBox_MouseHover(object sender, EventArgs e)
         {
             // Add hover image TODO
@@ -299,5 +303,7 @@ namespace filmhub.Views
         {
             addPictureBox.Image = _addMovie;
         }
+
+        #endregion
     }
 }
