@@ -14,8 +14,8 @@ namespace filmhub.Views
     {
         #region Fields
 
-        private readonly int _movieId;
-        private readonly Image _image;
+        private int _movieId;
+        private Image _image;
 
         private class ComboItem
         {
@@ -35,27 +35,15 @@ namespace filmhub.Views
         {
             InitializeComponent();
             InitializeColors();
-            
-            genreValue.DataSource = new ComboItem[] {
-                new() {Text = "Action" },
-                new() {Text = "Comedy" },
-                new() {Text = "Crime" },
-                new() {Text = "Documentary" },
-                new() {Text = "Drama" },
-                new() {Text = "Fantasy" },
-                new() {Text = "Horror" },
-                new() {Text = "Mystery" },
-                new() {Text = "Romance" },
-                new() {Text = "Sci-Fi" },
-                new() {Text = "Western" }
-            };
-            
-            InitializeMovie(title, directors, writers, stars, genre, date, description);
-            movieImage.Image = image;
-            _movieId = movieId;
-            _image = image;
-            
-            
+            InitializeMovie(title, directors, writers, stars, genre, date, description, image, movieId);
+            menuTitleLabel.Text = @"Edit movie";
+        }
+        
+        public MovieEditorUserControl()
+        {
+            InitializeComponent();
+            InitializeColors();
+            menuTitleLabel.Text = @"Add movie";
         }
 
         #endregion
@@ -65,7 +53,7 @@ namespace filmhub.Views
         private void InitializeColors()
         {
             BackColor = Program.Colors.BackgroundColor;
-            editMovieLabel.ForeColor = Program.Colors.ForeColor;
+            menuTitleLabel.ForeColor = Program.Colors.ForeColor;
             titleLabel.ForeColor = Program.Colors.ForeColor;
             titleValueLabel.ForeColor = Program.Colors.FieldDarkTextColor;
             titleValueLabel.BackColor = Program.Colors.FieldColor;
@@ -94,13 +82,27 @@ namespace filmhub.Views
         }
 
         private void InitializeMovie(string title, string directors, string writers, string stars, string genre,
-            string date, string description)
+            string date, string description, Image image, int movieId)
         {
             titleValueLabel.Text = title;
             directorValueLabel.Text = directors;
             writerValueLabel.Text = writers;
             starsValueLabel.Text = stars;
             descriptionValueLabel.Text = description;
+            
+            genreValue.DataSource = new ComboItem[] {
+                new() {Text = "Action" },
+                new() {Text = "Comedy" },
+                new() {Text = "Crime" },
+                new() {Text = "Documentary" },
+                new() {Text = "Drama" },
+                new() {Text = "Fantasy" },
+                new() {Text = "Horror" },
+                new() {Text = "Mystery" },
+                new() {Text = "Romance" },
+                new() {Text = "Sci-Fi" },
+                new() {Text = "Western" }
+            };
 
             for (var i = 0; i < genreValue.Items.Count; i++)
             {
@@ -110,6 +112,10 @@ namespace filmhub.Views
             }
 
             dateValue.Value = DateTime.Parse(date);
+            
+            movieImage.Image = image;
+            _movieId = movieId;
+            _image = image;
         }
         
         private async Task UploadImageToImgur()
@@ -139,6 +145,8 @@ namespace filmhub.Views
 
         #endregion
 
+        #region Events
+
         private void saveButton_MouseClick(object sender, MouseEventArgs e)
         {
             MovieController.UpdateMovie(
@@ -166,5 +174,7 @@ namespace filmhub.Views
             movieImage.Image = imageList.Images[0];
             await UploadImageToImgur();
         }
+
+        #endregion
     }
 }

@@ -49,7 +49,7 @@ namespace filmhub.Views
             this.saveButton = new filmhub.Controls.RoundButton();
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.titleLabel = new System.Windows.Forms.Label();
-            this.editMovieLabel = new System.Windows.Forms.Label();
+            this.menuTitleLabel = new System.Windows.Forms.Label();
             this.uploadButton = new filmhub.Controls.RoundButton();
             this.genreValue = new filmhub.Controls.RoundComboBox();
             this.dateValue = new filmhub.Controls.RoundDateTimePicker();
@@ -213,15 +213,15 @@ namespace filmhub.Views
             this.titleLabel.TabIndex = 20;
             this.titleLabel.Text = "Title:";
             // 
-            // editMovieLabel
+            // menuTitleLabel
             // 
-            this.editMovieLabel.Font = new System.Drawing.Font("Segoe UI", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
-            this.editMovieLabel.ForeColor = System.Drawing.Color.White;
-            this.editMovieLabel.Location = new System.Drawing.Point(68, 21);
-            this.editMovieLabel.Name = "editMovieLabel";
-            this.editMovieLabel.Size = new System.Drawing.Size(186, 58);
-            this.editMovieLabel.TabIndex = 21;
-            this.editMovieLabel.Text = "Edit Movie";
+            this.menuTitleLabel.Font = new System.Drawing.Font("Segoe UI", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
+            this.menuTitleLabel.ForeColor = System.Drawing.Color.White;
+            this.menuTitleLabel.Location = new System.Drawing.Point(68, 21);
+            this.menuTitleLabel.Name = "menuTitleLabel";
+            this.menuTitleLabel.Size = new System.Drawing.Size(187, 58);
+            this.menuTitleLabel.TabIndex = 21;
+            this.menuTitleLabel.Text = "Menu Title";
             // 
             // uploadButton
             // 
@@ -279,7 +279,7 @@ namespace filmhub.Views
             this.Controls.Add(this.dateValue);
             this.Controls.Add(this.genreValue);
             this.Controls.Add(this.uploadButton);
-            this.Controls.Add(this.editMovieLabel);
+            this.Controls.Add(this.menuTitleLabel);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.descriptionLabel);
             this.Controls.Add(this.saveButton);
@@ -311,7 +311,7 @@ namespace filmhub.Views
 
         private RoundButton uploadButton;
 
-        private System.Windows.Forms.Label editMovieLabel;
+        private System.Windows.Forms.Label menuTitleLabel;
 
         private RoundButton saveButton;
 
