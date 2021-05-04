@@ -51,7 +51,6 @@ namespace filmhub.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             var g = CreateGraphics();
-            //Graphics g = e.Graphics;
             
             //The dropDownRectangle defines position and size of dropdownbutton block, 
             //the width is fixed to 17 and height to 16. The dropdownbutton is aligned to right
@@ -61,7 +60,7 @@ namespace filmhub.Controls
 
             //When the control is enabled the brush is set to Backcolor, 
             //otherwise to color stored in _backDisabledColor
-            if (this.Enabled) {
+            if (Enabled) {
                  bkgBrush = new SolidBrush(BackColor);
                  visualState = ComboBoxState.Normal;
             }
@@ -76,7 +75,7 @@ namespace filmhub.Controls
             g.FillRectangle(bkgBrush, 0, 0, ClientRectangle.Width, ClientRectangle.Height);
             
             //Drawing the datetime text
-            g.DrawString(this.Text, this.Font, new SolidBrush(Program.Colors.FieldDarkTextColor), 0, 2);
+            g.DrawString(Text, Font, new SolidBrush(Program.Colors.FieldDarkTextColor), 0, 3);
 
             //Drawing the dropdownbutton using ComboBoxRenderer
             ComboBoxRenderer.DrawDropDownButton(g, dropDownRectangle, visualState);
