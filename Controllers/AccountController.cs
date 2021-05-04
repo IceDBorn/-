@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Windows.Forms;
 using filmhub.Models;
+using filmhub.Properties;
 using Npgsql;
 
 namespace filmhub.Controllers
 {
     public static class AccountController
     {
-        private static readonly NpgsqlConnection con = DatabaseController.GetConnection();
-        
+        private static readonly NpgsqlConnection Con = DatabaseController.GetConnection();
+
         public static void Login(string username, string password)
         {
             var id = -1;
@@ -21,7 +22,7 @@ namespace filmhub.Controllers
 
             try
             {
-                using var cmd = new NpgsqlCommand(query, con);
+                using var cmd = new NpgsqlCommand(query, Con);
                 cmd.Parameters.AddWithValue("username", username);
                 cmd.Parameters.AddWithValue("password", password);
                 cmd.Prepare();
@@ -34,6 +35,7 @@ namespace filmhub.Controllers
                     darkTheme = rdr.GetBoolean(3);
                     picture = rdr.IsDBNull(4) ? null : rdr.GetString(4);
                 }
+
                 rdr.Close();
             }
             catch
@@ -44,6 +46,8 @@ namespace filmhub.Controllers
             if (id != -1)
             {
                 new Account(id, username, admin, darkTheme, picture).Login();
+                if (Settings.Default.Theme == 0 && darkTheme ||
+                    Settings.Default.Theme == 1 && darkTheme == false) return;
                 Program.Colors.SetDarkTheme(darkTheme);
             }
             else
@@ -54,11 +58,11 @@ namespace filmhub.Controllers
 
         public static void Signup(string username, string password)
         {
-            const string query = "INSERT INTO account (username, password, admin, dark_theme) " + 
+            const string query = "INSERT INTO account (username, password, admin, dark_theme) " +
                                  "VALUES (@username, @password, @admin, @dark_theme)";
             try
             {
-                using var cmd = new NpgsqlCommand(query, con);
+                using var cmd = new NpgsqlCommand(query, Con);
                 cmd.Parameters.AddWithValue("username", username);
                 cmd.Parameters.AddWithValue("password", password);
                 cmd.Parameters.AddWithValue("admin", false);
@@ -86,7 +90,7 @@ namespace filmhub.Controllers
 
             try
             {
-                using var cmd = new NpgsqlCommand(query, con);
+                using var cmd = new NpgsqlCommand(query, Con);
                 cmd.Parameters.AddWithValue("password", password);
                 cmd.Parameters.AddWithValue("user_id", Account.GetAccountInstance().Id);
                 cmd.Prepare();
