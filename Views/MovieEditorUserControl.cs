@@ -1,6 +1,7 @@
 using System;
 using System.Drawing;
 using System.IO;
+using System.Media;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,7 +19,7 @@ namespace filmhub.Views
         private Image _image;
         private string _imageLink;
         private readonly bool _isNew;
-        private bool _isUploaded;
+        private bool _isUploaded = true;
 
         private class ComboItem
         {
@@ -51,6 +52,7 @@ namespace filmhub.Views
             InitializeColors();
             InitializeGenres();
             menuTitleLabel.Text = @"Add movie";
+            saveButton.Text = @"Add movie";
             _isNew = true;
         }
 
@@ -151,7 +153,7 @@ namespace filmhub.Views
                 var imageUpload = await imageEndpoint.UploadImageAsync(fileStream);
                 _imageLink = imageUpload.Link;
                 _isUploaded = true;
-                uploadingLabel.Visible = false;
+                
 
                 if (_isNew) return;
                 // Save the image url to the database
@@ -159,6 +161,7 @@ namespace filmhub.Views
             }
             catch
             {
+                uploadingLabel.Visible = false;
                 MessageBox.Show(@"Something went wrong, please try again.");
             }
         }
@@ -169,7 +172,37 @@ namespace filmhub.Views
 
         private void saveButton_MouseClick(object sender, MouseEventArgs e)
         {
-            if (_isUploaded)
+            if (string.IsNullOrEmpty(titleValueLabel.Text.Trim()))
+            {
+                SystemSounds.Beep.Play();
+                MessageBox.Show(@"Title is empty.");
+            }
+            else if (string.IsNullOrEmpty(directorValueLabel.Text.Trim()))
+            {
+                SystemSounds.Beep.Play();
+                MessageBox.Show(@"Directors is empty.");
+            }
+            else if (string.IsNullOrEmpty(writerValueLabel.Text.Trim()))
+            {
+                SystemSounds.Beep.Play();
+                MessageBox.Show(@"Writers is empty.");
+            }
+            else if (string.IsNullOrEmpty(starsValueLabel.Text.Trim()))
+            {
+                SystemSounds.Beep.Play();
+                MessageBox.Show(@"Stars is empty.");
+            }
+            else if (string.IsNullOrEmpty(descriptionValueLabel.Text.Trim()))
+            {
+                SystemSounds.Beep.Play();
+                MessageBox.Show(@"Description is empty.");
+            }
+            else if (_imageLink == null && _isNew)
+            {
+                SystemSounds.Beep.Play();
+                MessageBox.Show(@"Photo is empty.");
+            }
+            else if (_isUploaded)
             {
                 if (_isNew)
                 {
@@ -187,11 +220,13 @@ namespace filmhub.Views
                         descriptionValueLabel.Text
                     );
                 }
+
                 Program.MainForm.UserControlSelector(new MovieViewerUserControl(_image, _movieId), true);
             }
             else
             {
-                MessageBox.Show(@"Movie photo is still uploading...");
+                SystemSounds.Beep.Play();
+                MessageBox.Show(@"Photo is still uploading...");
             }
         }
 
@@ -207,7 +242,7 @@ namespace filmhub.Views
             imageList.Images.Clear();
             imageList.Images.Add(Image.FromFile(photoBrowser.FileName));
             await UploadImageToImgur();
-            movieImage.Image = imageList.Images[0];
+            if(_isUploaded) movieImage.Image = imageList.Images[0];
         }
 
         #endregion
