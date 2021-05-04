@@ -278,5 +278,10 @@ namespace filmhub.Views
         }
 
         #endregion
+
+        private void editPictureBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            Program.MainForm.UserControlSelector(new MovieEditorUserControl(), true);
+        }
     }
 }

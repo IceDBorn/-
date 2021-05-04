@@ -49,6 +49,7 @@ namespace filmhub.Views
             this.loadingLabel = new System.Windows.Forms.Label();
             this.loadingLabel2 = new System.Windows.Forms.Label();
             this.featured = new System.Windows.Forms.Label();
+            this.editPictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize) (this.featuredImage1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.menu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.featuredImage2)).BeginInit();
@@ -60,6 +61,7 @@ namespace filmhub.Views
             ((System.ComponentModel.ISupportInitialize) (this.comingSoonImage3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.comingSoonImage4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.comingSoonImage5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.editPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // featuredImage1
@@ -253,11 +255,24 @@ namespace filmhub.Views
             this.featured.TabIndex = 1;
             this.featured.Text = "Featured";
             // 
+            // editPictureBox
+            // 
+            this.editPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.editPictureBox.Image = global::filmhub.Properties.Resources.menu;
+            this.editPictureBox.Location = new System.Drawing.Point(1200, 21);
+            this.editPictureBox.Name = "editPictureBox";
+            this.editPictureBox.Size = new System.Drawing.Size(48, 50);
+            this.editPictureBox.TabIndex = 27;
+            this.editPictureBox.TabStop = false;
+            this.editPictureBox.Tag = "0";
+            this.editPictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.editPictureBox_MouseClick);
+            // 
             // MainPageUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Controls.Add(this.editPictureBox);
             this.Controls.Add(this.loadingLabel2);
             this.Controls.Add(this.loadingLabel);
             this.Controls.Add(this.comingSoonImage5);
@@ -288,8 +303,11 @@ namespace filmhub.Views
             ((System.ComponentModel.ISupportInitialize) (this.comingSoonImage3)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.comingSoonImage4)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.comingSoonImage5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.editPictureBox)).EndInit();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.PictureBox editPictureBox;
 
         private System.Windows.Forms.Label loadingLabel2;
 
