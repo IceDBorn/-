@@ -53,6 +53,11 @@ namespace filmhub.Views
             InitializeGenres();
             menuTitleLabel.Text = @"Add movie";
             saveButton.Text = @"Add movie";
+            titleValueLabel.Text = "";
+            directorValueLabel.Text = "";
+            writerValueLabel.Text = "";
+            starsValueLabel.Text = "";
+            descriptionValueLabel.Text = "";
             _isNew = true;
         }
 
@@ -153,7 +158,7 @@ namespace filmhub.Views
                 var imageUpload = await imageEndpoint.UploadImageAsync(fileStream);
                 _imageLink = imageUpload.Link;
                 _isUploaded = true;
-                
+                uploadingLabel.Visible = false;
 
                 if (_isNew) return;
                 // Save the image url to the database
