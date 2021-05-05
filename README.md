@@ -17,10 +17,3 @@ git clone https://github.com/IceDBorn/filmhub.git
 
 
 
-## Credits
-* [Kostas Vasileios](https://github.com/IceDBorn)
-* [Papanatsios Stefanos](https://github.com/CrazyStevenz)
-* [Panagiotidou Olga](https://github.com/Olga-Panagiotidou)
-* [Kalamaris Spiridon](https://github.com/spiroskmaris)
-* [George Paulidis](https://github.com/GeorgePPaul)
-
