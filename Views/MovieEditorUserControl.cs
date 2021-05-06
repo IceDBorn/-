@@ -236,8 +236,8 @@ namespace filmhub.Views
                         dateValue.Value.ToString("yyyy-MM-dd")
                     );
                 }
-
-                Program.MainForm.UserControlSelector(new MovieViewerUserControl(_image, _movieId), true);
+                
+                Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
             }
             else
             {
