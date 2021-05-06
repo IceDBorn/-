@@ -211,18 +211,29 @@ namespace filmhub.Views
             {
                 if (_isNew)
                 {
-                    // Create add movie function for MovieController TODO
+                    MovieController.AddMovie(
+                        titleValueLabel.Text,
+                        descriptionValueLabel.Text,
+                        directorValueLabel.Text,
+                        writerValueLabel.Text,
+                        starsValueLabel.Text,
+                        _imageLink,
+                        genreValue.SelectedIndex + 1,
+                        dateValue.Value.ToString("yyyy-MM-dd")
+                    );
                 }
                 else
                 {
                     MovieController.UpdateMovie(
                         _movieId,
                         titleValueLabel.Text,
+                        descriptionValueLabel.Text,
                         directorValueLabel.Text,
                         writerValueLabel.Text,
                         starsValueLabel.Text,
-                        dateValue.Value.ToString("yyyy-MM-dd"),
-                        descriptionValueLabel.Text
+                        _imageLink,
+                        genreValue.SelectedIndex + 1,
+                        dateValue.Value.ToString("yyyy-MM-dd")
                     );
                 }
 
@@ -247,7 +258,7 @@ namespace filmhub.Views
             imageList.Images.Clear();
             imageList.Images.Add(Image.FromFile(photoBrowser.FileName));
             await UploadImageToImgur();
-            if(_isUploaded) movieImage.Image = imageList.Images[0];
+            if (_isUploaded) movieImage.Image = imageList.Images[0];
         }
 
         #endregion
