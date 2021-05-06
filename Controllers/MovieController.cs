@@ -146,8 +146,8 @@ namespace filmhub.Controllers
         {
             const string query =
                 "UPDATE movie " +
-                "SET (name, description, director, writer, stars, genre_id, release_date) " +
-                "= (@title, @description, @directors, @writers, @stars, @genre_id, @release_date) " +
+                "SET (name, description, director, writer, stars, picture, genre_id, release_date) " +
+                "= (@title, @description, @directors, @writers, @stars, @picture, @genre_id, @release_date) " +
                 "WHERE id = @id";
 
             try
