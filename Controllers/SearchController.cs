@@ -31,12 +31,13 @@ namespace filmhub.Controllers
             return writer;
         }
 
-        private static Document CreateDocument(int id, string text)
+        private static Document CreateDocument(int id, string text, string genre)
         {
             var document = new Document
             {
                 new StringField("id", id.ToString(), Field.Store.YES),
-                new TextField("text", text, Field.Store.YES)
+                new TextField("text", text, Field.Store.YES),
+                new TextField("genre", genre, Field.Store.YES)
             };
             return document;
         }
@@ -105,7 +106,7 @@ namespace filmhub.Controllers
                 new StandardAnalyzer(LuceneVersion.LUCENE_48));
             var escapedString = QueryParserBase.Escape(genre);
             var idQuery = qp.Parse(escapedString);
-            var hits = searcher.Search(idQuery, 10);
+            var hits = searcher.Search(idQuery, 50);
 
             return hits;
         }
@@ -130,8 +131,9 @@ namespace filmhub.Controllers
             {
                 var con = DatabaseController.GetConnection();
 
-                const string movieData = "SELECT id,name " +
-                                         "FROM movie ";
+                const string movieData = "SELECT movie.id,movie.name,genre.name " +
+                                         "FROM movie " +
+                                         "JOIN genre ON genre_id = genre.id";
 
                 using var cmd = new NpgsqlCommand(movieData, con);
 
@@ -141,7 +143,8 @@ namespace filmhub.Controllers
 
                 while (rdr.Read())
                 {
-                    list.Add(CreateDocument(rdr.GetInt32(0), rdr.GetString(1)));
+                    list.Add(CreateDocument(rdr.GetInt32(0), rdr.GetString(1), rdr.GetString(2)));
+
                 }
 
                 rdr.Close();
