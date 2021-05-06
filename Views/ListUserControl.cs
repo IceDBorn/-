@@ -23,13 +23,16 @@ namespace filmhub.Views
 
         #region Constructors
 
-        public ListUserControl(string title, bool menu, string result)
+        
+        
+        public ListUserControl(string title, bool menu, string result,bool categorySearch)
+        
         {
             InitializeComponent();
             InitializeColors();
             this.menu.Visible = menu;
             window.Text = title;
-            Search(result);
+            Search(result,categorySearch);
         }
 
         public ListUserControl(string title, bool menu)
@@ -132,9 +135,9 @@ namespace filmhub.Views
             }
         }
 
-        private void Search(string result)
+        private void Search(string result,bool categorySearch)
         {
-            FillListView(SearchController.CreateIndexFolder(result));
+            FillListView(SearchController.CreateIndexFolder(result,categorySearch));
         }
 
         #endregion

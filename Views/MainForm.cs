@@ -345,7 +345,7 @@ namespace filmhub.Views
             }
 
             Program.MainForm.UserControlSelector(
-                new ListUserControl("Search", false, searchBar.Text.Trim()), true
+                new ListUserControl("Search", false, searchBar.Text.Trim(),false), true
             );
         }
 
@@ -353,7 +353,7 @@ namespace filmhub.Views
         {
             if (e.KeyCode != Keys.Enter || string.IsNullOrEmpty(searchBar.Text.Trim())) return;
             Program.MainForm.UserControlSelector(
-                new ListUserControl("Search", false, searchBar.Text.Trim()), true
+                new ListUserControl("Search", false, searchBar.Text.Trim(),false), true
             );
             e.SuppressKeyPress = true;
         }

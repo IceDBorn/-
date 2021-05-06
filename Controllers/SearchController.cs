@@ -67,20 +67,53 @@ namespace filmhub.Controllers
             writer.Dispose();
         }
 
-        public static IEnumerable<int> CreateIndexFolder(string result)
+        public static IEnumerable<int> CreateIndexFolder(string result, bool categorySearch)
         {
             const string path = "./IndexedSearch";
             var sE = new SearchController(path);
             if (!System.IO.Directory.Exists(path) || IsDirectoryEmpty(path))
                 CreateIndex();
-            var list = new List<int>(SearchIdResults(result));
-            return list;
+            if (categorySearch)
+            {
+                var list = new List<int>(SearchGenreResults(result));
+                return list;
+            }
+            else
+            {
+                var list = new List<int>(SearchIdResults(result));
+                return list;
+            }
         }
 
         private static IEnumerable<int> SearchIdResults(string searchQuery)
         {
             var searcher = CreateSearcher();
             var foundDocs = Search(searchQuery, searcher);
+
+            var results = new List<int>();
+            foreach (var sd in foundDocs.ScoreDocs)
+            {
+                results.Add(int.Parse(searcher.Doc(sd.Doc).Get("id")));
+            }
+
+            return results;
+        }
+
+        private static TopDocs SearchGenre(string genre, IndexSearcher searcher)
+        {
+            var qp = new QueryParser(LuceneVersion.LUCENE_48, "genre",
+                new StandardAnalyzer(LuceneVersion.LUCENE_48));
+            var escapedString = QueryParserBase.Escape(genre);
+            var idQuery = qp.Parse(escapedString);
+            var hits = searcher.Search(idQuery, 10);
+
+            return hits;
+        }
+
+        public static IEnumerable<int> SearchGenreResults(string searchQuery)
+        {
+            var searcher = CreateSearcher();
+            var foundDocs = SearchGenre(searchQuery, searcher);
 
             var results = new List<int>();
             foreach (var sd in foundDocs.ScoreDocs)
