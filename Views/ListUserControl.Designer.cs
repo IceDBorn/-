@@ -44,7 +44,7 @@ namespace filmhub.Views
             // 
             this.window.Font = new System.Drawing.Font("Segoe UI", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
             this.window.ForeColor = System.Drawing.Color.White;
-            this.window.Location = new System.Drawing.Point(75, 22);
+            this.window.Location = new System.Drawing.Point(68, 21);
             this.window.Name = "window";
             this.window.Size = new System.Drawing.Size(911, 49);
             this.window.TabIndex = 0;
@@ -88,7 +88,7 @@ namespace filmhub.Views
             // categoriesPanel
             // 
             this.categoriesPanel.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.categoriesPanel.Location = new System.Drawing.Point(0, 0);
+            this.categoriesPanel.Location = new System.Drawing.Point(391, 13);
             this.categoriesPanel.Name = "categoriesPanel";
             this.categoriesPanel.Size = new System.Drawing.Size(248, 595);
             this.categoriesPanel.TabIndex = 3;

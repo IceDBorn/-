@@ -37,13 +37,13 @@ namespace filmhub.Controllers
         
         public static IEnumerable<int> Query(string tableName)
         {
-            var query = "SELECT id FROM " + tableName + " WHERE movie_id = @movie AND user_id = @user LIMIT 1";
+            var query = "SELECT movie_id FROM " + tableName + " WHERE user_id = @user_id";
             var list = new List<int>();
 
             try
             {
                 using var cmd = new NpgsqlCommand(query, con);
-                cmd.Parameters.AddWithValue("user", Account.GetAccountInstance().Id);
+                cmd.Parameters.AddWithValue("user_id", Account.GetAccountInstance().Id);
                 cmd.Prepare();
                 using var rdr = cmd.ExecuteReader();
                 while (rdr.Read())
