@@ -13,16 +13,18 @@ using Npgsql;
 
 namespace filmhub.Controllers
 {
-    public class SearchController
+    public static class SearchController
     {
-        private static string _path;
+        private const string _path = "./IndexedSearch";
 
-        public SearchController(string path)
+        private static void Indexer(IEnumerable<Document> list)
         {
-            // Path is the folder for index files
-            _path = path;
+            var writer = CreateWriter();
+            writer.AddDocuments(list);
+            writer.Commit();
+            writer.Dispose();
         }
-
+        
         private static IndexWriter CreateWriter()
         {
             var dir = FSDirectory.Open(_path);
@@ -59,19 +61,9 @@ namespace filmhub.Controllers
             return hits;
         }
 
-        private static void Indexer(IEnumerable<Document> list)
-        {
-            var writer = CreateWriter();
-            writer.AddDocuments(list);
-            writer.Commit();
-            writer.Dispose();
-        }
-
         public static IEnumerable<int> CreateIndexFolder(string result)
         {
-            const string path = "./IndexedSearch";
-            var sE = new SearchController(path);
-            if (!System.IO.Directory.Exists(path) || IsDirectoryEmpty(path))
+            if (!System.IO.Directory.Exists(_path) || IsDirectoryEmpty(_path))
                 CreateIndex();
             var list = new List<int>(SearchIdResults(result));
             return list;
@@ -91,7 +83,7 @@ namespace filmhub.Controllers
             return results;
         }
 
-        private static void CreateIndex()
+        public static void CreateIndex()
         {
             try
             {
@@ -114,6 +106,21 @@ namespace filmhub.Controllers
                 rdr.Close();
 
                 Indexer(list);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        public static void RemoveIndex()
+        {
+            try
+            {
+                if (System.IO.Directory.Exists(_path))
+                {
+                    System.IO.Directory.Delete(_path, true);
+                }
             }
             catch (Exception e)
             {

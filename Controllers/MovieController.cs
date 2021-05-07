@@ -135,6 +135,9 @@ namespace filmhub.Controllers
                 cmd.Parameters.AddWithValue("release_date", NpgsqlDate.Parse(releaseDate));
                 cmd.Prepare();
                 cmd.ExecuteNonQuery();
+                
+                // Delete the index to prevent errors
+                SearchController.RemoveIndex();
             }
             catch (Exception e)
             {
@@ -184,6 +187,9 @@ namespace filmhub.Controllers
                 cmd.Parameters.AddWithValue("id", id);
                 cmd.Prepare();
                 cmd.ExecuteNonQuery();
+
+                // Delete the index to prevent errors
+                SearchController.RemoveIndex();
             }
             catch (Exception e)
             {
