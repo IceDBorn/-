@@ -16,6 +16,7 @@ namespace filmhub.Views
         #region Fields
 
         private int _movieId;
+        private Image _image;
         private string _imageLink;
         private readonly bool _isNew;
         private bool _isUploaded = true;
@@ -118,7 +119,8 @@ namespace filmhub.Views
             }
 
             dateValue.Value = DateTime.Parse(date);
-            movieImage.Image = image;
+            _image = image;
+            movieImage.Image = _image;
             _movieId = movieId;
         }
 
@@ -222,6 +224,8 @@ namespace filmhub.Views
                         genreValue.SelectedIndex + 1,
                         dateValue.Value.ToString("yyyy-MM-dd")
                     );
+                    
+                    Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
                 }
                 else
                 {
@@ -236,9 +240,9 @@ namespace filmhub.Views
                         genreValue.SelectedIndex + 1,
                         dateValue.Value.ToString("yyyy-MM-dd")
                     );
+                    
+                    Program.MainForm.UserControlSelector(new MovieViewerUserControl(_image, _movieId), true);
                 }
-                
-                Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
             }
             else
             {
