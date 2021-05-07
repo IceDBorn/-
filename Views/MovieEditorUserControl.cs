@@ -16,7 +16,6 @@ namespace filmhub.Views
         #region Fields
 
         private int _movieId;
-        private Image _image;
         private string _imageLink;
         private readonly bool _isNew;
         private bool _isUploaded = true;
@@ -121,7 +120,6 @@ namespace filmhub.Views
             dateValue.Value = DateTime.Parse(date);
             movieImage.Image = image;
             _movieId = movieId;
-            _image = image;
         }
 
         private void InitializeGenres()
