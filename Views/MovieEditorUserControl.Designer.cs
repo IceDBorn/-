@@ -56,6 +56,7 @@ namespace filmhub.Views
             this.photoBrowser = new System.Windows.Forms.OpenFileDialog();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.uploadingLabel = new System.Windows.Forms.Label();
+            this.removeButton = new filmhub.Controls.RoundButton();
             ((System.ComponentModel.ISupportInitialize) (this.movieImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -284,11 +285,28 @@ namespace filmhub.Views
             this.uploadingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.uploadingLabel.Visible = false;
             // 
+            // removeButton
+            // 
+            this.removeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.removeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.removeButton.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
+            this.removeButton.ForeColor = System.Drawing.Color.White;
+            this.removeButton.Location = new System.Drawing.Point(462, 540);
+            this.removeButton.Name = "removeButton";
+            this.removeButton.Size = new System.Drawing.Size(190, 40);
+            this.removeButton.TabIndex = 26;
+            this.removeButton.TabStop = false;
+            this.removeButton.Text = "Remove";
+            this.removeButton.UseVisualStyleBackColor = true;
+            this.removeButton.Visible = false;
+            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
+            // 
             // MovieEditorUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Controls.Add(this.removeButton);
             this.Controls.Add(this.uploadingLabel);
             this.Controls.Add(this.dateValue);
             this.Controls.Add(this.genreValue);
@@ -314,6 +332,10 @@ namespace filmhub.Views
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private filmhub.Controls.RoundButton removeButton;
+
+        private filmhub.Controls.RoundButton roundButton1;
 
         private System.Windows.Forms.Label uploadingLabel;
 

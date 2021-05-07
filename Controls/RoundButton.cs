@@ -23,6 +23,7 @@ namespace filmhub.Controls
             graphPath.CloseFigure();
             return graphPath;
         }
+
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);

@@ -43,6 +43,7 @@ namespace filmhub.Views
             InitializeGenres();
             InitializeMovie(title, directors, writers, stars, genre, date, description, image, movieId);
             menuTitleLabel.Text = @"Edit movie";
+            removeButton.Visible = true;
             _isNew = false;
         }
 
@@ -97,6 +98,8 @@ namespace filmhub.Views
             movieImage.BackColor = Program.Colors.FieldColor;
             uploadingLabel.BackColor = Program.Colors.FieldColor;
             uploadingLabel.ForeColor = Program.Colors.FieldDarkTextColor;
+            removeButton.BackColor = Program.Colors.AccentColor;
+            removeButton.FlatAppearance.BorderColor = Program.Colors.AccentColor;
         }
 
         private void InitializeMovie(string title, string directors, string writers, string stars, string genre,
@@ -247,9 +250,21 @@ namespace filmhub.Views
             imageList.Images.Clear();
             imageList.Images.Add(Image.FromFile(photoBrowser.FileName));
             await UploadImageToImgur();
-            if(_isUploaded) movieImage.Image = imageList.Images[0];
+            if (_isUploaded) movieImage.Image = imageList.Images[0];
         }
 
         #endregion
+
+        private void removeButton_Click(object sender, EventArgs e)
+        {
+            var dialogResult =
+                MessageBox.Show(@"Remove movie " + titleValueLabel.Text + @"?", "", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                // TODO: Remove movie function
+                Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
+            }
+        }
     }
 }
