@@ -291,7 +291,7 @@ namespace filmhub.Views
             this.removeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.removeButton.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
             this.removeButton.ForeColor = System.Drawing.Color.White;
-            this.removeButton.Location = new System.Drawing.Point(462, 540);
+            this.removeButton.Location = new System.Drawing.Point(546, 540);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(190, 40);
             this.removeButton.TabIndex = 26;
@@ -351,7 +351,7 @@ namespace filmhub.Views
 
         private System.Windows.Forms.Label menuTitleLabel;
 
-        private RoundButton saveButton;
+        private filmhub.Controls.RoundButton saveButton;
 
         private RoundTextBox titleValueLabel;
 

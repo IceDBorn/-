@@ -48,6 +48,8 @@ namespace filmhub.Views
             menuTitleLabel.Text = @"Edit movie";
             removeButton.Visible = true;
             _isNew = false;
+            
+            saveButton.Location = new Point(846, 540);
         }
 
         public MovieEditorUserControl()
