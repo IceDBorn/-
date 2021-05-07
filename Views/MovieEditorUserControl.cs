@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using filmhub.Controllers;
+using filmhub.Models;
 using Imgur.API.Authentication;
 using Imgur.API.Endpoints;
 
@@ -15,9 +16,8 @@ namespace filmhub.Views
     {
         #region Fields
 
-        private int _movieId;
+        private readonly Movie _movie;
         private Image _image;
-        private string _imageLink;
         private readonly bool _isNew;
         private bool _isUploaded = true;
 
@@ -35,13 +35,16 @@ namespace filmhub.Views
 
         #region Constructor
 
-        public MovieEditorUserControl(string title, string directors, string writers, string stars, string genre,
-            string date, string description, Image image, int movieId)
+        public MovieEditorUserControl(Movie movie, Image image)
         {
             InitializeComponent();
             InitializeColors();
             InitializeGenres();
-            InitializeMovie(title, directors, writers, stars, genre, date, description, image, movieId);
+
+            _movie = movie;
+                
+            InitializeMovie(_movie.Name, _movie.Director, _movie.Writer, _movie.Stars, _movie.Genre,
+                _movie.ReleaseDate, _movie.Description, image, _movie.Id);
             menuTitleLabel.Text = @"Edit movie";
             removeButton.Visible = true;
             _isNew = false;
@@ -121,7 +124,7 @@ namespace filmhub.Views
             dateValue.Value = DateTime.Parse(date);
             _image = image;
             movieImage.Image = _image;
-            _movieId = movieId;
+            _movie.Id = movieId;
         }
 
         private void InitializeGenres()
@@ -159,13 +162,13 @@ namespace filmhub.Views
                 // Create end point and upload image
                 var imageEndpoint = new ImageEndpoint(apiClient, httpClient);
                 var imageUpload = await imageEndpoint.UploadImageAsync(fileStream);
-                _imageLink = imageUpload.Link;
+                _movie.Picture = imageUpload.Link;
                 _isUploaded = true;
                 uploadingLabel.Visible = false;
 
                 if (_isNew) return;
                 // Save the image url to the database
-                await SettingController.UpdateImageLink(_imageLink, "movie", _movieId);
+                await SettingController.UpdateImageLink(_movie.Picture, "movie", _movie.Id);
             }
             catch
             {
@@ -205,7 +208,7 @@ namespace filmhub.Views
                 SystemSounds.Beep.Play();
                 MessageBox.Show(@"Description is empty.");
             }
-            else if (_imageLink == null && _isNew)
+            else if (_movie.Picture == null && _isNew)
             {
                 SystemSounds.Beep.Play();
                 MessageBox.Show(@"Photo is empty.");
@@ -220,28 +223,28 @@ namespace filmhub.Views
                         directorValueLabel.Text,
                         writerValueLabel.Text,
                         starsValueLabel.Text,
-                        _imageLink,
+                        _movie.Picture,
                         genreValue.SelectedIndex + 1,
                         dateValue.Value.ToString("yyyy-MM-dd")
                     );
-                    
+
                     Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
                 }
                 else
                 {
                     MovieController.UpdateMovie(
-                        _movieId,
+                        _movie.Id,
                         titleValueLabel.Text,
                         descriptionValueLabel.Text,
                         directorValueLabel.Text,
                         writerValueLabel.Text,
                         starsValueLabel.Text,
-                        _imageLink,
+                        _movie.Picture,
                         genreValue.SelectedIndex + 1,
                         dateValue.Value.ToString("yyyy-MM-dd")
                     );
-                    
-                    Program.MainForm.UserControlSelector(new MovieViewerUserControl(_image, _movieId), true);
+
+                    Program.MainForm.UserControlSelector(new MovieViewerUserControl(_image, _movie.Id), true);
                 }
             }
             else

@@ -61,7 +61,7 @@ namespace filmhub.Controllers
         {
             var movie = new Movie();
             var query =
-                "SELECT movie.name, description, director, writer, stars, release_date, genre.name " +
+                "SELECT movie.name, description, director, writer, stars, release_date, genre.name, picture " +
                 "FROM movie " +
                 "JOIN genre ON genre_id = genre.id " +
                 "WHERE movie.id = @id";
@@ -81,6 +81,7 @@ namespace filmhub.Controllers
                     movie.Stars = rdr.GetString(4);
                     movie.ReleaseDate = rdr.GetDate(5).ToString();
                     movie.Genre = rdr.GetString(6);
+                    movie.Picture = rdr.GetString(7);
                 }
                 catch
                 {

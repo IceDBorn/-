@@ -13,8 +13,7 @@ namespace filmhub.Views
         #region Fields
         
         private static readonly NpgsqlConnection con = DatabaseController.GetConnection();
-
-        private readonly int _movieId;
+        
         private int _starsCount;
 
         private Image _favoriteEmpty;
@@ -39,6 +38,7 @@ namespace filmhub.Views
         private Image _editMovie;
         private Image _editMovieHover;
 
+        private Movie _movie;
         private readonly Image _movieImage;
 
         #endregion
@@ -52,7 +52,7 @@ namespace filmhub.Views
             InitializeImages();
             InitializeMovie(image, id);
             _movieImage = image;
-            _movieId = id;
+            _movie.Id = id;
             if (Account.GetAccountInstance().Admin)
             {
                 editPictureBox.Visible = true;
@@ -135,17 +135,17 @@ namespace filmhub.Views
         {
             movieImage.Image = image;
 
-            var movie = MovieController.MovieViewerQuery(id);
+            _movie = MovieController.MovieViewerQuery(id);
             
-            titleLabel.Text = movie.Name;
-            descriptionText.Text = movie.Description;
-            directorValueLabel.Text = movie.Director;
-            writerValueLabel.Text = movie.Writer;
-            starsValueLabel.Text = movie.Stars;
-            dateValueLabel.Text = movie.ReleaseDate;
-            genreValueLabel.Text = movie.Genre;
+            titleLabel.Text = _movie.Name;
+            descriptionText.Text = _movie.Description;
+            directorValueLabel.Text = _movie.Director;
+            writerValueLabel.Text = _movie.Writer;
+            starsValueLabel.Text = _movie.Stars;
+            dateValueLabel.Text = _movie.ReleaseDate;
+            genreValueLabel.Text = _movie.Genre;
             
-            _starsCount = movie.Rating;
+            _starsCount = _movie.Rating;
             SetStars();
             
             if (ActivityController.IsActivityType("favorite", id))
@@ -174,14 +174,14 @@ namespace filmhub.Views
         {
             if (int.Parse(pb.Tag.ToString()) == 0)
             {
-                var query = "INSERT INTO " + tableName + "(movie_id, user_id) VALUES (" + _movieId + ", " +
+                var query = "INSERT INTO " + tableName + "(movie_id, user_id) VALUES (" + _movie.Id + ", " +
                             Account.GetAccountInstance().Id + ")";
                 using var cmd = new NpgsqlCommand(query, con);
                 cmd.ExecuteNonQuery();
             }
             else
             {
-                var query = "DELETE FROM " + tableName + " WHERE movie_id = " + _movieId + " AND user_id = " +
+                var query = "DELETE FROM " + tableName + " WHERE movie_id = " + _movie.Id + " AND user_id = " +
                             Account.GetAccountInstance().Id;
                 using var cmd = new NpgsqlCommand(query, con);
                 cmd.ExecuteNonQuery();
@@ -192,14 +192,14 @@ namespace filmhub.Views
         {
             if (int.Parse(star1.Tag.ToString()) == 0)
             {
-                var query = "INSERT INTO rating(value,movie_id,user_id) VALUES (" + rate + ", " + _movieId + ", " +
+                var query = "INSERT INTO rating(value,movie_id,user_id) VALUES (" + rate + ", " + _movie.Id + ", " +
                             Account.GetAccountInstance().Id + ")";
                 using var cmd = new NpgsqlCommand(query, con);
                 cmd.ExecuteNonQuery();
             }
             else
             {
-                var query = "UPDATE rating SET value = " + rate + " WHERE movie_id = " + _movieId + " AND user_id = " +
+                var query = "UPDATE rating SET value = " + rate + " WHERE movie_id = " + _movie.Id + " AND user_id = " +
                             Account.GetAccountInstance().Id;
                 using var cmd = new NpgsqlCommand(query, con);
                 cmd.ExecuteNonQuery();
@@ -400,9 +400,7 @@ namespace filmhub.Views
         private void editPictureBox_MouseClick(object sender, MouseEventArgs e)
         {
             Program.MainForm.UserControlSelector(
-                new MovieEditorUserControl(titleLabel.Text, directorValueLabel.Text, writerValueLabel.Text,
-                    starsValueLabel.Text, genreValueLabel.Text, dateValueLabel.Text, descriptionText.Text, _movieImage,
-                    _movieId), true);
+                new MovieEditorUserControl(_movie, _movieImage), true);
         }
     }
 }
