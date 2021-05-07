@@ -9,15 +9,15 @@ namespace filmhub.Controllers
     {
         private static readonly NpgsqlConnection con = DatabaseController.GetConnection();
 
-        public static async Task UpdateImageLink(string link)
+        public static async Task UpdateImageLink(string link, string table, int id)
         {
-            const string query = "UPDATE account SET picture = @link WHERE id = @id";
+            var query = "UPDATE " + table + " SET picture = @link WHERE id = @id";
 
             try
             {
                 using var cmd = new NpgsqlCommand(query, con);
                 cmd.Parameters.AddWithValue("link", link);
-                cmd.Parameters.AddWithValue("id", Account.GetAccountInstance().Id);
+                cmd.Parameters.AddWithValue("id", id);
 
                 await cmd.PrepareAsync();
                 await cmd.ExecuteNonQueryAsync();

@@ -2,10 +2,10 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace filmhub.Views
+namespace filmhub.Controls
 {
     
-    public class RoundedButton : Button
+    public class RoundButton : Button
     {
         private static GraphicsPath GetRoundPath(RectangleF rect, int radius)
         {
@@ -23,19 +23,15 @@ namespace filmhub.Views
             graphPath.CloseFigure();
             return graphPath;
         }
+
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
             var rect = new RectangleF(0, 0, Width, Height);
-            using (var graphPath = GetRoundPath(rect, 25))
-            {
-                Region = new Region(graphPath);
-                using (var pen = new Pen(Program.Colors.AccentColor, 1.75f))
-                {
-                    pen.Alignment = PenAlignment.Inset;
-                    e.Graphics.DrawPath(pen, graphPath);
-                }
-            }
+            using var graphPath = GetRoundPath(rect, 25);
+            Region = new Region(graphPath);
+            using var pen = new Pen(Program.Colors.AccentColor, 1.75f) {Alignment = PenAlignment.Inset};
+            e.Graphics.DrawPath(pen, graphPath);
         }
     }
 }

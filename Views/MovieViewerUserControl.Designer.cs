@@ -55,6 +55,7 @@ namespace filmhub.Views
             this.favoriteImage = new System.Windows.Forms.PictureBox();
             this.watchlistImage = new System.Windows.Forms.PictureBox();
             this.watchedImage = new System.Windows.Forms.PictureBox();
+            this.editPictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize) (this.movieImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.star1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.star2)).BeginInit();
@@ -64,6 +65,7 @@ namespace filmhub.Views
             ((System.ComponentModel.ISupportInitialize) (this.favoriteImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.watchlistImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.watchedImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.editPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // titleLabel
@@ -72,7 +74,7 @@ namespace filmhub.Views
             this.titleLabel.ForeColor = System.Drawing.Color.White;
             this.titleLabel.Location = new System.Drawing.Point(68, 21);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(1193, 48);
+            this.titleLabel.Size = new System.Drawing.Size(947, 48);
             this.titleLabel.TabIndex = 0;
             this.titleLabel.Text = "Title";
             // 
@@ -327,11 +329,27 @@ namespace filmhub.Views
             this.watchedImage.MouseLeave += new System.EventHandler(this.watchedImage_MouseLeave);
             this.watchedImage.MouseHover += new System.EventHandler(this.watchedImage_MouseHover);
             // 
+            // editPictureBox
+            // 
+            this.editPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.editPictureBox.Image = global::filmhub.Properties.Resources.edit;
+            this.editPictureBox.Location = new System.Drawing.Point(1157, 21);
+            this.editPictureBox.Name = "editPictureBox";
+            this.editPictureBox.Size = new System.Drawing.Size(48, 50);
+            this.editPictureBox.TabIndex = 25;
+            this.editPictureBox.TabStop = false;
+            this.editPictureBox.Tag = "0";
+            this.editPictureBox.Visible = false;
+            this.editPictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.editPictureBox_MouseClick);
+            this.editPictureBox.MouseLeave += new System.EventHandler(this.editPictureBox_MouseLeave);
+            this.editPictureBox.MouseHover += new System.EventHandler(this.editPictureBox_MouseHover);
+            // 
             // MovieViewerUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Controls.Add(this.editPictureBox);
             this.Controls.Add(this.watchedImage);
             this.Controls.Add(this.watchlistImage);
             this.Controls.Add(this.favoriteImage);
@@ -366,8 +384,11 @@ namespace filmhub.Views
             ((System.ComponentModel.ISupportInitialize) (this.favoriteImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.watchlistImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.watchedImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.editPictureBox)).EndInit();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.PictureBox editPictureBox;
 
         private System.Windows.Forms.PictureBox favoriteImage;
         private System.Windows.Forms.PictureBox watchlistImage;

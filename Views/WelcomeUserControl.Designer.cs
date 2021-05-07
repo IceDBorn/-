@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using filmhub.Controls;
 
 namespace filmhub.Views
 {
@@ -31,8 +32,8 @@ namespace filmhub.Views
         /// </summary>
         private void InitializeComponent()
         {
-            this.joinButton = new filmhub.Views.RoundedButton();
-            this.signInButton = new filmhub.Views.RoundedButton();
+            this.joinButton = new RoundButton();
+            this.signInButton = new RoundButton();
             this.SuspendLayout();
             // 
             // joinButton
@@ -77,9 +78,9 @@ namespace filmhub.Views
             this.ResumeLayout(false);
         }
 
-        private filmhub.Views.RoundedButton signInButton;
+        private RoundButton signInButton;
 
-        private filmhub.Views.RoundedButton joinButton;
+        private RoundButton joinButton;
 
         #endregion
     }

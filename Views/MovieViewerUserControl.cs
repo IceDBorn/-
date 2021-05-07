@@ -13,28 +13,33 @@ namespace filmhub.Views
         #region Fields
         
         private static readonly NpgsqlConnection con = DatabaseController.GetConnection();
-
-        private readonly int _movieId;
+        
         private int _starsCount;
 
         private Image _favoriteEmpty;
         private Image _favoriteEmptyHover;
         private Image _favorite;
         private Image _favoriteHover;
-        
+
         private Image _watchedEmpty;
         private Image _watchedEmptyHover;
         private Image _watched;
         private Image _watchedHover;
-        
+
         private Image _watchlistEmpty;
         private Image _watchlistEmptyHover;
         private Image _watchlist;
         private Image _watchlistHover;
-        
+
         private Image _starEmpty;
         private Image _star;
         private Image _starHover;
+
+        private Image _editMovie;
+        private Image _editMovieHover;
+
+        private Movie _movie;
+        private readonly Image _movieImage;
 
         #endregion
 
@@ -46,7 +51,12 @@ namespace filmhub.Views
             InitializeColors();
             InitializeImages();
             InitializeMovie(image, id);
-            _movieId = id;
+            _movieImage = image;
+            _movie.Id = id;
+            if (Account.GetAccountInstance().Admin)
+            {
+                editPictureBox.Visible = true;
+            }
         }
 
         #endregion
@@ -80,6 +90,7 @@ namespace filmhub.Views
                 _watchedEmpty = Resources.watched_empty;
                 _watchlistEmpty = Resources.watchlist_empty;
                 _starEmpty = Resources.star_empty;
+                _editMovie = Resources.edit;
             }
             else
             {
@@ -87,26 +98,27 @@ namespace filmhub.Views
                 _watchedEmpty = Resources.watched_empty_black;
                 _watchlistEmpty = Resources.watchlist_empty_black;
                 _starEmpty = Resources.star_empty_black;
+                _editMovie = Resources.edit_black;
             }
-            
+
             favoriteImage.Image = _favoriteEmpty;
             _favoriteEmptyHover = Resources.favorite_empty_hover;
             _favorite = Resources.favorite;
             _favoriteHover = Resources.favorite_hover;
-            
-            
+
+
             watchedImage.Image = _watchedEmpty;
             _watchedEmptyHover = Resources.watched_empty_hover;
             _watched = Resources.watched;
             _watchedHover = Resources.watched_hover;
 
-            
+
             watchlistImage.Image = _watchlistEmpty;
             _watchlistEmptyHover = Resources.watchlist_empty_hover;
             _watchlist = Resources.watchlist;
             _watchlistHover = Resources.watchlist_hover;
 
-            
+
             star1.Image = _starEmpty;
             star2.Image = _starEmpty;
             star3.Image = _starEmpty;
@@ -114,34 +126,39 @@ namespace filmhub.Views
             star5.Image = _starEmpty;
             _star = Resources.star;
             _starHover = Resources.star_hover;
+
+            editPictureBox.Image = _editMovie;
+            _editMovieHover = Resources.edit_hover;
         }
 
         private void InitializeMovie(Image image, int id)
         {
             movieImage.Image = image;
 
-            var movie = MovieController.MovieViewerQuery(id);
+            _movie = MovieController.MovieViewerQuery(id);
             
-            titleLabel.Text = movie.Name;
-            descriptionText.Text = movie.Description;
-            directorValueLabel.Text = movie.Director;
-            writerValueLabel.Text = movie.Writer;
-            starsValueLabel.Text = movie.Stars;
-            dateValueLabel.Text = movie.ReleaseDate;
-            genreValueLabel.Text = movie.Genre;
+            titleLabel.Text = _movie.Name;
+            descriptionText.Text = _movie.Description;
+            directorValueLabel.Text = _movie.Director;
+            writerValueLabel.Text = _movie.Writer;
+            starsValueLabel.Text = _movie.Stars;
+            dateValueLabel.Text = _movie.ReleaseDate;
+            genreValueLabel.Text = _movie.Genre;
             
-            _starsCount = movie.Rating;
+            _starsCount = _movie.Rating;
             SetStars();
             
-            if (QueryController.Activity("favorite", Account.GetAccountInstance().Id, id))
+            if (ActivityController.IsActivityType("favorite", id))
             {
                 FillImage(favoriteImage, _favorite);
             }
-            if (QueryController.Activity("history", Account.GetAccountInstance().Id, id))
+
+            if (ActivityController.IsActivityType("history", id))
             {
                 FillImage(watchedImage, _watched);
             }
-            if (QueryController.Activity("watchlist", Account.GetAccountInstance().Id, id))
+
+            if (ActivityController.IsActivityType("watchlist", id))
             {
                 FillImage(watchlistImage, _watchlist);
             }
@@ -157,14 +174,14 @@ namespace filmhub.Views
         {
             if (int.Parse(pb.Tag.ToString()) == 0)
             {
-                var query = "INSERT INTO " + tableName + "(movie_id, user_id) VALUES (" + _movieId + ", " +
+                var query = "INSERT INTO " + tableName + "(movie_id, user_id) VALUES (" + _movie.Id + ", " +
                             Account.GetAccountInstance().Id + ")";
                 using var cmd = new NpgsqlCommand(query, con);
                 cmd.ExecuteNonQuery();
             }
             else
             {
-                var query = "DELETE FROM " + tableName + " WHERE movie_id = " + _movieId + " AND user_id = " +
+                var query = "DELETE FROM " + tableName + " WHERE movie_id = " + _movie.Id + " AND user_id = " +
                             Account.GetAccountInstance().Id;
                 using var cmd = new NpgsqlCommand(query, con);
                 cmd.ExecuteNonQuery();
@@ -175,14 +192,14 @@ namespace filmhub.Views
         {
             if (int.Parse(star1.Tag.ToString()) == 0)
             {
-                var query = "INSERT INTO rating(value,movie_id,user_id) VALUES (" + rate + ", " + _movieId + ", " +
+                var query = "INSERT INTO rating(value,movie_id,user_id) VALUES (" + rate + ", " + _movie.Id + ", " +
                             Account.GetAccountInstance().Id + ")";
                 using var cmd = new NpgsqlCommand(query, con);
                 cmd.ExecuteNonQuery();
             }
             else
             {
-                var query = "UPDATE rating SET value = " + rate + " WHERE movie_id = " + _movieId + " AND user_id = " +
+                var query = "UPDATE rating SET value = " + rate + " WHERE movie_id = " + _movie.Id + " AND user_id = " +
                             Account.GetAccountInstance().Id;
                 using var cmd = new NpgsqlCommand(query, con);
                 cmd.ExecuteNonQuery();
@@ -368,5 +385,22 @@ namespace filmhub.Views
         }
 
         #endregion
+
+        private void editPictureBox_MouseHover(object sender, EventArgs e)
+        {
+            editPictureBox.Image = _editMovieHover;
+        }
+
+
+        private void editPictureBox_MouseLeave(object sender, EventArgs e)
+        {
+            editPictureBox.Image = _editMovie;
+        }
+
+        private void editPictureBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            Program.MainForm.UserControlSelector(
+                new MovieEditorUserControl(_movie, _movieImage), true);
+        }
     }
 }
