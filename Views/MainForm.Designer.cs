@@ -35,7 +35,7 @@ namespace filmhub.Views
             this.navBar = new System.Windows.Forms.Panel();
             this.iconsPanel = new System.Windows.Forms.Panel();
             this.homeButton = new System.Windows.Forms.PictureBox();
-            this.searchBar = new RoundTextBox();
+            this.searchBar = new filmhub.Controls.RoundTextBox();
             this.accountButton = new System.Windows.Forms.PictureBox();
             this.searchButton = new System.Windows.Forms.PictureBox();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
@@ -299,6 +299,7 @@ namespace filmhub.Views
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FilmHub";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.navBar.ResumeLayout(false);
             this.iconsPanel.ResumeLayout(false);
             this.iconsPanel.PerformLayout();

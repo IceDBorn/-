@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Lucene.Net.Analysis.Standard;
 using Lucene.Net.Documents;
@@ -104,6 +105,36 @@ namespace filmhub.Controllers
                 }
 
                 rdr.Close();
+
+                Indexer(list);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+        
+        public static async Task CreateIndexAsync()
+        {
+            try
+            {
+                var con = DatabaseController.GetConnection();
+
+                const string movieData = "SELECT id,name " +
+                                         "FROM movie ";
+
+                using var cmd = new NpgsqlCommand(movieData, con);
+
+                await using var rdr = await cmd.ExecuteReaderAsync();
+
+                var list = new List<Document>();
+
+                while (rdr.Read())
+                {
+                    list.Add(CreateDocument(rdr.GetInt32(0), rdr.GetString(1)));
+                }
+
+                await rdr.CloseAsync();
 
                 Indexer(list);
             }

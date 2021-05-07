@@ -128,6 +128,12 @@ namespace filmhub.Views
         #endregion
 
         #region Events
+        
+        private async void MainForm_Load(object sender, EventArgs e)
+        {
+            SearchController.RemoveIndex();
+            await SearchController.CreateIndexAsync();
+        }
 
         private void searchBar_Enter(object sender, EventArgs e)
         {
