@@ -214,22 +214,33 @@ namespace filmhub.Views
             {
                 if (_isNew)
                 {
-                    // Create add movie function for MovieController TODO
+                    MovieController.AddMovie(
+                        titleValueLabel.Text,
+                        descriptionValueLabel.Text,
+                        directorValueLabel.Text,
+                        writerValueLabel.Text,
+                        starsValueLabel.Text,
+                        _imageLink,
+                        genreValue.SelectedIndex + 1,
+                        dateValue.Value.ToString("yyyy-MM-dd")
+                    );
                 }
                 else
                 {
                     MovieController.UpdateMovie(
                         _movieId,
                         titleValueLabel.Text,
+                        descriptionValueLabel.Text,
                         directorValueLabel.Text,
                         writerValueLabel.Text,
                         starsValueLabel.Text,
-                        dateValue.Value.ToString("yyyy-MM-dd"),
-                        descriptionValueLabel.Text
+                        _imageLink,
+                        genreValue.SelectedIndex + 1,
+                        dateValue.Value.ToString("yyyy-MM-dd")
                     );
                 }
-
-                Program.MainForm.UserControlSelector(new MovieViewerUserControl(_image, _movieId), true);
+                
+                Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
             }
             else
             {

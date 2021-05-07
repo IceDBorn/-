@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using filmhub.Controllers;
 using filmhub.Models;
 using filmhub.Properties;
 
@@ -151,7 +152,15 @@ namespace filmhub.Views
 
         private void favoritesLabel_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new ListUserControl(favoritesLabel.Text, false), true);
+            var list = ActivityController.Query("favorite");
+            Program.MainForm.UserControlSelector(
+                new ListUserControl(
+                    favoritesLabel.Text, 
+                    false,
+                    list
+                ), 
+            true
+            );
             dropDownPanel.Visible = false;
             ResetAccountButtonImage();
         }
@@ -168,7 +177,15 @@ namespace filmhub.Views
 
         private void watchListLabel_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new ListUserControl(watchListLabel.Text, false), true);
+            var list = ActivityController.Query("watchlist");
+            Program.MainForm.UserControlSelector(
+                new ListUserControl(
+                    watchListLabel.Text, 
+                    false,
+                    list
+                ), 
+                true
+            );
             dropDownPanel.Visible = false;
             ResetAccountButtonImage();
         }
@@ -185,7 +202,15 @@ namespace filmhub.Views
 
         private void historyLabel_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new ListUserControl(historyLabel.Text, false), true);
+            var list = ActivityController.Query("history");
+            Program.MainForm.UserControlSelector(
+                new ListUserControl(
+                    historyLabel.Text, 
+                    false,
+                    list
+                ), 
+                true
+            );
             dropDownPanel.Visible = false;
             ResetAccountButtonImage();
         }

@@ -113,14 +113,41 @@ namespace filmhub.Controllers
 
             return movie;
         }
+        
+        public static void AddMovie(string title, string description, string directors, string writers, string stars,
+            string picture, int genreId, string releaseDate)
+        {
+            const string query =
+                "INSERT INTO movie (name, description, director, writer, stars, picture, genre_id, release_date) " +
+                "VALUES (@title, @description, @directors, @writers, @stars, @picture, @genre_id, @release_date)";
 
-        public static void UpdateMovie(int id, string title, string directors, string writers, string stars,
-            string date, string description)
+            try
+            {
+                using var cmd = new NpgsqlCommand(query, con);
+                cmd.Parameters.AddWithValue("title", title);
+                cmd.Parameters.AddWithValue("description", description);
+                cmd.Parameters.AddWithValue("directors", directors);
+                cmd.Parameters.AddWithValue("writers", writers);
+                cmd.Parameters.AddWithValue("stars", stars);
+                cmd.Parameters.AddWithValue("picture", picture);
+                cmd.Parameters.AddWithValue("genre_id", genreId);
+                cmd.Parameters.AddWithValue("release_date", NpgsqlDate.Parse(releaseDate));
+                cmd.Prepare();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        public static void UpdateMovie(int id, string title, string description, string directors, string writers,
+            string stars, string picture, int genreId, string releaseDate)
         {
             const string query =
                 "UPDATE movie " +
-                "SET (name, description, director, writer, stars, release_date) " +
-                "= (@title, @description, @directors, @writers, @stars, @release_date) " +
+                "SET (name, description, director, writer, stars, picture, genre_id, release_date) " +
+                "= (@title, @description, @directors, @writers, @stars, @picture, @genre_id, @release_date) " +
                 "WHERE id = @id";
 
             try
@@ -131,7 +158,9 @@ namespace filmhub.Controllers
                 cmd.Parameters.AddWithValue("directors", directors);
                 cmd.Parameters.AddWithValue("writers", writers);
                 cmd.Parameters.AddWithValue("stars", stars);
-                cmd.Parameters.AddWithValue("release_date", NpgsqlDate.Parse(date));
+                cmd.Parameters.AddWithValue("picture", picture);
+                cmd.Parameters.AddWithValue("genre_id", genreId);
+                cmd.Parameters.AddWithValue("release_date", NpgsqlDate.Parse(releaseDate));
                 cmd.Parameters.AddWithValue("id", id);
                 cmd.Prepare();
                 cmd.ExecuteNonQuery();

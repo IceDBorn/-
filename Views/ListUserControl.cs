@@ -40,6 +40,16 @@ namespace filmhub.Views
             this.menu.Visible = menu;
             window.Text = title;
         }
+        
+        public ListUserControl(string title, bool menu, IEnumerable<int> list)
+        {
+            InitializeComponent();
+            InitializeColors();
+            InitializeImages();
+            this.menu.Visible = menu;
+            window.Text = title;
+            FillListView(list);
+        }
 
         #endregion
 
