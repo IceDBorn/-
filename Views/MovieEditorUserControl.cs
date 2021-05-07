@@ -280,7 +280,7 @@ namespace filmhub.Views
 
             if (dialogResult == DialogResult.Yes)
             {
-                // TODO: Remove movie function
+                MovieController.RemoveMovie(_movie.Id);
                 Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
             }
         }

@@ -171,5 +171,24 @@ namespace filmhub.Controllers
                 MessageBox.Show(e.Message);
             }
         }
+        
+        public static void RemoveMovie(int id)
+        {
+            const string query =
+                "DELETE FROM movie " +
+                "WHERE id = @id";
+
+            try
+            {
+                using var cmd = new NpgsqlCommand(query, con);
+                cmd.Parameters.AddWithValue("id", id);
+                cmd.Prepare();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
     }
 }
