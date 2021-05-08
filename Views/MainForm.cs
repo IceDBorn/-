@@ -111,11 +111,6 @@ namespace filmhub.Views
             GC.Collect();
         }
 
-        private void ResetAccountButtonImage()
-        {
-            accountButton.Image = _account;
-        }
-
         public void RefreshUi()
         {
             Controls.Clear();
@@ -145,6 +140,8 @@ namespace filmhub.Views
             {
                 searchBar.Text = "";
             }
+
+            HideDropDown();
         }
 
         private void searchBar_Leave(object sender, EventArgs e)
@@ -173,7 +170,7 @@ namespace filmhub.Views
                 true
             );
             dropDownPanel.Visible = false;
-            ResetAccountButtonImage();
+            HideDropDown();
         }
 
         private void favoritesLabel_MouseHover(object sender, EventArgs e)
@@ -199,7 +196,7 @@ namespace filmhub.Views
                 true
             );
             dropDownPanel.Visible = false;
-            ResetAccountButtonImage();
+            HideDropDown();
         }
 
         private void watchListLabel_MouseHover(object sender, EventArgs e)
@@ -225,7 +222,7 @@ namespace filmhub.Views
                 true
             );
             dropDownPanel.Visible = false;
-            ResetAccountButtonImage();
+            HideDropDown();
         }
 
         private void historyLabel_MouseHover(object sender, EventArgs e)
@@ -242,7 +239,7 @@ namespace filmhub.Views
         {
             Program.MainForm.UserControlSelector(new SettingsUserControl(), true);
             dropDownPanel.Visible = false;
-            ResetAccountButtonImage();
+            HideDropDown();
         }
 
         private void settingsLabel_MouseHover(object sender, EventArgs e)
@@ -258,8 +255,7 @@ namespace filmhub.Views
         private void logoutLabel_Click(object sender, EventArgs e)
         {
             Program.MainForm.UserControlSelector(new WelcomeUserControl(), false);
-            dropDownPanel.Visible = false;
-            ResetAccountButtonImage();
+            HideDropDown();
             Account.Logout();
         }
 
@@ -276,6 +272,7 @@ namespace filmhub.Views
         private void homeButton_Click(object sender, EventArgs e)
         {
             UserControlSelector(new MainPageUserControl(), true);
+            HideDropDown();
         }
 
         private void homeButton_MouseHover(object sender, EventArgs e)
@@ -311,8 +308,7 @@ namespace filmhub.Views
         private void accountButton_MouseLeave(object sender, EventArgs e)
         {
             if (dropDownPanel.Visible) return;
-            ResetAccountButtonImage();
-            GC.Collect();
+            HideDropDown();
         }
 
         private void iconsPanel_Click(object sender, EventArgs e)
@@ -328,6 +324,7 @@ namespace filmhub.Views
         private void minimize_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
+            HideDropDown();
         }
 
         private void close_MouseHover(object sender, EventArgs e)
@@ -358,6 +355,7 @@ namespace filmhub.Views
         {
             _mouseDown = true;
             _lastLocation = e.Location;
+            HideDropDown();
         }
 
         private void windowBar_MouseMove(object sender, MouseEventArgs e)
@@ -376,6 +374,7 @@ namespace filmhub.Views
 
         private void searchButton_Click(object sender, EventArgs e)
         {
+            HideDropDown();
             if (string.IsNullOrEmpty(searchBar.Text.Trim()) ||
                 searchBar.Text.Trim().Equals("Enter your search"))
             {
@@ -396,8 +395,24 @@ namespace filmhub.Views
                     "No search results for " + searchBar.Text.Trim()), true
             );
             e.SuppressKeyPress = true;
+            HideDropDown();
         }
 
+        private void searchBar_Click(object sender, EventArgs e)
+        {
+            HideDropDown();
+        }
+
+        private void navBar_Click(object sender, EventArgs e)
+        {
+            HideDropDown();
+        }
+
+        private void logoPictureBox_Click(object sender, EventArgs e)
+        {
+            HideDropDown();
+        }
+        
         #endregion
     }
 }

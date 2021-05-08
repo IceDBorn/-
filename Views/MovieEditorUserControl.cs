@@ -67,6 +67,7 @@ namespace filmhub.Views
             starsValueLabel.Text = "";
             descriptionValueLabel.Text = "";
             _isNew = true;
+            _movie = new Movie();
         }
 
         #endregion

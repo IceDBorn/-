@@ -70,6 +70,7 @@ namespace filmhub.Views
             this.navBar.Name = "navBar";
             this.navBar.Size = new System.Drawing.Size(1264, 88);
             this.navBar.TabIndex = 0;
+            this.navBar.Click += new System.EventHandler(this.navBar_Click);
             // 
             // iconsPanel
             // 
@@ -107,6 +108,7 @@ namespace filmhub.Views
             this.searchBar.TabIndex = 3;
             this.searchBar.TabStop = false;
             this.searchBar.Text = " Enter your search";
+            this.searchBar.Click += new System.EventHandler(this.searchBar_Click);
             this.searchBar.Enter += new System.EventHandler(this.searchBar_Enter);
             this.searchBar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchBar_KeyDown);
             this.searchBar.Leave += new System.EventHandler(this.searchBar_Leave);
@@ -145,6 +147,7 @@ namespace filmhub.Views
             this.logoPictureBox.Size = new System.Drawing.Size(311, 64);
             this.logoPictureBox.TabIndex = 0;
             this.logoPictureBox.TabStop = false;
+            this.logoPictureBox.Click += new System.EventHandler(this.logoPictureBox_Click);
             // 
             // dropDownPanel
             // 
@@ -325,7 +328,7 @@ namespace filmhub.Views
         private System.Windows.Forms.Label settingsLabel;
         private System.Windows.Forms.Label logoutLabel;
         private System.Windows.Forms.Label favoritesLabel;
-        private RoundTextBox searchBar;
+        private filmhub.Controls.RoundTextBox searchBar;
         private System.Windows.Forms.UserControl mainPage;
         private System.Windows.Forms.PictureBox accountButton;
         private System.Windows.Forms.Panel navBar;

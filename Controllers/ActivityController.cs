@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Windows.Forms;
 using filmhub.Controls;
 using filmhub.Models;
 using Npgsql;
@@ -8,7 +7,7 @@ namespace filmhub.Controllers
 {
     public static class ActivityController
     {
-        private static readonly NpgsqlConnection con = DatabaseController.GetConnection();
+        private static readonly NpgsqlConnection Con = DatabaseController.GetConnection();
 
         public static bool IsActivityType(string tableName, int movieId)
         {
@@ -17,7 +16,7 @@ namespace filmhub.Controllers
 
             try
             {
-                using var cmd = new NpgsqlCommand(query, con);
+                using var cmd = new NpgsqlCommand(query, Con);
                 cmd.Parameters.AddWithValue("movie", movieId);
                 cmd.Parameters.AddWithValue("user", Account.GetAccountInstance().Id);
                 cmd.Prepare();
@@ -43,7 +42,7 @@ namespace filmhub.Controllers
 
             try
             {
-                using var cmd = new NpgsqlCommand(query, con);
+                using var cmd = new NpgsqlCommand(query, Con);
                 cmd.Parameters.AddWithValue("user_id", Account.GetAccountInstance().Id);
                 cmd.Prepare();
                 using var rdr = cmd.ExecuteReader();

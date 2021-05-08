@@ -65,6 +65,7 @@ namespace filmhub.Views
             this.categoriesPanel.Name = "categoriesPanel";
             this.categoriesPanel.Size = new System.Drawing.Size(248, 595);
             this.categoriesPanel.TabIndex = 18;
+            this.categoriesPanel.MouseHover += new System.EventHandler(this.categoriesPanel_MouseHover);
             // 
             // westernLabel
             // 

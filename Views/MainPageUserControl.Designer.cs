@@ -295,6 +295,7 @@ namespace filmhub.Views
             this.Name = "MainPageUserControl";
             this.Size = new System.Drawing.Size(1264, 595);
             this.Click += new System.EventHandler(this.MainPageUserControl_Click);
+            this.MouseHover += new System.EventHandler(this.MainPageUserControl_MouseHover);
             ((System.ComponentModel.ISupportInitialize) (this.featuredImage1)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.menu)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.featuredImage2)).EndInit();

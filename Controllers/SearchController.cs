@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using filmhub.Controls;
 using Lucene.Net.Analysis.Standard;
 using Lucene.Net.Documents;
@@ -17,7 +16,7 @@ namespace filmhub.Controllers
 {
     public static class SearchController
     {
-        private const string _path = "./IndexedSearch";
+        private const string Path = "./IndexedSearch";
 
         private static void Indexer(IEnumerable<Document> list)
         {
@@ -29,7 +28,7 @@ namespace filmhub.Controllers
         
         private static IndexWriter CreateWriter()
         {
-            var dir = FSDirectory.Open(_path);
+            var dir = FSDirectory.Open(Path);
             var config = new IndexWriterConfig(LuceneVersion.LUCENE_48, new StandardAnalyzer(LuceneVersion.LUCENE_48));
             var writer = new IndexWriter(dir, config);
             return writer;
@@ -47,7 +46,7 @@ namespace filmhub.Controllers
 
         private static IndexSearcher CreateSearcher()
         {
-            Directory dir = FSDirectory.Open(_path);
+            Directory dir = FSDirectory.Open(Path);
             IndexReader reader = DirectoryReader.Open(dir);
             var searcher = new IndexSearcher(reader);
             return searcher;
@@ -59,13 +58,13 @@ namespace filmhub.Controllers
                 new StandardAnalyzer(LuceneVersion.LUCENE_48));
             var escapedString = QueryParserBase.Escape(text);
             var idQuery = qp.Parse(escapedString);
-            var hits = searcher.Search(idQuery, 10);
+            var hits = searcher.Search(idQuery, 999999999);
             return hits;
         }
 
         public static IEnumerable<int> CreateIndexFolder(string result)
         {
-            if (!System.IO.Directory.Exists(_path) || IsDirectoryEmpty(_path))
+            if (!System.IO.Directory.Exists(Path) || IsDirectoryEmpty(Path))
                 CreateIndex();
             var list = new List<int>(SearchIdResults(result));
             return list;
@@ -149,9 +148,9 @@ namespace filmhub.Controllers
         {
             try
             {
-                if (System.IO.Directory.Exists(_path))
+                if (System.IO.Directory.Exists(Path))
                 {
-                    System.IO.Directory.Delete(_path, true);
+                    System.IO.Directory.Delete(Path, true);
                 }
             }
             catch (Exception e)

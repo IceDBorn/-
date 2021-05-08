@@ -4,16 +4,16 @@ namespace filmhub.Controllers
 {
     public static class DatabaseController
     {
-        private static NpgsqlConnection con;
+        private static NpgsqlConnection _con;
         
         public static NpgsqlConnection GetConnection()
         {
-            if (con != null) return con;
+            if (_con != null) return _con;
 
             const string cs = "Host=34.107.105.224;Username=postgres;Password=1234;Database=postgres";
-            con = new NpgsqlConnection(cs);
-            con.Open();
-            return con;
+            _con = new NpgsqlConnection(cs);
+            _con.Open();
+            return _con;
         }
     }
 }
