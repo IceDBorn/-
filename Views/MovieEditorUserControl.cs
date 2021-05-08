@@ -67,6 +67,7 @@ namespace filmhub.Views
             starsValueLabel.Text = "";
             descriptionValueLabel.Text = "";
             _isNew = true;
+            _movie = new Movie();
         }
 
         #endregion
@@ -174,10 +175,10 @@ namespace filmhub.Views
                 // Save the image url to the database
                 await SettingController.UpdateImageLink(_movie.Picture, "movie", _movie.Id);
             }
-            catch
+            catch (Exception e)
             {
                 uploadingLabel.Visible = false;
-                CustomMessageBox.Show(@"Something went wrong, please try again.");
+                CustomMessageBox.Show(e.Message);
             }
         }
 
