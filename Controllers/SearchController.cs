@@ -25,7 +25,7 @@ namespace filmhub.Controllers
             writer.Commit();
             writer.Dispose();
         }
-        
+
         private static IndexWriter CreateWriter()
         {
             var dir = FSDirectory.Open(Path);
@@ -101,7 +101,13 @@ namespace filmhub.Controllers
 
                 while (rdr.Read())
                 {
-                    list.Add(CreateDocument(rdr.GetInt32(0), rdr.GetString(1)+ " " + rdr.GetString(2)+ " " + rdr.GetString(3)+ " " + rdr.GetString(4)+" "+rdr.GetDate(5).Year));
+                    var id = rdr.GetInt32(0);
+                    var name = rdr.GetString(1);
+                    var director = rdr.GetString(2);
+                    var writer = rdr.GetString(3);
+                    var stars = rdr.GetString(4);
+                    var year = rdr.GetDate(5).Year;
+                    list.Add(CreateDocument(id, name + " " + director + " " + writer + " " + stars + " " + year));
                 }
 
                 rdr.Close();
@@ -113,7 +119,7 @@ namespace filmhub.Controllers
                 CustomMessageBox.Show(e.Message);
             }
         }
-        
+
         public static async Task CreateIndexAsync()
         {
             try
@@ -131,7 +137,13 @@ namespace filmhub.Controllers
 
                 while (rdr.Read())
                 {
-                    list.Add(CreateDocument(rdr.GetInt32(0), rdr.GetString(1)+ " " + rdr.GetString(2)+ " " + rdr.GetString(3)+ " " + rdr.GetString(4)+" "+rdr.GetDate(5).Year));
+                    var id = rdr.GetInt32(0);
+                    var name = rdr.GetString(1);
+                    var director = rdr.GetString(2);
+                    var writer = rdr.GetString(3);
+                    var stars = rdr.GetString(4);
+                    var year = rdr.GetDate(5).Year;
+                    list.Add(CreateDocument(id, name + " " + director + " " + writer + " " + stars + " " + year));
                 }
 
                 await rdr.CloseAsync();
