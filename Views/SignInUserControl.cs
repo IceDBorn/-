@@ -70,6 +70,13 @@ namespace filmhub.Views
             {
                 AccountController.Login(usernameTextBox.Text, passwordTextBox.Text);
                 if (Account.GetAccountInstance() == null) return;
+                if (rememberMeCheckBox.Checked)
+                {
+                    Settings.Default.RememberMe = true;
+                    Settings.Default.Username = usernameTextBox.Text;
+                    Settings.Default.Password = passwordTextBox.Text;
+                    Settings.Default.Save();
+                }
                 Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
             }
         }

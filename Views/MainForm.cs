@@ -131,6 +131,12 @@ namespace filmhub.Views
 
         private async void MainForm_Load(object sender, EventArgs e)
         {
+            if (Settings.Default.RememberMe)
+            {
+                AccountController.Login(Settings.Default.Username, Settings.Default.Password);
+                if (Account.GetAccountInstance() == null) return;
+                Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
+            }
             SearchController.RemoveIndex();
             await SearchController.CreateIndexAsync();
         }

@@ -36,10 +36,11 @@ namespace filmhub.Views
             this.backButton = new System.Windows.Forms.PictureBox();
             this.signUpLabel = new System.Windows.Forms.Label();
             this.newLabel = new System.Windows.Forms.Label();
-            this.signInButton = new RoundButton();
-            this.passwordTextBox = new RoundTextBox();
-            this.usernameTextBox = new RoundTextBox();
+            this.signInButton = new filmhub.Controls.RoundButton();
+            this.passwordTextBox = new filmhub.Controls.RoundTextBox();
+            this.usernameTextBox = new filmhub.Controls.RoundTextBox();
             this.signInLabel = new System.Windows.Forms.Label();
+            this.rememberMeCheckBox = new System.Windows.Forms.CheckBox();
             this.menuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.backButton)).BeginInit();
             this.SuspendLayout();
@@ -47,6 +48,7 @@ namespace filmhub.Views
             // menuPanel
             // 
             this.menuPanel.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.menuPanel.Controls.Add(this.rememberMeCheckBox);
             this.menuPanel.Controls.Add(this.backButton);
             this.menuPanel.Controls.Add(this.signUpLabel);
             this.menuPanel.Controls.Add(this.newLabel);
@@ -149,6 +151,15 @@ namespace filmhub.Views
             this.signInLabel.Text = "Sign In";
             this.signInLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // rememberMeCheckBox
+            // 
+            this.rememberMeCheckBox.Location = new System.Drawing.Point(114, 385);
+            this.rememberMeCheckBox.Name = "rememberMeCheckBox";
+            this.rememberMeCheckBox.Size = new System.Drawing.Size(97, 32);
+            this.rememberMeCheckBox.TabIndex = 12;
+            this.rememberMeCheckBox.Text = "Remember me";
+            this.rememberMeCheckBox.UseVisualStyleBackColor = true;
+            // 
             // SignInUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -163,6 +174,8 @@ namespace filmhub.Views
             ((System.ComponentModel.ISupportInitialize) (this.backButton)).EndInit();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.CheckBox rememberMeCheckBox;
 
         private System.Windows.Forms.PictureBox backButton;
 
