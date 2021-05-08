@@ -33,20 +33,22 @@ namespace filmhub.Views
             Search(result);
         }
 
-        public ListUserControl(string title, bool menu)
+        public ListUserControl(string title, bool menu, int genreId)
         {
             InitializeComponent();
             InitializeColors();
             InitializeImages();
             this.menu.Visible = menu;
             window.Text = title;
+            var list = MovieController.GetByGenre(genreId);
+            FillListView(list);
+
         }
         
         public ListUserControl(string title, bool menu, IEnumerable<int> list)
         {
             InitializeComponent();
             InitializeColors();
-            InitializeImages();
             this.menu.Visible = menu;
             window.Text = title;
             FillListView(list);

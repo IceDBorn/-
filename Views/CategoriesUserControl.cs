@@ -47,7 +47,7 @@ namespace filmhub.Views
 
         private void actionLabel_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new ListUserControl(actionLabel.Text,true), true);
+            Program.MainForm.UserControlSelector(new ListUserControl(actionLabel.Text,true,1), true);
         }
         
         private void comedyLabel_MouseHover(object sender, EventArgs e)
@@ -62,7 +62,7 @@ namespace filmhub.Views
 
         private void comedyLabel_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new ListUserControl(comedyLabel.Text,true), true);
+            Program.MainForm.UserControlSelector(new ListUserControl(comedyLabel.Text,true,2), true);
         }
         
         private void crimeLabel_MouseHover(object sender, EventArgs e)
@@ -77,7 +77,7 @@ namespace filmhub.Views
 
         private void crimeLabel_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new ListUserControl(crimeLabel.Text,true), true);
+            Program.MainForm.UserControlSelector(new ListUserControl(crimeLabel.Text,true,3), true);
         }
         
         private void documentaryLabel_MouseHover(object sender, EventArgs e)
@@ -92,7 +92,7 @@ namespace filmhub.Views
 
         private void documentaryLabel_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new ListUserControl(documentaryLabel.Text,true), true);
+            Program.MainForm.UserControlSelector(new ListUserControl(documentaryLabel.Text,true,4), true);
         }
         
         private void dramaLabel_MouseHover(object sender, EventArgs e)
@@ -107,7 +107,7 @@ namespace filmhub.Views
 
         private void dramaLabel_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new ListUserControl(dramaLabel.Text,true), true);
+            Program.MainForm.UserControlSelector(new ListUserControl(dramaLabel.Text,true,5), true);
         }
         
         private void fantasyLabel_MouseHover(object sender, EventArgs e)
@@ -122,7 +122,7 @@ namespace filmhub.Views
 
         private void fantasyLabel_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new ListUserControl(fantasyLabel.Text,true), true);
+            Program.MainForm.UserControlSelector(new ListUserControl(fantasyLabel.Text,true,6), true);
         }
         
         private void horrorLabel_MouseHover(object sender, EventArgs e)
@@ -137,7 +137,7 @@ namespace filmhub.Views
 
         private void horrorLabel_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new ListUserControl(horrorLabel.Text,true), true);
+            Program.MainForm.UserControlSelector(new ListUserControl(horrorLabel.Text,true,7), true);
         }
         
         private void mysteryLabel_MouseHover(object sender, EventArgs e)
@@ -152,7 +152,7 @@ namespace filmhub.Views
 
         private void mysteryLabel_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new ListUserControl(mysteryLabel.Text,true), true);
+            Program.MainForm.UserControlSelector(new ListUserControl(mysteryLabel.Text,true,8), true);
         }
         
         private void romanceLabel_MouseHover(object sender, EventArgs e)
@@ -167,7 +167,7 @@ namespace filmhub.Views
 
         private void romanceLabel_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new ListUserControl(romanceLabel.Text,true), true);
+            Program.MainForm.UserControlSelector(new ListUserControl(romanceLabel.Text,true,9), true);
         }
         
         private void scifiLabel_MouseHover(object sender, EventArgs e)
@@ -182,7 +182,7 @@ namespace filmhub.Views
 
         private void scifiLabel_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new ListUserControl(scifiLabel.Text,true), true);
+            Program.MainForm.UserControlSelector(new ListUserControl(scifiLabel.Text,true,10), true);
         }
         
         private void westernLabel_MouseHover(object sender, EventArgs e)
@@ -197,7 +197,7 @@ namespace filmhub.Views
 
         private void westernLabel_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new ListUserControl(westernLabel.Text,true), true);
+            Program.MainForm.UserControlSelector(new ListUserControl(westernLabel.Text,true,11), true);
         }
         
         #endregion
