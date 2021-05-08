@@ -15,7 +15,7 @@ namespace filmhub.Controls
                 Text = text,
                 Font = new Font("Segoe UI", 14.25F),
                 ForeColor = Program.Colors.ForeColor,
-                BackColor = Program.Colors.BackgroundColor,
+                BackColor = Program.Colors.NavBarBackgroundColor,
                 AutoSize = true
             };
             return l;
@@ -45,6 +45,18 @@ namespace filmhub.Controls
 
     public sealed class CustomMessageBox : Form
     {
+        private const int CS_DROPSHADOW = 0x20000;
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                var cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
+        }
+
         private CustomMessageBox()
         {
             _panText = new FlowLayoutPanel();
@@ -75,9 +87,9 @@ namespace filmhub.Controls
             // 
             // CustomMessageBox
             // 
-            BackColor = Program.Colors.BackgroundColor;
+            BackColor = Program.Colors.NavBarBackgroundColor;
             ForeColor = Program.Colors.ForeColor;
-            FormBorderStyle = FormBorderStyle.FixedDialog;
+            FormBorderStyle = FormBorderStyle.None;
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(206, 133);
@@ -121,7 +133,7 @@ namespace filmhub.Controls
             var mb = new CustomMessageBox {Text = title};
 
             //Labels
-            mb._panText.Location = new Point(9, 9);
+            mb._panText.Location = new Point(39, 24);
             foreach (var l in labels)
             {
                 mb._panText.Controls.Add(l);
@@ -162,10 +174,10 @@ namespace filmhub.Controls
             //Set Height
             var totalHeight = labelHeight + buttonHeight;
 
-            mb._panButtons.Location = new Point(labelWidth / 2 - buttonWidth / 2 + 5,
-                mb._panText.Location.Y + mb._panText.Height + 10);
+            mb._panButtons.Location = new Point(labelWidth / 2 - buttonWidth / 2 + 40,
+                mb._panText.Location.Y + mb._panText.Height + 30);
 
-            mb.Size = new Size(labelWidth + 25, totalHeight + 65);
+            mb.Size = new Size(labelWidth + 85, totalHeight + 80);
             mb.ShowDialog();
         }
 
