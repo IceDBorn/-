@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using filmhub.Controls;
 
 namespace filmhub.Views
 {
@@ -35,12 +36,12 @@ namespace filmhub.Views
             this.backButton = new System.Windows.Forms.PictureBox();
             this.privacyLabel = new System.Windows.Forms.Label();
             this.andLabel = new System.Windows.Forms.Label();
-            this.confirmPasswordTextBox = new filmhub.Views.RoundedTextBox();
+            this.confirmPasswordTextBox = new RoundTextBox();
             this.termsLabel = new System.Windows.Forms.Label();
             this.byClickingLabel = new System.Windows.Forms.Label();
-            this.signUpButton = new filmhub.Views.RoundedButton();
-            this.passwordTextBox = new filmhub.Views.RoundedTextBox();
-            this.usernameTextBox = new filmhub.Views.RoundedTextBox();
+            this.signUpButton = new RoundButton();
+            this.passwordTextBox = new RoundTextBox();
+            this.usernameTextBox = new RoundTextBox();
             this.signInLabel = new System.Windows.Forms.Label();
             this.menuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.backButton)).BeginInit();
@@ -208,21 +209,21 @@ namespace filmhub.Views
 
         private System.Windows.Forms.PictureBox backButton;
 
-        private filmhub.Views.RoundedButton signUpButton;
+        private RoundButton signUpButton;
 
         private System.Windows.Forms.Label privacyLabel;
 
         private System.Windows.Forms.Label andLabel;
 
-        private filmhub.Views.RoundedTextBox confirmPasswordTextBox;
+        private RoundTextBox confirmPasswordTextBox;
 
-        private filmhub.Views.RoundedTextBox passwordTextBox;
+        private RoundTextBox passwordTextBox;
 
         private System.Windows.Forms.Label termsLabel;
 
         private System.Windows.Forms.Label byClickingLabel;
 
-        private filmhub.Views.RoundedTextBox usernameTextBox;
+        private RoundTextBox usernameTextBox;
 
         private System.Windows.Forms.Label signInLabel;
         

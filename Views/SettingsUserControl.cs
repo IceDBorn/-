@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using filmhub.Controllers;
+using filmhub.Controls;
 using filmhub.Models;
 using filmhub.Properties;
 using Imgur.API.Authentication;
@@ -58,6 +59,8 @@ namespace filmhub.Views
             confirmPasswordTextBox.BackColor = Program.Colors.FieldColor;
             confirmPasswordTextBox.ForeColor = Program.Colors.FieldDarkTextColor;
             userProfileImage.BackColor = Program.Colors.BackgroundColor;
+            uploadingLabel.BackColor = Program.Colors.FieldColor;
+            uploadingLabel.ForeColor = Program.Colors.FieldDarkTextColor;
         }
 
         private void InitializeImages()
@@ -117,23 +120,23 @@ namespace filmhub.Views
             if (string.IsNullOrEmpty(passwordTextBox.Text.Trim()))
             {
                 SystemSounds.Beep.Play();
-                MessageBox.Show(@"Password is empty.");
+                CustomMessageBox.Show(@"Password is empty.");
             }
             else if (string.IsNullOrEmpty(confirmPasswordTextBox.Text.Trim()))
             {
                 SystemSounds.Beep.Play();
-                MessageBox.Show(@"Confirm password is empty.");
+                CustomMessageBox.Show(@"Confirm password is empty.");
             }
             else if (!passwordTextBox.Text.Equals(confirmPasswordTextBox.Text))
             {
                 SystemSounds.Beep.Play();
-                MessageBox.Show(@"Passwords do not match.");
+                CustomMessageBox.Show(@"Passwords do not match.");
             }
             else
             {
                 AccountController.ChangePassword(passwordTextBox.Text);
                 ClearPasswordFields();
-                MessageBox.Show(@"Passwords successfully changed.");
+                CustomMessageBox.Show(@"Passwords successfully changed.");
             }
         }
 
@@ -154,16 +157,20 @@ namespace filmhub.Views
             photoBrowser.ShowDialog();
 
             if (string.IsNullOrEmpty(photoBrowser.FileName)) return;
+            userProfileImage.Image = null;
+            userProfileImage.BackColor = Program.Colors.FieldColor;
             imageList.Images.Clear();
             imageList.Images.Add(Image.FromFile(photoBrowser.FileName));
-            userProfileImage.Image = imageList.Images[0];
             await UploadImageToImgur();
+            userProfileImage.Image = imageList.Images[0];
+            userProfileImage.BackColor = Program.Colors.BackgroundColor;
         }
 
         private async Task UploadImageToImgur()
         {
             try
             {
+                uploadingLabel.Visible = true;
                 // Create connection to API
                 var apiClient = new ApiClient("21d68b39c14c68e");
                 var httpClient = new HttpClient();
@@ -176,11 +183,13 @@ namespace filmhub.Views
                 var imageEndpoint = new ImageEndpoint(apiClient, httpClient);
                 var imageUpload = await imageEndpoint.UploadImageAsync(fileStream);
 
-                await SettingController.UpdateImageLink(imageUpload.Link);
+                // Save the image url to the database
+                await SettingController.UpdateImageLink(imageUpload.Link, "account", Account.GetAccountInstance().Id);
+                uploadingLabel.Visible = false;
             }
             catch
             {
-                MessageBox.Show(@"Something went wrong, please try again.");
+                CustomMessageBox.Show(@"Something went wrong, please try again.");
             }
         }
         

@@ -33,7 +33,6 @@ namespace filmhub.Views
         {
             this.components = new System.ComponentModel.Container();
             this.featuredImage1 = new System.Windows.Forms.PictureBox();
-            this.featured = new System.Windows.Forms.Label();
             this.comingSoon = new System.Windows.Forms.Label();
             this.menu = new System.Windows.Forms.PictureBox();
             this.categoriesPanel = new System.Windows.Forms.UserControl();
@@ -49,6 +48,8 @@ namespace filmhub.Views
             this.moviesList = new System.Windows.Forms.ImageList(this.components);
             this.loadingLabel = new System.Windows.Forms.Label();
             this.loadingLabel2 = new System.Windows.Forms.Label();
+            this.featured = new System.Windows.Forms.Label();
+            this.addPictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize) (this.featuredImage1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.menu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.featuredImage2)).BeginInit();
@@ -60,6 +61,7 @@ namespace filmhub.Views
             ((System.ComponentModel.ISupportInitialize) (this.comingSoonImage3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.comingSoonImage4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.comingSoonImage5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.addPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // featuredImage1
@@ -73,16 +75,6 @@ namespace filmhub.Views
             this.featuredImage1.TabStop = false;
             this.featuredImage1.Tag = "0";
             this.featuredImage1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.featuredImage1_MouseClick);
-            // 
-            // featured
-            // 
-            this.featured.Font = new System.Drawing.Font("Segoe UI", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
-            this.featured.ForeColor = System.Drawing.Color.White;
-            this.featured.Location = new System.Drawing.Point(68, 21);
-            this.featured.Name = "featured";
-            this.featured.Size = new System.Drawing.Size(287, 58);
-            this.featured.TabIndex = 1;
-            this.featured.Text = "Featured";
             // 
             // comingSoon
             // 
@@ -253,11 +245,37 @@ namespace filmhub.Views
             this.loadingLabel2.Text = "Loading";
             this.loadingLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // featured
+            // 
+            this.featured.Font = new System.Drawing.Font("Segoe UI", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (161)));
+            this.featured.ForeColor = System.Drawing.Color.White;
+            this.featured.Location = new System.Drawing.Point(68, 21);
+            this.featured.Name = "featured";
+            this.featured.Size = new System.Drawing.Size(287, 58);
+            this.featured.TabIndex = 1;
+            this.featured.Text = "Featured";
+            // 
+            // addPictureBox
+            // 
+            this.addPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addPictureBox.Image = global::filmhub.Properties.Resources.add;
+            this.addPictureBox.Location = new System.Drawing.Point(1200, 21);
+            this.addPictureBox.Name = "addPictureBox";
+            this.addPictureBox.Size = new System.Drawing.Size(48, 50);
+            this.addPictureBox.TabIndex = 27;
+            this.addPictureBox.TabStop = false;
+            this.addPictureBox.Tag = "0";
+            this.addPictureBox.Visible = false;
+            this.addPictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.addPictureBox_MouseClick);
+            this.addPictureBox.MouseLeave += new System.EventHandler(this.addPictureBox_MouseLeave);
+            this.addPictureBox.MouseHover += new System.EventHandler(this.addPictureBox_MouseHover);
+            // 
             // MainPageUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Controls.Add(this.addPictureBox);
             this.Controls.Add(this.loadingLabel2);
             this.Controls.Add(this.loadingLabel);
             this.Controls.Add(this.comingSoonImage5);
@@ -288,8 +306,11 @@ namespace filmhub.Views
             ((System.ComponentModel.ISupportInitialize) (this.comingSoonImage3)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.comingSoonImage4)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.comingSoonImage5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.addPictureBox)).EndInit();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.PictureBox addPictureBox;
 
         private System.Windows.Forms.Label loadingLabel2;
 

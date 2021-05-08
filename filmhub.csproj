@@ -254,12 +254,18 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Controllers\MovieController.cs" />
-        <Compile Include="Controllers\QueryController.cs" />
+        <Compile Include="Controllers\ActivityController.cs" />
         <Compile Include="Controllers\DatabaseController.cs" />
         <Compile Include="Controllers\AccountController.cs" />
         <Compile Include="Controllers\SearchController.cs" />
         <Compile Include="Controllers\SettingController.cs" />
+        <Compile Include="Controls\CustomMessageBox.cs" />
+        <Compile Include="Controls\RoundButton.cs" />
+        <Compile Include="Controls\RoundComboBox.cs" />
+        <Compile Include="Controls\RoundDateTimePicker.cs" />
+        <Compile Include="Controls\RoundTextBox.cs" />
         <Compile Include="Models\Account.cs" />
+        <Compile Include="Models\Colors.cs" />
         <Compile Include="Models\Movie.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
@@ -269,7 +275,6 @@
         <Compile Include="Views\CategoriesUserControl.Designer.cs">
           <DependentUpon>CategoriesUserControl.cs</DependentUpon>
         </Compile>
-        <Compile Include="Views\Colors.cs" />
         <Compile Include="Views\ListUserControl.cs">
           <SubType>UserControl</SubType>
         </Compile>
@@ -288,14 +293,18 @@
         <Compile Include="Views\MainPageUserControl.Designer.cs">
           <DependentUpon>MainPageUserControl.cs</DependentUpon>
         </Compile>
+        <Compile Include="Views\MovieEditorUserControl.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="Views\MovieEditorUserControl.Designer.cs">
+          <DependentUpon>MovieEditorUserControl.cs</DependentUpon>
+        </Compile>
         <Compile Include="Views\MovieViewerUserControl.cs">
           <SubType>UserControl</SubType>
         </Compile>
         <Compile Include="Views\MovieViewerUserControl.Designer.cs">
           <DependentUpon>MovieViewerUserControl.cs</DependentUpon>
         </Compile>
-        <Compile Include="Views\RoundedButton.cs" />
-        <Compile Include="Views\RoundedTextBox.cs" />
         <Compile Include="Views\SettingsUserControl.cs">
           <SubType>UserControl</SubType>
         </Compile>
@@ -341,6 +350,9 @@
         <EmbeddedResource Include="Views\MainPageUserControl.resx">
           <DependentUpon>MainPageUserControl.cs</DependentUpon>
         </EmbeddedResource>
+        <EmbeddedResource Include="Views\MovieEditorUserControl.resx">
+          <DependentUpon>MovieEditorUserControl.cs</DependentUpon>
+        </EmbeddedResource>
         <EmbeddedResource Include="Views\MovieViewerUserControl.resx">
           <DependentUpon>MovieViewerUserControl.cs</DependentUpon>
         </EmbeddedResource>
@@ -374,6 +386,9 @@
       <Content Include="Resources\account.png" />
       <Content Include="Resources\account_black.png" />
       <Content Include="Resources\account_hover.png" />
+      <Content Include="Resources\add.png" />
+      <Content Include="Resources\add_black.png" />
+      <Content Include="Resources\add_hover.png" />
       <Content Include="Resources\back.png" />
       <Content Include="Resources\background.jpg" />
       <Content Include="Resources\background_slogan.jpg" />
@@ -385,9 +400,11 @@
       <Content Include="Resources\dark.png" />
       <Content Include="Resources\dark_hover.png" />
       <Content Include="Resources\default_user.png" />
+      <Content Include="Resources\edit.png" />
+      <Content Include="Resources\edit_black.png" />
+      <Content Include="Resources\edit_hover.png" />
       <Content Include="Resources\favorite.png" />
       <Content Include="Resources\favorite_empty.png" />
-      <Content Include="Resources\favorite_empty1.png" />
       <Content Include="Resources\favorite_empty_black.png" />
       <Content Include="Resources\favorite_empty_hover.png" />
       <Content Include="Resources\favorite_hover.png" />
