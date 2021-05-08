@@ -274,7 +274,7 @@ namespace filmhub.Views
                         dateValue.Value.ToString("yyyy-MM-dd")
                     );
 
-                    Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
+                    
                 }
                 else
                 {
@@ -289,9 +289,8 @@ namespace filmhub.Views
                         genreValue.SelectedIndex + 1,
                         dateValue.Value.ToString("yyyy-MM-dd")
                     );
-
-                    Program.MainForm.UserControlSelector(new MovieViewerUserControl(_image, _movie.Id), true);
                 }
+                Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
             }
             else
             {

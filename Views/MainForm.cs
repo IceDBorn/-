@@ -257,6 +257,7 @@ namespace filmhub.Views
             Program.MainForm.UserControlSelector(new WelcomeUserControl(), false);
             HideDropDown();
             Account.Logout();
+            searchBar.Text = @" Enter your search";
         }
 
         private void logoutLabel_MouseHover(object sender, EventArgs e)
