@@ -197,5 +197,30 @@ namespace filmhub.Controllers
                 CustomMessageBox.Show(e.Message);
             }
         }
+        
+        public static IEnumerable<int> GetByGenre(int id)
+        {
+            var query = "SELECT movie.id FROM movie JOIN genre ON genre_id = genre.id WHERE genre.id = @id ORDER BY RANDOM() LIMIT 10";
+            var list = new List<int>();
+
+            try
+            {
+                using var cmd = new NpgsqlCommand(query, Con);
+                cmd.Parameters.AddWithValue("id", id);
+                cmd.Prepare();
+                using var rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    list.Add(rdr.GetInt32(0));
+                }
+                rdr.Close();
+            }
+            catch
+            {
+                CustomMessageBox.Show(@"Something went wrong.");
+            }
+
+            return list;
+        }
     }
 }
