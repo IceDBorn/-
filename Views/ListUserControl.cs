@@ -30,7 +30,15 @@ namespace filmhub.Views
             InitializeColors();
             this.menu.Visible = menu;
             window.Text = title;
-            FillListView(SearchController.CreateIndexFolder(result), message);
+            if (result.ToLower().Trim().Contains("oscar"))
+            {
+                var list = MovieController.GetByOscar();
+                FillListView(list, message);
+            }
+            else
+            {
+                FillListView(SearchController.CreateIndexFolder(result), message);
+            }
         }
 
         public ListUserControl(string title, bool menu, int genreId, string message)
@@ -104,7 +112,7 @@ namespace filmhub.Views
             try
             {
                 var con = DatabaseController.GetConnection();
-
+                
                 moviesList.Columns.Add("", -2, HorizontalAlignment.Left);
                 const string query = "SELECT name,picture FROM movie WHERE id = ";
 

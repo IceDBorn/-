@@ -222,5 +222,29 @@ namespace filmhub.Controllers
 
             return list;
         }
+        
+        public static IEnumerable<int> GetByOscar()
+        {
+            var query = "SELECT id FROM movie WHERE has_oscar = TRUE ORDER BY RANDOM() LIMIT 10";
+            var list = new List<int>();
+
+            try
+            {
+                using var cmd = new NpgsqlCommand(query, Con);
+                cmd.Prepare();
+                using var rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    list.Add(rdr.GetInt32(0));
+                }
+                rdr.Close();
+            }
+            catch
+            {
+                CustomMessageBox.Show(@"Something went wrong.");
+            }
+
+            return list;
+        }
     }
 }
