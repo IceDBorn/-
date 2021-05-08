@@ -91,7 +91,7 @@ namespace filmhub.Controllers
             {
                 var con = DatabaseController.GetConnection();
 
-                const string movieData = "SELECT id,name,director " +
+                const string movieData = "SELECT id,name,director,writer,stars,release_date " +
                                          "FROM movie ";
 
                 using var cmd = new NpgsqlCommand(movieData, con);
@@ -102,7 +102,7 @@ namespace filmhub.Controllers
 
                 while (rdr.Read())
                 {
-                    list.Add(CreateDocument(rdr.GetInt32(0), rdr.GetString(1)+ " " + rdr.GetString(2)+ " " + rdr.GetString(3)+ " " + rdr.GetString(4)));
+                    list.Add(CreateDocument(rdr.GetInt32(0), rdr.GetString(1)+ " " + rdr.GetString(2)+ " " + rdr.GetString(3)+ " " + rdr.GetString(4)+" "+rdr.GetDate(5).Year));
                 }
 
                 rdr.Close();
@@ -121,7 +121,7 @@ namespace filmhub.Controllers
             {
                 var con = DatabaseController.GetConnection();
 
-                const string movieData = "SELECT id,name,director,writer,stars " +
+                const string movieData = "SELECT id,name,director,writer,stars,release_date " +
                                          "FROM movie ";
 
                 using var cmd = new NpgsqlCommand(movieData, con);
@@ -132,7 +132,7 @@ namespace filmhub.Controllers
 
                 while (rdr.Read())
                 {
-                    list.Add(CreateDocument(rdr.GetInt32(0), rdr.GetString(1)+ " " + rdr.GetString(2)+ " " + rdr.GetString(3)+ " " + rdr.GetString(4)));
+                    list.Add(CreateDocument(rdr.GetInt32(0), rdr.GetString(1)+ " " + rdr.GetString(2)+ " " + rdr.GetString(3)+ " " + rdr.GetString(4)+" "+rdr.GetDate(5).Year));
                 }
 
                 await rdr.CloseAsync();
