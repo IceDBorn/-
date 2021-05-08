@@ -24,16 +24,16 @@ namespace filmhub.Views
 
         #region Constructors
 
-        public ListUserControl(string title, bool menu, string result)
+        public ListUserControl(string title, bool menu, string result, string message)
         {
             InitializeComponent();
             InitializeColors();
             this.menu.Visible = menu;
             window.Text = title;
-            Search(result);
+            FillListView(SearchController.CreateIndexFolder(result), message);
         }
 
-        public ListUserControl(string title, bool menu, int genreId)
+        public ListUserControl(string title, bool menu, int genreId, string message)
         {
             InitializeComponent();
             InitializeColors();
@@ -41,17 +41,16 @@ namespace filmhub.Views
             this.menu.Visible = menu;
             window.Text = title;
             var list = MovieController.GetByGenre(genreId);
-            FillListView(list);
-
+            FillListView(list, message);
         }
         
-        public ListUserControl(string title, bool menu, IEnumerable<int> list)
+        public ListUserControl(string title, bool menu, IEnumerable<int> list, string message)
         {
             InitializeComponent();
             InitializeColors();
             this.menu.Visible = menu;
             window.Text = title;
-            FillListView(list);
+            FillListView(list,message);
         }
 
         #endregion
@@ -99,7 +98,7 @@ namespace filmhub.Views
             return image;
         }
 
-        private void FillListView(IEnumerable<int> list)
+        private void FillListView(IEnumerable<int> list, string message)
         {
             imageList.Images.Clear();
             try
@@ -137,17 +136,12 @@ namespace filmhub.Views
                     rdr.Close();
                 }
 
-                if (moviesList.Items.Count == 0) window.Text = @"No search results";
+                if (moviesList.Items.Count == 0) window.Text = message;
             }
             catch (Exception e)
             {
                 CustomMessageBox.Show(e.Message);
             }
-        }
-
-        private void Search(string result)
-        {
-            FillListView(SearchController.CreateIndexFolder(result));
         }
 
         #endregion
