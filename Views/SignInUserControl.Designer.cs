@@ -33,6 +33,7 @@ namespace filmhub.Views
         private void InitializeComponent()
         {
             this.menuPanel = new System.Windows.Forms.Panel();
+            this.rememberMeCheckBox = new System.Windows.Forms.CheckBox();
             this.backButton = new System.Windows.Forms.PictureBox();
             this.signUpLabel = new System.Windows.Forms.Label();
             this.newLabel = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@ namespace filmhub.Views
             this.passwordTextBox = new filmhub.Controls.RoundTextBox();
             this.usernameTextBox = new filmhub.Controls.RoundTextBox();
             this.signInLabel = new System.Windows.Forms.Label();
-            this.rememberMeCheckBox = new System.Windows.Forms.CheckBox();
             this.menuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.backButton)).BeginInit();
             this.SuspendLayout();
@@ -61,6 +61,17 @@ namespace filmhub.Views
             this.menuPanel.Size = new System.Drawing.Size(532, 522);
             this.menuPanel.TabIndex = 0;
             // 
+            // rememberMeCheckBox
+            // 
+            this.rememberMeCheckBox.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.rememberMeCheckBox.ForeColor = System.Drawing.Color.White;
+            this.rememberMeCheckBox.Location = new System.Drawing.Point(55, 384);
+            this.rememberMeCheckBox.Name = "rememberMeCheckBox";
+            this.rememberMeCheckBox.Size = new System.Drawing.Size(170, 50);
+            this.rememberMeCheckBox.TabIndex = 12;
+            this.rememberMeCheckBox.Text = "Remember me";
+            this.rememberMeCheckBox.UseVisualStyleBackColor = true;
+            // 
             // backButton
             // 
             this.backButton.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -79,7 +90,7 @@ namespace filmhub.Views
             this.signUpLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.signUpLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.signUpLabel.ForeColor = System.Drawing.Color.White;
-            this.signUpLabel.Location = new System.Drawing.Point(273, 430);
+            this.signUpLabel.Location = new System.Drawing.Point(274, 449);
             this.signUpLabel.Name = "signUpLabel";
             this.signUpLabel.Size = new System.Drawing.Size(130, 33);
             this.signUpLabel.TabIndex = 6;
@@ -91,7 +102,7 @@ namespace filmhub.Views
             // newLabel
             // 
             this.newLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.newLabel.Location = new System.Drawing.Point(114, 430);
+            this.newLabel.Location = new System.Drawing.Point(115, 449);
             this.newLabel.Name = "newLabel";
             this.newLabel.Size = new System.Drawing.Size(172, 33);
             this.newLabel.TabIndex = 5;
@@ -150,15 +161,6 @@ namespace filmhub.Views
             this.signInLabel.TabIndex = 0;
             this.signInLabel.Text = "Sign In";
             this.signInLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // rememberMeCheckBox
-            // 
-            this.rememberMeCheckBox.Location = new System.Drawing.Point(114, 385);
-            this.rememberMeCheckBox.Name = "rememberMeCheckBox";
-            this.rememberMeCheckBox.Size = new System.Drawing.Size(97, 32);
-            this.rememberMeCheckBox.TabIndex = 12;
-            this.rememberMeCheckBox.Text = "Remember me";
-            this.rememberMeCheckBox.UseVisualStyleBackColor = true;
             // 
             // SignInUserControl
             // 

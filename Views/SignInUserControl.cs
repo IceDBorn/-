@@ -43,6 +43,7 @@ namespace filmhub.Views
             signInButton.BackColor = Program.Colors.AccentColor;
             signInButton.FlatAppearance.BorderColor = Program.Colors.AccentColor;
             newLabel.ForeColor = Program.Colors.DarkTextColor;
+            rememberMeCheckBox.ForeColor = Program.Colors.ForeColor;
         }
 
         private void InitializeImages()
