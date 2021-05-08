@@ -26,7 +26,7 @@ namespace filmhub.Views
 
         
         
-        public ListUserControl(string title, bool menu, string result,bool categorySearch)
+        public ListUserControl(string title, bool menu, string result,bool categorySearch, string message)
         
         {
             InitializeComponent();
@@ -34,17 +34,17 @@ namespace filmhub.Views
             InitializeImages();
             this.menu.Visible = menu;
             window.Text = title;
-            Search(result,categorySearch);
+            Search(result,categorySearch, message);
         }
         
-        public ListUserControl(string title, bool menu, IEnumerable<int> list)
+        public ListUserControl(string title, bool menu, IEnumerable<int> list, string message)
         {
             InitializeComponent();
             InitializeColors();
             InitializeImages();
             this.menu.Visible = menu;
             window.Text = title;
-            FillListView(list);
+            FillListView(list, message);
         }
 
         #endregion
@@ -92,7 +92,7 @@ namespace filmhub.Views
             return image;
         }
 
-        private void FillListView(IEnumerable<int> list)
+        private void FillListView(IEnumerable<int> list, string message)
         {
             imageList.Images.Clear();
             try
@@ -130,7 +130,7 @@ namespace filmhub.Views
                     rdr.Close();
                 }
 
-                if (moviesList.Items.Count == 0) window.Text = @"No search results";
+                if (moviesList.Items.Count == 0) window.Text = message;
             }
             catch (Exception e)
             {
@@ -138,9 +138,9 @@ namespace filmhub.Views
             }
         }
 
-        private void Search(string result,bool categorySearch)
+        private void Search(string result,bool categorySearch, string message)
         {
-            FillListView(SearchController.CreateIndexFolder(result,categorySearch));
+            FillListView(SearchController.CreateIndexFolder(result,categorySearch), message);
         }
 
         #endregion

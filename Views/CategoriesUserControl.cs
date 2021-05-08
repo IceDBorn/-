@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using filmhub.Controllers;
 
 namespace filmhub.Views
 {
@@ -48,10 +47,10 @@ namespace filmhub.Views
 
         private void actionLabel_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new ListUserControl(actionLabel.Text, true, "action", true), true);
-
+            Program.MainForm.UserControlSelector(
+                new ListUserControl(actionLabel.Text, true, "action", true, "No action movies found"), true);
         }
-        
+
         private void comedyLabel_MouseHover(object sender, EventArgs e)
         {
             comedyLabel.ForeColor = Program.Colors.AccentColor;
@@ -64,9 +63,9 @@ namespace filmhub.Views
 
         private void comedyLabel_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new ListUserControl(comedyLabel.Text, true, "comedy", true), true);
+            Program.MainForm.UserControlSelector(new ListUserControl(comedyLabel.Text, true, "comedy", true, "No comedy movies found"), true);
         }
-        
+
         private void crimeLabel_MouseHover(object sender, EventArgs e)
         {
             crimeLabel.ForeColor = Program.Colors.AccentColor;
@@ -79,9 +78,9 @@ namespace filmhub.Views
 
         private void crimeLabel_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new ListUserControl(crimeLabel.Text, true, "crime", true), true);
+            Program.MainForm.UserControlSelector(new ListUserControl(crimeLabel.Text, true, "crime", true, "No crime movies found"), true);
         }
-        
+
         private void documentaryLabel_MouseHover(object sender, EventArgs e)
         {
             documentaryLabel.ForeColor = Program.Colors.AccentColor;
@@ -94,9 +93,10 @@ namespace filmhub.Views
 
         private void documentaryLabel_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new ListUserControl(documentaryLabel.Text, true, "documentary", true), true);
+            Program.MainForm.UserControlSelector(new ListUserControl(documentaryLabel.Text, true, "documentary", true, "No documentaries found"),
+                true);
         }
-        
+
         private void dramaLabel_MouseHover(object sender, EventArgs e)
         {
             dramaLabel.ForeColor = Program.Colors.AccentColor;
@@ -109,9 +109,9 @@ namespace filmhub.Views
 
         private void dramaLabel_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new ListUserControl(dramaLabel.Text, true, "drama", true), true);
+            Program.MainForm.UserControlSelector(new ListUserControl(dramaLabel.Text, true, "drama", true, "No drama movies found"), true);
         }
-        
+
         private void fantasyLabel_MouseHover(object sender, EventArgs e)
         {
             fantasyLabel.ForeColor = Program.Colors.AccentColor;
@@ -124,9 +124,9 @@ namespace filmhub.Views
 
         private void fantasyLabel_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new ListUserControl(fantasyLabel.Text, true, "fantasy", true), true);
+            Program.MainForm.UserControlSelector(new ListUserControl(fantasyLabel.Text, true, "fantasy", true, "No fantasy movies found"), true);
         }
-        
+
         private void horrorLabel_MouseHover(object sender, EventArgs e)
         {
             horrorLabel.ForeColor = Program.Colors.AccentColor;
@@ -139,9 +139,9 @@ namespace filmhub.Views
 
         private void horrorLabel_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new ListUserControl(horrorLabel.Text, true, "horror", true), true);
+            Program.MainForm.UserControlSelector(new ListUserControl(horrorLabel.Text, true, "horror", true, "No horror movies found"), true);
         }
-        
+
         private void mysteryLabel_MouseHover(object sender, EventArgs e)
         {
             mysteryLabel.ForeColor = Program.Colors.AccentColor;
@@ -154,9 +154,9 @@ namespace filmhub.Views
 
         private void mysteryLabel_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new ListUserControl(mysteryLabel.Text, true, "mystery", true), true);
+            Program.MainForm.UserControlSelector(new ListUserControl(mysteryLabel.Text, true, "mystery", true, "No mystery movies found"), true);
         }
-        
+
         private void romanceLabel_MouseHover(object sender, EventArgs e)
         {
             romanceLabel.ForeColor = Program.Colors.AccentColor;
@@ -169,9 +169,9 @@ namespace filmhub.Views
 
         private void romanceLabel_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new ListUserControl(romanceLabel.Text, true, "romance", true), true);
+            Program.MainForm.UserControlSelector(new ListUserControl(romanceLabel.Text, true, "romance", true, "No romance movies found"), true);
         }
-        
+
         private void scifiLabel_MouseHover(object sender, EventArgs e)
         {
             scifiLabel.ForeColor = Program.Colors.AccentColor;
@@ -184,9 +184,9 @@ namespace filmhub.Views
 
         private void scifiLabel_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new ListUserControl(scifiLabel.Text, true, "sci-fi", true), true);
+            Program.MainForm.UserControlSelector(new ListUserControl(scifiLabel.Text, true, "sci-fi", true, "No sci-fi movies found"), true);
         }
-        
+
         private void westernLabel_MouseHover(object sender, EventArgs e)
         {
             westernLabel.ForeColor = Program.Colors.AccentColor;
@@ -199,10 +199,9 @@ namespace filmhub.Views
 
         private void westernLabel_Click(object sender, EventArgs e)
         {
-            Program.MainForm.UserControlSelector(new ListUserControl(westernLabel.Text, true, "western", true), true);
+            Program.MainForm.UserControlSelector(new ListUserControl(westernLabel.Text, true, "western", true, "No western movies found"), true);
         }
-        
+
         #endregion
     }
-    
 }
