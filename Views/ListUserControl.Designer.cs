@@ -59,7 +59,7 @@ namespace filmhub.Views
             this.moviesList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.moviesList.Location = new System.Drawing.Point(75, 114);
             this.moviesList.Name = "moviesList";
-            this.moviesList.Size = new System.Drawing.Size(1189, 480);
+            this.moviesList.Size = new System.Drawing.Size(1189, 500);
             this.moviesList.SmallImageList = this.imageList;
             this.moviesList.TabIndex = 1;
             this.moviesList.UseCompatibleStateImageBehavior = false;
