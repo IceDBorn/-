@@ -13,19 +13,19 @@ namespace filmhub.Views
 
         private bool _mouseDown;
         private Point _lastLocation;
-        
+
         private Image _home;
         private Image _homeHover;
-        
+
         private Image _search;
         private Image _searchHover;
-        
+
         private Image _account;
         private Image _accountHover;
-        
+
         private Image _close;
         private Image _closeHover;
-        
+
         private Image _minimize;
         private Image _minimizeHover;
 
@@ -84,7 +84,7 @@ namespace filmhub.Views
                 _close = Resources.close_black;
                 _minimize = Resources.minimize_black;
             }
-            
+
             homeButton.Image = _home;
             _homeHover = Resources.home_hover;
             searchButton.Image = _search;
@@ -128,7 +128,7 @@ namespace filmhub.Views
         #endregion
 
         #region Events
-        
+
         private async void MainForm_Load(object sender, EventArgs e)
         {
             SearchController.RemoveIndex();
@@ -161,11 +161,12 @@ namespace filmhub.Views
             var list = ActivityController.Query("favorite");
             Program.MainForm.UserControlSelector(
                 new ListUserControl(
-                    favoritesLabel.Text, 
+                    favoritesLabel.Text,
                     false,
-                    list
-                ), 
-            true
+                    list,
+                    "No movies in favorites"
+                ),
+                true
             );
             dropDownPanel.Visible = false;
             ResetAccountButtonImage();
@@ -186,10 +187,11 @@ namespace filmhub.Views
             var list = ActivityController.Query("watchlist");
             Program.MainForm.UserControlSelector(
                 new ListUserControl(
-                    watchListLabel.Text, 
+                    watchListLabel.Text,
                     false,
-                    list
-                ), 
+                    list,
+                    "No movies in watchlist"
+                ),
                 true
             );
             dropDownPanel.Visible = false;
@@ -211,10 +213,11 @@ namespace filmhub.Views
             var list = ActivityController.Query("history");
             Program.MainForm.UserControlSelector(
                 new ListUserControl(
-                    historyLabel.Text, 
+                    historyLabel.Text,
                     false,
-                    list
-                ), 
+                    list,
+                    "No movies in history"
+                ),
                 true
             );
             dropDownPanel.Visible = false;
@@ -376,7 +379,8 @@ namespace filmhub.Views
             }
 
             Program.MainForm.UserControlSelector(
-                new ListUserControl("Search", false, searchBar.Text.Trim()), true
+                new ListUserControl("Search", false, searchBar.Text.Trim(),
+                    "No search results for " + searchBar.Text.Trim()), true
             );
         }
 
@@ -384,7 +388,8 @@ namespace filmhub.Views
         {
             if (e.KeyCode != Keys.Enter || string.IsNullOrEmpty(searchBar.Text.Trim())) return;
             Program.MainForm.UserControlSelector(
-                new ListUserControl("Search", false, searchBar.Text.Trim()), true
+                new ListUserControl("Search", false, searchBar.Text.Trim(),
+                    "No search results for " + searchBar.Text.Trim()), true
             );
             e.SuppressKeyPress = true;
         }
