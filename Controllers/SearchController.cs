@@ -17,6 +17,7 @@ namespace filmhub.Controllers
     public static class SearchController
     {
         private const string Path = "./IndexedSearch";
+        private static readonly NpgsqlConnection Con = DatabaseController.GetConnection();
 
         private static void Indexer(IEnumerable<Document> list)
         {
@@ -84,16 +85,14 @@ namespace filmhub.Controllers
             return results;
         }
 
-        public static void CreateIndex()
+        private static void CreateIndex()
         {
             try
             {
-                var con = DatabaseController.GetConnection();
-
                 const string movieData = "SELECT id,name,director,writer,stars,release_date " +
                                          "FROM movie ";
 
-                using var cmd = new NpgsqlCommand(movieData, con);
+                using var cmd = new NpgsqlCommand(movieData, Con);
 
                 using var rdr = cmd.ExecuteReader();
 
@@ -124,12 +123,10 @@ namespace filmhub.Controllers
         {
             try
             {
-                var con = DatabaseController.GetConnection();
-
                 const string movieData = "SELECT id,name,director,writer,stars,release_date " +
                                          "FROM movie ";
 
-                using var cmd = new NpgsqlCommand(movieData, con);
+                using var cmd = new NpgsqlCommand(movieData, Con);
 
                 await using var rdr = await cmd.ExecuteReaderAsync();
 
