@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Forms;
+using filmhub.Controls;
 using filmhub.Models;
 using Npgsql;
 
@@ -29,7 +30,7 @@ namespace filmhub.Controllers
             }
             catch
             {
-                MessageBox.Show(@"Something went wrong.");
+                CustomMessageBox.Show(@"Something went wrong.");
             }
 
             return id != -1;
@@ -54,7 +55,7 @@ namespace filmhub.Controllers
             }
             catch
             {
-                MessageBox.Show(@"Something went wrong.");
+                CustomMessageBox.Show(@"Something went wrong.");
             }
 
             return list;

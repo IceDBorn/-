@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
+using filmhub.Controls;
 using filmhub.Models;
 using Npgsql;
 using NpgsqlTypes;
@@ -9,7 +9,7 @@ namespace filmhub.Controllers
 {
     public static class MovieController
     {
-        private static readonly NpgsqlConnection con = DatabaseController.GetConnection();
+        private static readonly NpgsqlConnection Con = DatabaseController.GetConnection();
 
         public enum Section
         {
@@ -35,7 +35,7 @@ namespace filmhub.Controllers
 
             try
             {
-                using var cmd = new NpgsqlCommand(query, con);
+                using var cmd = new NpgsqlCommand(query, Con);
                 using var rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
@@ -47,11 +47,11 @@ namespace filmhub.Controllers
             }
             catch (ArgumentOutOfRangeException e)
             {
-                MessageBox.Show(e.Message);
+                CustomMessageBox.Show(e.Message);
             }
             catch
             {
-                MessageBox.Show(@"Something went wrong while contacting the database.");
+                CustomMessageBox.Show(@"Something went wrong while contacting the database.");
             }
 
             return movies;
@@ -66,7 +66,7 @@ namespace filmhub.Controllers
                 "JOIN genre ON genre_id = genre.id " +
                 "WHERE movie.id = @id";
 
-            var cmd = new NpgsqlCommand(query, con);
+            var cmd = new NpgsqlCommand(query, Con);
             cmd.Parameters.AddWithValue("id", id);
             cmd.Prepare();
             var rdr = cmd.ExecuteReader();
@@ -85,7 +85,7 @@ namespace filmhub.Controllers
                 }
                 catch
                 {
-                    MessageBox.Show(@"Something went wrong while contacting the database.");
+                    CustomMessageBox.Show(@"Something went wrong while contacting the database.");
                 }
             }
 
@@ -93,7 +93,7 @@ namespace filmhub.Controllers
 
             query = "SELECT value FROM rating WHERE movie_id = @id AND user_id = @user_id";
 
-            cmd = new NpgsqlCommand(query, con);
+            cmd = new NpgsqlCommand(query, Con);
             cmd.Parameters.AddWithValue("id", id);
             cmd.Parameters.AddWithValue("user_id", Account.GetAccountInstance().Id);
             cmd.Prepare();
@@ -106,7 +106,7 @@ namespace filmhub.Controllers
                 }
                 catch
                 {
-                    MessageBox.Show(@"Something went wrong while contacting the database.");
+                    CustomMessageBox.Show(@"Something went wrong while contacting the database.");
                 }
             }
 
@@ -124,7 +124,7 @@ namespace filmhub.Controllers
 
             try
             {
-                using var cmd = new NpgsqlCommand(query, con);
+                using var cmd = new NpgsqlCommand(query, Con);
                 cmd.Parameters.AddWithValue("title", title);
                 cmd.Parameters.AddWithValue("description", description);
                 cmd.Parameters.AddWithValue("directors", directors);
@@ -141,7 +141,7 @@ namespace filmhub.Controllers
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                CustomMessageBox.Show(e.Message);
             }
         }
 
@@ -156,7 +156,7 @@ namespace filmhub.Controllers
 
             try
             {
-                using var cmd = new NpgsqlCommand(query, con);
+                using var cmd = new NpgsqlCommand(query, Con);
                 cmd.Parameters.AddWithValue("title", title);
                 cmd.Parameters.AddWithValue("description", description);
                 cmd.Parameters.AddWithValue("directors", directors);
@@ -171,7 +171,7 @@ namespace filmhub.Controllers
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                CustomMessageBox.Show(e.Message);
             }
         }
         
@@ -183,7 +183,7 @@ namespace filmhub.Controllers
 
             try
             {
-                using var cmd = new NpgsqlCommand(query, con);
+                using var cmd = new NpgsqlCommand(query, Con);
                 cmd.Parameters.AddWithValue("id", id);
                 cmd.Prepare();
                 cmd.ExecuteNonQuery();
@@ -193,7 +193,7 @@ namespace filmhub.Controllers
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                CustomMessageBox.Show(e.Message);
             }
         }
     }

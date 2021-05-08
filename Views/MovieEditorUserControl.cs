@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Media;
@@ -6,6 +7,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using filmhub.Controllers;
+using filmhub.Controls;
 using filmhub.Models;
 using Imgur.API.Authentication;
 using Imgur.API.Endpoints;
@@ -175,8 +177,49 @@ namespace filmhub.Views
             catch
             {
                 uploadingLabel.Visible = false;
-                MessageBox.Show(@"Something went wrong, please try again.");
+                CustomMessageBox.Show(@"Something went wrong, please try again.");
             }
+        }
+
+        private void RemoveMovie()
+        {
+            var yesButton = new RoundButton
+            {
+                Text = @"Yes",
+                Width = 100,
+                Height = 30,
+                Font = new Font("Segoe UI", 12),
+                ForeColor = Color.White,
+                BackColor = Program.Colors.AccentColor,
+                FlatStyle = FlatStyle.Flat,
+                TabStop = false,
+                DialogResult = DialogResult.Yes,
+                UseVisualStyleBackColor = BackColor == SystemColors.Control
+            };
+            yesButton.FlatAppearance.BorderColor = Program.Colors.AccentColor;
+            
+            var noButton = new RoundButton
+            {
+                Text = @"No",
+                Width = 100,
+                Height = 30,
+                Font = new Font("Segoe UI", 12),
+                ForeColor = Color.White,
+                BackColor = Program.Colors.AccentColor,
+                FlatStyle = FlatStyle.Flat,
+                TabStop = false,
+                UseVisualStyleBackColor = BackColor == SystemColors.Control
+            };
+            noButton.FlatAppearance.BorderColor = Program.Colors.AccentColor;
+            
+            var buttonList = new List<Button> {yesButton, noButton};
+            var message = @"Remove movie " + titleValueLabel.Text + @"?";
+            
+            var dialogResult = CustomMessageBox.ShowDialog(message, "", buttonList);
+
+            if (dialogResult != DialogResult.Yes) return;
+            MovieController.RemoveMovie(_movie.Id);
+            Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
         }
 
         #endregion
@@ -188,32 +231,32 @@ namespace filmhub.Views
             if (string.IsNullOrEmpty(titleValueLabel.Text.Trim()))
             {
                 SystemSounds.Beep.Play();
-                MessageBox.Show(@"Title is empty.");
+                CustomMessageBox.Show(@"Title is empty.");
             }
             else if (string.IsNullOrEmpty(directorValueLabel.Text.Trim()))
             {
                 SystemSounds.Beep.Play();
-                MessageBox.Show(@"Directors is empty.");
+                CustomMessageBox.Show(@"Directors is empty.");
             }
             else if (string.IsNullOrEmpty(writerValueLabel.Text.Trim()))
             {
                 SystemSounds.Beep.Play();
-                MessageBox.Show(@"Writers is empty.");
+                CustomMessageBox.Show(@"Writers is empty.");
             }
             else if (string.IsNullOrEmpty(starsValueLabel.Text.Trim()))
             {
                 SystemSounds.Beep.Play();
-                MessageBox.Show(@"Stars is empty.");
+                CustomMessageBox.Show(@"Stars is empty.");
             }
             else if (string.IsNullOrEmpty(descriptionValueLabel.Text.Trim()))
             {
                 SystemSounds.Beep.Play();
-                MessageBox.Show(@"Description is empty.");
+                CustomMessageBox.Show(@"Description is empty.");
             }
             else if (_movie.Picture == null && _isNew)
             {
                 SystemSounds.Beep.Play();
-                MessageBox.Show(@"Photo is empty.");
+                CustomMessageBox.Show(@"Photo is empty.");
             }
             else if (_isUploaded)
             {
@@ -252,7 +295,7 @@ namespace filmhub.Views
             else
             {
                 SystemSounds.Beep.Play();
-                MessageBox.Show(@"Photo is still uploading...");
+                CustomMessageBox.Show(@"Photo is still uploading...");
             }
         }
 
@@ -270,19 +313,12 @@ namespace filmhub.Views
             await UploadImageToImgur();
             if (_isUploaded) movieImage.Image = imageList.Images[0];
         }
-
-        #endregion
-
+        
         private void removeButton_Click(object sender, EventArgs e)
         {
-            var dialogResult =
-                MessageBox.Show(@"Remove movie " + titleValueLabel.Text + @"?", "", MessageBoxButtons.YesNo);
-
-            if (dialogResult == DialogResult.Yes)
-            {
-                MovieController.RemoveMovie(_movie.Id);
-                Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
-            }
+            RemoveMovie();
         }
+
+        #endregion
     }
 }

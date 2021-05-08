@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
 using filmhub.Controllers;
+using filmhub.Controls;
 using filmhub.Models;
 using filmhub.Properties;
 
@@ -61,23 +62,23 @@ namespace filmhub.Views
             if (string.IsNullOrEmpty(usernameTextBox.Text.Trim()) || usernameTextBox.Text.Equals(" Username"))
             {
                 SystemSounds.Beep.Play();
-                MessageBox.Show(@"Username is empty.");
+                CustomMessageBox.Show(@"Username is empty.");
             }
             else if (string.IsNullOrEmpty(passwordTextBox.Text.Trim()) || passwordTextBox.Text.Equals(" Password"))
             {
                 SystemSounds.Beep.Play();
-                MessageBox.Show(@"Password is empty.");
+                CustomMessageBox.Show(@"Password is empty.");
             }
             else if (string.IsNullOrEmpty(confirmPasswordTextBox.Text.Trim()) ||
                      confirmPasswordTextBox.Text.Equals(" Confirm password"))
             {
                 SystemSounds.Beep.Play();
-                MessageBox.Show(@"Confirm password is empty.");
+                CustomMessageBox.Show(@"Confirm password is empty.");
             }
             else if (!passwordTextBox.Text.Equals(confirmPasswordTextBox.Text))
             {
                 SystemSounds.Beep.Play();
-                MessageBox.Show(@"Passwords do not match.");
+                CustomMessageBox.Show(@"Passwords do not match.");
             }
             else
             {

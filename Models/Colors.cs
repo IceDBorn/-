@@ -1,11 +1,10 @@
 using System;
 using System.Drawing;
-using System.Windows.Forms;
 using filmhub.Controllers;
-using filmhub.Models;
+using filmhub.Controls;
 using Npgsql;
 
-namespace filmhub.Views
+namespace filmhub.Models
 {
     public class Colors
     {
@@ -90,7 +89,7 @@ namespace filmhub.Views
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                CustomMessageBox.Show(e.Message);
             }
         }
 
