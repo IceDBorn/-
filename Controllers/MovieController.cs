@@ -200,7 +200,7 @@ namespace filmhub.Controllers
         
         public static IEnumerable<int> GetByGenre(int id)
         {
-            var query = "SELECT movie.id FROM movie JOIN genre ON genre_id = genre.id WHERE genre.id = @id ORDER BY RANDOM() LIMIT 10";
+            const string query = "SELECT movie.id FROM movie JOIN genre ON genre_id = genre.id WHERE genre.id = @id";
             var list = new List<int>();
 
             try
@@ -225,7 +225,7 @@ namespace filmhub.Controllers
         
         public static IEnumerable<int> GetByOscar()
         {
-            var query = "SELECT id FROM movie WHERE has_oscar = TRUE ORDER BY RANDOM() LIMIT 10";
+            var query = "SELECT id FROM movie WHERE has_oscar = TRUE";
             var list = new List<int>();
 
             try
