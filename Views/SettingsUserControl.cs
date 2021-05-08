@@ -222,6 +222,11 @@ namespace filmhub.Views
         {
             ChangePassword();
         }
+        
+        private void SettingsUserControl_MouseHover(object sender, EventArgs e)
+        {
+            Program.MainForm.HideDropDown();
+        }
 
         #endregion
     }

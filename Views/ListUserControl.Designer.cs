@@ -50,6 +50,7 @@ namespace filmhub.Views
             this.window.TabIndex = 0;
             this.window.Text = "Window\r\n\r\n";
             this.window.MouseClick += new System.Windows.Forms.MouseEventHandler(this.window_MouseClick);
+            this.window.MouseHover += new System.EventHandler(this.window_MouseHover);
             // 
             // moviesList
             // 
@@ -59,12 +60,13 @@ namespace filmhub.Views
             this.moviesList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.moviesList.Location = new System.Drawing.Point(75, 114);
             this.moviesList.Name = "moviesList";
-            this.moviesList.Size = new System.Drawing.Size(1189, 480);
+            this.moviesList.Size = new System.Drawing.Size(1189, 500);
             this.moviesList.SmallImageList = this.imageList;
             this.moviesList.TabIndex = 1;
             this.moviesList.UseCompatibleStateImageBehavior = false;
             this.moviesList.View = System.Windows.Forms.View.Details;
             this.moviesList.ItemActivate += new System.EventHandler(this.moviesList_ItemActivate);
+            this.moviesList.MouseHover += new System.EventHandler(this.moviesList_MouseHover);
             // 
             // imageList
             // 
@@ -106,6 +108,7 @@ namespace filmhub.Views
             this.Name = "ListUserControl";
             this.Size = new System.Drawing.Size(1264, 595);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListUserControl_MouseClick);
+            this.MouseHover += new System.EventHandler(this.ListUserControl_MouseHover);
             ((System.ComponentModel.ISupportInitialize) (this.menu)).EndInit();
             this.ResumeLayout(false);
         }

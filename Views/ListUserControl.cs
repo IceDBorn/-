@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Net;
+using System.Threading;
 using System.Windows.Forms;
 using filmhub.Controllers;
 using filmhub.Controls;
@@ -16,7 +17,7 @@ namespace filmhub.Views
         #region Fields
 
         private int[] _moviesId;
-        
+
         private Image _menu;
         private Image _menuHover;
 
@@ -33,11 +34,13 @@ namespace filmhub.Views
             if (result.ToLower().Trim().Contains("oscar"))
             {
                 var list = MovieController.GetByOscar();
-                FillListView(list, message);
+                var thread = new Thread(() => FillListView(list, message));
+                thread.Start();
             }
             else
             {
-                FillListView(SearchController.CreateIndexFolder(result), message);
+                var thread = new Thread(() => FillListView(SearchController.CreateIndexFolder(result), message));
+                thread.Start();
             }
         }
 
@@ -49,16 +52,18 @@ namespace filmhub.Views
             this.menu.Visible = menu;
             window.Text = title;
             var list = MovieController.GetByGenre(genreId);
-            FillListView(list, message);
+            var thread = new Thread(() => FillListView(list, message));
+            thread.Start();
         }
-        
+
         public ListUserControl(string title, bool menu, IEnumerable<int> list, string message)
         {
             InitializeComponent();
             InitializeColors();
             this.menu.Visible = menu;
             window.Text = title;
-            FillListView(list,message);
+            var thread = new Thread(() => FillListView(list, message));
+            thread.Start();
         }
 
         #endregion
@@ -112,7 +117,7 @@ namespace filmhub.Views
             try
             {
                 var con = DatabaseController.GetConnection();
-                
+
                 moviesList.Columns.Add("", -2, HorizontalAlignment.Left);
                 const string query = "SELECT name,picture FROM movie WHERE id = ";
 
@@ -141,6 +146,7 @@ namespace filmhub.Views
                         var item = new ListViewItem(new[] {"     " + rdr.GetString(0)}) {ImageIndex = i};
                         moviesList.Items.Add(item);
                     }
+
                     rdr.Close();
                 }
 
@@ -181,7 +187,7 @@ namespace filmhub.Views
                 new MovieViewerUserControl(imageList.Images[moviesList.SelectedItems[0].Index],
                     _moviesId[moviesList.SelectedItems[0].Index]), true);
         }
-        
+
         private void window_MouseClick(object sender, MouseEventArgs e)
         {
             categoriesPanel.Visible = false;
@@ -190,6 +196,21 @@ namespace filmhub.Views
         private void ListUserControl_MouseClick(object sender, MouseEventArgs e)
         {
             categoriesPanel.Visible = false;
+        }
+        
+        private void ListUserControl_MouseHover(object sender, EventArgs e)
+        {
+            Program.MainForm.HideDropDown();
+        }
+
+        private void window_MouseHover(object sender, EventArgs e)
+        {
+            Program.MainForm.HideDropDown();
+        }
+
+        private void moviesList_MouseHover(object sender, EventArgs e)
+        {
+            Program.MainForm.HideDropDown();
         }
 
         #endregion

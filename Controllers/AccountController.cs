@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Windows.Forms;
 using filmhub.Controls;
 using filmhub.Models;
 using filmhub.Properties;
@@ -46,7 +45,7 @@ namespace filmhub.Controllers
 
             if (id != -1)
             {
-                new Account(id, username, admin, darkTheme, picture).Login();
+                new Account(id, username, admin, picture).Login();
                 if (Settings.Default.Theme == 0 && darkTheme ||
                     Settings.Default.Theme == 1 && darkTheme == false) return;
                 Program.Colors.SetDarkTheme(darkTheme);

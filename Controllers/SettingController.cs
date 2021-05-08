@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using System.Windows.Forms;
 using filmhub.Controls;
 using filmhub.Models;
 using Npgsql;
@@ -8,7 +7,7 @@ namespace filmhub.Controllers
 {
     public static class SettingController
     {
-        private static readonly NpgsqlConnection con = DatabaseController.GetConnection();
+        private static readonly NpgsqlConnection Con = DatabaseController.GetConnection();
 
         public static async Task UpdateImageLink(string link, string table, int id)
         {
@@ -16,7 +15,7 @@ namespace filmhub.Controllers
 
             try
             {
-                using var cmd = new NpgsqlCommand(query, con);
+                using var cmd = new NpgsqlCommand(query, Con);
                 cmd.Parameters.AddWithValue("link", link);
                 cmd.Parameters.AddWithValue("id", id);
 
