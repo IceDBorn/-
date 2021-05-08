@@ -48,6 +48,7 @@ namespace filmhub.Views
             andLabel.ForeColor = Program.Colors.DarkTextColor;
             confirmPasswordTextBox.BackColor = Program.Colors.FieldColor;
             confirmPasswordTextBox.ForeColor = Program.Colors.FieldDarkTextColor;
+            rememberMeCheckBox.ForeColor = Program.Colors.ForeColor;
         }
         
         private void InitializeImages()
