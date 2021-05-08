@@ -31,18 +31,10 @@ namespace filmhub.Views
         {
             InitializeComponent();
             InitializeColors();
-            this.menu.Visible = menu;
-            window.Text = title;
-            Search(result,categorySearch);
-        }
-
-        public ListUserControl(string title, bool menu)
-        {
-            InitializeComponent();
-            InitializeColors();
             InitializeImages();
             this.menu.Visible = menu;
             window.Text = title;
+            Search(result,categorySearch);
         }
         
         public ListUserControl(string title, bool menu, IEnumerable<int> list)
@@ -69,7 +61,7 @@ namespace filmhub.Views
 
         private void InitializeImages()
         {
-            _menu = Settings.Default.Theme == 0 ? Resources.menu : Resources.menu_black;
+            _menu = Settings.Default.Theme == 0 ? Resources.menu : Resources.menu_black; 
             menu.Image = _menu;
             _menuHover = Resources.menu_hover;
         }
