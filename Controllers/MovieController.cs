@@ -111,6 +111,7 @@ namespace filmhub.Controllers
             }
 
             rdr.Close();
+            cmd.Dispose();
 
             return movie;
         }
