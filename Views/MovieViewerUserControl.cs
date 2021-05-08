@@ -201,13 +201,20 @@ namespace filmhub.Views
             {
                 if (rate == _starsCount)
                 {
+                    
+                    var query = "DELETE FROM rating WHERE movie_id = " + _movie.Id + " AND user_id = " +
+                                Account.GetAccountInstance().Id;
+                    using var cmd = new NpgsqlCommand(query, Con);
+                    cmd.ExecuteNonQuery();
                     rate = 0;
                 }
-                
-                var query = "UPDATE rating SET value = " + rate + " WHERE movie_id = " + _movie.Id + " AND user_id = " +
-                            Account.GetAccountInstance().Id;
-                using var cmd = new NpgsqlCommand(query, Con);
-                cmd.ExecuteNonQuery();
+                else
+                {
+                    var query = "UPDATE rating SET value = " + rate + " WHERE movie_id = " + _movie.Id + " AND user_id = " +
+                                Account.GetAccountInstance().Id;
+                    using var cmd = new NpgsqlCommand(query, Con);
+                    cmd.ExecuteNonQuery();
+                }
             }
 
             _starsCount = rate;
