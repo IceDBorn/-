@@ -17,6 +17,7 @@ namespace filmhub.Controllers
     public static class SearchController
     {
         private const string Path = "./IndexedSearch";
+        private static readonly NpgsqlConnection Con = DatabaseController.GetConnection();
 
         private static void Indexer(IEnumerable<Document> list)
         {
@@ -25,7 +26,7 @@ namespace filmhub.Controllers
             writer.Commit();
             writer.Dispose();
         }
-        
+
         private static IndexWriter CreateWriter()
         {
             var dir = FSDirectory.Open(Path);
@@ -84,16 +85,14 @@ namespace filmhub.Controllers
             return results;
         }
 
-        public static void CreateIndex()
+        private static void CreateIndex()
         {
             try
             {
-                var con = DatabaseController.GetConnection();
-
-                const string movieData = "SELECT id,name " +
+                const string movieData = "SELECT id,name,director,writer,stars,release_date " +
                                          "FROM movie ";
 
-                using var cmd = new NpgsqlCommand(movieData, con);
+                using var cmd = new NpgsqlCommand(movieData, Con);
 
                 using var rdr = cmd.ExecuteReader();
 
@@ -101,7 +100,13 @@ namespace filmhub.Controllers
 
                 while (rdr.Read())
                 {
-                    list.Add(CreateDocument(rdr.GetInt32(0), rdr.GetString(1)));
+                    var id = rdr.GetInt32(0);
+                    var name = rdr.GetString(1);
+                    var director = rdr.GetString(2);
+                    var writer = rdr.GetString(3);
+                    var stars = rdr.GetString(4);
+                    var year = rdr.GetDate(5).Year;
+                    list.Add(CreateDocument(id, name + " " + director + " " + writer + " " + stars + " " + year));
                 }
 
                 rdr.Close();
@@ -113,17 +118,15 @@ namespace filmhub.Controllers
                 CustomMessageBox.Show(e.Message);
             }
         }
-        
+
         public static async Task CreateIndexAsync()
         {
             try
             {
-                var con = DatabaseController.GetConnection();
-
-                const string movieData = "SELECT id,name " +
+                const string movieData = "SELECT id,name,director,writer,stars,release_date " +
                                          "FROM movie ";
 
-                using var cmd = new NpgsqlCommand(movieData, con);
+                using var cmd = new NpgsqlCommand(movieData, Con);
 
                 await using var rdr = await cmd.ExecuteReaderAsync();
 
@@ -131,7 +134,13 @@ namespace filmhub.Controllers
 
                 while (rdr.Read())
                 {
-                    list.Add(CreateDocument(rdr.GetInt32(0), rdr.GetString(1)));
+                    var id = rdr.GetInt32(0);
+                    var name = rdr.GetString(1);
+                    var director = rdr.GetString(2);
+                    var writer = rdr.GetString(3);
+                    var stars = rdr.GetString(4);
+                    var year = rdr.GetDate(5).Year;
+                    list.Add(CreateDocument(id, name + " " + director + " " + writer + " " + stars + " " + year));
                 }
 
                 await rdr.CloseAsync();
