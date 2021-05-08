@@ -225,7 +225,7 @@ namespace filmhub.Controllers
         
         public static IEnumerable<int> GetByOscar()
         {
-            var query = "SELECT id FROM movie WHERE has_oscar = TRUE";
+            var query = "SELECT id FROM movie WHERE has_oscar = TRUE ORDER BY RANDOM() LIMIT 10";
             var list = new List<int>();
 
             try
