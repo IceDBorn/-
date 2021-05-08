@@ -48,6 +48,7 @@ namespace filmhub.Views
             andLabel.ForeColor = Program.Colors.DarkTextColor;
             confirmPasswordTextBox.BackColor = Program.Colors.FieldColor;
             confirmPasswordTextBox.ForeColor = Program.Colors.FieldDarkTextColor;
+            rememberMeCheckBox.ForeColor = Program.Colors.ForeColor;
         }
         
         private void InitializeImages()
@@ -84,6 +85,13 @@ namespace filmhub.Views
             {
                 AccountController.Signup(usernameTextBox.Text, passwordTextBox.Text);
                 if (Account.GetAccountInstance() == null) return;
+                if (rememberMeCheckBox.Checked)
+                {
+                    Settings.Default.RememberMe = true;
+                    Settings.Default.Username = usernameTextBox.Text;
+                    Settings.Default.Password = passwordTextBox.Text;
+                    Settings.Default.Save();
+                }
                 Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
             }
         }

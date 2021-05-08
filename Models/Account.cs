@@ -1,4 +1,6 @@
-﻿namespace filmhub.Models
+﻿using filmhub.Properties;
+
+namespace filmhub.Models
 {
     public class Account
     {
@@ -29,6 +31,11 @@
         public static void Logout()
         {
             _accountInstance = null;
+            if (!Settings.Default.RememberMe) return;
+            Settings.Default.RememberMe = false;
+            Settings.Default.Username = "";
+            Settings.Default.Password = "";
+            Settings.Default.Save();
         }
 
         public static Account GetAccountInstance()

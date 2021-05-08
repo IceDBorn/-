@@ -133,6 +133,10 @@ namespace filmhub.Views
         {
             SearchController.RemoveIndex();
             await SearchController.CreateIndexAsync();
+            if (!Settings.Default.RememberMe) return;
+            AccountController.Login(Settings.Default.Username, Settings.Default.Password);
+            if (Account.GetAccountInstance() == null) return;
+            Program.MainForm.UserControlSelector(new MainPageUserControl(), true);
         }
 
         private void searchBar_Enter(object sender, EventArgs e)

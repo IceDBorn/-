@@ -33,15 +33,16 @@ namespace filmhub.Views
         private void InitializeComponent()
         {
             this.menuPanel = new System.Windows.Forms.Panel();
+            this.rememberMeCheckBox = new System.Windows.Forms.CheckBox();
             this.backButton = new System.Windows.Forms.PictureBox();
             this.privacyLabel = new System.Windows.Forms.Label();
             this.andLabel = new System.Windows.Forms.Label();
-            this.confirmPasswordTextBox = new RoundTextBox();
+            this.confirmPasswordTextBox = new filmhub.Controls.RoundTextBox();
             this.termsLabel = new System.Windows.Forms.Label();
             this.byClickingLabel = new System.Windows.Forms.Label();
-            this.signUpButton = new RoundButton();
-            this.passwordTextBox = new RoundTextBox();
-            this.usernameTextBox = new RoundTextBox();
+            this.signUpButton = new filmhub.Controls.RoundButton();
+            this.passwordTextBox = new filmhub.Controls.RoundTextBox();
+            this.usernameTextBox = new filmhub.Controls.RoundTextBox();
             this.signInLabel = new System.Windows.Forms.Label();
             this.menuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.backButton)).BeginInit();
@@ -50,6 +51,7 @@ namespace filmhub.Views
             // menuPanel
             // 
             this.menuPanel.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.menuPanel.Controls.Add(this.rememberMeCheckBox);
             this.menuPanel.Controls.Add(this.backButton);
             this.menuPanel.Controls.Add(this.privacyLabel);
             this.menuPanel.Controls.Add(this.andLabel);
@@ -64,6 +66,17 @@ namespace filmhub.Views
             this.menuPanel.Name = "menuPanel";
             this.menuPanel.Size = new System.Drawing.Size(532, 522);
             this.menuPanel.TabIndex = 0;
+            // 
+            // rememberMeCheckBox
+            // 
+            this.rememberMeCheckBox.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.rememberMeCheckBox.ForeColor = System.Drawing.Color.White;
+            this.rememberMeCheckBox.Location = new System.Drawing.Point(55, 412);
+            this.rememberMeCheckBox.Name = "rememberMeCheckBox";
+            this.rememberMeCheckBox.Size = new System.Drawing.Size(170, 33);
+            this.rememberMeCheckBox.TabIndex = 13;
+            this.rememberMeCheckBox.Text = "Remember me";
+            this.rememberMeCheckBox.UseVisualStyleBackColor = true;
             // 
             // backButton
             // 
@@ -83,7 +96,7 @@ namespace filmhub.Views
             this.privacyLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.privacyLabel.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.privacyLabel.ForeColor = System.Drawing.Color.White;
-            this.privacyLabel.Location = new System.Drawing.Point(280, 474);
+            this.privacyLabel.Location = new System.Drawing.Point(280, 478);
             this.privacyLabel.Name = "privacyLabel";
             this.privacyLabel.Size = new System.Drawing.Size(143, 33);
             this.privacyLabel.TabIndex = 9;
@@ -95,7 +108,7 @@ namespace filmhub.Views
             // andLabel
             // 
             this.andLabel.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.andLabel.Location = new System.Drawing.Point(245, 474);
+            this.andLabel.Location = new System.Drawing.Point(245, 478);
             this.andLabel.Name = "andLabel";
             this.andLabel.Size = new System.Drawing.Size(47, 32);
             this.andLabel.TabIndex = 8;
@@ -105,7 +118,7 @@ namespace filmhub.Views
             // 
             this.confirmPasswordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.confirmPasswordTextBox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.confirmPasswordTextBox.Location = new System.Drawing.Point(55, 291);
+            this.confirmPasswordTextBox.Location = new System.Drawing.Point(55, 266);
             this.confirmPasswordTextBox.Name = "confirmPasswordTextBox";
             this.confirmPasswordTextBox.Size = new System.Drawing.Size(413, 43);
             this.confirmPasswordTextBox.TabIndex = 7;
@@ -120,7 +133,7 @@ namespace filmhub.Views
             this.termsLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.termsLabel.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.termsLabel.ForeColor = System.Drawing.Color.White;
-            this.termsLabel.Location = new System.Drawing.Point(55, 474);
+            this.termsLabel.Location = new System.Drawing.Point(55, 478);
             this.termsLabel.Name = "termsLabel";
             this.termsLabel.Size = new System.Drawing.Size(217, 33);
             this.termsLabel.TabIndex = 6;
@@ -132,7 +145,7 @@ namespace filmhub.Views
             // byClickingLabel
             // 
             this.byClickingLabel.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.byClickingLabel.Location = new System.Drawing.Point(55, 447);
+            this.byClickingLabel.Location = new System.Drawing.Point(55, 451);
             this.byClickingLabel.Name = "byClickingLabel";
             this.byClickingLabel.Size = new System.Drawing.Size(388, 60);
             this.byClickingLabel.TabIndex = 5;
@@ -144,7 +157,7 @@ namespace filmhub.Views
             this.signUpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.signUpButton.Font = new System.Drawing.Font("Segoe UI", 23F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.signUpButton.ForeColor = System.Drawing.Color.White;
-            this.signUpButton.Location = new System.Drawing.Point(55, 367);
+            this.signUpButton.Location = new System.Drawing.Point(55, 342);
             this.signUpButton.Name = "signUpButton";
             this.signUpButton.Size = new System.Drawing.Size(413, 56);
             this.signUpButton.TabIndex = 3;
@@ -157,7 +170,7 @@ namespace filmhub.Views
             // 
             this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.passwordTextBox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.passwordTextBox.Location = new System.Drawing.Point(55, 220);
+            this.passwordTextBox.Location = new System.Drawing.Point(55, 195);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(413, 43);
             this.passwordTextBox.TabIndex = 2;
@@ -171,7 +184,7 @@ namespace filmhub.Views
             // 
             this.usernameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.usernameTextBox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.usernameTextBox.Location = new System.Drawing.Point(55, 149);
+            this.usernameTextBox.Location = new System.Drawing.Point(55, 124);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(413, 43);
             this.usernameTextBox.TabIndex = 1;
@@ -207,23 +220,25 @@ namespace filmhub.Views
             this.ResumeLayout(false);
         }
 
+        private System.Windows.Forms.CheckBox rememberMeCheckBox;
+
         private System.Windows.Forms.PictureBox backButton;
 
-        private RoundButton signUpButton;
+        private filmhub.Controls.RoundButton signUpButton;
 
         private System.Windows.Forms.Label privacyLabel;
 
         private System.Windows.Forms.Label andLabel;
 
-        private RoundTextBox confirmPasswordTextBox;
+        private filmhub.Controls.RoundTextBox confirmPasswordTextBox;
 
-        private RoundTextBox passwordTextBox;
+        private filmhub.Controls.RoundTextBox passwordTextBox;
 
         private System.Windows.Forms.Label termsLabel;
 
         private System.Windows.Forms.Label byClickingLabel;
 
-        private RoundTextBox usernameTextBox;
+        private filmhub.Controls.RoundTextBox usernameTextBox;
 
         private System.Windows.Forms.Label signInLabel;
         
