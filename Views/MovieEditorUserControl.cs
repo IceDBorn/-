@@ -175,10 +175,10 @@ namespace filmhub.Views
                 // Save the image url to the database
                 await SettingController.UpdateImageLink(_movie.Picture, "movie", _movie.Id);
             }
-            catch (Exception e)
+            catch
             {
                 uploadingLabel.Visible = false;
-                CustomMessageBox.Show(e.Message);
+                CustomMessageBox.Show(@"Something went wrong, please try again.");
             }
         }
 
