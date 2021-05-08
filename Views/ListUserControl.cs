@@ -197,6 +197,21 @@ namespace filmhub.Views
         {
             categoriesPanel.Visible = false;
         }
+        
+        private void ListUserControl_MouseHover(object sender, EventArgs e)
+        {
+            Program.MainForm.HideDropDown();
+        }
+
+        private void window_MouseHover(object sender, EventArgs e)
+        {
+            Program.MainForm.HideDropDown();
+        }
+
+        private void moviesList_MouseHover(object sender, EventArgs e)
+        {
+            Program.MainForm.HideDropDown();
+        }
 
         #endregion
     }

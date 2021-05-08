@@ -210,6 +210,11 @@ namespace filmhub.Views
             Program.MainForm.UserControlSelector(
                 new ListUserControl(westernLabel.Text, true, 11, "No western movies found"), true);
         }
+        
+        private void categoriesPanel_MouseHover(object sender, EventArgs e)
+        {
+            Program.MainForm.HideDropDown();
+        }
 
         #endregion
     }

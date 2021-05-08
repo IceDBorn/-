@@ -207,7 +207,7 @@ namespace filmhub.Views
         private void menu_MouseHover(object sender, EventArgs e)
         {
             menu.Image = _menuHover;
-            GC.Collect();
+            Program.MainForm.HideDropDown();
         }
 
         private void menu_MouseLeave(object sender, EventArgs e)
@@ -222,6 +222,7 @@ namespace filmhub.Views
             if (_featuredMovies[0] == 0) return;
             Program.MainForm.UserControlSelector(new MovieViewerUserControl(featuredImage1.Image, _featuredMovies[0]),
                 true);
+            Program.MainForm.HideDropDown();
         }
 
         private void featuredImage2_MouseClick(object sender, MouseEventArgs e)
@@ -230,6 +231,7 @@ namespace filmhub.Views
             if (_featuredMovies[1] == 0) return;
             Program.MainForm.UserControlSelector(new MovieViewerUserControl(featuredImage2.Image, _featuredMovies[1]),
                 true);
+            Program.MainForm.HideDropDown();
         }
 
         private void featuredImage3_MouseClick(object sender, MouseEventArgs e)
@@ -238,6 +240,7 @@ namespace filmhub.Views
             if (_featuredMovies[2] == 0) return;
             Program.MainForm.UserControlSelector(new MovieViewerUserControl(featuredImage3.Image, _featuredMovies[2]),
                 true);
+            Program.MainForm.HideDropDown();
         }
 
         private void featuredImage4_MouseClick(object sender, MouseEventArgs e)
@@ -246,6 +249,7 @@ namespace filmhub.Views
             if (_featuredMovies[3] == 0) return;
             Program.MainForm.UserControlSelector(new MovieViewerUserControl(featuredImage4.Image, _featuredMovies[3]),
                 true);
+            Program.MainForm.HideDropDown();
         }
 
         private void featuredImage5_MouseClick(object sender, MouseEventArgs e)
@@ -254,6 +258,7 @@ namespace filmhub.Views
             if (_featuredMovies[4] == 0) return;
             Program.MainForm.UserControlSelector(new MovieViewerUserControl(featuredImage5.Image, _featuredMovies[4]),
                 true);
+            Program.MainForm.HideDropDown();
         }
 
         private void comingSoonImage1_MouseClick(object sender, MouseEventArgs e)
@@ -263,6 +268,7 @@ namespace filmhub.Views
             Program.MainForm.UserControlSelector(
                 new MovieViewerUserControl(comingSoonImage1.Image, _comingSoonMovies[0]),
                 true);
+            Program.MainForm.HideDropDown();
         }
 
         private void comingSoonImage2_MouseClick(object sender, MouseEventArgs e)
@@ -272,6 +278,7 @@ namespace filmhub.Views
             Program.MainForm.UserControlSelector(
                 new MovieViewerUserControl(comingSoonImage2.Image, _comingSoonMovies[1]),
                 true);
+            Program.MainForm.HideDropDown();
         }
 
         private void comingSoonImage3_MouseClick(object sender, MouseEventArgs e)
@@ -281,6 +288,7 @@ namespace filmhub.Views
             Program.MainForm.UserControlSelector(
                 new MovieViewerUserControl(comingSoonImage3.Image, _comingSoonMovies[2]),
                 true);
+            Program.MainForm.HideDropDown();
         }
 
         private void comingSoonImage4_MouseClick(object sender, MouseEventArgs e)
@@ -290,6 +298,7 @@ namespace filmhub.Views
             Program.MainForm.UserControlSelector(
                 new MovieViewerUserControl(comingSoonImage4.Image, _comingSoonMovies[3]),
                 true);
+            Program.MainForm.HideDropDown();
         }
 
         private void comingSoonImage5_MouseClick(object sender, MouseEventArgs e)
@@ -299,6 +308,7 @@ namespace filmhub.Views
             Program.MainForm.UserControlSelector(
                 new MovieViewerUserControl(comingSoonImage5.Image, _comingSoonMovies[4]),
                 true);
+            Program.MainForm.HideDropDown();
         }
         
         private void addPictureBox_MouseClick(object sender, MouseEventArgs e)
@@ -314,6 +324,11 @@ namespace filmhub.Views
         private void addPictureBox_MouseLeave(object sender, EventArgs e)
         {
             addPictureBox.Image = _addMovie;
+        }
+        
+        private void MainPageUserControl_MouseHover(object sender, EventArgs e)
+        {
+            Program.MainForm.HideDropDown();
         }
 
         #endregion

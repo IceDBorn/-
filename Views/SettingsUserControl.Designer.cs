@@ -231,6 +231,7 @@ namespace filmhub.Views
             this.Controls.Add(this.settingsLabel);
             this.Name = "SettingsUserControl";
             this.Size = new System.Drawing.Size(1264, 581);
+            this.MouseHover += new System.EventHandler(this.SettingsUserControl_MouseHover);
             ((System.ComponentModel.ISupportInitialize) (this.userProfileImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.themeImage)).EndInit();
             this.ResumeLayout(false);
