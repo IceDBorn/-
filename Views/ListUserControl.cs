@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Windows.Forms;
 using filmhub.Controllers;
+using filmhub.Controls;
 using filmhub.Properties;
 using Npgsql;
 
@@ -138,7 +139,7 @@ namespace filmhub.Views
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                CustomMessageBox.Show(e.Message);
             }
         }
 

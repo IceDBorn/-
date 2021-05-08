@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using filmhub.Controllers;
+using filmhub.Controls;
 using filmhub.Models;
 using filmhub.Properties;
 using Imgur.API.Authentication;
@@ -119,23 +120,23 @@ namespace filmhub.Views
             if (string.IsNullOrEmpty(passwordTextBox.Text.Trim()))
             {
                 SystemSounds.Beep.Play();
-                MessageBox.Show(@"Password is empty.");
+                CustomMessageBox.Show(@"Password is empty.");
             }
             else if (string.IsNullOrEmpty(confirmPasswordTextBox.Text.Trim()))
             {
                 SystemSounds.Beep.Play();
-                MessageBox.Show(@"Confirm password is empty.");
+                CustomMessageBox.Show(@"Confirm password is empty.");
             }
             else if (!passwordTextBox.Text.Equals(confirmPasswordTextBox.Text))
             {
                 SystemSounds.Beep.Play();
-                MessageBox.Show(@"Passwords do not match.");
+                CustomMessageBox.Show(@"Passwords do not match.");
             }
             else
             {
                 AccountController.ChangePassword(passwordTextBox.Text);
                 ClearPasswordFields();
-                MessageBox.Show(@"Passwords successfully changed.");
+                CustomMessageBox.Show(@"Passwords successfully changed.");
             }
         }
 
@@ -188,7 +189,7 @@ namespace filmhub.Views
             }
             catch
             {
-                MessageBox.Show(@"Something went wrong, please try again.");
+                CustomMessageBox.Show(@"Something went wrong, please try again.");
             }
         }
         

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using filmhub.Controls;
 using Lucene.Net.Analysis.Standard;
 using Lucene.Net.Documents;
 using Lucene.Net.Index;
@@ -110,7 +111,7 @@ namespace filmhub.Controllers
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                CustomMessageBox.Show(e.Message);
             }
         }
         
@@ -140,7 +141,7 @@ namespace filmhub.Controllers
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                CustomMessageBox.Show(e.Message);
             }
         }
 
@@ -155,7 +156,7 @@ namespace filmhub.Controllers
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                CustomMessageBox.Show(e.Message);
             }
         }
 

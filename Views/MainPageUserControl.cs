@@ -4,6 +4,7 @@ using System.Net;
 using System.Threading;
 using System.Windows.Forms;
 using filmhub.Controllers;
+using filmhub.Controls;
 using filmhub.Models;
 using filmhub.Properties;
 
@@ -157,7 +158,7 @@ namespace filmhub.Views
             }
             catch
             {
-                MessageBox.Show(@"Something went wrong.");
+                CustomMessageBox.Show(@"Something went wrong.");
             }
         }
 

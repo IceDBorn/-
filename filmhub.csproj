@@ -259,11 +259,13 @@
         <Compile Include="Controllers\AccountController.cs" />
         <Compile Include="Controllers\SearchController.cs" />
         <Compile Include="Controllers\SettingController.cs" />
+        <Compile Include="Controls\CustomMessageBox.cs" />
         <Compile Include="Controls\RoundButton.cs" />
         <Compile Include="Controls\RoundComboBox.cs" />
         <Compile Include="Controls\RoundDateTimePicker.cs" />
         <Compile Include="Controls\RoundTextBox.cs" />
         <Compile Include="Models\Account.cs" />
+        <Compile Include="Models\Colors.cs" />
         <Compile Include="Models\Movie.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
@@ -273,7 +275,6 @@
         <Compile Include="Views\CategoriesUserControl.Designer.cs">
           <DependentUpon>CategoriesUserControl.cs</DependentUpon>
         </Compile>
-        <Compile Include="Views\Colors.cs" />
         <Compile Include="Views\ListUserControl.cs">
           <SubType>UserControl</SubType>
         </Compile>

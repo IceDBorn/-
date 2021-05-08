@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using filmhub.Controls;
 using filmhub.Models;
 using filmhub.Properties;
 using Npgsql;
@@ -40,7 +41,7 @@ namespace filmhub.Controllers
             }
             catch
             {
-                MessageBox.Show(@"Something went wrong while contacting the database.");
+                CustomMessageBox.Show(@"Something went wrong while contacting the database.");
             }
 
             if (id != -1)
@@ -52,7 +53,7 @@ namespace filmhub.Controllers
             }
             else
             {
-                MessageBox.Show(@"Wrong username or password.");
+                CustomMessageBox.Show(@"Wrong username or password.");
             }
         }
 
@@ -74,13 +75,13 @@ namespace filmhub.Controllers
             }
             catch (PostgresException e)
             {
-                MessageBox.Show(e.SqlState.Equals("23505")
+                CustomMessageBox.Show(e.SqlState.Equals("23505")
                     ? @"Username already exists."
                     : @"Something went wrong with the database, please try again.");
             }
             catch (Exception)
             {
-                MessageBox.Show(@"Something went wrong, please try again.");
+                CustomMessageBox.Show(@"Something went wrong, please try again.");
             }
         }
 
@@ -98,7 +99,7 @@ namespace filmhub.Controllers
             }
             catch
             {
-                MessageBox.Show(@"Something went wrong while contacting the database.");
+                CustomMessageBox.Show(@"Something went wrong while contacting the database.");
             }
         }
     }
