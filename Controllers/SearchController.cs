@@ -106,7 +106,7 @@ namespace filmhub.Controllers
                 new StandardAnalyzer(LuceneVersion.LUCENE_48));
             var escapedString = QueryParserBase.Escape(genre);
             var idQuery = qp.Parse(escapedString);
-            var hits = searcher.Search(idQuery, 50);
+            var hits = searcher.Search(idQuery, 15);
 
             return hits;
         }
