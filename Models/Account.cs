@@ -4,16 +4,13 @@ namespace filmhub.Models
 {
     public class Account
     {
-        private bool darkTheme;
-
         private static Account _accountInstance;
 
-        public Account(int id, string username, bool admin, bool darkTheme, string picture)
+        public Account(int id, string username, bool admin, string picture)
         {
             Id = id;
             Username = username;
             Admin = admin;
-            this.darkTheme = darkTheme;
             Picture = picture;
         }
 

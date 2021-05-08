@@ -45,14 +45,14 @@ namespace filmhub.Controls
 
     public sealed class CustomMessageBox : Form
     {
-        private const int CS_DROPSHADOW = 0x20000;
+        private const int CsDropshadow = 0x20000;
 
         protected override CreateParams CreateParams
         {
             get
             {
                 var cp = base.CreateParams;
-                cp.ClassStyle |= CS_DROPSHADOW;
+                cp.ClassStyle |= CsDropshadow;
                 return cp;
             }
         }
