@@ -26,7 +26,7 @@ namespace filmhub.Controllers
             writer.Commit();
             writer.Dispose();
         }
-        
+
         private static IndexWriter CreateWriter()
         {
             var dir = FSDirectory.Open(_path);
@@ -138,7 +138,6 @@ namespace filmhub.Controllers
                 while (rdr.Read())
                 {
                     list.Add(CreateDocument(rdr.GetInt32(0), rdr.GetString(1), rdr.GetString(2)));
-
                 }
 
                 rdr.Close();
@@ -150,28 +149,29 @@ namespace filmhub.Controllers
                 CustomMessageBox.Show(e.Message);
             }
         }
-        
+
         public static async Task CreateIndexAsync()
         {
             try
             {
                 var con = DatabaseController.GetConnection();
 
-                const string movieData = "SELECT id,name " +
-                                         "FROM movie ";
+                const string movieData = "SELECT movie.id,movie.name,genre.name " +
+                                         "FROM movie " +
+                                         "JOIN genre ON genre_id = genre.id";
 
                 using var cmd = new NpgsqlCommand(movieData, con);
 
-                await using var rdr = await cmd.ExecuteReaderAsync();
+                await using var rdr = cmd.ExecuteReader();
 
                 var list = new List<Document>();
 
                 while (rdr.Read())
                 {
-                    list.Add(CreateDocument(rdr.GetInt32(0), rdr.GetString(1)));
+                    list.Add(CreateDocument(rdr.GetInt32(0), rdr.GetString(1), rdr.GetString(2)));
                 }
 
-                await rdr.CloseAsync();
+                rdr.Close();
 
                 Indexer(list);
             }
