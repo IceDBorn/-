@@ -12,7 +12,7 @@ namespace filmhub.Views
     {
         #region Fields
         
-        private static readonly NpgsqlConnection con = DatabaseController.GetConnection();
+        private static readonly NpgsqlConnection Con = DatabaseController.GetConnection();
         
         private int _starsCount;
 
@@ -176,14 +176,14 @@ namespace filmhub.Views
             {
                 var query = "INSERT INTO " + tableName + "(movie_id, user_id) VALUES (" + _movie.Id + ", " +
                             Account.GetAccountInstance().Id + ")";
-                using var cmd = new NpgsqlCommand(query, con);
+                using var cmd = new NpgsqlCommand(query, Con);
                 cmd.ExecuteNonQuery();
             }
             else
             {
                 var query = "DELETE FROM " + tableName + " WHERE movie_id = " + _movie.Id + " AND user_id = " +
                             Account.GetAccountInstance().Id;
-                using var cmd = new NpgsqlCommand(query, con);
+                using var cmd = new NpgsqlCommand(query, Con);
                 cmd.ExecuteNonQuery();
             }
         }
@@ -194,14 +194,19 @@ namespace filmhub.Views
             {
                 var query = "INSERT INTO rating(value,movie_id,user_id) VALUES (" + rate + ", " + _movie.Id + ", " +
                             Account.GetAccountInstance().Id + ")";
-                using var cmd = new NpgsqlCommand(query, con);
+                using var cmd = new NpgsqlCommand(query, Con);
                 cmd.ExecuteNonQuery();
             }
             else
             {
+                if (rate == _starsCount)
+                {
+                    rate = 0;
+                }
+                
                 var query = "UPDATE rating SET value = " + rate + " WHERE movie_id = " + _movie.Id + " AND user_id = " +
                             Account.GetAccountInstance().Id;
-                using var cmd = new NpgsqlCommand(query, con);
+                using var cmd = new NpgsqlCommand(query, Con);
                 cmd.ExecuteNonQuery();
             }
 
@@ -383,9 +388,7 @@ namespace filmhub.Views
             ActivityInsert(watchlistImage, "watchlist");
             SetImageOnMouseClick(watchlistImage, _watchlistEmpty, _watchlist);
         }
-
-        #endregion
-
+        
         private void editPictureBox_MouseHover(object sender, EventArgs e)
         {
             editPictureBox.Image = _editMovieHover;
@@ -402,5 +405,7 @@ namespace filmhub.Views
             Program.MainForm.UserControlSelector(
                 new MovieEditorUserControl(_movie, _movieImage), true);
         }
+
+        #endregion
     }
 }
