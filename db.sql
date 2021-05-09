@@ -1,9 +1,12 @@
--- Version 3
+DROP TABLE IF EXISTS version;
+CREATE TABLE IF NOT EXISTS version (
+    version int
+);
+INSERT INTO version(version) VALUES (5);
 
 DROP TABLE IF EXISTS genre CASCADE;
 DROP TABLE IF EXISTS movie CASCADE;
 DROP TABLE IF EXISTS rating CASCADE;
-DROP TABLE IF EXISTS comment CASCADE;
 DROP TABLE IF EXISTS favorite CASCADE;
 DROP TABLE IF EXISTS watchlist CASCADE;
 DROP TABLE IF EXISTS history CASCADE;
@@ -34,6 +37,7 @@ CREATE TABLE IF NOT EXISTS movie (
     genre_id int NOT NULL,
         CONSTRAINT fk_genre FOREIGN KEY(genre_id) REFERENCES genre(id)
             ON DELETE CASCADE ON UPDATE CASCADE,
+    has_oscar boolean DEFAULT false,
     release_date date
 );
 
@@ -91,8 +95,8 @@ INSERT INTO genre(name) VALUES ('Romance');
 INSERT INTO genre(name) VALUES ('Sci-Fi');
 INSERT INTO genre(name) VALUES ('Western');
 
-INSERT INTO movie(name, description, director, writer, stars, picture, genre_id, release_date)
-VALUES 
+INSERT INTO movie(name, description, director, writer, stars, picture, genre_id, has_oscar, release_date)
+VALUES
 (
 	'The Fast and the Furious',
 	'Los Angeles police officer Brian O''Conner must decide where his loyalty really lies when he becomes enamored with the street racing world he has been sent undercover to destroy.',
@@ -101,6 +105,7 @@ VALUES
 	'Vin Diesel, Paul Walker, Michelle Rodriguez',
 	'https://i.imgur.com/FhyeSsb.jpg',
 	1,
+	false,
 	'2001-06-22'
 ),
 (
@@ -111,6 +116,7 @@ VALUES
 	'Paul Walker, Tyrese Gibson, Cole Hauser',
 	'https://i.imgur.com/Yv6lVEX.jpg',
 	1,
+	false,
 	'2003-06-06'
 ),
 (
@@ -121,6 +127,7 @@ VALUES
 	'Lucas Black, Zachery Ty Bryan, Shad Moss',
 	'https://i.imgur.com/uBXaXiz.jpg',
 	1,
+	false,
 	'2006-06-16'
 ),
 (
@@ -131,6 +138,7 @@ VALUES
 	'Vin Diesel, Paul Walker, Michelle Rodriguez',
 	'https://i.imgur.com/4ODJmnj.jpg',
 	1,
+	false,
 	'2009-04-03'
 ),
 (
@@ -141,6 +149,7 @@ VALUES
 	'Vin Diesel, Paul Walker, Dwayne Johnson',
 	'https://i.imgur.com/UvSue0t.jpg',
 	1,
+	false,
 	'2011-04-29'
 ),
 (
@@ -151,6 +160,7 @@ VALUES
 	'Vin Diesel, Paul Walker, Dwayne Johnson',
 	'https://i.imgur.com/6yrUuSB.jpg',
 	1,
+	false,
 	'2013-05-24'
 ),
 (
@@ -161,6 +171,7 @@ VALUES
 	'Vin Diesel, Paul Walker, Dwayne Johnson',
 	'https://i.imgur.com/X6jtWYl.jpg',
 	1,
+	false,
 	'2015-04-03'
 ),
 (
@@ -171,6 +182,7 @@ VALUES
 	'Vin Diesel, Jason Statham, Dwayne Johnson',
 	'https://i.imgur.com/zGbkgqX.jpg',
 	1,
+	false,
 	'2017-04-14'
 ),
 (
@@ -181,6 +193,7 @@ VALUES
 	'Vin Diesel, Michelle Rodriguez, Amber Sienna',
 	'https://i.imgur.com/YUxiOjo.jpg',
 	1,
+	false,
 	'2021-06-25'
 ),
 (
@@ -191,6 +204,7 @@ VALUES
 	'Mike Myers, Eddie Murphy, Cameron Diaz',
 	'https://i.imgur.com/b7zU4iv.jpg',
 	2,
+	true,
 	'2001-05-18'
 ),
 (
@@ -201,6 +215,7 @@ VALUES
 	'Mike Myers, Eddie Murphy, Cameron Diaz',
 	'https://i.imgur.com/m09nqDO.jpg',
 	2,
+	false,
 	'2004-05-19'
 ),
 (
@@ -211,6 +226,7 @@ VALUES
 	'Mike Myers, Eddie Murphy, Cameron Diaz',
 	'https://i.imgur.com/d8kI9ph.jpg',
 	2,
+	false,
 	'2007-05-18'
 ),
 (
@@ -221,6 +237,7 @@ VALUES
 	'Mike Myers, Eddie Murphy, Cameron Diaz',
 	'https://i.imgur.com/Gg8l7q0.jpg',
 	2,
+	false,
 	'2010-05-21'
 ),
 (
@@ -231,6 +248,7 @@ VALUES
 	'Marlon Brando, Al Pacino, James Caan',
 	'https://i.imgur.com/ngQjWXf.jpg',
 	3,
+	true,
 	'1972-03-24'
 ),
 (
@@ -241,6 +259,7 @@ VALUES
 	'Al Pacino, Robert De Niro, Robert Duvall',
 	'https://i.imgur.com/ftjvAug.jpg',
 	3,
+	false,
 	'1974-12-18'
 ),
 (
@@ -251,6 +270,7 @@ VALUES
 	'Al Pacino, Diane Keaton, Andy Garcia',
 	'https://i.imgur.com/IG3iG1v.jpg',
 	3,
+	false,
 	'1990-12-25'
 ),
 (
@@ -261,6 +281,7 @@ VALUES
 	'Keanu Reeves, Michael Nyqvist, Alfie Allen',
 	'https://i.imgur.com/ZeI3b8h.jpg',
 	3,
+	true,
 	'2014-10-24'
 ),
 (
@@ -271,6 +292,7 @@ VALUES
 	'Keanu Reeves, Riccardo Scamarcio, Ian McShane',
 	'https://i.imgur.com/tXZeBx8.jpg',
 	3,
+	false,
 	'2017-02-10'
 ),
 (
@@ -281,6 +303,7 @@ VALUES
 	'Keanu Reeves, Halle Berry, Ian McShane',
 	'https://i.imgur.com/F0ajOPH.jpg',
 	3,
+	false,
 	'2019-05-17'
 ),
 (
@@ -291,6 +314,7 @@ VALUES
 	'Keanu Reeves',
 	'https://i.imgur.com/tJlRxpF.jpg',
 	3,
+	false,
 	'2022-05-27'
 ),
 (
@@ -301,6 +325,7 @@ VALUES
 	'Brittany Kaiser, David Carroll, Paul-Olivier Dehayes',
 	'https://i.imgur.com/U9cRtmY.jpg',
 	4,
+	false,
 	'2019-07-24'
 ),
 (
@@ -311,6 +336,7 @@ VALUES
 	'Joy Buolamwini, Meredith Broussard, Cathy O''Neil',
 	'https://i.imgur.com/eYMYWQg.jpg',
 	4,
+	false,
 	'2020-11-11'
 ),
 (
@@ -321,6 +347,7 @@ VALUES
 	'Melina Abdullah, Michelle Alexander, Cory Booker',
 	'https://i.imgur.com/5cJTGhK.jpg',
 	4,
+	false,
 	'2016-10-07'
 ),
 (
@@ -331,6 +358,7 @@ VALUES
 	'Tristan Harris, Jeff Seibert, Bailey Richardson',
 	'https://i.imgur.com/WVcxfXQ.jpg',
 	4,
+	false,
 	'2020-09-09'
 ),
 (
@@ -341,6 +369,7 @@ VALUES
 	'Yalitza Aparicio, Marina de Tavira, Diego Cortina Autrey',
 	'https://i.imgur.com/GyHTr6a.jpg',
 	5,
+	true,
 	'2018-11-21'
 ),
 (
@@ -351,6 +380,7 @@ VALUES
 	'Rami Malek, Lucy Boynton, Gwilym Lee',
 	'https://i.imgur.com/wpax3Rj.jpg',
 	5,
+	true,
 	'2018-11-02'
 ),
 (
@@ -361,6 +391,7 @@ VALUES
 	'Daniel Radcliffe, Rupert Grint, Richard Harris',
 	'https://i.imgur.com/SGuXDFZ.jpg',
 	6,
+	false,
 	'2001-11-16'
 ),
 (
@@ -371,6 +402,7 @@ VALUES
 	'Daniel Radcliffe, Rupert Grint, Emma Watson',
 	'https://i.imgur.com/xk1eis6.jpg',
 	6,
+	false,
 	'2002-11-15'
 ),
 (
@@ -381,6 +413,7 @@ VALUES
 	'Daniel Radcliffe, Rupert Grint, Emma Watson',
 	'https://i.imgur.com/h98VBUl.jpg',
 	6,
+	false,
 	'2004-06-04'
 ),
 (
@@ -391,6 +424,7 @@ VALUES
 	'Daniel Radcliffe, Rupert Grint, Emma Watson',
 	'https://i.imgur.com/uvYnZAy.jpg',
 	6,
+	false,
 	'2005-11-18'
 ),
 (
@@ -401,6 +435,7 @@ VALUES
 	'Daniel Radcliffe, Rupert Grint, Emma Watson',
 	'https://i.imgur.com/c7CngNB.jpg',
 	6,
+	false,
 	'2007-07-11'
 ),
 (
@@ -411,6 +446,7 @@ VALUES
 	'Daniel Radcliffe, Rupert Grint, Emma Watson',
 	'https://i.imgur.com/As6h5Cs.jpg',
 	6,
+	false,
 	'2009-07-15'
 ),
 (
@@ -421,6 +457,7 @@ VALUES
 	'Daniel Radcliffe, Rupert Grint, Emma Watson',
 	'https://i.imgur.com/D14dT0D.jpg',
 	6,
+	false,
 	'2010-11-19'
 ),
 (
@@ -431,6 +468,7 @@ VALUES
 	'Daniel Radcliffe, Rupert Grint, Emma Watson',
 	'https://i.imgur.com/TbihoRC.jpg',
 	6,
+	false,
 	'2011-07-15'
 ),
 (
@@ -441,6 +479,7 @@ VALUES
 	'Patrick Wilson, Rose Byrne, Ty Simpkins',
 	'https://i.imgur.com/tJiir3K.jpg',
 	7,
+	false,
 	'2011-04-01'
 ),
 (
@@ -451,6 +490,7 @@ VALUES
 	'Patrick Wilson, Rose Byrne, Barbara Hershey',
 	'https://i.imgur.com/9wr5ix5.jpg',
 	7,
+	false,
 	'2013-09-13'
 ),
 (
@@ -461,6 +501,7 @@ VALUES
 	'Dermot Mulroney, Stefanie Scott, Angus Sampson',
 	'https://i.imgur.com/d70fjdF.jpg',
 	7,
+	false,
 	'2015-06-05'
 ),
 (
@@ -471,6 +512,7 @@ VALUES
 	'Lin Shaye, Leigh Whannell, Angus Sampson',
 	'https://i.imgur.com/UYk2bKh.jpg',
 	7,
+	false,
 	'2018-01-05'
 ),
 (
@@ -481,6 +523,7 @@ VALUES
 	'Leonardo DiCaprio, Emily Mortimer, Mark Ruffalo',
 	'https://i.imgur.com/TTktt3M.jpg',
 	7,
+	false,
 	'2010-02-19'
 ),
 (
@@ -491,6 +534,7 @@ VALUES
 	'Katie Featherston, Micah Sloat, Mark Fredrichs',
 	'https://i.imgur.com/uqBObxY.jpg',
 	8,
+	false,
 	'2009-10-16'
 ),
 (
@@ -501,6 +545,7 @@ VALUES
 	'Katie Featherston, Micah Sloat, Molly Ephraim',
 	'https://i.imgur.com/cXrxxCj.jpg',
 	8,
+	false,
 	'2010-10-22'
 ),
 (
@@ -511,6 +556,7 @@ VALUES
 	'Chloe Csengery, Jessica Tyler Brown, Christopher Nicholas Smith',
 	'https://i.imgur.com/D5zL502.jpg',
 	8,
+	false,
 	'2011-10-21'
 ),
 (
@@ -521,6 +567,7 @@ VALUES
 	'Stephen Dunham, Katie Featherston, Matt Shively',
 	'https://i.imgur.com/wge84iw.jpg',
 	8,
+	false,
 	'2012-10-19'
 ),
 (
@@ -531,6 +578,7 @@ VALUES
 	'Andrew Jacobs, Jorge Diaz, Gabrielle Walsh',
 	'https://i.imgur.com/YsRcd0I.jpg',
 	8,
+	false,
 	'2014-01-03'
 ),
 (
@@ -541,6 +589,7 @@ VALUES
 	'Chris J. Murray, Brit Shaw, Ivy George',
 	'https://i.imgur.com/Crm7OSx.jpg',
 	8,
+	false,
 	'2015-10-23'
 ),
 (
@@ -551,6 +600,7 @@ VALUES
 	'-',
 	'https://i.imgur.com/CkVyZdr.jpg',
 	8,
+	false,
 	'2022-03-04'
 ),
 (
@@ -561,6 +611,7 @@ VALUES
 	'Gena Rowlands, James Garner, Rachel McAdams',
 	'https://i.imgur.com/2ufOYWD.jpg',
 	9,
+	false,
 	'2004-06-25'
 ),
 (
@@ -571,6 +622,7 @@ VALUES
 	'Leonardo DiCaprio, Kate Winslet, Billy Zane',
 	'https://i.imgur.com/vci8Zwh.jpg',
 	9,
+	false,
 	'1997-12-19'
 ),
 (
@@ -581,6 +633,7 @@ VALUES
 	'Channing Tatum, Amanda Seyfried, Richard Jenkins',
 	'https://i.imgur.com/b5ZhOc4.jpg',
 	9,
+	false,
 	'2010-02-05'
 ),
 (
@@ -591,6 +644,7 @@ VALUES
 	'Scott Eastwood, Britt Robertson, Alan Alda',
 	'https://i.imgur.com/VPaQOQM.jpg',
 	9,
+	false,
 	'2015-04-10'
 ),
 (
@@ -601,6 +655,7 @@ VALUES
 	'Mark Hamill, Harrison Ford, Carrie Fisher',
 	'https://i.imgur.com/9q6q5j8.jpg',
 	10,
+	true,
 	'1977-05-25'
 ),
 (
@@ -611,6 +666,7 @@ VALUES
 	'Mark Hamill, Harrison Ford, Carrie Fisher',
 	'https://i.imgur.com/9HqjKBw.jpg',
 	10,
+	false,
 	'1980-06-20'
 ),
 (
@@ -621,6 +677,7 @@ VALUES
 	'Mark Hamill, Harrison Ford, Carrie Fisher',
 	'https://i.imgur.com/14bbPkR.jpg',
 	10,
+	false,
 	'1983-05-25'
 ),
 (
@@ -631,6 +688,7 @@ VALUES
 	'Ewan McGregor, Liam Neeson, Natalie Portman',
 	'https://i.imgur.com/SIVomdY.jpg',
 	10,
+	false,
 	'1999-05-19'
 ),
 (
@@ -641,6 +699,7 @@ VALUES
 	'Hayden Christensen, Natalie Portman, Ewan McGregor',
 	'https://i.imgur.com/U1jbsN1.jpg',
 	10,
+	false,
 	'2002-05-16'
 ),
 (
@@ -651,6 +710,7 @@ VALUES
 	'Hayden Christensen, Natalie Portman, Ewan McGregor',
 	'https://i.imgur.com/wD8XaLh.jpg',
 	10,
+	false,
 	'2005-05-19'
 ),
 (
@@ -661,6 +721,7 @@ VALUES
 	'Daisy Ridley, John Boyega, Oscar Isaac',
 	'https://i.imgur.com/jHqTgi1.jpg',
 	10,
+	false,
 	'2015-12-18'
 ),
 (
@@ -671,6 +732,7 @@ VALUES
 	'Daisy Ridley, John Boyega, Mark Hamill',
 	'https://i.imgur.com/hxDNPnX.jpg',
 	10,
+	false,
 	'2017-12-15'
 ),
 (
@@ -681,6 +743,7 @@ VALUES
 	'Daisy Ridley, John Boyega, Oscar Isaac',
 	'https://i.imgur.com/6fFmlMo.jpg',
 	10,
+	false,
 	'2019-12-20'
 ),
 (
@@ -691,6 +754,7 @@ VALUES
 	'Jamie Foxx, Christoph Waltz, Leonardo DiCaprio',
 	'https://i.imgur.com/o1qyrvP.jpg',
 	11,
+	true,
 	'2012-12-25'
 ),
 (
@@ -701,6 +765,7 @@ VALUES
 	'Tom Hanks, Helena Zengel, Tom Astor',
 	'https://i.imgur.com/nd12wjH.jpg',
 	11,
+	false,
 	'2020-12-25'
 ),
 (
@@ -711,6 +776,7 @@ VALUES
 	'Kurt Russell, Val Kilmer, Sam Elliott',
 	'https://i.imgur.com/TNkSP49.jpg',
 	11,
+	false,
 	'1993-12-25'
 ),
 (
@@ -721,6 +787,7 @@ VALUES
 	'Denzel Washington, Chris Pratt, Ethan Hawke',
 	'https://i.imgur.com/jckODD4.jpg',
 	11,
+	false,
 	'2016-09-23'
 ),
 (
@@ -731,5 +798,6 @@ VALUES
 	'Samuel L. Jackson, Kurt Russell, Jennifer Jason Leigh',
 	'https://i.imgur.com/l7pUURs.jpg',
 	11,
+	false,
 	'2015-12-30'
 );
