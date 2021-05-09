@@ -95,6 +95,10 @@ namespace filmhub.Controllers
                 cmd.Parameters.AddWithValue("user_id", Account.GetAccountInstance().Id);
                 cmd.Prepare();
                 cmd.ExecuteNonQuery();
+
+                if (!Settings.Default.RememberMe) return;
+                Settings.Default.Password = password;
+                Settings.Default.Save();
             }
             catch
             {
