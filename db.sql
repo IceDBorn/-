@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS version;
 CREATE TABLE IF NOT EXISTS version (
     version int
 );
-INSERT INTO version(version) VALUES (5);
+INSERT INTO version(version) VALUES (6);
 
 DROP TABLE IF EXISTS genre CASCADE;
 DROP TABLE IF EXISTS movie CASCADE;
@@ -197,6 +197,50 @@ VALUES
 	'2021-06-25'
 ),
 (
+	'Gemini Man',
+	'Henry Brogan is an elite, 51-year-old assassin who’s ready to call it quits after completing his 72nd job. But his plans get turned upside down when he becomes the target of a mysterious operative who can seemingly predict his every move. To his horror, Brogan soon learns that the man who’s trying to kill him is a younger, faster, cloned version of himself.',
+	'Ang Lee',
+	'Darren Lemke,David Benioff',
+	'Will Smith, Mary Elizabeth Winstead, Clive Owen, Benedict Wong',
+	'https://i.imgur.com/ZxisKoX.jpg',
+	1,
+	false,
+	'2019-10-01'
+),
+(
+	'The Equalizer',
+	'A man who believes he has put his mysterious past behind him cannot stand idly by when he meets a young girl under the control of ultra-violent Russian gangsters.',
+	'Antoine Fuqua',
+	'Richard Wenk',
+	'Denzel Washington, Marton Csokas, Chloë Grace Moretz, David Harbour, Bill Pullman, Melissa Leo',
+	'https://i.imgur.com/DY2nggY.jpg',
+	1,
+	false,
+	'2014-09-07'
+),
+(
+	'Interstellar',
+	'A team of explorers travel through a wormhole in space in an attempt to ensure humanitys survival.',
+	'Christopher Nolan',
+	'Jonathan Nolan, Christopher Nolan',
+	'Matthew McConaughey, Anne Hathaway, Jessica Chastain',
+	'https://i.imgur.com/QCkaZMx.jpg',
+	1,
+	false,
+	'2014-11-06'
+),
+(
+	'Tenet',
+	'Armed with only one word, Tenet, and fighting for the survival of the entire world, a Protagonist journeys through a twilight world of international espionage on a mission that will unfold in something beyond real time.',
+	'Christopher Nolan',
+	'Christopher Nolan',
+	'John David Washington, Robert Pattinson, Elizabeth Debicki',
+	'https://i.imgur.com/BzHgiG3.jpg',
+	1,
+	true,
+	'2020-08-26'
+),
+(
 	'Shrek',
 	'A mean lord exiles fairytale creatures to the swamp of a grumpy ogre, who must go on a quest and rescue a princess for the lord in order to get his land back.',
 	'Andrew Adamson, Vicky Jenson',
@@ -239,6 +283,61 @@ VALUES
 	2,
 	false,
 	'2010-05-21'
+),
+(
+	'Spy',
+	'A desk-bound CIA analyst volunteers to go undercover to infiltrate the world of a deadly arms dealer, and prevent diabolical global disaster.',
+	'Paul Feig',
+	'Paul Feig',
+	'Melissa McCarthy, Rose Byrne, Jude Law',
+	'https://i.imgur.com/3LhK1re.jpg',
+	2,
+	false,
+	'2015-06-18'
+),
+(
+	'Murder Mystery',
+	'A New York cop and his wife go on a European vacation to reinvigorate the spark in their marriage',
+	'Kyle Newacheck',
+	'James Vanderbilt',
+	'Adam Sandler, Jennifer Aniston, Luke Evans',
+	'https://i.imgur.com/7EkXL4t.jpg',
+	2,
+	false,
+	'2019-06-14'
+),
+(
+	'Once Upon a Time... in Hollywood',
+	'A faded television actor and his stunt double strive to achieve fame and success in the final years of Hollywoods Golden Age in 1969 Los Angeles.',
+	'Quentin Tarantino',
+	'Quentin Tarantino',
+	'Leonardo DiCaprio, Brad Pitt, Margot Robbie',
+	'https://i.imgur.com/LxKLOnA.jpg',
+	2,
+	false,
+	'2019-08-22'
+),
+(
+	'Bad Boys',
+	'Two hip detectives protect a witness to a murder while investigating a case of stolen heroin from the evidence storage room from their police precinct.',
+	'Michael Bay',
+	'George Gallo',
+	'Will Smith, Martin Lawrence, Lisa Boyle',
+	'https://i.imgur.com/AHoEi4B.jpg',
+	2,
+	false,
+	'1995-09-01'
+),
+(
+	'White Chicks',
+	'Two disgraced FBI agents go way undercover in an effort to protect hotel heiresses the Wilson sisters from a kidnapping plot.',
+	'Keenen Ivory Wayans',
+	'Keenen Ivory Wayans',
+	'Marlon Wayans, Shawn Wayans, Busy Philipps',
+	'https://i.imgur.com/GjidYwH.jpg',
+	2,
+	false,
+	'2004-06-23'
 ),
 (
 	'The Godfather',
@@ -384,6 +483,39 @@ VALUES
 	'2018-11-02'
 ),
 (
+	'The Trial of the Chicago 7',
+	'The story of 7 people on trial stemming from various charges surrounding the uprising at the 1968 Democratic National Convention in Chicago, Illinois.',
+	'Aaron Sorkin',
+	'Aaron Sorkin',
+	'Eddie Redmayne, Alex Sharp, Sacha Baron Cohen',
+	'https://i.imgur.com/PJtullz.jpg',
+	5,
+	true,
+	'2020-10-01'
+),
+(
+	'The Martian',
+	'An astronaut becomes stranded on Mars after his team assume him dead, and must rely on his ingenuity to find a way to signal to Earth that he is alive.',
+	'Ridley Scott',
+	'Drew Goddard',
+	'Matt Damon, Jessica Chastain, Kristen Wiig',
+	'https://i.imgur.com/xZTvgiD.jpg',
+	5,
+	false,
+	'2015-10-01'
+),
+(
+	'Joker',
+	'In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime. This path brings him face-to-face with his alter-ego: the Joker.',
+	'Todd Phillips',
+	'Todd Phillips, Scott Silver',
+	'Joaquin Phoenix, Robert De Niro, Zazie Beetz',
+	'https://i.imgur.com/WPZHGII.jpg',
+	5,
+	false,
+	'2019-10-03'
+),
+(
 	'Harry Potter and the Sorcerer''s Stone',
 	'An orphaned boy enrolls in a school of wizardry, where he learns the truth about himself, his family and the terrible evil that haunts the magical world.',
 	'Chris Columbus',
@@ -472,6 +604,61 @@ VALUES
 	'2011-07-15'
 ),
 (
+	'The Green Mile',
+	'The lives of guards on Death Row are affected by one of their charges: a black man accused of child murder and rape, yet who has a mysterious gift.',
+	'Frank Darabont',
+	'Stephen King',
+	'Tom Hanks, Michael Clarke Duncan, David Morse',
+	'https://i.imgur.com/9jckIz7.jpg',
+	6,
+	false,
+	'2000-02-11'
+),
+(
+	'Mulan',
+	'A young Chinese maiden disguises herself as a male warrior in order to save her father.',
+	'Niki Caro',
+	'Rick Jaffa',
+	'Yifei Liu, Donnie Yen, Gong Li',
+	'https://i.imgur.com/aLT61Ci.jpg',
+	6,
+	true,
+	'2020-09-10'
+),
+(
+	'Aquaman',
+	'Arthur Curry, the human-born heir to the underwater kingdom of Atlantis, goes on a quest to prevent a war between the worlds of ocean and land.',
+	'James Wan',
+	'David Leslie Johnson-McGoldrick, Will Beall ',
+	'Jason Momoa, Amber Heard, Willem Dafoe',
+	'https://i.imgur.com/Y7vJYhg.jpg',
+	6,
+	false,
+	'2018-12-13'
+),
+(
+	'The Midnight Sky',
+	'This post-apocalyptic tale follows Augustine, a lonely scientist in the Arctic, as he races to stop Sully and her fellow astronauts from returning home to a mysterious global catastrophe.',
+	'George Clooney',
+	'Lily Brooks-Dalton, Mark L. Smith',
+	'George Clooney, Felicity Jones, David Oyelowo',
+	'https://i.imgur.com/RVvbfVP.jpg',
+	6,
+	true,
+	'2020-12-23'
+),
+(
+	'Tomb Raider',
+	'Lara Croft (Alicia Vikander), the fiercely independent daughter of a missing adventurer, must push herself beyond her limits when she discovers the island where her father, Lord Richard Croft (Dominic West) disappeared.',
+	'Roar Uthaug',
+	'Geneva Robertson-Dworet, Alastair Siddons',
+	'Alicia Vikander, Dominic West, Walton Goggins',
+	'https://i.imgur.com/HXfNLe2.jpg',
+	6,
+	false,
+	'2018-03-15'
+),
+(
 	'Insidious',
 	'A family looks to prevent evil spirits from trapping their comatose child in a realm called The Further.',
 	'James Wan',
@@ -525,6 +712,50 @@ VALUES
 	7,
 	false,
 	'2010-02-19'
+),
+(
+	'Get Out',
+	'A young African-American visits his white girlfriends parents for the weekend, where his simmering uneasiness about their reception of him eventually reaches a boiling point.',
+	'Jordan Peele',
+	'Jordan Peele',
+	'Daniel Kaluuya, Allison Williams, Bradley Whitford',
+	'https://i.imgur.com/6AlWYA5.jpg',
+	7,
+	false,
+	'2017-03-16'
+),
+(
+	'Wrong Turn',
+	'Friends hiking the Appalachian Trail are confronted by The Foundation, a community of people who have lived in the mountains for hundreds of years.',
+	'Mike P. Nelson',
+	'Alan B. McElroy',
+	'Charlotte Vega, Adain Bradley, Bill Sage',
+	'https://i.imgur.com/qRrt3XD.jpg',
+	7,
+	false,
+	'2021-01-26'
+),
+(
+	'The Shining',
+	'A family heads to an isolated hotel for the winter where a sinister presence influences the father into violence, while his psychic son sees horrific forebodings from both past and future.',
+	'Stanley Kubrick',
+	'Stephen King',
+	'Jack Nicholson, Shelley Duvall, Danny Lloyd',
+	'https://i.imgur.com/1cLjlnF.jpg',
+	7,
+	false,
+	'1980-12-22'
+),
+(
+	'Bird Box',
+	'Five years after an ominous unseen presence drives most of society to suicide, a mother and her two children make a desperate bid to reach safety.',
+	'Susanne Bier',
+	'Eric Heisserer, Josh Malerman',
+	'Sandra Bullock, Trevante Rhodes, John Malkovich',
+	'https://i.imgur.com/8G2p1U8.jpg',
+	7,
+	false,
+	'2018-12-21'
 ),
 (
 	'Paranormal Activity',
@@ -602,6 +833,60 @@ VALUES
 	8,
 	false,
 	'2022-03-04'
+),
+	'The Gift',
+	'A married couple, Simon and Robyn, run into Gordo, an old acquaintance. Things take a turn when Gordo begins to drop in unannounced at their house and inundates them with mysterious gifts.',
+	'Joel Edgerton',
+	'Joel Edgerton',
+	'Jason Bateman, Rebecca Hall, Joel Edgerton',
+	'https://i.imgur.com/2zeqmvD.jpg',
+	8,
+	false,
+	'2015-08-07'
+),
+(
+	'The Prestige',
+	'After a tragic accident, two stage magicians engage in a battle to create the ultimate illusion while sacrificing everything they have to outwit each other.',
+	'Christopher Nolan',
+	'Jonathan Nolan, Christopher Nolan',
+	'Christian Bale, Hugh Jackman, Scarlett Johansson',
+	'https://i.imgur.com/kIQuU4f.jpg',
+	8,
+	false,
+	'2006-12-26'
+),
+(
+	'Seven',
+	'Two detectives, a rookie and a veteran, hunt a serial killer who uses the seven deadly sins as his motives.',
+	'David Fincher',
+	'Andrew Kevin Walker',
+	'Morgan Freeman, Brad Pitt, Kevin Spacey',
+	'https://i.imgur.com/1GCmqfG.jpg',
+	8,
+	false,
+	'1996-02-09'
+),
+(
+	'Dark Places',
+	'Libby Day was only eight years old when her family was brutally murdered in their rural Kansas farmhouse. Almost thirty years later, she reluctantly agrees to revisit the crime and uncovers the wrenching truths that led up to that tragic night.',
+	'Gilles Paquet-Brenner',
+	'Quentin Tarantino',
+	'Gilles Paquet-Brenner',
+	'https://i.imgur.com/vNBcRK7.jpg',
+	8,
+	false,
+	'2015-07-09'
+),
+(
+	'Memento',
+	'A man with short-term memory loss attempts to track down his wifes murderer.',
+	'Christopher Landon',
+	'Jonathan Nolan, Christopher Nolan',
+	'Guy Pearce, Carrie-Anne Moss, Joe Pantoliano',
+	'https://i.imgur.com/yOCngLh.jpg',
+	8,
+	false,
+	'2001-04-26'
 ),
 (
 	'The Notebook',
@@ -745,6 +1030,61 @@ VALUES
 	10,
 	false,
 	'2019-12-20'
+),
+(
+	'Inception',
+	'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.',
+	'Christopher Nolan',
+	'Christopher Nolan',
+	'Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page',
+	'https://i.imgur.com/Yun5EMP.jpg',
+	10,
+	false,
+	'2010-08-24'
+),
+(
+	'Blade Runner 2049',
+	'Young Blade Runner Ks discovery of a long-buried secret leads him to track down former Blade Runner Rick Deckard, whos been missing for thirty years.',
+	'Denis Villeneuve',
+	'Hampton Fancher, Michael Green',
+	'Harrison Ford, Ryan Gosling, Ana de Armas',
+	'https://i.imgur.com/Rr3JLJY.jpg',
+	10,
+	false,
+	'2017-10-05'
+),
+(
+	'Mad Max: Fury Road',
+	'In a post-apocalyptic wasteland, a woman rebels against a tyrannical ruler in search for her homeland with the aid of a group of female prisoners, a psychotic worshiper, and a drifter named Max.',
+	'George Miller',
+	'George Miller, Brendan McCarthy',
+	'Tom Hardy, Charlize Theron, Nicholas Hoult',
+	'https://i.imgur.com/tzMYMAO.jpg',
+	10,
+	false,
+	'2015-05-14'
+),
+(
+	'The Platform',
+	'A vertical prison with one cell per level. Two people per cell. Only one food platform and two minutes per day to feed. An endless nightmare trapped in The Hole.',
+	'Galder Gaztelu-Urrutia',
+	'David Desola, Pedro Rivero',
+	'Ivan Massagué, Zorion Eguileor, Antonia San Juan',
+	'https://i.imgur.com/Xcuo7dN.jpg',
+	10,
+	false,
+	'2019-11-08'
+),
+(
+	'V for Vendetta',
+	'In a future British tyranny, a shadowy freedom fighter, known only by the alias of "V", plots to overthrow it with the help of a young woman.',
+	'James McTeigue',
+	'Lilly Wachowski',
+	'Hugo Weaving, Natalie Portman, Rupert Graves',
+	'https://i.imgur.com/jU7kRfu.jpg',
+	10,
+	false,
+	'2006-03-30'
 ),
 (
 	'Django Unchained',
