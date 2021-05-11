@@ -116,7 +116,7 @@ namespace filmhub.Views
             imageList.Images.Clear();
             try
             {
-                var con = DatabaseController.GetConnection();
+                var con = DatabaseController.GetListConnection();
 
                 moviesList.Columns.Add("", -2, HorizontalAlignment.Left);
                 const string query = "SELECT name,picture FROM movie WHERE id = ";
