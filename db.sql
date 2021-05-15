@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS version;
 CREATE TABLE IF NOT EXISTS version (
     version int
 );
-INSERT INTO version(version) VALUES (6);
+INSERT INTO version(version) VALUES (7);
 
 DROP TABLE IF EXISTS genre CASCADE;
 DROP TABLE IF EXISTS movie CASCADE;
@@ -834,6 +834,7 @@ VALUES
 	false,
 	'2022-03-04'
 ),
+(
 	'The Gift',
 	'A married couple, Simon and Robyn, run into Gordo, an old acquaintance. Things take a turn when Gordo begins to drop in unannounced at their house and inundates them with mysterious gifts.',
 	'Joel Edgerton',
